@@ -4,6 +4,7 @@
   "description": "## Goal This app is a single product page for an ecommerce website. It contains: - product details - recommendations (related products, what goes well together) - Q and A - Ratings and Reviews",
   "main": "index.js",
   "scripts": {
+    "build:dev": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
