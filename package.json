@@ -4,7 +4,8 @@
   "description": "## Goal This app is a single product page for an ecommerce website. It contains: - product details - recommendations (related products, what goes well together) - Q and A - Ratings and Reviews",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack -w",
+    "react-dev": "webpack -w",
+    "server-dev": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/TA-survivors/FEC2#readme",
   "dependencies": {
     "axios": "^0.25.0",
+    "express": "^4.17.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
