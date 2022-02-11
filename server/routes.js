@@ -16,17 +16,15 @@ router.get('/products/:product_id/related', products.getRelated)
 ////////////////////////////// REVIEWS //////////////////////////////
 
 router.route('/products/:product_id/reviews')
-  // .get(`${baseUrl}/reviews`) // api get
-  // .post(`${baseUrl}/reviews`) // post review to AWS - EDIT LATER
-// take care of callback or promises after
+  .get(reviews.getReviewById)
+  // .post(reviews.addReviewById)
+
 router.route('/products/:product_id/reviews/meta')
-  // .get(`${baseUrl}/reviews/meta/`)
-
-router.route('/products/:product_id/reviews/:review_id/helpful')
-  // .put(`${baseUrl}/reviews/:review_id/helpful`)
-
-router.route('/products/:product_id/reviews/:review_id/report')
-  // .put(`${baseUrl}/reviews/:review_id/report`)
+  .get(reviews.getMetaData)
+// router.route('/products/:product_id/reviews/:review_id/helpful')
+//   .put(reviews.addHelpfulReview)
+// router.route('/products/:product_id/reviews/:review_id/report')
+//   .put(reviews.addReportReview)
 
 
 ////////////////////////////// QUESTIONS & ANSWERS //////////////////////////////

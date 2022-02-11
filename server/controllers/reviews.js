@@ -11,25 +11,29 @@ const options = {
 module.exports = {
 
   getReviewById: (req, res) => {
-    axios.get(`${baseUrl}/products/${req.params.product_id}/reviews`, options)
+    axios.get(`${baseUrl}/reviews`, {params: {product_id: req.params.product_id}, headers: { Authorization: API_KEY }})
     .then(results => res.status(200).send(results.data))
     .catch(err => res.status(404).send(err));
   },
+
   addReviewById: (reviewBody) => {
     // axios.post(`${baseUrl}/products/${req.params.product_id}/reviews`, options, req.body)
     // .then(results => res.status(200).send(‘Added review!’))
     // .catch(err => res.status(404).send(err));
   },
+
   getMetaData: (req, res) => {
-    axios.get(`${baseUrl}/reviews/meta`, options)
+    axios.get(`${baseUrl}/reviews/meta`, {params: {product_id: req.params.product_id}, headers: { Authorization: API_KEY}})
     .then(results => res.status(200).send(results.data))
     .catch(err => res.status(404).send(err));
   },
+
   addHelpfulReview: (req, res) => {
     // axios.put(`${baseUrl}/products/${req.params.product_id}/reviews/${req.params.review_id}/helpful`, options, req.body)
     // .then(results => res.status(200).send(‘Marked as helpful’))
     // .catch(err => res.status(404).send(err));
   },
+
   addReportReview: (req, res) => {
     // axios.put(`${baseUrl}/products/${req.params.product_id}/reviews/${req.params.review_id}/report`, options, req.body)
     // .then(results => res.status(200).send(‘Reported review’))
