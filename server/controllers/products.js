@@ -16,20 +16,20 @@ module.exports = {
   },
 
   getProduct: (req, res) => {
-    axios.get(`${baseUrl}/products/${req.params.id}`, options)
+    axios.get(`${baseUrl}/products/${req.params.product_id}`, options)
     .then((response) => res.status(200).send(response.data))
     .catch((err) => res.status(404).send(err));
   },
 
   getStyles: (req, res) =>  {
-    axios.get(`${baseUrl}/products/${req.params.id}/styles`, options)
+    axios.get(`${baseUrl}/products/${req.params.product_id}/styles`, options)
     .then((response) => res.status(200).send(response.data))
     .catch((err) => res.status(404).send(err));
   },
 
   getRelated: (req, res) => {
-    axios.get(`${baseUrl}/products/${req.params.id}/related`, options)
-    .then((response) => res.status(200).send(response.data)
-    .catch(err) => res.status(404).send(err));
+    axios.get(`${baseUrl}/products/${req.params.product_id}/related`, options)
+    .then((response) => res.status(200).send(response.data))
+    .catch((err) => res.status(404).send(err));
   },
 }
