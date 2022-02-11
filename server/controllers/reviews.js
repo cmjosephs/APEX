@@ -17,6 +17,26 @@ module.exports = {
   },
 
   addReview: (req, res) => {
-    axios.post()
+    axios.post(`${baseUrl}/products/${req.params.id}/reviews`, )
+    .then(results => res.status(200).send(results.data))
+    .catch(err => res.status(404).send(err));
+  },
+
+  getMetaData: (req, res) => {
+    axios.get(`${baseUrl}/reviews/meta`, options)
+    .then(results => res.status(200).send(results.data))
+    .catch(err => res.status(404).send(err));
+  }
+
+  addHelpfulReview: (req, res) => {
+    axios.put(`${baseUrl}/products/${req.params.id}/reviews/${REVIEWIDHERE}/helpful`)
+    .then(results => res.status(200).send(results.data))
+    .catch(err => res.status(404).send(err));
+  },
+
+  addReportReview: (req, res) => {
+    axios.put(`${baseUrl}/products/${req.params.id}/reviews/${REVIEWIDHERE}/report`)
+    .then(results => res.status(200).send(results.data))
+    .catch(err => res.status(404).send(err));
   }
 }
