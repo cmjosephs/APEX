@@ -17,6 +17,8 @@ module.exports = {
   },
 
   addReview: (req, res) => {
-    axios.post()
+    axios.post(`${baseUrl}/products/${req.params.id}/reviews`, options)
+    .then(results => res.status(200).send(results.data))
+    .catch(err => res.status(404).send(err));
   }
 }
