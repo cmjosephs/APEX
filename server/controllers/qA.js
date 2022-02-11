@@ -22,7 +22,7 @@ module.exports = {
   // },
 
   getAnswers: (req, res) => {
-    axios.get(`${baseUrl}/qa/questions/${req.params.id}/answers`, options)
+    axios.get(`${baseUrl}/qa/questions/${req.params.questions_id}/answers`, options)
     .then((response) => res.status(200).send(response.data))
     .catch((err) => res.status(404)).send(err)
   },
