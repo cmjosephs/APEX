@@ -10,7 +10,7 @@ const options = {
 
 module.exports = {
   getQuestions: (req, res) => {
-    axios.get(`${baseUrl}/qa/questions`, {params: {product_id: req.body}, headers: {Authorization: API_KEY}})
+    axios.get(`${baseUrl}/qa/questions`, {params: {product_id: req.params.product_id}, headers: { Authorization: API_KEY}})
     .then((response) => res.status(200).send(response.data))
     .catch((err) => res.status(404).send(err));
   },
@@ -22,9 +22,9 @@ module.exports = {
   // },
 
   getAnswers: (req, res) => {
-    axios.get(`${baseUrl}/qa/questions/${req.params.questions_id}/answers`, options)
+    axios.get(`${baseUrl}/qa/questions/${req.params.question_id}/answers`, options)
     .then((response) => res.status(200).send(response.data))
-    .catch((err) => res.status(404)).send(err)
+    .catch((err) => res.status(404).send(err))
   },
 
   // postAnswer: (req, res) => {

@@ -30,13 +30,13 @@ router.route('/products/:product_id/reviews/:review_id/report')
 
 
 ////////////////////////////// QUESTIONS & ANSWERS //////////////////////////////
-
+//router.get('/products/:product_id/qa/questions', qA.getQuestions)
 router.route('/products/:product_id/qa/questions')
-  // .get(`${baseUrl}/qa/questions`)
+  .get(qA.getQuestions)
   // .post(`${baseUrl}/qa/questions`)
 
 router.route('/products/:product_id/qa/questions/:question_id/answers')
-  // .get(`${baseUrl}/qa/questions/:question_id/answers`)
+  .get(qA.getAnswers)
   // .post(`${baseUrl}/qa/questions/:question_id/answers`)
 
 router.route('/products/:product_id/qa/questions/:question_id/helpful')
