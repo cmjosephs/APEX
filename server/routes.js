@@ -1,5 +1,8 @@
 // const express = require('express');
 const router = require('express').Router();
+const axios = require('axios');
+const API_KEY = require('./config/config.js');
+const controller = require('./controller');
 const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
 // const products = '/product/:product_id'; // maybe use later to clean up
 
@@ -11,6 +14,18 @@ const getCb = (req, res) => {
   }
 }
 ////////////////////////////// PRODUCTS //////////////////////////////
+// router.route('/products')
+//   .get((req, res) => {
+//     axios({
+//       method: 'get',
+//       url: `${baseUrl}/products`,
+//       headers: {
+//         Authorization: API_KEY;
+//       },
+//     })
+//     .then((response) => res.status(200).send(response.data))
+//     .catch((err) => res.status(404).send(err));
+//   })
 
 router.route('/products')
   .get(`${baseUrl}/products`)
