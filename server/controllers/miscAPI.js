@@ -8,7 +8,6 @@ const options = {
   }
 }
 
-// edit later for AWS cloudfront
 module.exports = {
   getCart: (req, res) => {
     axios.get(`${baseUrl}/cart`, options)
@@ -17,19 +16,16 @@ module.exports = {
   },
 
   addToCart: (req, res) => {
-    axios.post(`${baseUrl}/cart`, {
-      sku_id: req.body.sku_id,
-      headers: {
-        Authorization: API_KEY
-      }
-    })
+    axios.post(`${baseUrl}/cart`, req.body, options)
     .then((reponse) => res.sendStatus(201))
     .catch((err) => res.status(404).send(err));
   },
 
+  // Edit after frontend is built out
   logInteractions: (req, res) => {
-    axios.post(`${baseUrl}/interactions`, options)
-    .then(() => res.sendStatus(201))
-    .catch((err) => res.status(500).send(err))
+    // axios.post(`${baseUrl}/interactions`, options)
+    // .then(() => res.sendStatus(201))
+    // .catch((err) => res.status(500).send(err))
+    res.status(500).send('Redo this ajax on backend');
   }
 }
