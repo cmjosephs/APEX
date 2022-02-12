@@ -33,23 +33,23 @@ router.route('/products/:product_id/reviews/:review_id/report')
 //router.get('/products/:product_id/qa/questions', qA.getQuestions)
 router.route('/products/:product_id/qa/questions')
   .get(qA.getQuestions)
-  // .post(`${baseUrl}/qa/questions`)
+  .post(qA.postQuestion)
 
 router.route('/products/:product_id/qa/questions/:question_id/answers')
   .get(qA.getAnswers)
-  // .post(`${baseUrl}/qa/questions/:question_id/answers`)
+  .post(qA.postAnswer)
 
 router.route('/products/:product_id/qa/questions/:question_id/helpful')
-  // .put(`${baseUrl}/qa/questions/:question_id/helpful`)
+  .put(qA.updateQuestionHelpful)
 
 router.route('/products/:product_id/qa/questions/:question_id/report')
-  // .put(`${baseUrl}/qa/questions/:question_id/report`)
+  .put(qA.updateQuestionReport)
 
 router.route('/products/:product_id/qa/answers/:answer_id/helpful')
-  // .put(`${baseUrl}/qa/answers/:answer_id/helpful`)
+  .put(qA.updateAnswerHelpful)
 
 router.route('/products/:product_id/qa/answers/:answer_id/report')
-  // .put(`${baseUrl}/qa/answers/:answer_id/report`)
+  .put(qA.updateAnswerReport)
 
 
 ////////////////////////////// CART //////////////////////////////
