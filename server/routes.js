@@ -15,16 +15,17 @@ router.get('/products/:product_id/related', products.getRelated)
 ////////////////////////////// REVIEWS //////////////////////////////
 
 router.route('/products/:product_id/reviews')
-  // .get(`${baseUrl}/reviews`)
-  // .post(`${baseUrl}/reviews`)
+  .get(reviews.getReviewById)
+  .post(reviews.addReviewById)
+
 router.route('/products/:product_id/reviews/meta')
-  // .get(`${baseUrl}/reviews/meta/`)
+  .get(reviews.getMetaData)
 
 router.route('/products/:product_id/reviews/:review_id/helpful')
-  // .put(`${baseUrl}/reviews/:review_id/helpful`)
+  .put(reviews.addHelpfulReview)
 
 router.route('/products/:product_id/reviews/:review_id/report')
-  // .put(`${baseUrl}/reviews/:review_id/report`)
+  .put(reviews.addReportReview)
 
 
 ////////////////////////////// QUESTIONS & ANSWERS //////////////////////////////
