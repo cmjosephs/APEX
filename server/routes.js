@@ -3,8 +3,7 @@ const router = require('express').Router();
 const axios = require('axios');
 const API_KEY = require('./config/config.js');
 const { products, qA, reviews, miscAPI } = require('./controllers');
-const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
-// const products = '/product/:product_id'; // maybe use later to clean up
+// const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
 
 ////////////////////////////// PRODUCTS //////////////////////////////
 router.get('/products', products.getAllProducts)
@@ -16,9 +15,8 @@ router.get('/products/:product_id/related', products.getRelated)
 ////////////////////////////// REVIEWS //////////////////////////////
 
 router.route('/products/:product_id/reviews')
-  // .get(`${baseUrl}/reviews`) // api get
-  // .post(`${baseUrl}/reviews`) // post review to AWS - EDIT LATER
-// take care of callback or promises after
+  // .get(`${baseUrl}/reviews`)
+  // .post(`${baseUrl}/reviews`)
 router.route('/products/:product_id/reviews/meta')
   // .get(`${baseUrl}/reviews/meta/`)
 
@@ -54,12 +52,11 @@ router.route('/products/:product_id/qa/answers/:answer_id/report')
 
 ////////////////////////////// CART //////////////////////////////
 router.route('/cart')
-  // .get(`${baseUrl}/cart`)
-  // .post(`${baseUrl}/cart`)
+  .get(miscAPI.getCart)
+  .post(miscAPI.addToCart)
 
 ////////////////////////////// INTERACTIONS //////////////////////////////
-router.route('/interactions')
-  // .post(`${baseUrl}/interactions`)
+router.post('/interactions', miscAPI.logInteractions);
 
 
 module.exports = router;
