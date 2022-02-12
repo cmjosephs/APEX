@@ -1,5 +1,8 @@
 import React from 'react';
-import DummyComponent from './DummyComponent.jsx';
+import Product from './Overview/Product.jsx';
+import ReviewList from './Reviews/ReviewList.jsx';
+import RelatedList from './Related/RelatedList.jsx';
+import QAList from './Questions/QAList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,17 +15,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Testing Components</h1>
-        <DummyComponent />
+        <h1>FEC Project</h1>
+        <Product />
+        <RelatedList />
+        <QAList />
+        <ReviewList />
       </div>
     );
   }
 }
-
-// const App = () => (
-//   render() {
-
-//   }
-// )
 
 export default App;
