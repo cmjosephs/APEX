@@ -28,26 +28,26 @@ router.route('/products/:product_id/reviews/:review_id/report')
 
 
 ////////////////////////////// QUESTIONS & ANSWERS //////////////////////////////
-
+//router.get('/products/:product_id/qa/questions', qA.getQuestions)
 router.route('/products/:product_id/qa/questions')
-  // .get(`${baseUrl}/qa/questions`)
-  // .post(`${baseUrl}/qa/questions`)
+  .get(qA.getQuestions)
+  .post(qA.postQuestion)
 
 router.route('/products/:product_id/qa/questions/:question_id/answers')
-  // .get(`${baseUrl}/qa/questions/:question_id/answers`)
-  // .post(`${baseUrl}/qa/questions/:question_id/answers`)
+  .get(qA.getAnswers)
+  .post(qA.postAnswer)
 
 router.route('/products/:product_id/qa/questions/:question_id/helpful')
-  // .put(`${baseUrl}/qa/questions/:question_id/helpful`)
+  .put(qA.updateQuestionHelpful)
 
 router.route('/products/:product_id/qa/questions/:question_id/report')
-  // .put(`${baseUrl}/qa/questions/:question_id/report`)
+  .put(qA.updateQuestionReport)
 
 router.route('/products/:product_id/qa/answers/:answer_id/helpful')
-  // .put(`${baseUrl}/qa/answers/:answer_id/helpful`)
+  .put(qA.updateAnswerHelpful)
 
 router.route('/products/:product_id/qa/answers/:answer_id/report')
-  // .put(`${baseUrl}/qa/answers/:answer_id/report`)
+  .put(qA.updateAnswerReport)
 
 
 ////////////////////////////// CART //////////////////////////////
