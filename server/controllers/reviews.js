@@ -42,7 +42,6 @@ module.exports = {
   },
 
   addHelpfulReview: (req, res) => {
-    // console.log(req.body)
     axios.put(`${baseUrl}/reviews/${req.params.review_id}/helpful`, req.body, options)
     .then(results => res.status(204).send('Marked as helpful'))
     .catch(err => res.status(404).send(err));
