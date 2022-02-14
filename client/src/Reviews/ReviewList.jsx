@@ -7,21 +7,26 @@ const ReviewList = () => {
   let [reviews, setReviews] = useState([]);
   let [product, setProduct] = useState('42366');
   let [count, setCount] = useState(2);
-  // let []
+  let [sort, setSort] = useState('newest');
 
   // similar to componentDidMount
   // when "product" changes, GET reviews for that "product"
   // when "count" changes, GET more reviews for that product
   useEffect(() => {
     getReviews();
-  }, [product, count]);
+  }, [product, count, sort]);
 
   const getReviews = () => {
     axios.get(`api/products/${product}/reviews`,
-    { params: { count: count, sort: 'newest'} })
+    {
+      params: {
+        count: 200,
+        sort: `${sort}`
+      }
+    })
     .then(results => {
-      setReviews(results.data.results);
-      // console.log(results.data);
+      console.log(results.data.results)
+      setReviews(results.data.results.splice(0, count));
     }).catch(err => {
       console.log('error getting reviews')
     })
@@ -31,6 +36,43 @@ const ReviewList = () => {
     setCount(count += 2)
   }
 
+  const changeSort = (e) => {
+    console.log(e.target.value)
+    setSort(e.target.value)
+  }
+
+
+
+
+  // useEffect(() => {
+  //   getReviews();
+  // }, [product, count, sort]);
+
+  // const getReviews = () => {
+  //   axios.get(`api/products/${product}/reviews`,
+  //   {
+  //     params: {
+  //       count: count,
+  //       sort: `${sort}`
+  //     }
+  //   })
+  //   .then(results => {
+  //     console.log(results.data.results)
+  //     setReviews(results.data.results);
+  //   }).catch(err => {
+  //     console.log('error getting reviews')
+  //   })
+  // }
+
+  // const getMoreReviews = () => {
+  //   setCount(count += 2)
+  // }
+
+  // const changeSort = (e) => {
+  //   console.log(e.target.value)
+  //   setSort(e.target.value)
+  // }
+
 
   return (
     <div className="review-container">
@@ -38,14 +80,14 @@ const ReviewList = () => {
       <div className="sort-section">
         <h2>FakeNumber of Reviews,
            <label for ="reviews-sort"> sorted by: </label>
-          <select name="reviews-sort" id="reviews-sort">
-            <option value="helpful">Helpful</option>
+          <select name="reviews-sort" id="reviews-sort" onChange={changeSort}>
             <option value="newest">Newest</option>
+            <option value="helpful">Helpful</option>
             <option value="relevant">Relevant</option>
           </select>
         </h2>
       </div>
-      <div className="review-list">Review List, map here
+      <div className="review-list">Review List
       {reviews.map(review => {
         return <ReviewListEntry review={review}/>
       })}
