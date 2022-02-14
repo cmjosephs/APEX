@@ -32,7 +32,12 @@ const Product = ({ productId, reviewMetaData }) => {
     return (
       <div id="product-overview">
         <Photos photos={currentStyle.photos}/>
-        <AllDetails reviewMetaData={reviewMetaData} handleStyleChange={handleStyleChange}/>
+        <AllDetails
+          reviewMetaData={reviewMetaData}
+          handleStyleChange={handleStyleChange}
+          productId={productId}
+          allStyles={allStyles}
+        />
       </div>
     )
   }
