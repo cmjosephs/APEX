@@ -9,8 +9,11 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      // state that holds the current product id
     };
   }
+
+  // method that updates the current product id and re renders page on change
 
   render() {
     return (

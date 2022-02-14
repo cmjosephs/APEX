@@ -1,0 +1,1 @@
+// In charge of details drop down menu and share buttons

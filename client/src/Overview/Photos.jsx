@@ -1,0 +1,1 @@
+// contains photos and expanded view
