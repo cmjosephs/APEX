@@ -6,8 +6,13 @@ var Photos = ({ photos }) => {
 
   const renderThumbnails = () => {
     return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} key={index} alt="n/a" className="thumbnail-image"></img>
+      return <img src={photo.thumbnail_url} key={index} alt="n/a" className="thumbnail-image"
+        onClick={(e) => handlePhotoChange(e)}></img>
     })
+  }
+
+  const handlePhotoChange = (e) => {
+    setCurrentPhoto(e.target.src);
   }
 
   return (
