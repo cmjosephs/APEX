@@ -14,13 +14,12 @@ const Product = ({ productId, reviewMetaData }) => {
       setAllStyles(data);
     })
     .catch((err) => console.error(err));
-    // .then(() => setCurrentStyle(allStyles.results[0]));
   }
 
-  // function handleStyleChange(id) {
-  //   setCurrentStyle()
-  //   go through all styles and match up the id and then set the current style
-  // }
+  function handleStyleChange(id) {
+    // setCurrentStyle()
+    // go through all styles and match up the id and then set the current style
+  }
 
   useEffect(() => {
     getStyles(productId);
@@ -33,7 +32,7 @@ const Product = ({ productId, reviewMetaData }) => {
     return (
       <div id="product-overview">
         <Photos photos={currentStyle.photos}/>
-        <AllDetails reviewMetaData={reviewMetaData} />
+        <AllDetails reviewMetaData={reviewMetaData} handleStyleChange={handleStyleChange}/>
       </div>
     )
   }
