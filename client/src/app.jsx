@@ -43,16 +43,11 @@ const App = () => {
   }
   );
 
-  // function getProduct(id) {
-  //   axios.get(`/api/products/${id}`)
-  //   .then(({ data }) => setProductId(data))
-  //   .catch(err => console.error(err));
-  // }
+  function getRandomProductId() {}
 
   return (
     <div>
-      <h1>FEC Project</h1>
-      <nav>Navigation bar</nav>
+      <nav><h1>FEC project</h1>------Navigation bar</nav>
       <br></br>
       <Product productId={productId} reviewMetaData={reviewMetaData} />
       <br></br>

@@ -12,6 +12,18 @@ var AllDetails = ({ productId, allStyles, currentStyle, reviewMetaData, handleSt
     .catch(err => consoel.error(err));
   }
 
+  function calcAverageRating(obj) {
+    let avgRating = 0;
+    let totalRatings = 0;
+    for (let key in obj) {
+      let quant = parseInt(obj[key]);
+      let rating = parseInt(key);
+      avgRating += quant * rating;
+      totalRatings += quant;
+    }
+    return avgRating / totalRatings;
+  }
+
   useEffect(() => {
     getProductDetails(productId);
   }, [])
@@ -24,9 +36,10 @@ var AllDetails = ({ productId, allStyles, currentStyle, reviewMetaData, handleSt
       <div className="all-details">
         <h2 className="product-name">{productDetails.name}</h2>
         <h3 className="product-category">{productDetails.category}</h3>
+        <div className="average-rating">{calcAverageRating(reviewMetaData.ratings)}</div>
         <h3 className="price">${currentStyle.sale_price ? currentStyle.sale_price : currentStyle.original_price}</h3>
-        <Selectors />
-        <Info />
+        <Selectors allStyles={allStyles}/>
+        <Info productDetails={productDetails}/>
       </div>
     )
   }
