@@ -27,8 +27,8 @@ const ReviewList = () => {
     })
   }
 
-  const doubleReviews = () => {
-    setCount(count * 2)
+  const getMoreReviews = () => {
+    setCount(count += 2)
   }
 
 
@@ -51,7 +51,7 @@ const ReviewList = () => {
       })}
       </div>
       <div className="more-reviews">
-        <button onClick={doubleReviews}>More Reviews</button>
+        <button onClick={getMoreReviews}>More Reviews</button>
       </div>
     </div>
   )
