@@ -5,6 +5,7 @@ import Info from './Info.jsx';
 
 var AllDetails = ({ productId, allStyles, currentStyle, reviewMetaData, handleStyleChange }) => {
   const [productDetails, setProductDetails] = useState({});
+  // const [selectedSku, setSelectedSku] = useState(); // currently selected style and size
 
   function getProductDetails(id) {
     axios.get(`/api/products/${id}`)
@@ -38,7 +39,13 @@ var AllDetails = ({ productId, allStyles, currentStyle, reviewMetaData, handleSt
         <h3 className="product-category">{productDetails.category}</h3>
         <div className="average-rating">{calcAverageRating(reviewMetaData.ratings)}</div>
         <h3 className="price">${currentStyle.sale_price ? currentStyle.sale_price : currentStyle.original_price}</h3>
-        <Selectors allStyles={allStyles}/>
+        <Selectors
+          allStyles={allStyles}
+          currentStyle={currentStyle}
+          handleStyleChange={handleStyleChange}
+        />
+        <button>Add to Bag</button>
+        <button>Add to your Outfit</button>
         <Info productDetails={productDetails}/>
       </div>
     )

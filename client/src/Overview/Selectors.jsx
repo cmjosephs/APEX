@@ -1,6 +1,8 @@
 import React from 'react';
 
-var Selectors = () => {
+var Selectors = ({ allStyles, handleStyleChange }) => {
+
+
   return (
     <div>Style and Size selctors</div>
   )
