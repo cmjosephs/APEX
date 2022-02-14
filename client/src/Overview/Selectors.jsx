@@ -1,1 +1,9 @@
-// component in charge of displaying available or not styles and sizes
+import React from 'react';
+
+var Selectors = () => {
+  return (
+    <div>Style and Size selctors</div>
+  )
+}
+
+export default Selectors;

@@ -1,1 +1,9 @@
-// In charge of details drop down menu and share buttons
+import React from 'react';
+
+var Info = () => {
+  return (
+    <div>Product info drop down menu and share functions</div>
+  )
+}
+
+export default Info;

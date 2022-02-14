@@ -10,6 +10,7 @@ class App extends React.Component {
 
     this.state = {
       // state that holds the current product id
+      // current product id review metadata
     };
   }
 
