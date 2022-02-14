@@ -37,6 +37,7 @@ const Product = ({ productId, reviewMetaData }) => {
           handleStyleChange={handleStyleChange}
           productId={productId}
           allStyles={allStyles}
+          currentStyle={currentStyle}
         />
       </div>
     )
