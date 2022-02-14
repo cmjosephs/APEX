@@ -8,6 +8,7 @@ const ReviewList = () => {
   let [product, setProduct] = useState('42366');
   let [count, setCount] = useState(2);
   let [sort, setSort] = useState('newest');
+  let [enoughReviews, setEnoughReviews] = useState(true);
 
   // similar to componentDidMount
   // when "product" changes, GET reviews for that "product"
@@ -26,6 +27,9 @@ const ReviewList = () => {
     })
     .then(results => {
       console.log(results.data.results)
+      if (results.data.results.length <= 2) {
+        setEnoughReviews(!enoughReviews)
+      }
       setReviews(results.data.results.splice(0, count));
     }).catch(err => {
       console.log('error getting reviews')
@@ -40,38 +44,6 @@ const ReviewList = () => {
     console.log(e.target.value)
     setSort(e.target.value)
   }
-
-
-
-
-  // useEffect(() => {
-  //   getReviews();
-  // }, [product, count, sort]);
-
-  // const getReviews = () => {
-  //   axios.get(`api/products/${product}/reviews`,
-  //   {
-  //     params: {
-  //       count: count,
-  //       sort: `${sort}`
-  //     }
-  //   })
-  //   .then(results => {
-  //     console.log(results.data.results)
-  //     setReviews(results.data.results);
-  //   }).catch(err => {
-  //     console.log('error getting reviews')
-  //   })
-  // }
-
-  // const getMoreReviews = () => {
-  //   setCount(count += 2)
-  // }
-
-  // const changeSort = (e) => {
-  //   console.log(e.target.value)
-  //   setSort(e.target.value)
-  // }
 
 
   return (
@@ -92,9 +64,12 @@ const ReviewList = () => {
         return <ReviewListEntry review={review}/>
       })}
       </div>
+      {enoughReviews &&
       <div className="more-reviews">
         <button onClick={getMoreReviews}>More Reviews</button>
       </div>
+    }
+
     </div>
   )
 }
