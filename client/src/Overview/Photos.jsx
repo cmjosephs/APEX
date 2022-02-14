@@ -1,8 +1,13 @@
 import React from 'react';
 
-var Photos = () => {
+var Photos = ({ photos }) => {
+  // console.log(photos);
+
   return (
-    <div>Product photos + expanded view</div>
+    <>
+      <div>photo display</div>
+      <img src={photos[0].thumbnail_url} alt="no image"></img>
+    </>
   )
 }
 
