@@ -1,0 +1,4 @@
+.review-list {
+  max-height: 30em;
+  overflow-y: scroll;
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-const AvgRatingReview = () => {
+// const AvgRatingReview = () => {
 
-}
+// }
 
-export default AvgRatingReview;
+// export default AvgRatingReview;
