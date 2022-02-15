@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-
+import CheckIcon from '@mui/icons-material/Check';
+import ReviewInteraction from './ReviewInteraction.jsx';
 
 const ReviewListEntry = ({ review }) => {
 
@@ -12,6 +12,7 @@ const ReviewListEntry = ({ review }) => {
   let handleChange = () => {
     setOpen(!open)
   }
+
 
   return (
 
@@ -24,6 +25,7 @@ const ReviewListEntry = ({ review }) => {
       </div>
 
       <div className="review-summary">{review.summary.substring(0, 60)}</div>
+
       <div className="review-body">
         {showMore ? review.body : review.body.substring(0,250)}
 
@@ -34,24 +36,29 @@ const ReviewListEntry = ({ review }) => {
         }
 
         <div className="review-thumbnail" onClick={handleChange}>
-        {review.photos.length > 0 && review.photos.map(photo => {
-          return
-          <>
-          <img src={`${photo.url}`} width="60" height="60"/>
-            <Modal
-            open={open}
-            onClose={handleChange}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-            >
-              <img id="review-thumbnail-modal" src={`${photo.url}`}/>
-            </Modal>
-          </>
-        })}
+          {review.photos.length > 0 && review.photos.map(photo => {
+            return <>
+            <img src={`${photo.url}`} width="60" height="60"/>
+              <Modal
+              open={open}
+              onClose={handleChange}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+              >
+                <img id="review-thumbnail-modal" src={`${photo.url}`}/>
+              </Modal>
+            </>
+          })}
         </div>
 
-
-
+        <div className="review-recommended">
+            {review.recommend &&
+            <>
+            <CheckIcon/>
+            <span>I recommend this item</span>
+            </>}
+        </div>
+        <ReviewInteraction review={review}/>
 
       </div>
 
