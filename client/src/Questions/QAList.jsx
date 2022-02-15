@@ -6,25 +6,26 @@ import axios from 'axios';
 var QAList = () => {
   const [product, setProduct] = useState('42369');
   const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState([])
+  const [answers, setAnswers] = useState([]);
+  const [count, setCount] = useState(2);
 
   useEffect(() => {
-    getMoreQuestions();
-  }, [product]);
+    getQuestions();
+  }, [product, count]);
 
-  const getMoreQuestions = () => {
-    axios.get(`/api/products/${product}/qa/questions`, {params: {product}})
+  const getQuestions = () => {
+    axios.get(`/api/products/${product}/qa/questions`, {params: {product, count: 20}})
       .then((res) => {
         //console.log(res.data.results);
-        setQuestions(res.data.results)
+        setQuestions(res.data.results.splice(0, count))
 
       })
       .catch((err) => console.log(err))
 
   }
 
-  const getMoreAnswers = () => {
-    // axios.get()
+  const getMoreQuestions = () => {
+    setCount(count +=2)
   }
 
   const searchQuestions = () => {
