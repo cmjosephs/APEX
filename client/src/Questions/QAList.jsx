@@ -4,9 +4,9 @@ import QAItem from './QAItem.jsx';
 import axios from 'axios';
 
 var QAList = () => {
-  const [product, setProduct] = useState('42369');
-  const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState([]);
+  let [product, setProduct] = useState('42369');
+  let [questions, setQuestions] = useState([]);
+  let [answers, setAnswers] = useState([]);
   let [count, setCount] = useState(2);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ var QAList = () => {
 
 
   return (
-    <div className="questionsandanswers">
+    <div className="question-list">
       <h3>Questions and Answers</h3>
         <Search onSearch={searchQuestions}/>
         <div>

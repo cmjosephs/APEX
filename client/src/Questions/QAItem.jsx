@@ -3,20 +3,23 @@ import Answer from './Answer.jsx';
 import axios from 'axios';
 
 var QAItem = ({question}) => {
-  const [answerObj, setAnswerObj] = useState(question.answers)
-  const [answers, setAnswer] = useState([]);
-  const [product, setProduct] = useState('42369');
+  let [answerObj, setAnswerObj] = useState(question.answers)
+  let [answers, setAnswer] = useState([]);
+  let [product, setProduct] = useState('42369');
+  let [count, setCount] = useState(2);
+
+
 
   useEffect(() => {
     transformAnswerObj();
-  }, [answerObj]);
+  }, [answerObj, count]);
 
   const transformAnswerObj = () => {
     const answers = Object.values(answerObj).map(answer => answer);
-    setAnswer(answers);
+    setAnswer(answers.splice(0, count));
   }
 
-  const getMoreAnswers = () => {
+  const getAnswers = () => {
     axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`)
       .then((res) => {
         //console.log(res.data.results)
@@ -24,14 +27,27 @@ var QAItem = ({question}) => {
       })
       .catch((err) => console.log('Error'))
   }
+
+  const getMoreAnswers = () => {
+    setCount(count += 2)
+  }
+
+
+
   return (
     <div className="questions">
-      <div>{"Q: "}{question.question_body}</div>
-      {question.question_helpfulness}
+      <div>
+        {"Q: "}{question.question_body}
+        {"  Helpful? Yes("}{question.question_helpfulness}{") | "}
+
+      </div>
       <div>
         {answers.map((answer) => {
           return <Answer answer={answer} key={answer.id} />
         })}
+      </div>
+      <div>
+      <button className="answerbutton" onClick={getMoreAnswers}>More Answers</button>
       </div>
     </div>
   );
