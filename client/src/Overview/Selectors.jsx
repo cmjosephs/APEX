@@ -5,14 +5,14 @@ var Selectors = () => {
   const { allStyles, currentStyle, dispatch } = useContext(StyleContext);
 
   const renderStyles = () => {
-    return allStyles.map((style, index) => {
+    return Object.values(allStyles).map((style, index) => { // refactor to transform to array after object refactor
       return (
         <img
           src={style.photos[0].thumbnail_url}
           alt="n/a"
           className="style"
-          value={style.style_id}
-          onClick={(e) => dispatch({ type: 'switchCurrentStyle', payload: {id: e.target.value} })}
+          id={style.style_id}
+          onClick={(e) => dispatch({ type: 'switchCurrentStyle', payload: {id: parseInt(e.target.id)} })}
           key={`${style.style_id}-${index}`}
         ></img>
       )

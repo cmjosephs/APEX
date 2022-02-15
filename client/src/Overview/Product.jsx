@@ -9,7 +9,8 @@ export const StyleContext = React.createContext();
 const styleReducer = (state, action) => {
   switch (action.type) {
     case 'switchCurrentStyle':
-      return selectStyle(state.allStyles, action.payload.id);
+      // return selectStyle(state.allStyles, action.payload.id);
+      return {...state, currentStyle: state.allStyles[action.payload.id]}
     case 'newProduct':
       return {allStyles: action.payload.allStyles, currentStyle: action.payload.currentStyle};
     default:
@@ -17,23 +18,25 @@ const styleReducer = (state, action) => {
   }
 }
 
-function selectStyle(all, newId) {
-  for (let style of all) {
-    if (style.style_id === newId) {
-      return { allStyle: all, currentStyle: style };
-    }
-  }
-}
+// function selectStyle(all, newId) {
+//   let newStyle = all[newId];
+//   return { allStyles: all, currentStyle: newStyle };
+
+// }
 
 const Product = ({ productId, reviewMetaData }) => {
-  const [state, dispatch] = useReducer(styleReducer, {allStyles: [], currentStyle: {}})
+  const [state, dispatch] = useReducer(styleReducer, {allStyles: {}, currentStyle: {}})
 
   function getStyles(product_id) {
     axios.get(`/api/products/${product_id}/styles`)
     .then(({ data }) => {
+      let styleObj = {};
+      data.results.forEach((style) => {
+        styleObj[style.style_id] = style;
+      });
       dispatch({
         type: 'newProduct',
-        payload: {allStyles: data.results, currentStyle: data.results[0]}
+        payload: {allStyles: styleObj, currentStyle: data.results[0]}
       })
     })
     .catch((err) => console.error(err));
