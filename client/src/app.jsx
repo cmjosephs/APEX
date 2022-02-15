@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Product from './Overview/Product.jsx';
@@ -7,7 +7,7 @@ import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
 
 const App = () => {
-  const [productId, setProductId] = useState(42370); // hard coded, make dynamic later
+  const [productId, setProductId] = useState(null); // hard coded, make dynamic later
   const [reviewMetaData, setReviewMetaData] = useState(
     {
       "product_id": "42370",
@@ -43,7 +43,13 @@ const App = () => {
   }
   );
 
-  function getRandomProductId() {}
+  function getRandomProductId() {
+    setProductId(42370)
+  } // edit later
+
+  useEffect(getRandomProductId, []);
+
+  if (!productId) return <h2>Loading</h2>
 
   return (
     <div>
