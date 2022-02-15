@@ -9,6 +9,7 @@ const AllReviews = ({ reviews }) => {
     review => {
     return <ReviewListEntry review={review}/>
   })}
+  
   </div>
 
 
