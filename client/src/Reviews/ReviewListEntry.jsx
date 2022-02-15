@@ -42,8 +42,8 @@ const ReviewListEntry = ({ review }) => {
               <Modal
               open={open}
               onClose={handleChange}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
+              // aria-labelledby="modal-modal-title"
+              // aria-describedby="modal-modal-description"
               >
                 <img id="review-thumbnail-modal" src={`${photo.url}`}/>
               </Modal>

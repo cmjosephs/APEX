@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { createContext } from 'react';
 import AllReviews from './AllReviews.jsx';
 import ReviewListEntry from './ReviewListEntry.jsx';
 // import AvgRatingReview from './AvgRatingReview.jsx';
 import ReviewForm from './ReviewForm.jsx';
 import axios from 'axios';
 
+export const ProductContext = createContext();
 
 const ReviewList = () => {
   let [reviews, setReviews] = useState([]);
@@ -55,7 +57,9 @@ const ReviewList = () => {
   // }
 
   // TODO: get total # of reviews for this product and replace the "20"
+  // change the "ProductContext.Provider" to appropriate name later when we include it in the main app component
   return (
+    <ProductContext.Provider value ={{ product }}>
     <div className="review-container">
       <div className="avg-rating-review">Average Rating & Reviews</div>
       <div className="sort-section">
@@ -73,12 +77,13 @@ const ReviewList = () => {
       {enoughReviews &&
       <div className="review-buttons">
         <button onClick={getMoreReviews}>MORE REVIEWS</button>
-        <ReviewForm/>
+        {/* <ReviewForm/> */}
       </div>
       }
       {/* <button onClick={setReviewForm}>ADD A REVIEW</button> */}
       {/* {reviewForm && <ReviewForm reviewForm={reviewForm}/>} */}
     </div>
+    </ProductContext.Provider>
   )
 }
 
