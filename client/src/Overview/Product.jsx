@@ -9,13 +9,19 @@ export const StyleContext = React.createContext();
 const styleReducer = (state, action) => {
   switch (action.type) {
     case 'switchCurrentStyle':
-      state.allStyles.forEach((style) => {
-        if (style.style_id === action.payload.id) return {...state, currentStyle: style};
-      })
+      return selectStyle(state.allStyles, action.payload.id);
     case 'newProduct':
       return {allStyles: action.payload.allStyles, currentStyle: action.payload.currentStyle};
     default:
       return state;
+  }
+}
+
+function selectStyle(all, newId) {
+  for (let style of all) {
+    if (style.style_id === newId) {
+      return { allStyle: all, currentStyle: style };
+    }
   }
 }
 
@@ -37,7 +43,7 @@ const Product = ({ productId, reviewMetaData }) => {
     getStyles(productId);
   }, [productId]);
 
-  if (!Object.keys(state.currentStyle).length) {
+  if (!state.currentStyle || !Object.keys(state.currentStyle).length) {
     return <h3>Loading...</h3>
   } else {
     return (
