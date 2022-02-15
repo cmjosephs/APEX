@@ -24,7 +24,8 @@ var AllDetails = ({ productId, reviewMetaData }) => {
       avgRating += quant * rating;
       totalRatings += quant;
     }
-    return avgRating / totalRatings;
+    avgRating = avgRating / totalRatings;
+    return Math.ceil(avgRating / 0.25) * 0.25;
   }
 
   useEffect(() => {
