@@ -4,7 +4,7 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 import AllReviews from './AllReviews.jsx';
 // import ReviewForm from './ReviewForm.jsx';
 import axios from 'axios';
-// import { FixedSizeList } from 'react-window';
+
 
 const ReviewList = () => {
   let [reviews, setReviews] = useState([]);
@@ -22,6 +22,7 @@ const ReviewList = () => {
     axios.get(`api/products/${product}/reviews`,
     {
       params: {
+        // TODO: find a way to get the total # of reviews
         count: 200,
         sort: sort
       }
@@ -39,7 +40,7 @@ const ReviewList = () => {
   const getMoreReviews = () => {
     setCount(count += 2)
     // only want to show 20 reviews at most but this can change later
-    if (count >= 20) {
+    if (count >= 200) {
       setEnoughReviews(!enoughReviews)
     }
   }
@@ -52,6 +53,7 @@ const ReviewList = () => {
     setReviewForm(!reviewForm)
   }
 
+  // TODO: get total # of reviews for this product and replace the "20"
   return (
     <div className="review-container">
       <div className="avg-rating-review">Average Rating & Reviews</div>
@@ -67,13 +69,6 @@ const ReviewList = () => {
       </div>
 
   <AllReviews reviews={reviews}/>
-
-      {/* <div className="review-list">Review List
-      {reviews.map(
-        review => {
-        return <ReviewListEntry review={review}/>
-      })}
-      </div> */}
       {enoughReviews &&
       <div className="more-reviews">
         <button onClick={getMoreReviews}>MORE REVIEWS</button>

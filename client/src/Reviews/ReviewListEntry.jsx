@@ -10,7 +10,12 @@ const ReviewListEntry = ({ review }) => {
 
   return (
     <div className="review-tile">
-      <div className="review-details">{review.reviewer_name} | {review.date.substring(0, 10)}</div>
+      <div className="review-details">{review.reviewer_name} | {new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        year: 'numeric',
+        day: '2-digit'
+      }).format(parseInt(review.date))}</div>
+      {/* <div className="review-details">{review.reviewer_name} | {review.date.substring(0, 10)}</div> */}
       <div className="review-summary">{review.summary}</div>
       <div className="review-body">{review.body}</div>
 

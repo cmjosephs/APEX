@@ -3,7 +3,7 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 
 const AllReviews = ({ reviews }) => {
   return (
-  <div className="review-list">Review List
+  <div className="review-list">
 
   {reviews.map(
     review => {
