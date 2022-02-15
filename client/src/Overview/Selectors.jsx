@@ -5,7 +5,7 @@ var Selectors = () => {
   const { allStyles, currentStyle, dispatch } = useContext(StyleContext);
 
   const renderStyles = () => {
-    return Object.values(allStyles).map((style, index) => { // refactor to transform to array after object refactor
+    return Object.values(allStyles).map((style, index) => {
       return (
         <img
           src={style.photos[0].thumbnail_url}
@@ -19,20 +19,23 @@ var Selectors = () => {
     })
   }
 
-  const renderSizes = () => {}
+  const renderSizes = () => {
+
+  }
 
   if (!Object.keys(currentStyle).length) {
     return <div>Loading</div>
   } else {
-
     return (
       <div className="selectors">
         <div className="styles">
           {renderStyles()}
         </div>
         <div className="sizes">
-
+          size selector
         </div>
+        <button>Add to Bag</button>
+        <button>Add to your Outfit</button>
       </div>
     )
   }

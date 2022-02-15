@@ -7,7 +7,6 @@ import Info from './Info.jsx';
 var AllDetails = ({ productId, reviewMetaData }) => {
   const { currentStyle } = useContext(StyleContext);
   const [productDetails, setProductDetails] = useState({});
-  // const [selectedSku, setSelectedSku] = useState(); // currently selected style and size
 
   function getProductDetails(id) {
     axios.get(`/api/products/${id}`)
@@ -47,8 +46,6 @@ var AllDetails = ({ productId, reviewMetaData }) => {
             ${currentStyle.original_price}
         </h3>
         <Selectors />
-        <button>Add to Bag</button>
-        <button>Add to your Outfit</button>
         <Info productDetails={productDetails}/>
       </div>
     )
