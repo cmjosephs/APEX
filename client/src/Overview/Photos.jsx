@@ -16,7 +16,7 @@ var Photos = () => {
 
   const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} key={index} alt="n/a" className="thumbnail-image"
+      return <img src={photo.thumbnail_url} key={index} alt={`photo-${index}`} className="thumbnail-image"
         onClick={(e) => handlePhotoChange(e)}></img>
     })
   }
@@ -24,7 +24,7 @@ var Photos = () => {
   return (
     <div className="image-gallery">
       <div className="display-photo">
-        <img src={currentPhoto} alt="no image"></img>
+        <img src={currentPhoto} alt="main-image"></img>
       </div>
       <div id="thumbnail-images">
         {renderThumbnails(currentStyle.photos)}
