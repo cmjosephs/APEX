@@ -10,17 +10,24 @@ import {render, getByText, getByRole, waitFor, screen, fireEvent} from '@testing
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
 // the component to test
-import Info from '../../client/src/Overview/Info.jsx';
 import App from '../../client/src/App.jsx';
+
+// hard coded test data
+import { testStyles, testProduct, testReviewMetaData } from './overviewTestData.js';
 
 
 // Setup
 // Need to make a server
-const route = '/';
+const stylesEndPoint = '/products/:product_id/styles';
+const productDetailsEndPoint = '/products/:product_id';
 const server = setupServer(
-  rest.get(route, (req, res, ctx) => {
-    return res(ctx.json({app: ''}))
+  rest.get(productDetailsEndPoint, (req, res, ctx) => {
+    return res(ctx.json(testProduct));
   }),
+  rest.get(stylesEndPoint, (req, res, ctx) => {
+    return res(ctx.json(testStyles));
+  }),
+
 )
 
 // setup server before each test

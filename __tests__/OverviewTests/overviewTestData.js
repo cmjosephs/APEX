@@ -1,4 +1,4 @@
-const styles = {
+const testStyles = {
   "product_id": "42370",
   "results": [
       {
@@ -400,7 +400,7 @@ const styles = {
   ]
 };
 
-const product = {
+const testProduct = {
   "id": 42370,
   "campus": "hr-lax",
   "name": "Heir Force Ones",
@@ -430,7 +430,7 @@ const product = {
   ]
 }
 
-const reviewMetaData = {
+const testReviewMetaData = {
   "product_id": "42370",
   "ratings": {
       "1": "1",
@@ -464,7 +464,7 @@ const reviewMetaData = {
 }
 
 export default const exampleData = {
-  styles,
-  product,
-  reviewMetaData
+  testStyles,
+  testProduct,
+  testReviewMetaData
 }
