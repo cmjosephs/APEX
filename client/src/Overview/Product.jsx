@@ -9,7 +9,6 @@ export const StyleContext = React.createContext();
 const styleReducer = (state, action) => {
   switch (action.type) {
     case 'switchCurrentStyle':
-      // return selectStyle(state.allStyles, action.payload.id);
       return {...state, currentStyle: state.allStyles[action.payload.id]}
     case 'newProduct':
       return {allStyles: action.payload.allStyles, currentStyle: action.payload.currentStyle};
@@ -17,12 +16,6 @@ const styleReducer = (state, action) => {
       return state;
   }
 }
-
-// function selectStyle(all, newId) {
-//   let newStyle = all[newId];
-//   return { allStyles: all, currentStyle: newStyle };
-
-// }
 
 const Product = ({ productId, reviewMetaData }) => {
   const [state, dispatch] = useReducer(styleReducer, {allStyles: {}, currentStyle: {}})

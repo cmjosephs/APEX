@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
 
 var Photos = () => {
@@ -9,6 +9,10 @@ var Photos = () => {
   const handlePhotoChange = (e) => {
     setCurrentPhoto(e.target.src);
   }
+
+  useEffect(() => {
+    setCurrentPhoto(currentStyle.photos[0].thumbnail_url);
+  }, [currentStyle])
 
   const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
