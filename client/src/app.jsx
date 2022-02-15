@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Product from './Overview/Product.jsx';
@@ -6,10 +6,18 @@ import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
 
+export const AppContext = createContext();
+
 const App = () => {
   const [productId, setProductId] = useState(null); // hard coded, make dynamic later
-  const [reviewMetaData, setReviewMetaData] = useState(
-    {
+  const [reviewMetaData, setReviewMetaData] = useState(null);
+
+  function getRandomProductId() {
+    setProductId(42370)
+  } // edit later
+
+  function retrieveProductMetaData() {
+    setReviewMetaData( {
       "product_id": "42370",
       "ratings": {
           "1": "1",
@@ -40,27 +48,32 @@ const App = () => {
               "value": "3.2727272727272727"
           }
       }
-  }
-  );
-
-  function getRandomProductId() {
-    setProductId(42370)
+    } );
   } // edit later
 
-  useEffect(getRandomProductId, []);
+  useEffect(() => {
+    getRandomProductId();
+    retrieveProductMetaData();
+  }, []);
 
   if (!productId) return <h2>Loading</h2>
 
   return (
-    <div>
-      <nav><h1>FEC project</h1>------Navigation bar</nav>
-      <br></br>
-      <Product productId={productId} reviewMetaData={reviewMetaData} />
-      <br></br>
-      <RelatedList />
-      <QAList />
-      <ReviewList />
-    </div>
+    <AppContext.Provider
+      value={{ productId, setProductId }}
+    >
+      <div>
+        <nav><h1>FEC project</h1>------Navigation bar</nav>
+        <br></br>
+        <Product
+          reviewMetaData={reviewMetaData} />
+        <br></br>
+        <RelatedList />
+        <QAList />
+        <ReviewList />
+      </div>
+    </AppContext.Provider>
+
   );
 }
 

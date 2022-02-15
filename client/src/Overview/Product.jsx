@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 import axios from 'axios';
+import { AppContext } from '../App.jsx';
 import Photos from './Photos.jsx';
 import AllDetails from './AllDetails.jsx';
 
@@ -17,8 +18,9 @@ const styleReducer = (state, action) => {
   }
 }
 
-const Product = ({ productId, reviewMetaData }) => {
-  const [state, dispatch] = useReducer(styleReducer, {allStyles: {}, currentStyle: {}})
+const Product = ({ reviewMetaData }) => {
+  const [state, dispatch] = useReducer(styleReducer, {allStyles: {}, currentStyle: {}});
+  const { productId } = useContext(AppContext);
 
   function getStyles(product_id) {
     axios.get(`/api/products/${product_id}/styles`)
