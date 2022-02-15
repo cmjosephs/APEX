@@ -9,7 +9,7 @@ import QAList from './Questions/QAList.jsx';
 export const AppContext = createContext();
 
 const App = () => {
-  const [productId, setProductId] = useState(null); // hard coded, make dynamic later
+  const [productId, setProductId] = useState(null);
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
@@ -51,10 +51,8 @@ const App = () => {
     } );
   } // edit later
 
-  useEffect(() => {
-    getRandomProductId();
-    retrieveProductMetaData();
-  }, []);
+  useEffect(getRandomProductId, []);
+  useEffect(retrieveProductMetaData, [productId]);
 
   if (!productId) return <h2>Loading</h2>
 

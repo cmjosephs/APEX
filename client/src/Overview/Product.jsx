@@ -4,7 +4,7 @@ import { AppContext } from '../App.jsx';
 import Photos from './Photos.jsx';
 import AllDetails from './AllDetails.jsx';
 
-// useContext and useReducer to manage style state
+// manage current style across Overview
 export const StyleContext = React.createContext();
 
 const styleReducer = (state, action) => {
