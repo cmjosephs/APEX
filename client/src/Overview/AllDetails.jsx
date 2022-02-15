@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { StyleContext } from './Product.jsx';
 import Selectors from './Selectors.jsx';
 import Info from './Info.jsx';
 
-var AllDetails = ({ productId, allStyles, currentStyle, reviewMetaData, handleStyleChange }) => {
+var AllDetails = ({ productId, reviewMetaData }) => {
+  const { currentStyle } = useContext(StyleContext);
   const [productDetails, setProductDetails] = useState({});
   // const [selectedSku, setSelectedSku] = useState(); // currently selected style and size
 
@@ -38,12 +40,12 @@ var AllDetails = ({ productId, allStyles, currentStyle, reviewMetaData, handleSt
         <h2 className="product-name">{productDetails.name}</h2>
         <h3 className="product-category">{productDetails.category}</h3>
         <div className="average-rating">Rating: {calcAverageRating(reviewMetaData.ratings)} see all reviews link</div>
-        <h3 className="price">${currentStyle.sale_price ? currentStyle.sale_price : currentStyle.original_price}</h3>
-        <Selectors
-          allStyles={allStyles}
-          currentStyle={currentStyle}
-          handleStyleChange={handleStyleChange}
-        />
+        <h3
+          className="price"
+          style={{textDecoration: currentStyle.sale_price ? "line-through" : ""}}>
+            ${currentStyle.original_price}
+        </h3>
+        <Selectors />
         <button>Add to Bag</button>
         <button>Add to your Outfit</button>
         <Info productDetails={productDetails}/>

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { StyleContext } from './Product.jsx';
 
-var Photos = ({ photos }) => {
-  const [currentPhoto, setCurrentPhoto] = useState(photos[0].thumbnail_url);
+var Photos = () => {
+  const { currentStyle } = useContext(StyleContext);
+  const [currentPhoto, setCurrentPhoto] = useState(currentStyle.photos[0].thumbnail_url);
   const [expandedView, setExpandedView] = useState(false);
 
   const handlePhotoChange = (e) => {
     setCurrentPhoto(e.target.src);
   }
 
-  const renderThumbnails = () => {
+  const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
       return <img src={photo.thumbnail_url} key={index} alt="n/a" className="thumbnail-image"
         onClick={(e) => handlePhotoChange(e)}></img>
@@ -21,7 +23,7 @@ var Photos = ({ photos }) => {
         <img src={currentPhoto} alt="no image"></img>
       </div>
       <div id="thumbnail-images">
-        {renderThumbnails()}
+        {renderThumbnails(currentStyle.photos)}
       </div>
     </div>
   )

@@ -3,8 +3,8 @@ import axios from 'axios';
 import Photos from './Photos.jsx';
 import AllDetails from './AllDetails.jsx';
 
-// useContext and useReducer to manage style
-const StyleContext = React.createContext();
+// useContext and useReducer to manage style state
+export const StyleContext = React.createContext();
 
 const styleReducer = (state, action) => {
   switch (action.type) {
@@ -20,16 +20,11 @@ const styleReducer = (state, action) => {
 }
 
 const Product = ({ productId, reviewMetaData }) => {
-  // const [allStyles, setAllStyles] = useState({}); // this is an array of objects
-  // const [currentStyle, setCurrentStyle] = useState({}); // this is an object
-
   const [state, dispatch] = useReducer(styleReducer, {allStyles: [], currentStyle: {}})
 
   function getStyles(product_id) {
     axios.get(`/api/products/${product_id}/styles`)
     .then(({ data }) => {
-      // setCurrentStyle(data.results[0]);
-      // setAllStyles(data);
       dispatch({
         type: 'newProduct',
         payload: {allStyles: data.results, currentStyle: data.results[0]}
@@ -46,16 +41,19 @@ const Product = ({ productId, reviewMetaData }) => {
     return <h3>Loading...</h3>
   } else {
     return (
+      <StyleContext.Provider
+        value={{ allStyles: state.allStyles, currentStyle: state.currentStyle, dispatch }}
+      >
+
       <div id="product-overview">
-        <Photos photos={state.currentStyle.photos}/>
+        <Photos/>
         <AllDetails
           reviewMetaData={reviewMetaData}
-          // handleStyleChange={handleStyleChange}
           productId={productId}
-          allStyles={state.allStyles}
-          currentStyle={state.currentStyle}
         />
       </div>
+
+      </StyleContext.Provider>
     )
   }
 
