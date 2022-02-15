@@ -7,7 +7,7 @@ var QAList = () => {
   const [product, setProduct] = useState('42369');
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
-  const [count, setCount] = useState(2);
+  let [count, setCount] = useState(2);
 
   useEffect(() => {
     getQuestions();
