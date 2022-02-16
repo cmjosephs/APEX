@@ -46,7 +46,10 @@ const App = () => {
       value={{ productId, setProductId, reviewMetaData }}
     >
       <div>
-        <nav><h1>FEC project</h1>------Navigation bar</nav>
+        <nav>
+          <h1>FEC project</h1>
+          <p>-------------Navigation Bar-------------</p>
+        </nav>
         <br></br>
         <Product
           reviewMetaData={reviewMetaData} />

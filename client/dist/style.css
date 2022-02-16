@@ -1,3 +1,7 @@
+nav {
+  display: flex
+}
+
 .product-overview {
   display: flex
 }
