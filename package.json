@@ -6,7 +6,8 @@
   "scripts": {
     "react-dev": "webpack -w",
     "server-dev": "nodemon server",
-    "test": "jest"
+    "test": "jest",
+    "test-overview": "jest Overview.test.jsx"
   },
   "repository": {
     "type": "git",
