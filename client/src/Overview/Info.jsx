@@ -42,11 +42,12 @@ var Info = ({ productDetails }) => {
     <div className="info">
       {renderDetails()}
       {renderFeatures(productDetails.features)}
-      <h4>Share</h4>
-        <button>facebook</button>
-        <button>instagram</button>
-        <button>twitter</button>
-        <button>pinterest</button>
+      <div className="share-bar"></div>
+        Share
+        <button className="fb-share-btn">facebook</button>
+        <button className="ig-share-btn">instagram</button>
+        <button className="twitter-share-btn">twitter</button>
+        <button className="pinterest-share-btn">pinterest</button>
     </div>
   )
 }

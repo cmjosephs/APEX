@@ -77,11 +77,12 @@ var Selectors = () => {
       <div className="style-selector">
         {renderStyles()}
       </div>
-      <div className="size-selector">
-        Sizes
-        {renderSizes(currentStyle.skus)}
-      </div>
+      <p className="sizes">Sizes</p>
+        <div className="size-selector">
+          {renderSizes(currentStyle.skus)}
+        </div>
       <button>Add to Bag</button>
+      <br></br>
       <button>Favorite</button>
     </div>
   )

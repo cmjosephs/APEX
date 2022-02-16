@@ -1,3 +1,11 @@
 .product-overview {
   display: flex
 }
+
+.size-selector {
+  display: flex
+}
+
+.share-bar {
+  display: flex
+}
