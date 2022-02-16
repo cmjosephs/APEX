@@ -49,7 +49,7 @@ const Product = ({ reviewMetaData }) => {
         value={{ allStyles: state.allStyles, currentStyle: state.currentStyle, dispatch }}
       >
 
-      <div id="product-overview">
+      <div className="product-overview">
         <Photos/>
         <AllDetails
           reviewMetaData={reviewMetaData}

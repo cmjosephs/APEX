@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
+import { Modal } from '@mui/material';
 
 var Photos = () => {
   const { currentStyle } = useContext(StyleContext);
   const [photos, setPhotos] = useState(currentStyle.photos);
   const [currentPhotoIdx, setCurrentPhotoIdx] = useState(0);
-  const [expandedView, setExpandedView] = useState(false);
+
+  const [openModal, setOpenModal] = useState(false);
+  const toggleModal = () => setOpenModal(!openModal);
+
 
   const handlePhotoChange = (i) => {
     setCurrentPhotoIdx(i);
@@ -25,9 +29,24 @@ var Photos = () => {
     })
   }
 
+  const renderModel = () => {
+    // return (
+    //   <div className="expanded-view">
+    //     <Modal
+    //       open={openModal}
+    //       onClose={toggleModal}
+    //       aria-labelledby="expanded-photo"
+    //       aria-describedby="description"
+    //     >
+
+    //     </Modal>
+    //   </div>
+    // )
+  }
+
   return (
     <div className="image-gallery">
-      <div className="display-photo">
+      <div className="display-photo" onClick={toggleModal}>
         <img src={photos[currentPhotoIdx].thumbnail_url} alt="main-image"></img>
       </div>
       <div id="thumbnail-images">

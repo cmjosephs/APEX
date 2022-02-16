@@ -69,23 +69,23 @@ var Selectors = () => {
     return availableSizes;
   }
 
-  if (!Object.keys(currentStyle).length) {
-    return <div>Loading</div>
-  } else {
-    return (
-      <div className="selectors">
-        <div className="style-selector">
-          {renderStyles()}
-        </div>
-        <div className="size-selector">
-          size selector
-          {renderSizes(currentStyle.skus)}
-        </div>
-        <button>Add to Bag</button>
-        <button>Favorite</button>
+  // if (!Object.keys(currentStyle).length) {
+  //   return <div>Loading</div>
+  // } else {
+  return (
+    <div className="selectors">
+      <div className="style-selector">
+        {renderStyles()}
       </div>
-    )
-  }
+      <div className="size-selector">
+        size selector
+        {renderSizes(currentStyle.skus)}
+      </div>
+      <button>Add to Bag</button>
+      <button>Favorite</button>
+    </div>
+  )
+  // }
 }
 
 export default Selectors;
