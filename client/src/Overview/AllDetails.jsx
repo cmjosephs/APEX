@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { StyleContext } from './Product.jsx';
+import { AppContext } from '../App.jsx';
 import Selectors from './Selectors.jsx';
 import Info from './Info.jsx';
 
-var AllDetails = ({ productId, reviewMetaData }) => {
+var AllDetails = () => {
   const { currentStyle } = useContext(StyleContext);
+  const { productId, reviewMetaData } = useContext(AppContext);
   const [productDetails, setProductDetails] = useState({});
 
   function getProductDetails(id) {

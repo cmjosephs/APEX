@@ -51,10 +51,7 @@ const Product = ({ reviewMetaData }) => {
 
       <div className="product-overview">
         <Photos/>
-        <AllDetails
-          reviewMetaData={reviewMetaData}
-          productId={productId}
-        />
+        <AllDetails />
       </div>
 
       </StyleContext.Provider>

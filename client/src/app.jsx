@@ -20,6 +20,7 @@ const App = () => {
   } // edit later
 
   function retrieveProductMetaData() {
+
     setReviewMetaData(testReviewMetaData);
   } // edit later
 
@@ -30,7 +31,7 @@ const App = () => {
 
   return (
     <AppContext.Provider
-      value={{ productId, setProductId }}
+      value={{ productId, setProductId, reviewMetaData, setReviewMetaData }}
     >
       <div>
         <nav><h1>FEC project</h1>------Navigation bar</nav>
