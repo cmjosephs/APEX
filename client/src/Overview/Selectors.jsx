@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
 
 var Selectors = () => {
@@ -6,15 +6,29 @@ var Selectors = () => {
   // const [stock, setStock] = useState(currentStyle.skus);
   const [currentSku, setCurrentSku] = useState(null)
 
-  const calcAvailable = () => {
+  const calcAvailable = (styleSkusObj) => {
+    // returns total stock of style
+    // this will be for whether to fade out the style selector for a style
+  }
 
+  const handleAddToBag = () => {
+    axios.post('/api/cart', {sku_id: parseInt(currentSku)})
+    .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
+    .catch(err => console.error(err))
+  }
+
+  const handleAddFavorite = () => {
+    // talk to kevin about how he wants to store
+    // product_id or style_id???
   }
 
   const handleSelectSize = (sku) => {
-    console.log(sku);
     setCurrentSku(sku);
   }
 
+  useEffect(() => {
+    setCurrentSku(null);
+  }, [currentStyle])
 
   const renderStyles = () => {
     return Object.values(allStyles).map((style, index) => {
@@ -39,41 +53,20 @@ var Selectors = () => {
           <input
             type="radio"
             id={sku}
+            // data={skus[sku].quantity}
             className="visually-hidden"
             name="skuAndSize"
             onClick={(e) => handleSelectSize(e.target.id)}
           ></input>
-          <label htmlFor={sku}>{skus[sku].size}</label>
+          <label
+            htmlFor={sku}
+            style={{ textDecoration: parseInt(currentStyle.skus[sku].quantity) ? "" : "line-through" }}
+          >{skus[sku].size}</label>
         </div>
-        // <label
-        //   className="skusAndSizes"
-        //   htmlFor={sku}
-        //   key={sku}
-        //   data={skus[sku].quantity}
-        //   onClick={(e) => handleSelectSize()}
-        //   style={{ textDecoration: parseInt(skus[sku].quantity) ? "" : "line-through" }}
-        // >{skus[sku].size}</label>
       )
     }
     return availableSizes;
   }
-
-  // const renderSizes = (skus) => {
-  //   let availableSizes = [];
-  //   for (let sku in skus) {
-  //     availableSizes.push(
-  //       <label
-  //         className="skusAndSizes"
-  //         htmlFor={sku}
-  //         key={sku}
-  //         data={skus[sku].quantity}
-  //         onClick={(e) => handleSelectSize()}
-  //         style={{ textDecoration: parseInt(skus[sku].quantity) ? "" : "line-through" }}
-  //       >{skus[sku].size}</label>
-  //     )
-  //   }
-  //   return availableSizes;
-  // }
 
   if (!Object.keys(currentStyle).length) {
     return <div>Loading</div>
