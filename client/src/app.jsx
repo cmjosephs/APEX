@@ -15,12 +15,22 @@ const App = () => {
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
-    // setProductId(parseInt(testReviewMetaData.product_id));
-    setProductId(42366);
+    // axios.get('/api/products')
+    // .then(
+    //   ({ data }) => {
+    //     let ids = data.map(product => product.id);
+    //     setProductId(ids[Math.floor(Math.random()*ids.length)]);
+    //   }
+    // )
+    // .catch((err) => console.error('Network error: ', err));
+
+    setProductId(parseInt(testReviewMetaData.product_id));
   } // edit later
 
   function retrieveProductMetaData() {
-
+    // axios.get(`/api/products/${productId}/reviews/meta`)
+    // .then(({ data }) => setReviewMetaData(data))
+    // .catch((err) => console.error(err))
     setReviewMetaData(testReviewMetaData);
   } // edit later
 
