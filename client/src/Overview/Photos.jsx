@@ -47,7 +47,7 @@ var Photos = () => {
   return (
     <div className="image-gallery">
       <div className="display-photo" onClick={toggleModal}>
-        <img src={photos[currentPhotoIdx].thumbnail_url} alt="main-image"></img>
+        <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}></img>
       </div>
       <div id="thumbnail-images">
         {renderThumbnails(photos)}

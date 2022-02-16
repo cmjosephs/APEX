@@ -35,7 +35,7 @@ var Selectors = () => {
       return (
         <img
           src={style.photos[0].thumbnail_url}
-          alt="n/a"
+          alt={style.name}
           className="style"
           id={style.style_id}
           onClick={(e) => dispatch({ type: 'switchCurrentStyle', payload: {id: parseInt(e.target.id)} })}
@@ -61,7 +61,7 @@ var Selectors = () => {
           ></input>
           <label
             htmlFor={sku}
-            style={{ textDecoration: parseInt(currentStyle.skus[sku].quantity) ? "" : "line-through" }}
+            style={{ color: parseInt(currentStyle.skus[sku].quantity) ? "black" : "gray" }}
           >{skus[sku].size}</label>
         </div>
       )
@@ -78,7 +78,7 @@ var Selectors = () => {
         {renderStyles()}
       </div>
       <div className="size-selector">
-        size selector
+        Sizes
         {renderSizes(currentStyle.skus)}
       </div>
       <button>Add to Bag</button>

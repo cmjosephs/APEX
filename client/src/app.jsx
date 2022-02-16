@@ -24,7 +24,9 @@ const App = () => {
     // )
     // .catch((err) => console.error('Network error: ', err));
 
-    setProductId(parseInt(testReviewMetaData.product_id));
+    // setProductId(parseInt(testReviewMetaData.product_id));
+    setProductId(42366);
+
   } // edit later
 
   function retrieveProductMetaData() {
@@ -41,7 +43,7 @@ const App = () => {
 
   return (
     <AppContext.Provider
-      value={{ productId, setProductId, reviewMetaData, setReviewMetaData }}
+      value={{ productId, setProductId, reviewMetaData }}
     >
       <div>
         <nav><h1>FEC project</h1>------Navigation bar</nav>
