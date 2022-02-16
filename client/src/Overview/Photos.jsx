@@ -3,31 +3,33 @@ import { StyleContext } from './Product.jsx';
 
 var Photos = () => {
   const { currentStyle } = useContext(StyleContext);
-  const [currentPhoto, setCurrentPhoto] = useState(currentStyle.photos[0].thumbnail_url);
+  const [photos, setPhotos] = useState(currentStyle.photos);
+  const [currentPhotoIdx, setCurrentPhotoIdx] = useState(0);
   const [expandedView, setExpandedView] = useState(false);
 
-  const handlePhotoChange = (e) => {
-    setCurrentPhoto(e.target.src);
+  const handlePhotoChange = (i) => {
+    setCurrentPhotoIdx(i);
   }
 
   useEffect(() => {
-    setCurrentPhoto(currentStyle.photos[0].thumbnail_url);
+    setPhotos(currentStyle.photos);
+    setCurrentPhotoIdx(0); // resets photo on style change, can omit if want to stay on index
   }, [currentStyle])
 
   const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} key={index} alt={`photo-${index}`} className="thumbnail-image"
-        onClick={(e) => handlePhotoChange(e)}></img>
+      return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="thumbnail-image"
+        onClick={(e) => handlePhotoChange(e.target.alt)}></img>
     })
   }
 
   return (
     <div className="image-gallery">
       <div className="display-photo">
-        <img src={currentPhoto} alt="main-image"></img>
+        <img src={photos[currentPhotoIdx].thumbnail_url} alt="main-image"></img>
       </div>
       <div id="thumbnail-images">
-        {renderThumbnails(currentStyle.photos)}
+        {renderThumbnails(photos)}
       </div>
     </div>
   )
