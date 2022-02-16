@@ -6,6 +6,7 @@ import ReviewForm from './ReviewForm.jsx';
 // import AvgRatingReview from './AvgRatingReview.jsx';
 
 export const ProductContext = createContext();
+export const SortContext = createContext();
 
 const ReviewList = () => {
   let [reviews, setReviews] = useState([]);
@@ -71,8 +72,7 @@ const ReviewList = () => {
           </select>
         </h2>
       </div>
-
-      <AllReviews reviews={reviews}/>
+      <AllReviews reviews={reviews} getNewReviews={getReviews}/>
       {enoughReviews &&
       <div className="review-buttons">
         <button onClick={getMoreReviews}>MORE REVIEWS</button>

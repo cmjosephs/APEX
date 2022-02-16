@@ -4,7 +4,7 @@ import Modal from '@mui/material/Modal';
 import CheckIcon from '@mui/icons-material/Check';
 import ReviewInteraction from './ReviewInteraction.jsx';
 
-const ReviewListEntry = ({ review }) => {
+const ReviewListEntry = ({ review, getNewReviews }) => {
 
   let [showMore, setShowMore] = useState(false);
   let [open, setOpen] = useState(false);
@@ -24,7 +24,9 @@ const ReviewListEntry = ({ review }) => {
       }).format(parseInt(review.date))}
       </div>
 
-      <div className="review-summary">{review.summary.substring(0, 60)}</div>
+      <div className="review-summary">
+        {review.summary.substring(0, 60)}
+      </div>
 
       <div className="review-body">
         {showMore ? review.body : review.body.substring(0,250)}
@@ -35,15 +37,13 @@ const ReviewListEntry = ({ review }) => {
           </a>
         }
 
-        <div className="review-thumbnail" onClick={handleChange}>
+        <div className="review-thumbnail">
           {review.photos.length > 0 && review.photos.map(photo => {
             return <>
-            <img src={`${photo.url}`} width="60" height="60"/>
+            <img src={`${photo.url}`} style={{ width: 60, height: 60, marginRight: 20}} onClick={handleChange}/>
               <Modal
               open={open}
               onClose={handleChange}
-              // aria-labelledby="modal-modal-title"
-              // aria-describedby="modal-modal-description"
               >
                 <img id="review-thumbnail-modal" src={`${photo.url}`}/>
               </Modal>
@@ -58,7 +58,7 @@ const ReviewListEntry = ({ review }) => {
             <span role="recommended">I recommend this item</span>
             </>}
         </div>
-        <ReviewInteraction review={review}/>
+        <ReviewInteraction review={review} getNewReviews={getNewReviews}/>
 
       </div>
 

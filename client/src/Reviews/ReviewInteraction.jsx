@@ -1,17 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { ProductContext } from './ReviewList.jsx';
 
-const ReviewInteraction = ({ review }) => {
-  let currentProduct = useContext(ProductContext); //   CHECK IF CORRECT
 
+const ReviewInteraction = ({ review, getNewReviews }) => {
+  let currentProduct = useContext(ProductContext); //   CHECK IF CORRECT
+  let [markHelpful, setMarkHelpful] = useState(true);
+  let [markNotHelpful, setMarkNotHelpful] = useState(true);
+  let [notHelpfulCount, setNotHelpfulCount] = useState(0)
+
+  useEffect(() => {
+    getNewReviews()
+  }, [markHelpful])
+
+  // TODO: only let user click yes X/no one time
   let addHelpful = () => {
     axios.put(`api/products/${currentProduct}/reviews/${review.review_id}/helpful`)
+    .then(getNewReviews())
+    .then(setMarkHelpful(false))
+    .catch(err => {
+      'error marking as helpful'
+    })
   }
+
+  let notHelpful = () => {
+    setNotHelpfulCount(markNotHelpful++);
+    setMarkHelpful(false);
+  }
+
+
+
   return (
-    <div className="review-helpful">
+    <div className="review-vote">
       <span>Helpful?</span>
-      <span><a href="#">Yes</a>{review.helpfulness}</span>
+      {markHelpful ?
+      <>
+      <span>{review.helpfulness}</span>
+      <span><a href="#" onClick={addHelpful}> Yes | </a></span>
+      </>
+      :
+      <>
+      <span>{review.helpfulness}</span>
+      <span> Yes</span>
+      </>
+      }
+      {markHelpful ?
+      <>
+      <span>{notHelpfulCount}</span>
+      <span><a href="#" onClick={notHelpful}> No</a></span>
+      </>
+      :
+      <>
+      <span>{notHelpfulCount}</span>
+      <span> No</span>
+      </>
+      }
     </div>
   )
 }
