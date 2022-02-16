@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
-import { Modal } from '@mui/material';
+import { Modal, Box } from '@mui/material';
+// import Box from '@mui/material/Box';
 
 var Photos = () => {
   const { currentStyle } = useContext(StyleContext);
@@ -29,19 +30,23 @@ var Photos = () => {
     })
   }
 
-  const renderModel = () => {
-    // return (
-    //   <div className="expanded-view">
-    //     <Modal
-    //       open={openModal}
-    //       onClose={toggleModal}
-    //       aria-labelledby="expanded-photo"
-    //       aria-describedby="description"
-    //     >
-
-    //     </Modal>
-    //   </div>
-    // )
+  const renderModal = () => {
+    return (
+      <div className="expanded-view">
+        <Modal
+          open={openModal}
+          onClose={toggleModal}
+          aria-labelledby="expanded-photo"
+          aria-describedby="description"
+        >
+          <Box>
+            <button onClick={toggleModal}>Close Modal</button>
+            <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}></img>
+            {renderThumbnails(photos)}
+          </Box>
+        </Modal>
+      </div>
+    )
   }
 
   return (
@@ -49,6 +54,7 @@ var Photos = () => {
       <div className="display-photo" onClick={toggleModal}>
         <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}></img>
       </div>
+      {renderModal()}
       <div id="thumbnail-images">
         {renderThumbnails(photos)}
       </div>
