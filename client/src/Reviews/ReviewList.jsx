@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
+import axios from 'axios';
 import AllReviews from './AllReviews.jsx';
 import ReviewListEntry from './ReviewListEntry.jsx';
-// import AvgRatingReview from './AvgRatingReview.jsx';
 import ReviewForm from './ReviewForm.jsx';
-import axios from 'axios';
+// import AvgRatingReview from './AvgRatingReview.jsx';
 
 export const ProductContext = createContext();
 

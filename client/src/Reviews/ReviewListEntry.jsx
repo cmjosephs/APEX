@@ -55,7 +55,7 @@ const ReviewListEntry = ({ review }) => {
             {review.recommend &&
             <>
             <CheckIcon/>
-            <span>I recommend this item</span>
+            <span role="recommended">I recommend this item</span>
             </>}
         </div>
         <ReviewInteraction review={review}/>
