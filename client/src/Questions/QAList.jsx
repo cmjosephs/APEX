@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Search from './Search.jsx';
 import QAItem from './QAItem.jsx';
+import AllQuestions from './AllQuestions.jsx';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -10,7 +11,6 @@ import QuestionsForm from './QuestionsForm.jsx';
 var QAList = () => {
   let [product, setProduct] = useState('42369');
   let [questions, setQuestions] = useState([]);
-  let [answers, setAnswers] = useState([]);
   let [count, setCount] = useState(2);
 
   useEffect(() => {
@@ -41,9 +41,7 @@ var QAList = () => {
     <div className="question-list">
       <h3>Questions and Answers</h3>
         <Search onSearch={searchQuestions}/>
-        <div>
-          {questions.map(question => {return <QAItem question={question} key={question.question_id}/>})}
-        </div>
+        <AllQuestions questions={questions} getQuestions={getQuestions} product={product}/>
         <div>
           <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button onClick={getMoreQuestions}>More Questions</Button>

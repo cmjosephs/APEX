@@ -2,16 +2,15 @@ import React, {useState, useEffect} from 'react';
 import Answer from './Answer.jsx';
 import axios from 'axios';
 
-var QAItem = ({question}) => {
+var QAItem = ({question, getQuestions, product}) => {
   let [answerObj, setAnswerObj] = useState(question.answers)
   let [answers, setAnswer] = useState([]);
-  let [product, setProduct] = useState('42369');
   let [count, setCount] = useState(2);
   let [showButton, setShowButton] = useState(true);
 
 
   useEffect(() => {
-    transformAnswerObj();
+   transformAnswerObj();
   }, [answerObj, count]);
 
   const transformAnswerObj = () => {
@@ -23,13 +22,12 @@ var QAItem = ({question}) => {
     }
   }
 
-  const getAnswers = () => {
+  const getAnswer = () => {
     axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`)
       .then((res) => {
-        //console.log(res.data.results)
-        setAnswer(res.data.results)
+        setAnswer(res.data.results.splice(0, count))
       })
-      .catch((err) => console.log('Error'))
+      .catch((err) => console.log(err))
   }
 
   const getMoreAnswers = () => {
@@ -41,23 +39,25 @@ var QAItem = ({question}) => {
 
   const questionHelpful = () => {
     axios.put(`/api/products/${product}/qa/questions/${question.question_id}/helpful`, {})
-      .then(() => console.log('clicked'))
+      .then(() => getQuestions())
   }
+
+
 
   return (
     <div className="questions">
       <div>
-        <span>Q:</span>
-        <span>{question.question_body}</span>
+        <span>Q:  </span>
+        <span>{question.question_body}   </span>
         <span>
           Helpful?
           <a onClick={questionHelpful}>Yes</a>
-          {question.question_helpfulness}
+          <span>({question.question_helpfulness}) </span>
         </span>
       </div>
       <div>
         {answers.map((answer) => {
-          return <Answer answer={answer} key={answer.id} />
+          return <Answer answer={answer} key={answer.id} product={product} getAnswer={getAnswer}/>
         })}
       </div>
       <div>
