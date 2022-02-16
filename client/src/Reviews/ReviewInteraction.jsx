@@ -4,10 +4,10 @@ import { ProductContext } from './ReviewList.jsx';
 
 
 const ReviewInteraction = ({ review, getNewReviews }) => {
-  let currentProduct = useContext(ProductContext); //   CHECK IF CORRECT
+  let currentProduct = useContext(ProductContext);
   let [markHelpful, setMarkHelpful] = useState(true);
   let [markNotHelpful, setMarkNotHelpful] = useState(true);
-  let [notHelpfulCount, setNotHelpfulCount] = useState(0)
+  let [notHelpfulCount, setNotHelpfulCount] = useState(0);
 
   useEffect(() => {
     getNewReviews()

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Modal from '@mui/material/Modal';
 import CheckIcon from '@mui/icons-material/Check';
 import ReviewInteraction from './ReviewInteraction.jsx';
-
+import Rating from '@mui/material/Rating';
 const ReviewListEntry = ({ review, getNewReviews }) => {
 
   let [showMore, setShowMore] = useState(false);
@@ -17,11 +17,18 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
   return (
 
     <div className="review-tile">
-      <div className="review-details">{review.reviewer_name} | {new Intl.DateTimeFormat('en-US', {
-        month: 'long',
-        year: 'numeric',
-        day: '2-digit'
-      }).format(parseInt(review.date))}
+
+      <div className="review-details">
+        <span className="review-rating">
+        <Rating name="read-only" value={review.rating} readOnly />
+        </span>
+        <span className="review-creator-date">
+          {review.reviewer_name} | {new Intl.DateTimeFormat('en-US', {
+          month: 'long',
+          year: 'numeric',
+          day: '2-digit'
+        }).format(parseInt(review.date))}
+        </span>
       </div>
 
       <div className="review-summary">
@@ -58,7 +65,15 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
             <span role="recommended">I recommend this item</span>
             </>}
         </div>
+
         <ReviewInteraction review={review} getNewReviews={getNewReviews}/>
+
+        <div className="seller-response">
+          {review.response !== null &&
+          <>
+          <span>{review.response}</span>
+          </>}
+        </div>
 
       </div>
 
