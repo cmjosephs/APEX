@@ -18,8 +18,8 @@ import { testStyles, testProduct, testReviewMetaData } from './overviewTestData.
 
 // Setup
 // Need to make a server
-const stylesEndPoint = '/products/:product_id/styles';
-const productDetailsEndPoint = '/products/:product_id';
+const stylesEndPoint = '/api/products/:product_id/styles';
+const productDetailsEndPoint = '/api/products/:product_id';
 const server = setupServer(
   rest.get(productDetailsEndPoint, (req, res, ctx) => {
     return res(ctx.json(testProduct));
@@ -47,5 +47,5 @@ test('Shows product slogan and description on click of details', async () => {
 
   const detailsText = await waitFor(() => screen.getByRole('product-slogan'));
 
-  expect(detailsText.toHaveTextContent('A sneaker dynasty'));
+  expect(detailsText).toHaveTextContent('A sneaker dynasty');
 });

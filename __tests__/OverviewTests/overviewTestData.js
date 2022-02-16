@@ -463,7 +463,7 @@ const testReviewMetaData = {
   }
 }
 
-export default const exampleData = {
+export {
   testStyles,
   testProduct,
   testReviewMetaData
