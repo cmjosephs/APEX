@@ -7,7 +7,7 @@ var QAItem = ({question}) => {
   let [answers, setAnswer] = useState([]);
   let [product, setProduct] = useState('42369');
   let [count, setCount] = useState(2);
-
+  let [showButton, setShowButton] = useState(true);
 
 
   useEffect(() => {
@@ -16,7 +16,11 @@ var QAItem = ({question}) => {
 
   const transformAnswerObj = () => {
     const answers = Object.values(answerObj).map(answer => answer);
-    setAnswer(answers.splice(0, count));
+    if (answers.length <= 2) {
+      setAnswer(answers)
+    } else {
+      setAnswer(answers.splice(0, count));
+    }
   }
 
   const getAnswers = () => {
@@ -30,16 +34,26 @@ var QAItem = ({question}) => {
 
   const getMoreAnswers = () => {
     setCount(count += 2)
+    if (count >= answers.length) {
+      setShowButton(!showButton)
+    }
   }
 
-
+  const questionHelpful = () => {
+    axios.put(`/api/products/${product}/qa/questions/${question.question_id}/helpful`, {})
+      .then(() => console.log('clicked'))
+  }
 
   return (
     <div className="questions">
       <div>
-        {"Q: "}{question.question_body}
-        {"  Helpful? Yes("}{question.question_helpfulness}{") | "}
-
+        <span>Q:</span>
+        <span>{question.question_body}</span>
+        <span>
+          Helpful?
+          <a onClick={questionHelpful}>Yes</a>
+          {question.question_helpfulness}
+        </span>
       </div>
       <div>
         {answers.map((answer) => {
@@ -47,7 +61,7 @@ var QAItem = ({question}) => {
         })}
       </div>
       <div>
-      <button className="answerbutton" onClick={getMoreAnswers}>More Answers</button>
+      {showButton && <button className="answerbutton" onClick={getMoreAnswers}>More Answers</button>}
       </div>
     </div>
   );
