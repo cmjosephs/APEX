@@ -6,6 +6,8 @@ import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
 
+import { testReviewMetaData } from '../../__tests__/OverviewTests/overviewTestData.js'
+
 export const AppContext = createContext();
 
 const App = () => {
@@ -13,42 +15,11 @@ const App = () => {
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
-    setProductId(42370)
+    setProductId(parseInt(testReviewMetaData.product_id));
   } // edit later
 
   function retrieveProductMetaData() {
-    setReviewMetaData( {
-      "product_id": "42370",
-      "ratings": {
-          "1": "1",
-          "2": "1",
-          "3": "7",
-          "4": "1",
-          "5": "2"
-      },
-      "recommended": {
-          "false": "6",
-          "true": "6"
-      },
-      "characteristics": {
-          "Size": {
-              "id": 142045,
-              "value": "2.6363636363636364"
-          },
-          "Width": {
-              "id": 142046,
-              "value": "2.2727272727272727"
-          },
-          "Comfort": {
-              "id": 142047,
-              "value": "3.7272727272727273"
-          },
-          "Quality": {
-              "id": 142048,
-              "value": "3.2727272727272727"
-          }
-      }
-    } );
+    setReviewMetaData(testReviewMetaData);
   } // edit later
 
   useEffect(getRandomProductId, []);
