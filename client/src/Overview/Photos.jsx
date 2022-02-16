@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
 import { Modal, Box } from '@mui/material';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import Box from '@mui/material/Box';
 
 var Photos = () => {
@@ -16,7 +18,13 @@ var Photos = () => {
     setCurrentPhotoIdx(i);
   }
 
-  const toggleExpandedView = () => {}
+  const photoScrollRight = () => {
+    if (currentPhotoIdx < photos.length - 1) setCurrentPhotoIdx(currentPhotoIdx + 1);
+  }
+  const photoScrollLeft = () => {
+    if (currentPhotoIdx > 0) setCurrentPhotoIdx(currentPhotoIdx - 1);
+  }
+
 
   useEffect(() => {
     setPhotos(currentStyle.photos);
@@ -40,9 +48,13 @@ var Photos = () => {
           aria-describedby="description"
         >
           <Box>
-            <button onClick={toggleModal}>Close Modal</button>
-            <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}></img>
-            {renderThumbnails(photos)}
+            <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name} className="expanded-display-photo"></img>
+            <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
+            <div className="expanded-photos-scroller">
+              <ArrowBackIosNewIcon fontSize="large" onClick={photoScrollLeft} />
+              {renderThumbnails(photos)}
+              <ArrowForwardIosIcon fontSize="large" onClick={photoScrollRight} />
+            </div>
           </Box>
         </Modal>
       </div>
@@ -55,7 +67,7 @@ var Photos = () => {
         <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}></img>
       </div>
       {renderModal()}
-      <div id="thumbnail-images">
+      <div id="default-photos">
         {renderThumbnails(photos)}
       </div>
     </div>
