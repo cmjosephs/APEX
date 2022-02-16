@@ -76,7 +76,7 @@ const ReviewList = () => {
       {enoughReviews &&
       <div className="review-buttons">
         <button onClick={getMoreReviews}>MORE REVIEWS</button>
-        {/* <ReviewForm/> */}
+        <ReviewForm/>
       </div>
       }
       {/* <button onClick={setReviewForm}>ADD A REVIEW</button> */}

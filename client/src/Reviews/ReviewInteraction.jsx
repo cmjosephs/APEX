@@ -13,7 +13,7 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
     getNewReviews()
   }, [markHelpful])
 
-  // TODO: only let user click yes X/no one time
+
   let addHelpful = () => {
     axios.put(`api/products/${currentProduct}/reviews/${review.review_id}/helpful`)
     .then(getNewReviews())
@@ -27,7 +27,6 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
     setNotHelpfulCount(markNotHelpful++);
     setMarkHelpful(false);
   }
-
 
 
   return (
