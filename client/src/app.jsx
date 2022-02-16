@@ -15,7 +15,8 @@ const App = () => {
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
-    setProductId(parseInt(testReviewMetaData.product_id));
+    // setProductId(parseInt(testReviewMetaData.product_id));
+    setProductId(42366);
   } // edit later
 
   function retrieveProductMetaData() {

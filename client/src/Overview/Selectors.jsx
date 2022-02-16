@@ -56,7 +56,8 @@ var Selectors = () => {
             // data={skus[sku].quantity}
             className="visually-hidden"
             name="skuAndSize"
-            onClick={(e) => handleSelectSize(e.target.id)}
+            onClick={
+              parseInt(currentStyle.skus[sku].quantity) ? (e) => handleSelectSize(e.target.id) : () => {}}
           ></input>
           <label
             htmlFor={sku}

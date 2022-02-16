@@ -39,12 +39,13 @@ var AllDetails = ({ productId, reviewMetaData }) => {
       <div className="all-details">
         <h2 className="product-name">{productDetails.name}</h2>
         <h3 className="product-category">{productDetails.category}</h3>
-        <div className="average-rating">Rating: {calcAverageRating(reviewMetaData.ratings)} see all reviews link</div>
+        <div className="average-rating">Rating: {calcAverageRating(reviewMetaData.ratings)} see all reviews link</div> {/* hyperlink to reviews */}
         <h3
           className="price"
           style={{textDecoration: currentStyle.sale_price ? "line-through" : ""}}>
             ${currentStyle.original_price}
         </h3>
+        {currentStyle.sale_price && <h3>${currentStyle.sale_price}</h3>}
         <Selectors />
         <Info productDetails={productDetails}/>
       </div>
