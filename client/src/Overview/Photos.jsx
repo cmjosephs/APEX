@@ -11,6 +11,8 @@ var Photos = () => {
     setCurrentPhotoIdx(i);
   }
 
+  const toggleExpandedView = () => {}
+
   useEffect(() => {
     setPhotos(currentStyle.photos);
     setCurrentPhotoIdx(0); // resets photo on style change, can omit if want to stay on index
@@ -18,7 +20,7 @@ var Photos = () => {
 
   const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="thumbnail-image"
+      return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="image-gallery-thumbnail"
         onClick={(e) => handlePhotoChange(e.target.alt)}></img>
     })
   }
