@@ -20,8 +20,10 @@ var QAList = () => {
   const getQuestions = () => {
     axios.get(`/api/products/${product}/qa/questions`, {params: {product, count: 20}})
       .then((res) => {
-
-        setQuestions(res.data.results.splice(0, count))
+        let sortedQuestions = res.data.results.sort((a, b) => {
+          return b.helpfulness - a.helpfulness
+        })
+        setQuestions(sortedQuestions.splice(0, count))
 
       })
       .catch((err) => console.log(err))

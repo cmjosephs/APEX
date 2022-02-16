@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 
-var Answer = ({answer, product, getAnswer}) => {
+var Answer = ({answer, product, answerHelpful}) => {
+  let [markHelpful, setMarkHelpful] = useState(true);
 
-  const answerHelpful = () => {
-    axios.put(`/api/products/${product}/qa/answers/${answer.id}/helpful`, {})
-      .then(() => getAnswer())
-  }
+  // useEffect(() => {
+  //   answerHelpful()
+  // }, [markHelpful])
+
+
 
   return (
     <div className="answers">
@@ -26,7 +28,7 @@ var Answer = ({answer, product, getAnswer}) => {
         }).format(parseInt(answer.date))}
         <span>
           | Helpful?
-          <a onClick={answerHelpful}>Yes</a>
+          <a onClick={() => answerHelpful(answer)}>Yes</a>
         </span>
         <span>({answer.helpfulness}) </span>
         <span> | Report </span>

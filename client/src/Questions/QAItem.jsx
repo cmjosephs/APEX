@@ -3,29 +3,35 @@ import Answer from './Answer.jsx';
 import axios from 'axios';
 
 var QAItem = ({question, getQuestions, product}) => {
-  let [answerObj, setAnswerObj] = useState(question.answers)
+  //let [answerObj, setAnswerObj] = useState(question.answers)
   let [answers, setAnswer] = useState([]);
   let [count, setCount] = useState(2);
   let [showButton, setShowButton] = useState(true);
+  let [markHelpful, setMarkHelpful] = useState(true);
 
+
+  // useEffect(() => {
+
+  // }, [count]);
 
   useEffect(() => {
-   transformAnswerObj();
-  }, [answerObj, count]);
+      getAnswers()
+    }, [markHelpful, count])
 
-  const transformAnswerObj = () => {
-    const answers = Object.values(answerObj).map(answer => answer);
-    if (answers.length <= 2) {
-      setAnswer(answers)
-    } else {
-      setAnswer(answers.splice(0, count));
-    }
-  }
+  // const transformAnswerObj = (obj) => {
+  //   let answers = Object.values(obj).map(answer => answer);
+  //   let sortedAnswers = answers.sort((a, b) => {
+  //     return b.helpfulness - a.helpfulness
+  //   })
+  //   return sortedAnswers
+  //     // setAnswer(sortedAnswers.splice(0, count));
+  // }
 
-  const getAnswer = () => {
+  const getAnswers = () => {
     axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`)
       .then((res) => {
-        setAnswer(res.data.results.splice(0, count))
+        console.log(res.data.results)
+        setAnswer(res.data.results)
       })
       .catch((err) => console.log(err))
   }
@@ -39,10 +45,14 @@ var QAItem = ({question, getQuestions, product}) => {
 
   const questionHelpful = () => {
     axios.put(`/api/products/${product}/qa/questions/${question.question_id}/helpful`, {})
-      .then(() => getQuestions())
+      .then(() => getAnswers())
   }
 
-
+  const answerHelpful = (answer) => {
+    axios.put(`/api/products/${product}/qa/answers/${answer.answer_id}/helpful`, {})
+      .then(getQuestions())
+      .then(setMarkHelpful(false))
+  }
 
   return (
     <div className="questions">
@@ -57,7 +67,7 @@ var QAItem = ({question, getQuestions, product}) => {
       </div>
       <div>
         {answers.map((answer) => {
-          return <Answer answer={answer} key={answer.id} product={product} getAnswer={getAnswer}/>
+          return <Answer answer={answer} key={answer.answer_id} product={product} answerHelpful={answerHelpful}/>
         })}
       </div>
       <div>
@@ -68,3 +78,4 @@ var QAItem = ({question, getQuestions, product}) => {
 };
 
 export default QAItem;
+
