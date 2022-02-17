@@ -21,23 +21,49 @@ nav {
 
 /* -------------- Photos -------------- */
 
-.display-photo {
-  /* max-width: 100%; */
+/* .display-photo {
+  max-width: 100%;
 }
 
 .image-gallery-thumbnail {
 
-}
+} */
 
 /* -------------- Expanded Photos (Modal) -------------- */
+.img-gallery-modal {
+  border-style: solid;
+  border-color: firebrick;
+}
+.expanded-view-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: firebrick;
+}
 
+.expanded-main-photo-section {
+  display: flex;
+  align-items: flex-start;
+}
 .expanded-display-photo {
   max-width: 75%;
   max-height: 75%;
 }
+.expanded-scroller-arrow {
+  align-self: center;
+}
+/* .expanded-view-exit-btn {
+  align-self: flex-start;
+} */
+
 
 .expanded-photos-scroller {
+  /* align-self: center; */
   display: flex;
+  height: 40px;
+  width: 30px;
 }
 /* -------------- All Details -------------- */
 
@@ -93,6 +119,12 @@ nav {
   border-style: solid;
   border-color: rgb(218, 218, 218);
   border-radius: 4px;
+
+  /* "&:hover": {
+    border-style: solid;
+    border-color: rgb(12, 12, 12);
+    border-radius: 4px;
+  } */
 }
 
 .size-label:hover {

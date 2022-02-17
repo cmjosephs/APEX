@@ -51,22 +51,37 @@ var Photos = () => {
           onClose={toggleModal}
           aria-labelledby="expanded-photo"
           aria-describedby="description"
+          className="img-gallery-modal"
         >
-          <Box>
-            <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo"></img>
-            <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
-            <div className="expanded-photos-scroller">
+          <Box className="expanded-view-window">
+            <div className="expanded-main-photo-section">
               <ArrowBackIosNewIcon
                 fontSize="large"
+                className="expanded-scroller-arrow"
                 color={currentPhotoIdx ? "primary" : "disabled"}
                 onClick={photoScrollLeft}
               />
-              {renderThumbnails(photos)}
+              <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo"></img>
               <ArrowForwardIosIcon
                 fontSize="large"
+                className="expanded-scroller-arrow"
                 color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
                 onClick={photoScrollRight}
               />
+              <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
+            </div>
+            <div className="expanded-photos-scroller">
+              {/* <ArrowBackIosNewIcon
+                fontSize="large"
+                color={currentPhotoIdx ? "primary" : "disabled"}
+                onClick={photoScrollLeft}
+              /> */}
+              {renderThumbnails(photos)}
+              {/* <ArrowForwardIosIcon
+                fontSize="large"
+                color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
+                onClick={photoScrollRight}
+              /> */}
             </div>
           </Box>
         </Modal>
