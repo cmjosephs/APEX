@@ -56,9 +56,17 @@ var Photos = () => {
             <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo"></img>
             <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
             <div className="expanded-photos-scroller">
-              <ArrowBackIosNewIcon fontSize="large" onClick={photoScrollLeft} />
+              <ArrowBackIosNewIcon
+                fontSize="large"
+                color={currentPhotoIdx ? "primary" : "disabled"}
+                onClick={photoScrollLeft}
+              />
               {renderThumbnails(photos)}
-              <ArrowForwardIosIcon fontSize="large" onClick={photoScrollRight} />
+              <ArrowForwardIosIcon
+                fontSize="large"
+                color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
+                onClick={photoScrollRight}
+              />
             </div>
           </Box>
         </Modal>
