@@ -1,23 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { ProductContext } from './ReviewList.jsx';
-// clean up later
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import Rating from '@mui/material/Rating';
-import Radio from '@mui/material/Radio';
-import Typography from '@mui/material/Typography';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Input, InputLabel, MenuItem, Select, Rating, Radio, Typography, RadioGroup, FormControl, FormControlLabel, FormLabel, IconButton, Stack }
+from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 
 const ReviewForm = () => {
@@ -26,22 +11,56 @@ const ReviewForm = () => {
   let [open, setOpen] = useState(false);
   let [recommended, setRecommended] = useState(true);
   let [rating, setRating] = useState(0);
+
   let [size, setSize] = useState(null);
   let [width, setWidth] = useState(null);
   let [comfort, setComfort] = useState(null);
   let [quality, setQuality] = useState(null);
   let [length, setLength] = useState(null);
   let [fit, setFit] = useState(null);
+  let [upload, setUpload] = useState(true);
+  let [uploadedPics, setUploadedPics] = useState([]);
+  // let [picURLs, setPicURLs] = useState([]);
+  // let [file, setFile] = React.useState(null);
 
-  let characteristics = {
-    size,
-    width,
-    comfort,
-    quality,
-    length,
-    fit
+  // let characteristics = {
+  //   size,
+  //   width,
+  //   comfort,
+  //   quality,
+  //   length,
+  //   fit
+  // };
+
+  // const fileHandler = (e) => {
+  //   setFile(e.target.files[0])
+  // }
+
+  // const createPhotoURL = async (photo) => {
+  //   let newURL = URL.createObjectURL(photo);
+  //   await setPicURLs([...picURLs, newURL]);
+  //   return newURL;
+  // }
+  useEffect(() => {
+    maxUpload()
+  }, [uploadedPics]);
+
+
+  const maxUpload = () => {
+    if (uploadedPics.length === 5) {
+      setUpload(false)
+    }
   }
 
+  const handlePhotoUpload = (e) => {
+    setUploadedPics([...uploadedPics, e.target.files[0]])
+    // setUpload(true);
+    // console.log(uploadedPics)
+  }
+
+  const Input = styled('input')({
+    display: 'none',
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -78,6 +97,24 @@ const ReviewForm = () => {
     }
   }
 
+
+
+  // const handleReviewSubmit = () => {
+  //   axios.post(`/products/${currentProduct}/reviews`, {
+  //     product_id: `${currentProduct}`,
+  //     rating: rating,
+  //     summary: '',
+  //     body: '',
+  //     recommend: recommended,
+  //     name: '',
+  //     email: '',
+  //     photos: picURLs,
+  //     characteristics: {
+
+  //     }
+  //   })
+  // }
+
   return (
     <div className="review-form">
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -102,6 +139,9 @@ const ReviewForm = () => {
           </DialogContentText>
 
           <FormControl sx={{ display: 'block', my: 1}}>
+          <Typography sx={{display: 'block', my: 1 }}>
+            Overall rating*
+              </Typography>
               <Rating
                 name="simple-controlled"
                 value={rating}
@@ -137,7 +177,6 @@ const ReviewForm = () => {
           <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
             <RadioGroup
-              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="size"
               onChange={handleCharacteristics}
@@ -153,7 +192,6 @@ const ReviewForm = () => {
           <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Width</FormLabel>
             <RadioGroup
-              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="width"
               onChange={handleCharacteristics}
@@ -169,7 +207,6 @@ const ReviewForm = () => {
           <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Comfort</FormLabel>
             <RadioGroup
-              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="comfort"
               onChange={handleCharacteristics}
@@ -185,7 +222,6 @@ const ReviewForm = () => {
           <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Quality</FormLabel>
             <RadioGroup
-              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="quality"
               onChange={handleCharacteristics}
@@ -201,7 +237,6 @@ const ReviewForm = () => {
           <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Length</FormLabel>
             <RadioGroup
-              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="length"
               onChange={handleCharacteristics}
@@ -217,7 +252,6 @@ const ReviewForm = () => {
           <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
             <RadioGroup
-              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="fit"
               onChange={handleCharacteristics}
@@ -236,34 +270,36 @@ const ReviewForm = () => {
 
           </FormControl>
 
-{/*
-          <TextField
-            autoFocus
-            margin="dense"
-            id="email"
-            label="Email Address"
-            type="email"
-            variant="standard"
-            sx={{ display: 'inline', y: 3}}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="nickname"
-            label="Nickname"
-            type="name"
-            variant="standard"
-            sx={{ display: 'inline', y: 3}}
-          /> */}
           <TextField id="review-body" label="Write your review here" autoFocus
             margin="dense" fullWidth variant="outlined" />
-            {/* </FormControl> */}
-        </DialogContent>
 
+
+            <Stack direction="row" alignItems="center" spacing={2}>
+            <label htmlFor="contained-button-file">
+
+            <Input accept="image/*" id="contained-button-file" multiple type="file" onChange={handlePhotoUpload} />
+
+            {upload && <Button variant="contained" component="span">
+              Upload photos
+            </Button>}
+
+
+            {uploadedPics.map(pic => {
+              return <img id="uploaded-review-thumbnail" src={pic? URL.createObjectURL(pic) : null} alt={pic? pic.name : null} width="200" height="250"/>
+            })}
+
+
+            {/* {upload && uploadedPics.map(pic => {
+              return <img id="uploaded-review-thumbnail" src={pic? () => {createPhotoURL(pic)} : null} alt={pic? pic.name : null}/>
+            })} */}
+          </label>
+          </Stack>
+
+        </DialogContent>
 
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>

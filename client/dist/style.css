@@ -3,3 +3,12 @@
   max-width: 70em;
   overflow-y: scroll;
 }
+
+/* #uploaded-review-thumbnail {
+  width: 250px;
+  height: 200px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+} */
