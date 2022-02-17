@@ -4,10 +4,14 @@ nav {
 
 /* -------------- Product Overview -------------- */
 .product-overview {
-  display: flex
+  display: flex;
 }
 
 /* -------------- Photos -------------- */
+
+.display-photo {
+  /* max-width: 100%; */
+}
 
 .image-gallery-thumbnail {
 
@@ -42,6 +46,14 @@ nav {
   flex-wrap: wrap;
 }
 
+.size-selector > * {
+  /* flex: 1; */
+
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 100px;
+}
+
 .visually-hidden {
   position: absolute;
   height: 1px;
@@ -50,16 +62,29 @@ nav {
 }
 
 .size-label {
+  /* flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 1; */
+
   cursor: pointer;
+  /* flex-grow: 1; */
   display: flex;
-  margin: 8px;
+  justify-content: center;
+  align-content: center;
+  margin: 4px;
   padding: 10px 30px;
   border-style: solid;
   border-color: rgb(218, 218, 218);
   border-radius: 4px;
 }
 
-input[type=radio]:checked+label {
+.size-label:hover {
+  border-style: solid;
+  border-color: rgb(12, 12, 12);
+  border-radius: 4px;
+}
+
+.size-option input[type=radio]:checked+label {
   border-style: solid;
   border-color: rgb(12, 12, 12);
   border-radius: 4px;
@@ -67,14 +92,26 @@ input[type=radio]:checked+label {
 
 .add-bag-btn {
   display: flex;
+  justify-content: center;
+  align-content: center;
 }
+
+/* .add-bag-btn > * {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+} */
 
 .favorite-btn {
   display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .share-bar {
-  display: flex
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 /* -------------- Info -------------- */
