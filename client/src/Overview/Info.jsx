@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-// import FacebookIcon from '@mui/icons-material/Facebook';
-// import InstagramIcon from '@mui/icons-material/Instagram';
-// import TwitterIcon from '@mui/icons-material/Twitter';
-// import PinterestIcon from '@mui/icons-material/Pinterest';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import { pink } from '@mui/material/colors';
 
 var Info = ({ productDetails }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -56,14 +57,14 @@ var Info = ({ productDetails }) => {
       {renderFeatures(productDetails.features)}
       <div className="share-bar">
         <h3>Share</h3>
-        {/* <FacebookIcon />
-        <InstagramIcon />
-        <TwitterIcon />
-        <PinterestIcon /> */}
-        <button className="fb-share-btn">facebook</button>
+        <FacebookIcon color="primary" />
+        <InstagramIcon color="secondary" />
+        <TwitterIcon color="primary" />
+        <PinterestIcon sx={{ color: "#b71c1c" }} />
+        {/* <button className="fb-share-btn">facebook</button>
         <button className="ig-share-btn">instagram</button>
         <button className="twitter-share-btn">twitter</button>
-        <button className="pinterest-share-btn">pinterest</button>
+        <button className="pinterest-share-btn">pinterest</button> */}
       </div>
     </div>
   )
