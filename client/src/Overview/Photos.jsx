@@ -39,7 +39,7 @@ var Photos = () => {
   const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
       return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="image-gallery-thumbnail"
-        onClick={(e) => handlePhotoChange(e.target.alt)}></img>
+        onClick={(e) => handlePhotoChange(parseInt(e.target.alt))}></img>
     })
   }
 
