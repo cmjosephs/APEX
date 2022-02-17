@@ -6,7 +6,7 @@ import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
 
-import { testReviewMetaData } from '../../__tests__/OverviewTests/overviewTestData.js'
+import { testProduct, testStyles, testReviewMetaData } from '../../__tests__/OverviewTests/overviewTestData.js'
 
 export const AppContext = createContext();
 
@@ -27,14 +27,13 @@ const App = () => {
 
     setProductId(parseInt(testReviewMetaData.product_id));
     // setProductId(42370);
-
   } // edit later
 
   function getProductDetails() {
     axios.get(`/api/products/${productId}`)
-    // axios.get(`/api/products/${id}`)
     .then(({ data }) => setProductDetails(data))
     .catch(err => console.error(err));
+    // setProductDetails(testProduct)
   }
 
   function getProductMetaData() {
