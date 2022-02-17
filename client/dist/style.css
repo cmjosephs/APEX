@@ -31,10 +31,14 @@ nav {
 
 /* -------------- Expanded Photos (Modal) -------------- */
 .img-gallery-modal {
+  display: flex;
+  align-items: stretch;
+
   border-style: solid;
   border-color: firebrick;
 }
 .expanded-view-window {
+/* .img-gallery-modal { */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,22 +52,30 @@ nav {
   align-items: flex-start;
 }
 .expanded-display-photo {
-  max-width: 75%;
-  max-height: 75%;
+  max-width: 90%;
+  max-height: 90%;
 }
 .expanded-scroller-arrow {
   align-self: center;
+  padding: 4px;
+  background-color: rgb(199, 199, 199);
+  border-radius: 6px;
 }
-/* .expanded-view-exit-btn {
-  align-self: flex-start;
-} */
+.expanded-view-exit-btn {
+  position: relative;
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  outline: none;
+  right: 68px;
+}
 
 
 .expanded-photos-scroller {
   /* align-self: center; */
-  display: flex;
-  height: 40px;
-  width: 30px;
+  display: inline-flex;
+  height: 10%;
+  width: 90%;
 }
 /* -------------- All Details -------------- */
 

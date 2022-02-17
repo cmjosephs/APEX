@@ -53,7 +53,8 @@ var Photos = () => {
           aria-describedby="description"
           className="img-gallery-modal"
         >
-          <Box className="expanded-view-window">
+          {/* <Box className="expanded-view-window"> */}
+          <div>
             <div className="expanded-main-photo-section">
               <ArrowBackIosNewIcon
                 fontSize="large"
@@ -71,19 +72,11 @@ var Photos = () => {
               <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
             </div>
             <div className="expanded-photos-scroller">
-              {/* <ArrowBackIosNewIcon
-                fontSize="large"
-                color={currentPhotoIdx ? "primary" : "disabled"}
-                onClick={photoScrollLeft}
-              /> */}
               {renderThumbnails(photos)}
-              {/* <ArrowForwardIosIcon
-                fontSize="large"
-                color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
-                onClick={photoScrollRight}
-              /> */}
             </div>
-          </Box>
+
+          </div>
+          {/* </Box> */}
         </Modal>
       </div>
     )
