@@ -33,7 +33,7 @@ var Info = ({ productDetails }) => {
       return (
         <div className="product-details">
           <h3 onClick={() => setShowDetails(!showDetails)}>Details -</h3>
-            <p role="product-slogan">{productDetails.slogan}</p>
+            <p className="product-slogan" role="product-slogan">{productDetails.slogan}</p>
             <p role="product-description">{productDetails.description}</p>
         </div>
       )
