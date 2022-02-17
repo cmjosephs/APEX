@@ -19,6 +19,18 @@ nav {
   display: flex
 }
 
+.visually-hidden {
+  height: 1px;
+  width: 1px;
+  visibility: hidden;
+}
+
+input[type=radio]:checked+label {
+  border-style: solid;
+  border-color: rgb(12, 12, 12);
+  border-radius: 4px;
+}
+
 .add-bag-btn {
   display: flex;
 }
