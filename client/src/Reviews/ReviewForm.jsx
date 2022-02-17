@@ -110,21 +110,21 @@ const ReviewForm = () => {
     }
   }
 
-  // const handleReviewSubmit = () => {
-  //   axios.post(`/products/${currentProduct}/reviews`, {
-  //     product_id: `${currentProduct}`,
-  //     rating,
-  //     summary: '',
-  //     body: reviewBody,
-  //     recommend: recommended,
-  //     name: userName,
-  //     email: userEmail,
-  //     photos: picURLs,
-  //     characteristics: {
+  const handleReviewSubmit = () => {
+    axios.post(`/products/${currentProduct}/reviews`, {
+      product_id: `${currentProduct}`,
+      rating,
+      summary: '',
+      body: reviewBody,
+      recommend: recommended,
+      name: userName,
+      email: userEmail,
+      photos: picURLs,
+      characteristics: {
 
-  //     }
-  //   })
-  // }
+      }
+    })
+  }
 
   return (
     <div className="review-form">
@@ -315,7 +315,7 @@ const ReviewForm = () => {
             multiline
             id="review-body"
             name="body"
-            label="Write your review here*"
+            label="Write your review here"
             autoFocus
             margin="dense"
             fullWidth
@@ -335,8 +335,8 @@ const ReviewForm = () => {
             </Button>}
 
 
-            {uploadedPics.map(pic => {
-              return <img id="uploaded-review-thumbnail" src={pic? URL.createObjectURL(pic) : null} alt={pic? pic.name : null} width="200" height="250"/>
+            {uploadedPics.map((pic, idx) => {
+              return <img id="uploaded-review-thumbnail" src={pic? URL.createObjectURL(pic) : null} alt={pic? pic.name : null} width="200" height="250" key={`review-uploads-${idx}`}/>
             })}
 
 

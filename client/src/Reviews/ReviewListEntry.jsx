@@ -8,11 +8,35 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
 
   let [showMore, setShowMore] = useState(false);
   let [open, setOpen] = useState(false);
+  let [currentPic, setCurrentPic] = useState('');
 
-  let handleChange = () => {
-    setOpen(!open)
+  // let handleChange = (e) => {
+  //   setOpen(!open);
+  //   // setCurrentPic()
+  //   console.log(e.target.src)
+  // }
+
+  let handleChange = (selectedPic) => {
+    setOpen(!open);
+    setCurrentPic(selectedPic)
   }
 
+  let openThumbnailModal = () => {
+    return <Modal
+      open={open}
+      onClose={handleChange}
+    >
+      {/* <img id="review-thumbnail-modal" src={`${photo.url}`}/> */}
+      <img id="review-thumbnail-modal" src={currentPic}/>
+    </Modal>
+
+  }
+
+  const showReviewThumbnails = (photos) => {
+    return photos.map((photo, idx) => {
+      return <img key={`review-thumbnail-${idx}`} src={`${photo.url}`} style={{ width: 60, height: 60, marginRight: 20}} onClick={(e) => handleChange(e.target.src)}/>
+    })
+  }
 
   return (
 
@@ -43,20 +67,12 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
             {setShowMore(!showMore)}}>{showMore ? '...Show less' : '...Show more'}
           </a>
         }
+      <div className="review-thumbnails">
+        {showReviewThumbnails(review.photos)}
+        {openThumbnailModal()}
 
-        <div className="review-thumbnail">
-          {review.photos.length > 0 && review.photos.map(photo => {
-            return <>
-            <img src={`${photo.url}`} style={{ width: 60, height: 60, marginRight: 20}} onClick={handleChange}/>
-              <Modal
-              open={open}
-              onClose={handleChange}
-              >
-                <img id="review-thumbnail-modal" src={`${photo.url}`}/>
-              </Modal>
-            </>
-          })}
-        </div>
+      </div>
+
 
         <div className="review-recommended">
             {review.recommend &&
