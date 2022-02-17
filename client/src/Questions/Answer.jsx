@@ -3,27 +3,39 @@ import axios from 'axios';
 
 
 var Answer = ({answer, product, answerHelpful}) => {
-  return (
-    <div className="answers">
-      <div>
-        <span>A:</span>
-        <span>{answer.body}</span>
-      </div>
-      <div>
-        <span>by user  </span>
+
+  const answererName = (answer) => {
+    if ((answer.answerer_name) === 'Seller') {
+      return (<span><b>{answer.answerer_name}</b>,  </span>)
+    } else {
+      return (
         <span>{answer.answerer_name},  </span>
+      )
+    }
+  }
+  return (
+    <div className="answer-container">
+      <div>
+
+        <span className="answer-body">{answer.body}</span>
+      </div>
+      <div className="answer-info">
+        <span>by User</span>
+        {answererName(answer)}
         {new Intl.DateTimeFormat('en-US',
         {
           month: 'long',
           year: 'numeric',
           day: '2-digit'
         }).format(parseInt(answer.date))}
-        <span>
-          | Helpful?
-          <a onClick={() => answerHelpful(answer)}>Yes</a>
+        <span className="seperator">|</span>
+        <span className="answer-helpful">
+          Helpful?
+          <a className="answer-yes" onClick={() => answerHelpful(answer)}>Yes</a>
         </span>
-        <span>({answer.helpfulness}) </span>
-        <span> | Report </span>
+        <span className="answer-helpful">({answer.helpfulness}) </span>
+        <span className="seperator">|</span>
+        <span className="answer-report">Report</span>
       </div>
     </div>
   );

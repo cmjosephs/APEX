@@ -3,7 +3,7 @@ import QAItem from './QAItem.jsx';
 
 const AllQuestions = ({questions, getQuestions, product, productName}) => {
   return (
-    <div>
+    <div className="questions-list">
     {questions.map(question => {
       return <QAItem
         question={question}

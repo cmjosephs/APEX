@@ -24,7 +24,8 @@ module.exports = {
   },
 
   getAnswers: (req, res) => {
-    axios.get(`${baseUrl}/qa/questions/${req.params.question_id}/answers`, options)
+    let {page, count} = req.query;
+    axios.get(`${baseUrl}/qa/questions/${req.params.question_id}/answers`, {params: {page, count}, headers: { Authorization: API_KEY}})
 
     .then((response) => res.status(200).send(response.data))
     .catch((err) => res.status(404).send(err))

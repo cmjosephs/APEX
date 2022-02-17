@@ -55,7 +55,7 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
 
   return (
     <div className="answer-form">
-      <span onClick={handleOpen}>
+      <span className="AddAnswer" onClick={handleOpen}>
         Add Answer
       </span>
       <Dialog open={open} onClose={handleClose}>
@@ -103,8 +103,8 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button variant="contained" onClick={handleClose}>Cancel</Button>
+          <Button variant="contained" onClick={handleSubmit}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>

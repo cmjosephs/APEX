@@ -51,7 +51,7 @@ const QuestionForm = ({product, productName}) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>
+      <Button variant="contained" onClick={handleOpen}>
         Add Question +
       </Button>
       <Dialog open={open} onClose={handleClose}>

@@ -39,20 +39,31 @@ var QAList = () => {
     console.log('Clicked');
   }
 
-
-  return (
-    <div className="question-list">
-      <h3>Questions and Answers</h3>
-        <Search onSearch={searchQuestions}/>
+  const renderQuestions = () => {
+    if (questions.length === 0) {
+      return (<QuestionForm product={product} productName={productName}/>)
+    } else {
+       return (
+       <div className="question-answer-list">
         <AllQuestions questions={questions} getQuestions={getQuestions} product={product} productName={productName}/>
-        <div>
+
           <ButtonGroup variant="contained"  aria-label="outlined medium primary button group">
             <Button onClick={getMoreQuestions}>More Questions</Button>
             <QuestionForm product={product} productName={productName}/>
           </ButtonGroup>
 
-
         </div>
+       )
+    }
+  }
+
+  return (
+    <div className="question-container">
+      <div className="question-header">
+        <h3>Questions and Answers</h3>
+        <Search onSearch={searchQuestions}/>
+      </div>
+        {renderQuestions()}
     </div>
   )
 }

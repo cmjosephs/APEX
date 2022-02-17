@@ -15,7 +15,7 @@ var QAItem = ({question, getQuestions, product, productName}) => {
     }, [markHelpful, count])
 
   const getAnswers = () => {
-    axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`)
+    axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`, {params: {count: 20}})
       .then((res) => {
         let sortedAnswers = res.data.results.sort((a, b) => {
           return b.helpfulness - a.helpfulness
@@ -49,20 +49,21 @@ var QAItem = ({question, getQuestions, product, productName}) => {
   }
 
   return (
-    <div className="questions">
+    <div className="indiv-question">
       <div className="question-heading">
         <p><b>Q:</b></p>
         <p><b>{question.question_body}</b></p>
-        <span className="helpful">
+        <span className="question-helpful">
           Helpful?
-          <a onClick={questionHelpful}>Yes</a>
+          <a className="question-yes" onClick={questionHelpful}>Yes</a>
           <span>({question.question_helpfulness})</span>
-          <span>|</span>
+          <span className="seperator">|</span>
 
           <AnswerForm product={product} productName={productName} question={question} getAnswers={getAnswers}/>
         </span>
       </div>
       <div>
+      <span className="answer-title">A:</span>
         {answers.map((answer) => {
           return <Answer answer={answer} key={answer.answer_id} product={product} answerHelpful={answerHelpful}/>
         })}
