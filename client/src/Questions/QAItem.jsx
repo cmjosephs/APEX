@@ -8,11 +8,7 @@ var QAItem = ({question, getQuestions, product}) => {
   let [count, setCount] = useState(2);
   let [showButton, setShowButton] = useState(true);
   let [markHelpful, setMarkHelpful] = useState(true);
-
-
-  // useEffect(() => {
-
-  // }, [count]);
+  let [markQHelpful, setMarkQHelpful] = useState(true);
 
   useEffect(() => {
       getAnswers()
@@ -30,28 +26,35 @@ var QAItem = ({question, getQuestions, product}) => {
   const getAnswers = () => {
     axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`)
       .then((res) => {
-        console.log(res.data.results)
-        setAnswer(res.data.results)
+        let sortedAnswers = res.data.results.sort((a, b) => {
+          return b.helpfulness - a.helpfulness
+        })
+        if (count >= sortedAnswers.length) {
+          setShowButton(!showButton)
+        }
+        setAnswer(sortedAnswers.splice(0, count))
       })
       .catch((err) => console.log(err))
   }
 
   const getMoreAnswers = () => {
     setCount(count += 2)
-    if (count >= answers.length) {
-      setShowButton(!showButton)
-    }
   }
 
   const questionHelpful = () => {
-    axios.put(`/api/products/${product}/qa/questions/${question.question_id}/helpful`, {})
-      .then(() => getAnswers())
+    if(markQHelpful) {
+      axios.put(`/api/products/${product}/qa/questions/${question.question_id}/helpful`, {})
+        .then(() => getQuestions())
+        .then(setMarkQHelpful(false))
+    }
   }
 
   const answerHelpful = (answer) => {
-    axios.put(`/api/products/${product}/qa/answers/${answer.answer_id}/helpful`, {})
-      .then(getQuestions())
-      .then(setMarkHelpful(false))
+    if(markHelpful){
+      axios.put(`/api/products/${product}/qa/answers/${answer.answer_id}/helpful`, {})
+        .then(getAnswers())
+        .then(setMarkHelpful(false))
+    }
   }
 
   return (

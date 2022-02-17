@@ -5,11 +5,12 @@ import AllQuestions from './AllQuestions.jsx';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import QuestionsForm from './QuestionsForm.jsx';
+import QuestionForm from './QuestionForm.jsx';
 
 
 var QAList = () => {
   let [product, setProduct] = useState('42369');
+  let [productName, setProductName] = useState('Slacker\'s Slacks')
   let [questions, setQuestions] = useState([]);
   let [count, setCount] = useState(2);
 
@@ -47,7 +48,7 @@ var QAList = () => {
         <div>
           <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button onClick={getMoreQuestions}>More Questions</Button>
-            <QuestionsForm/>
+            <QuestionForm product={product} productName={productName}/>
           </ButtonGroup>
 
 

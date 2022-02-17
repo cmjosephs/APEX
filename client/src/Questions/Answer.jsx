@@ -3,14 +3,6 @@ import axios from 'axios';
 
 
 var Answer = ({answer, product, answerHelpful}) => {
-  let [markHelpful, setMarkHelpful] = useState(true);
-
-  // useEffect(() => {
-  //   answerHelpful()
-  // }, [markHelpful])
-
-
-
   return (
     <div className="answers">
       <div>
