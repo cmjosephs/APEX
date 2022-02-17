@@ -19,7 +19,7 @@ const styleReducer = (state, action) => {
   }
 }
 
-const Product = ({ reviewMetaData }) => {
+const Product = () => {
   const [state, dispatch] = useReducer(styleReducer, {allStyles: {}, currentStyle: {}});
   const { productId } = useContext(AppContext);
 

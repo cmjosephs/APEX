@@ -25,27 +25,29 @@ const App = () => {
     )
     .catch((err) => console.error('Network error: ', err));
 
-    setProductId(parseInt(testReviewMetaData.product_id));
+    // setProductId(parseInt(testReviewMetaData.product_id));
     // setProductId(42370);
-  } // edit later
+  }
 
   function getProductDetails() {
     axios.get(`/api/products/${productId}`)
     .then(({ data }) => setProductDetails(data))
     .catch(err => console.error(err));
+
     // setProductDetails(testProduct)
   }
 
   function getProductMetaData() {
     axios.get(`/api/products/${productId}/reviews/meta`)
     .then(({ data }) => setReviewMetaData(data))
-    .catch((err) => console.error(err))
-    // setReviewMetaData(testReviewMetaData);
-  } // edit later
+    .catch((err) => console.error(err));
 
-  useLayoutEffect(getRandomProductId, []);
+    // setReviewMetaData(testReviewMetaData);
+  }
+
+  useEffect(getRandomProductId, []);
   useEffect(() => {
-    getProductDetails(productId);
+    getProductDetails();
     getProductMetaData();
   }, [productId]);
 
@@ -54,7 +56,6 @@ const App = () => {
   return (
     <AppContext.Provider
       value={{ productId, setProductId, reviewMetaData, productDetails }}
-      //may need product details and name in global contex
     >
       <div>
         <nav>
@@ -62,8 +63,7 @@ const App = () => {
           <p>-------------Navigation Bar-------------</p>
         </nav>
         <br></br>
-        <Product
-          reviewMetaData={reviewMetaData} />
+        <Product />
         <br></br>
         <RelatedList />
         <QAList />
