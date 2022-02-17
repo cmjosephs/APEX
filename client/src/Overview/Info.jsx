@@ -57,10 +57,12 @@ var Info = ({ productDetails }) => {
       {renderFeatures(productDetails.features)}
       <div className="share-bar">
         <h3>Share</h3>
-        <FacebookIcon color="primary" />
-        <InstagramIcon color="secondary" />
-        <TwitterIcon color="primary" />
-        <PinterestIcon sx={{ color: "#b71c1c" }} />
+        <div className="share-icons">
+          <FacebookIcon className="share-icon" color="primary" />
+          <InstagramIcon className="share-icon" color="secondary" />
+          <TwitterIcon className="share-icon" color="primary" />
+          <PinterestIcon className="share-icon" sx={{ color: "#b71c1c" }} />
+        </div>
         {/* <button className="fb-share-btn">facebook</button>
         <button className="ig-share-btn">instagram</button>
         <button className="twitter-share-btn">twitter</button>

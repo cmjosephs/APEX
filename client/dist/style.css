@@ -117,8 +117,15 @@ nav {
 
 .share-bar {
   display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
+  /* justify-content: center;
+  align-content: center; */
+}
+
+.share-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /* .share-bar > * {
