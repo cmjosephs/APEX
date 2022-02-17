@@ -11,6 +11,10 @@ const ReviewForm = () => {
   let [open, setOpen] = useState(false);
   let [recommended, setRecommended] = useState(true);
   let [rating, setRating] = useState(0);
+  let [userName, setUserName] = useState(null);
+  let [userEmail, setUserEmail] = useState(null);
+  let [reviewSummary, setReviewSummary] = useState(null);
+  let [reviewBody, setReviewBody] = useState(null);
 
   let [size, setSize] = useState(null);
   let [width, setWidth] = useState(null);
@@ -20,8 +24,7 @@ const ReviewForm = () => {
   let [fit, setFit] = useState(null);
   let [upload, setUpload] = useState(true);
   let [uploadedPics, setUploadedPics] = useState([]);
-  // let [picURLs, setPicURLs] = useState([]);
-  // let [file, setFile] = React.useState(null);
+  let [picURLs, setPicURLs] = useState([]);
 
   // let characteristics = {
   //   size,
@@ -32,19 +35,15 @@ const ReviewForm = () => {
   //   fit
   // };
 
-  // const fileHandler = (e) => {
-  //   setFile(e.target.files[0])
-  // }
 
-  // const createPhotoURL = async (photo) => {
-  //   let newURL = URL.createObjectURL(photo);
-  //   await setPicURLs([...picURLs, newURL]);
-  //   return newURL;
-  // }
   useEffect(() => {
-    maxUpload()
+    maxUpload();
   }, [uploadedPics]);
 
+
+  const Input = styled('input')({
+    display: 'none',
+  });
 
   const maxUpload = () => {
     if (uploadedPics.length === 5) {
@@ -54,13 +53,10 @@ const ReviewForm = () => {
 
   const handlePhotoUpload = (e) => {
     setUploadedPics([...uploadedPics, e.target.files[0]])
-    // setUpload(true);
-    // console.log(uploadedPics)
+    let newURL = URL.createObjectURL(e.target.files[0]);
+    setPicURLs([...picURLs, newURL]);
   }
 
-  const Input = styled('input')({
-    display: 'none',
-  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -97,17 +93,32 @@ const ReviewForm = () => {
     }
   }
 
-
+  const handleUserInput = (event) => {
+    switch (event.target.name) {
+      case "name":
+        setUserName(event.target.value);
+        break;
+      case "email":
+        setUserEmail(event.target.value);
+        break;
+      case "body":
+        setReviewBody(event.target.value);
+        break;
+      case "summary":
+        setReviewSummary(event.target.value);
+        break;
+    }
+  }
 
   // const handleReviewSubmit = () => {
   //   axios.post(`/products/${currentProduct}/reviews`, {
   //     product_id: `${currentProduct}`,
-  //     rating: rating,
+  //     rating,
   //     summary: '',
-  //     body: '',
+  //     body: reviewBody,
   //     recommend: recommended,
-  //     name: '',
-  //     email: '',
+  //     name: userName,
+  //     email: userEmail,
   //     photos: picURLs,
   //     characteristics: {
 
@@ -264,14 +275,54 @@ const ReviewForm = () => {
             </RadioGroup>
           </FormControl>
 
-          <FormControl sx={{display: 'block', my: 1}}>
-          <TextField id="nickname" label="Nickname" variant="outlined" sx={{display: 'inline-flex', pr: 1}}/>
-          <TextField id="email" label="Email" variant="outlined" sx={{display: 'inline-flex'}}/>
+          <FormControl sx={{display: 'block', my: 1}} onChange={handleUserInput}>
+          <TextField
+            required
+            id="nickname"
+            name="name"
+            label="Nickname"
+            variant="outlined"
+            sx={{display: 'inline-flex',
+              pr: 1}}
+            inputProps={{ maxLength: 60 }}
+          />
+          <TextField
+            required
+            id="email"
+            name="email"
+            label="Email"
+            variant="outlined"
+            sx={{display: 'inline-flex'}}
+            inputProps={{ maxLength: 60 }}
+          />
 
           </FormControl>
 
-          <TextField id="review-body" label="Write your review here" autoFocus
-            margin="dense" fullWidth variant="outlined" />
+          <TextField
+            id="review-summary"
+            name="summary"
+            label="Review summary here"
+            autoFocus
+            margin="dense"
+            fullWidth
+            variant="outlined"
+            onChange={handleUserInput}
+            inputProps={{ maxLength: 60 }}
+          />
+
+          <TextField
+            required
+            multiline
+            id="review-body"
+            name="body"
+            label="Write your review here*"
+            autoFocus
+            margin="dense"
+            fullWidth
+            variant="outlined"
+            onChange={handleUserInput}
+            inputProps={{ minLength: 50, maxLength: 1000 }}
+          />
 
 
             <Stack direction="row" alignItems="center" spacing={2}>
