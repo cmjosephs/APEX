@@ -66,12 +66,22 @@ var Photos = () => {
     )
   }
 
+  if (!Object.keys(currentStyle).length || !photos.length) return <p>Loading...</p>
+
   return (
     <div className="image-gallery">
       <div className="display-photo">
-        <ArrowBackIosNewIcon fontSize="large" onClick={photoScrollLeft} />
+        <ArrowBackIosNewIcon
+          fontSize="large"
+          color={currentPhotoIdx ? "primary" : "disabled"}
+          onClick={photoScrollLeft}
+        />
         <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}  onClick={toggleModal}></img>
-        <ArrowForwardIosIcon fontSize="large" onClick={photoScrollRight} />
+        <ArrowForwardIosIcon
+        fontSize="large"
+        color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
+        onClick={photoScrollRight}
+      />
       </div>
       {renderModal()}
       <div id="default-photos">
