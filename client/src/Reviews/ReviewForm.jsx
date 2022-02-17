@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { ProductContext } from './ReviewList.jsx';
+// clean up later
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -12,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Rating from '@mui/material/Rating';
 import Radio from '@mui/material/Radio';
+import Typography from '@mui/material/Typography';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -86,7 +88,7 @@ const ReviewForm = () => {
         open={open}
         onClose={handleClose}
         fullWidth
-        maxWidth='md'
+        maxWidth='xl'
         sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
@@ -99,7 +101,7 @@ const ReviewForm = () => {
             Please share your experience.
           </DialogContentText>
 
-          <FormControl sx={{ display: 'block'}}>
+          <FormControl sx={{ display: 'block', my: 1}}>
               <Rating
                 name="simple-controlled"
                 value={rating}
@@ -107,10 +109,17 @@ const ReviewForm = () => {
                   setRating(newRating);
                 }}
               />
+              <Typography sx={{display: 'inline', ml: 1 }}>
+                {rating === 1 && 'Poor'}
+                {rating === 2 && 'Fair'}
+                {rating === 3 && 'Average'}
+                {rating === 4 && 'Good'}
+                {rating === 5 && 'Great'}
+              </Typography>
 
           </FormControl>
 
-          <FormControl sx={{ display: 'block' }}>
+          <FormControl sx={{ display: 'block', my: 1}}>
             <InputLabel id="demo-simple-select-label">Do you recommend this product?</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -118,17 +127,17 @@ const ReviewForm = () => {
               value={recommended}
               label="Do you recommend this product?"
               onChange={handleChange}
-              sx={{ display: 'block', width: 1/4}}
+              sx={{ display: 'block'}}
             >
               <MenuItem value={true}>Yes</MenuItem>
               <MenuItem value={false}>No</MenuItem>
             </Select>
           </FormControl>
 
-          <FormControl sx={{ display: 'block' }}>
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
             <RadioGroup
-              row
+              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="size"
               onChange={handleCharacteristics}
@@ -141,10 +150,10 @@ const ReviewForm = () => {
             </RadioGroup>
           </FormControl>
 
-          <FormControl sx={{ display: 'block' }}>
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Width</FormLabel>
             <RadioGroup
-              row
+              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="width"
               onChange={handleCharacteristics}
@@ -157,10 +166,10 @@ const ReviewForm = () => {
             </RadioGroup>
           </FormControl>
 
-          <FormControl sx={{ display: 'block' }}>
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Comfort</FormLabel>
             <RadioGroup
-              row
+              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="comfort"
               onChange={handleCharacteristics}
@@ -173,10 +182,10 @@ const ReviewForm = () => {
             </RadioGroup>
           </FormControl>
 
-          <FormControl sx={{ display: 'block' }}>
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Quality</FormLabel>
             <RadioGroup
-              row
+              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="quality"
               onChange={handleCharacteristics}
@@ -189,10 +198,10 @@ const ReviewForm = () => {
             </RadioGroup>
           </FormControl>
 
-          <FormControl sx={{ display: 'block' }}>
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Length</FormLabel>
             <RadioGroup
-              row
+              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="length"
               onChange={handleCharacteristics}
@@ -205,10 +214,10 @@ const ReviewForm = () => {
             </RadioGroup>
           </FormControl>
 
-          <FormControl sx={{ display: 'block' }}>
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
             <RadioGroup
-              row
+              // row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="fit"
               onChange={handleCharacteristics}
@@ -221,8 +230,8 @@ const ReviewForm = () => {
             </RadioGroup>
           </FormControl>
 
-          <FormControl sx={{display: 'block'}}>
-          <TextField id="nickname" label="Nickname" variant="outlined" sx={{display: 'inline-flex'}}/>
+          <FormControl sx={{display: 'block', my: 1}}>
+          <TextField id="nickname" label="Nickname" variant="outlined" sx={{display: 'inline-flex', pr: 1}}/>
           <TextField id="email" label="Email" variant="outlined" sx={{display: 'inline-flex'}}/>
 
           </FormControl>
