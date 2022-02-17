@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import Rating from '@mui/material/Rating';
 import { StyleContext } from './Product.jsx';
 import { AppContext } from '../App.jsx';
 import Selectors from './Selectors.jsx';
@@ -26,7 +27,8 @@ var AllDetails = () => {
       totalRatings += quant;
     }
     avgRating = avgRating / totalRatings;
-    return Math.ceil(avgRating / 0.25) * 0.25;
+    // return Math.ceil(avgRating / 0.25) * 0.25;
+    return avgRating
   }
 
   // useEffect(() => {
@@ -39,9 +41,19 @@ var AllDetails = () => {
   } else {
     return (
       <div className="all-details">
-        <h2 className="product-name">{productDetails.name}</h2>
-        <h3 className="product-category">{productDetails.category}</h3>
-        <div className="average-rating">Rating: {calcAverageRating(reviewMetaData.ratings)} see all reviews link</div> {/* hyperlink to reviews */}
+        <h1 className="product-name">{productDetails.name}</h1>
+        <h2 className="product-category">{productDetails.category}</h2>
+        <div className="avg-rating-title">
+          <Rating
+            name="title-rating-read"
+            value={calcAverageRating(reviewMetaData.ratings)}
+            precision={0.25}
+            sx={{color: "#757575"}}
+            readOnly
+          />
+          <p className="same-page-review-link">See all reviews ADD HREF LATER</p>
+          {/* Rating: {calcAverageRating(reviewMetaData.ratings)} see all reviews link */}
+        </div> {/* hyperlink to reviews */}
         <h3
           className="price"
           style={{textDecoration: currentStyle.sale_price ? "line-through" : ""}}>

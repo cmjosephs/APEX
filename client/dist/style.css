@@ -36,6 +36,11 @@ nav {
 }
 /* -------------- All Details -------------- */
 
+.avg-rating-title {
+  display: flex;
+  align-items: center;
+}
+
 /* -------------- Selectors -------------- */
 
 .style-selector {
