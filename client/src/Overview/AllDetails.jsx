@@ -7,14 +7,14 @@ import Info from './Info.jsx';
 
 var AllDetails = () => {
   const { currentStyle } = useContext(StyleContext);
-  const { productId, reviewMetaData } = useContext(AppContext);
-  const [productDetails, setProductDetails] = useState({});
+  const { productId, reviewMetaData, productDetails } = useContext(AppContext);
+  // const [productDetails, setProductDetails] = useState({});
 
-  function getProductDetails(id) {
-    axios.get(`/api/products/${id}`)
-    .then(({ data }) => setProductDetails(data))
-    .catch(err => consoel.error(err));
-  }
+  // function getProductDetails(id) {
+  //   axios.get(`/api/products/${id}`)
+  //   .then(({ data }) => setProductDetails(data))
+  //   .catch(err => consoel.error(err));
+  // }
 
   function calcAverageRating(obj) {
     let avgRating = 0;
@@ -29,9 +29,9 @@ var AllDetails = () => {
     return Math.ceil(avgRating / 0.25) * 0.25;
   }
 
-  useEffect(() => {
-    getProductDetails(productId);
-  }, [])
+  // useEffect(() => {
+  //   getProductDetails(productId);
+  // }, [])
 
 
   if (!Object.keys(productDetails).length) {

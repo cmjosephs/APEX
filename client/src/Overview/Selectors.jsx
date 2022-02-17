@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 var Selectors = () => {
   const { allStyles, currentStyle, dispatch } = useContext(StyleContext);
@@ -13,18 +15,16 @@ var Selectors = () => {
   }
 
   const handleAddToBag = () => {
-    axios.post('/api/cart', {sku_id: parseInt(currentSku)})
-    .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
-    .catch(err => console.error(err))
+    // axios.post('/api/cart', {sku_id: parseInt(currentSku)})
+    // .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
+    // .catch(err => console.error(err))
+    console.log({sku_id: currentSku})
   }
 
   const handleAddFavorite = () => {
     // talk to kevin about how he wants to store
     // product_id or style_id???
-  }
-
-  const handleSelectSize = (sku) => {
-    setCurrentSku(sku);
+    console.log('Clicked on added to Favorites');
   }
 
   useEffect(() => {
@@ -61,7 +61,7 @@ var Selectors = () => {
             className="visually-hidden"
             name="skuAndSize"
             onClick={
-              parseInt(currentStyle.skus[sku].quantity) ? (e) => handleSelectSize(e.target.id) : () => {}}
+              parseInt(skus[sku].quantity) ? (e) => setCurrentSku(e.target.id) : () => {}}
           ></input>
           <label
             htmlFor={sku}
@@ -73,9 +73,6 @@ var Selectors = () => {
     return availableSizes;
   }
 
-  // if (!Object.keys(currentStyle).length) {
-  //   return <div>Loading</div>
-  // } else {
   return (
     <div className="selectors">
       <div className="style-selector">
@@ -86,12 +83,17 @@ var Selectors = () => {
         <div className="size-selector">
           {renderSizes(currentStyle.skus)}
         </div>
-      <button>Add to Bag</button>
+      <button className="add-bag-btn" onClick={handleAddToBag}>
+        <p>Add to Bag</p>
+        <ShoppingBagIcon />
+      </button>
       <br></br>
-      <button>Favorite</button>
+      <button className="favorite-btn" onClick={handleAddFavorite}>
+        <p>Favorite</p>
+        <FavoriteIcon />
+      </button>
     </div>
   )
-  // }
 }
 
 export default Selectors;

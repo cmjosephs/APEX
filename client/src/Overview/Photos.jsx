@@ -53,7 +53,7 @@ var Photos = () => {
           aria-describedby="description"
         >
           <Box>
-            <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name} className="expanded-display-photo"></img>
+            <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo"></img>
             <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
             <div className="expanded-photos-scroller">
               <ArrowBackIosNewIcon fontSize="large" onClick={photoScrollLeft} />

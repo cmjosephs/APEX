@@ -2,12 +2,26 @@ nav {
   display: flex
 }
 
+/* -------------- Product Overview -------------- */
 .product-overview {
   display: flex
 }
 
+/* -------------- Expanded View (Modal) -------------- */
+
+
+/* -------------- Selectors -------------- */
+
 .size-selector {
   display: flex
+}
+
+.add-bag-btn {
+  display: flex;
+}
+
+.favorite-btn {
+  display: flex;
 }
 
 .share-bar {

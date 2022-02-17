@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, useLayoutEffect, createContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Product from './Overview/Product.jsx';
@@ -12,38 +12,50 @@ export const AppContext = createContext();
 
 const App = () => {
   const [productId, setProductId] = useState(null);
+  const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
-    // axios.get('/api/products')
-    // .then(
-    //   ({ data }) => {
-    //     let ids = data.map(product => product.id);
-    //     setProductId(ids[Math.floor(Math.random()*ids.length)]);
-    //   }
-    // )
-    // .catch((err) => console.error('Network error: ', err));
+    axios.get('/api/products')
+    .then(
+      ({ data }) => {
+        let ids = data.map(product => product.id);
+        setProductId(ids[Math.floor(Math.random()*ids.length)]);
+      }
+    )
+    .catch((err) => console.error('Network error: ', err));
 
-    // setProductId(parseInt(testReviewMetaData.product_id));
-    setProductId(42366);
+    setProductId(parseInt(testReviewMetaData.product_id));
+    // setProductId(42370);
 
   } // edit later
 
-  function retrieveProductMetaData() {
-    // axios.get(`/api/products/${productId}/reviews/meta`)
-    // .then(({ data }) => setReviewMetaData(data))
-    // .catch((err) => console.error(err))
-    setReviewMetaData(testReviewMetaData);
+  function getProductDetails() {
+    axios.get(`/api/products/${productId}`)
+    // axios.get(`/api/products/${id}`)
+    .then(({ data }) => setProductDetails(data))
+    .catch(err => console.error(err));
+  }
+
+  function getProductMetaData() {
+    axios.get(`/api/products/${productId}/reviews/meta`)
+    .then(({ data }) => setReviewMetaData(data))
+    .catch((err) => console.error(err))
+    // setReviewMetaData(testReviewMetaData);
   } // edit later
 
-  useEffect(getRandomProductId, []);
-  useEffect(retrieveProductMetaData, [productId]);
+  useLayoutEffect(getRandomProductId, []);
+  useEffect(() => {
+    getProductDetails(productId);
+    getProductMetaData();
+  }, [productId]);
 
   if (!productId) return <h2>Loading</h2>
 
   return (
     <AppContext.Provider
-      value={{ productId, setProductId, reviewMetaData }}
+      value={{ productId, setProductId, reviewMetaData, productDetails }}
+      //may need product details and name in global contex
     >
       <div>
         <nav>
