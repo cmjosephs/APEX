@@ -9,8 +9,20 @@ nav {
 
 /* -------------- Photos -------------- */
 
+.image-gallery-thumbnail {
+
+}
+
 /* -------------- Expanded Photos (Modal) -------------- */
 
+.expanded-display-photo {
+  max-width: 75%;
+  max-height: 75%;
+}
+
+.expanded-photos-scroller {
+  display: flex;
+}
 /* -------------- All Details -------------- */
 
 /* -------------- Selectors -------------- */
@@ -40,6 +52,11 @@ nav {
 .size-label {
   cursor: pointer;
   display: flex;
+  margin: 8px;
+  padding: 10px 30px;
+  border-style: solid;
+  border-color: rgb(218, 218, 218);
+  border-radius: 4px;
 }
 
 input[type=radio]:checked+label {
