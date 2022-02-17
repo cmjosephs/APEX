@@ -174,7 +174,7 @@ const testStyles = {
                   "size": "9"
               },
               "1471696": {
-                  "quantity": 12,
+                  "quantity": 0,
                   "size": "9.5"
               },
               "1471697": {

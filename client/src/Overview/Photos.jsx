@@ -7,6 +7,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 var Photos = () => {
   const { currentStyle } = useContext(StyleContext);
+  // const [width, setWidth] = useState(window.innerWidth);
   const [photos, setPhotos] = useState(currentStyle.photos);
   const [currentPhotoIdx, setCurrentPhotoIdx] = useState(0);
 
@@ -25,6 +26,10 @@ var Photos = () => {
     if (currentPhotoIdx > 0) setCurrentPhotoIdx(currentPhotoIdx - 1);
   }
 
+  // for window resize
+  // useEffect(() => {
+  //   setWidth(window.innerWidth);
+  // }, [])
 
   useEffect(() => {
     setPhotos(currentStyle.photos);
@@ -63,8 +68,10 @@ var Photos = () => {
 
   return (
     <div className="image-gallery">
-      <div className="display-photo" onClick={toggleModal}>
-        <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}></img>
+      <div className="display-photo">
+        <ArrowBackIosNewIcon fontSize="large" onClick={photoScrollLeft} />
+        <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}  onClick={toggleModal}></img>
+        <ArrowForwardIosIcon fontSize="large" onClick={photoScrollRight} />
       </div>
       {renderModal()}
       <div id="default-photos">

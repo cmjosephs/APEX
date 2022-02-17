@@ -8,8 +8,8 @@ var Info = ({ productDetails }) => {
   const renderFeatures = (featList) => {
     if (showFeatures) {
       return (
-        <div className="features">
-          <h4 onClick={() => setShowFeatures(!showFeatures)}>Features -</h4>
+        <div className="product-features">
+          <h3 onClick={() => setShowFeatures(!showFeatures)}>Features -</h3>
             {featList.map((feature, index) => {
               return (
                 <div className="feature" key={`feat-${index}`} >
@@ -20,21 +20,29 @@ var Info = ({ productDetails }) => {
         </div>
       )
     } else {
-      return <h4 onClick={() => setShowFeatures(!showFeatures)}>Features +</h4>
+      return (
+        <div className="product-features"  onClick={() => setShowFeatures(!showFeatures)}>
+          <h3>Features +</h3>
+        </div>
+      )
     }
   }
 
   const renderDetails = () => {
     if (showDetails) {
       return (
-        <div className="details">
-          <h4 onClick={() => setShowDetails(!showDetails)}>Details -</h4>
+        <div className="product-details">
+          <h3 onClick={() => setShowDetails(!showDetails)}>Details -</h3>
             <p role="product-slogan">{productDetails.slogan}</p>
             <p role="product-description">{productDetails.description}</p>
         </div>
       )
     } else {
-      return <h4 onClick={() => setShowDetails(!showDetails)}>Details +</h4>
+      return (
+        <div className="product-details" onClick={() => setShowDetails(!showDetails)}>
+          <h3>Details +</h3>
+        </div>
+      )
     }
   }
 
@@ -42,12 +50,13 @@ var Info = ({ productDetails }) => {
     <div className="info">
       {renderDetails()}
       {renderFeatures(productDetails.features)}
-      <div className="share-bar"></div>
-        Share
+      <div className="share-bar">
+        <h3>Share</h3>
         <button className="fb-share-btn">facebook</button>
         <button className="ig-share-btn">instagram</button>
         <button className="twitter-share-btn">twitter</button>
         <button className="pinterest-share-btn">pinterest</button>
+      </div>
     </div>
   )
 }
