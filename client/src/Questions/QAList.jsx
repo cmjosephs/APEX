@@ -44,9 +44,9 @@ var QAList = () => {
     <div className="question-list">
       <h3>Questions and Answers</h3>
         <Search onSearch={searchQuestions}/>
-        <AllQuestions questions={questions} getQuestions={getQuestions} product={product}/>
+        <AllQuestions questions={questions} getQuestions={getQuestions} product={product} productName={productName}/>
         <div>
-          <ButtonGroup variant="contained" aria-label="outlined primary button group">
+          <ButtonGroup variant="contained"  aria-label="outlined medium primary button group">
             <Button onClick={getMoreQuestions}>More Questions</Button>
             <QuestionForm product={product} productName={productName}/>
           </ButtonGroup>

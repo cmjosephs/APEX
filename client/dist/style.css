@@ -1,5 +1,38 @@
 .question-list {
   max-height: 30em;
-  max-width: 70em;
+  max-width: 60em;
   overflow-y: scroll;
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar input {
+  flex-grow: 1;
+}
+
+.sort {
+  display: flex;
+}
+
+.search-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-heading {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.helpful {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 5px;
+  margin-left: auto;
+  margin-right: 0;
 }

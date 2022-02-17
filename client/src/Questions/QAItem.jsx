@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Answer from './Answer.jsx';
+import AnswerForm from './AnswerForm.jsx';
 import axios from 'axios';
 
-var QAItem = ({question, getQuestions, product}) => {
-  //let [answerObj, setAnswerObj] = useState(question.answers)
+var QAItem = ({question, getQuestions, product, productName}) => {
   let [answers, setAnswer] = useState([]);
   let [count, setCount] = useState(2);
   let [showButton, setShowButton] = useState(true);
@@ -13,15 +13,6 @@ var QAItem = ({question, getQuestions, product}) => {
   useEffect(() => {
       getAnswers()
     }, [markHelpful, count])
-
-  // const transformAnswerObj = (obj) => {
-  //   let answers = Object.values(obj).map(answer => answer);
-  //   let sortedAnswers = answers.sort((a, b) => {
-  //     return b.helpfulness - a.helpfulness
-  //   })
-  //   return sortedAnswers
-  //     // setAnswer(sortedAnswers.splice(0, count));
-  // }
 
   const getAnswers = () => {
     axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`)
@@ -59,13 +50,16 @@ var QAItem = ({question, getQuestions, product}) => {
 
   return (
     <div className="questions">
-      <div>
-        <span>Q:  </span>
-        <span>{question.question_body}   </span>
-        <span>
+      <div className="question-heading">
+        <p><b>Q:</b></p>
+        <p><b>{question.question_body}</b></p>
+        <span className="helpful">
           Helpful?
           <a onClick={questionHelpful}>Yes</a>
-          <span>({question.question_helpfulness}) </span>
+          <span>({question.question_helpfulness})</span>
+          <span>|</span>
+
+          <AnswerForm product={product} productName={productName} question={question} getAnswers={getAnswers}/>
         </span>
       </div>
       <div>
