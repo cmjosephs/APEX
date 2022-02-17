@@ -73,6 +73,9 @@ var Selectors = () => {
     return availableSizes;
   }
 
+  // if (!Object.keys(currentStyle).length) {
+  //   return <div>Loading</div>
+  // } else {
   return (
     <div className="selectors">
       <div className="style-selector">
@@ -94,6 +97,7 @@ var Selectors = () => {
       </button>
     </div>
   )
+  // }
 }
 
 export default Selectors;

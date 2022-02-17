@@ -47,11 +47,13 @@ const App = () => {
 
   useEffect(getRandomProductId, []);
   useEffect(() => {
-    getProductDetails();
-    getProductMetaData();
+    if (productId) {
+      getProductDetails();
+      getProductMetaData();
+    }
   }, [productId]);
 
-  if (!productId) return <h2>Loading</h2>
+  if (!productId || !reviewMetaData || !productDetails.id) return <h2>Loading</h2>
 
   return (
     <AppContext.Provider
