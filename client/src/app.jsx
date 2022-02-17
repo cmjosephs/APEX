@@ -25,6 +25,7 @@ const App = () => {
     // )
     // .catch((err) => console.error('Network error: ', err));
 
+
     // setProductId(parseInt(testReviewMetaData.product_id));
     setProductId(42370);
   }
@@ -38,9 +39,9 @@ const App = () => {
   }
 
   function getProductMetaData() {
-    axios.get(`/api/products/${productId}/reviews/meta`)
-    .then(({ data }) => setReviewMetaData(data))
-    .catch((err) => console.error(err));
+    // axios.get(`/api/products/${productId}/reviews/meta`)
+    // .then(({ data }) => setReviewMetaData(data))
+    // .catch((err) => console.error(err));
 
     setReviewMetaData(testReviewMetaData);
   }

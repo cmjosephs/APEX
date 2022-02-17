@@ -5,6 +5,13 @@ nav {
 /* -------------- Product Overview -------------- */
 .product-overview {
   display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 750px) {
+  .product-overview {
+    flex-direction: row;
+  }
 }
 
 /* -------------- Photos -------------- */
@@ -113,5 +120,10 @@ nav {
   justify-content: center;
   align-content: center;
 }
+
+/* .share-bar > * {
+  justify-content: center;
+  align-content: center;
+} */
 
 /* -------------- Info -------------- */
