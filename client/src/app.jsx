@@ -26,15 +26,15 @@ const App = () => {
     // .catch((err) => console.error('Network error: ', err));
 
     // setProductId(parseInt(testReviewMetaData.product_id));
-    setProductId(42368);
+    setProductId(42370);
   }
 
   function getProductDetails() {
-    axios.get(`/api/products/${productId}`)
-    .then(({ data }) => setProductDetails(data))
-    .catch(err => console.error(err));
+    // axios.get(`/api/products/${productId}`)
+    // .then(({ data }) => setProductDetails(data))
+    // .catch(err => console.error(err));
 
-    // setProductDetails(testProduct)
+    setProductDetails(testProduct)
   }
 
   function getProductMetaData() {
@@ -42,7 +42,7 @@ const App = () => {
     .then(({ data }) => setReviewMetaData(data))
     .catch((err) => console.error(err));
 
-    // setReviewMetaData(testReviewMetaData);
+    setReviewMetaData(testReviewMetaData);
   }
 
   useEffect(getRandomProductId, []);
