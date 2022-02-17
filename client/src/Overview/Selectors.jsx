@@ -65,6 +65,7 @@ var Selectors = () => {
           ></input>
           <label
             htmlFor={sku}
+            className="size-label"
             style={skus[sku].quantity ? {color: "black"} : {color: "gray"}}
           >{skus[sku].size}</label>
         </div>
@@ -78,8 +79,8 @@ var Selectors = () => {
   // } else {
   return (
     <div className="selectors">
+      <p>{styleDisplayName}</p>
       <div className="style-selector">
-        <p>{styleDisplayName}</p>
         {renderStyles()}
       </div>
       <p className="sizes">Sizes</p>
