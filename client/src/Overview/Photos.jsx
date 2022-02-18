@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
-import { Modal, Box } from '@mui/material';
+import { Modal } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import Box from '@mui/material/Box';
@@ -53,8 +53,7 @@ var Photos = () => {
           aria-describedby="description"
           className="img-gallery-modal"
         >
-          {/* <Box className="expanded-view-window"> */}
-          <div>
+          <div className="expanded-view-window">
             <div className="expanded-main-photo-section">
               <ArrowBackIosNewIcon
                 fontSize="large"
@@ -76,7 +75,6 @@ var Photos = () => {
             </div>
 
           </div>
-          {/* </Box> */}
         </Modal>
       </div>
     )
