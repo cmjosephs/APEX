@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, useLayoutEffect, createContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Product from './Overview/Product.jsx';
@@ -10,61 +10,58 @@ export const AppContext = createContext();
 
 const App = () => {
   const [productId, setProductId] = useState(null);
+  const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
-    setProductId(42370)
-  } // edit later
-
-  function retrieveProductMetaData() {
-    setReviewMetaData( {
-      "product_id": "42370",
-      "ratings": {
-          "1": "1",
-          "2": "1",
-          "3": "7",
-          "4": "1",
-          "5": "2"
-      },
-      "recommended": {
-          "false": "6",
-          "true": "6"
-      },
-      "characteristics": {
-          "Size": {
-              "id": 142045,
-              "value": "2.6363636363636364"
-          },
-          "Width": {
-              "id": 142046,
-              "value": "2.2727272727272727"
-          },
-          "Comfort": {
-              "id": 142047,
-              "value": "3.7272727272727273"
-          },
-          "Quality": {
-              "id": 142048,
-              "value": "3.2727272727272727"
-          }
+    axios.get('/api/products')
+    .then(
+      ({ data }) => {
+        let ids = data.map(product => product.id);
+        setProductId(ids[Math.floor(Math.random()*ids.length)]);
       }
-    } );
-  } // edit later
+    )
+    .catch((err) => console.error('Network error: ', err));
+
+    // setProductId(parseInt(testReviewMetaData.product_id));
+    // setProductId(42370);
+  }
+
+  function getProductDetails() {
+    axios.get(`/api/products/${productId}`)
+    .then(({ data }) => setProductDetails(data))
+    .catch(err => console.error(err));
+
+    // setProductDetails(testProduct)
+  }
+
+  function getProductMetaData() {
+    axios.get(`/api/products/${productId}/reviews/meta`)
+    .then(({ data }) => setReviewMetaData(data))
+    .catch((err) => console.error(err));
+
+    // setReviewMetaData(testReviewMetaData);
+  }
 
   useEffect(getRandomProductId, []);
-  useEffect(retrieveProductMetaData, [productId]);
+  useEffect(() => {
+    getProductDetails();
+    getProductMetaData();
+  }, [productId]);
 
   if (!productId) return <h2>Loading</h2>
 
   return (
     <AppContext.Provider
-      value={{ productId, setProductId }}
+      value={{ productId, setProductId, reviewMetaData, productDetails }}
     >
       <div>
-        <nav><h1>FEC project</h1>------Navigation bar</nav>
+        <nav>
+          <h1>FEC project</h1>
+          <p>-------------Navigation Bar-------------</p>
+        </nav>
         <br></br>
-        <Product
-          reviewMetaData={reviewMetaData} />
+        <Product />
         <br></br>
         <RelatedList />
         <QAList />
