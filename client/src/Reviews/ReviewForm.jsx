@@ -6,12 +6,6 @@ import { styled } from '@mui/material/styles';
 import axios from 'axios';
 
 
-// const characteristicsReducer = (state, action) => {
-//   switch (action.type) {
-//     case "addCharacteristic":
-//       return {...state, characteristics[action.payload.name].id: action.payload.value}
-//   }
-// }
 
 const ReviewForm = () => {
 
@@ -27,10 +21,33 @@ const ReviewForm = () => {
   let [upload, setUpload] = useState(true);
   let [uploadedPics, setUploadedPics] = useState([]);
   let [picURLs, setPicURLs] = useState([]);
-  // let [state, dispatch] = useReducer(characteristicsReducer, {});
+  let [state, dispatch] = useReducer(characteristicsReducer, {});
 
-useEffect(() => {
-  getMetaData()
+  // const characteristicsReducer = (state, action) => {
+  //   switch (action.type) {
+  //     case "addCharacteristic":
+  //       return {...state, characteristics[action.payload.name].id: action.payload.value};
+  //       break;
+  //     // default:
+  //     //   return state;
+  //   }
+  // }
+
+  function characteristicsReducer(state, action) {
+    switch (action.type) {
+      case "addCharacteristic":
+        // return {...state, [characteristics[action.payload.name].id]: action.payload.value};
+        let char = (Object.keys(action.payload));
+        let charValue = (Object.values(action.payload))
+        return {...state, [characteristics[char[0]].id]: charValue[0]};
+        break;
+      default:
+        return state;
+    }
+  }
+
+  useEffect(() => {
+    getMetaData()
 }, [])
 
 
@@ -57,10 +74,11 @@ useEffect(() => {
      <div>
        {productCharacteristics.includes('Fit') &&
        <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-             <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
-             <RadioGroup
-             aria-labelledby="demo-row-radio-buttons-group-label"
-             name="fit"
+            <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
+            <RadioGroup
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="Fit"
+            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
            >
              <FormControlLabel value="1" control={<Radio />} label="Runs tight" />
              <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
@@ -158,242 +176,7 @@ useEffect(() => {
      </div>
 
    )
-  //  if (productCharacteristics.includes('Fit')) {
-  //    return (
-  //    <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-  //        <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
-  //        <RadioGroup
-  //         aria-labelledby="demo-row-radio-buttons-group-label"
-  //         name="fit"
-  //       >
-  //         <FormControlLabel value="1" control={<Radio />} label="Runs tight" />
-  //         <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
-  //         <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-  //         <FormControlLabel value="4" control={<Radio />} label="Slightly loose" />
-  //         <FormControlLabel value="5" control={<Radio />} label="Runs loose" />
-  //       </RadioGroup>
-  //     </FormControl>
-  //    )
-  //  }
-  //  if (productCharacteristics.includes('Size')) {
-  //    return <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-  //          <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
-  //          <RadioGroup
-  //            aria-labelledby="demo-row-radio-buttons-group-label"
-  //            name="size"
-  //            // onChange={handleCharacteristics}
-  //             //  onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { e.target.name: e.target.value }})}}
-  //            >
-  //            <FormControlLabel value="1" control={<Radio />} label="Too small" />
-  //            <FormControlLabel value="2" control={<Radio />} label="1/2 size too small" />
-  //            <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-  //            <FormControlLabel value="4" control={<Radio />} label="1/2 size too big" />
-  //            <FormControlLabel value="5" control={<Radio />} label="Too big" />
-  //          </RadioGroup>
-  //        </FormControl>
-  //  }
-  //  if (productCharacteristics.includes('Width')) {
-  //     return <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-  //     <FormLabel id="demo-row-radio-buttons-group-label">Width</FormLabel>
-  //     <RadioGroup
-  //       aria-labelledby="demo-row-radio-buttons-group-label"
-  //       name="width"
-  //       // onChange={handleCharacteristics}
-  //     >
-  //       <FormControlLabel value="1" control={<Radio />} label="Too narrow" />
-  //       <FormControlLabel value="2" control={<Radio />} label="Slightly narrow" />
-  //       <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-  //       <FormControlLabel value="4" control={<Radio />} label="Slightly wide" />
-  //       <FormControlLabel value="5" control={<Radio />} label="Too wide" />
-  //     </RadioGroup>
-  //   </FormControl>
-  //  }
-  //  if (productCharacteristics.includes('Comfort')) {
-  //    return (
-  //  <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-  //   <FormLabel id="demo-row-radio-buttons-group-label">Comfort</FormLabel>
-  //   <RadioGroup
-  //     aria-labelledby="demo-row-radio-buttons-group-label"
-  //     name="comfort"
-  //     // onChange={handleCharacteristics}
-  //   >
-  //     <FormControlLabel value="1" control={<Radio />} label="Uncomfortable" />
-  //     <FormControlLabel value="2" control={<Radio />} label="Slightly uncomfortable" />
-  //     <FormControlLabel value="3" control={<Radio />} label="Ok" />
-  //     <FormControlLabel value="4" control={<Radio />} label="Comfortable" />
-  //     <FormControlLabel value="5" control={<Radio />} label="Perfect" />
-  //   </RadioGroup>
-  //   </FormControl>
-
-  //    )
-  //  }
-
-  // {productCharacteristics.includes('Fit') && <div>hello</div>}
-//    {productCharacteristics.includes('Fit') &&
-//    <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-//    <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
-//    <RadioGroup
-//      aria-labelledby="demo-row-radio-buttons-group-label"
-//      name="fit"
-//      onChange={handleCharacteristics}
-//    >
-//      <FormControlLabel value="1" control={<Radio />} label="Runs tight" />
-//      <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
-//      <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-//      <FormControlLabel value="4" control={<Radio />} label="Slightly loose" />
-//      <FormControlLabel value="5" control={<Radio />} label="Runs loose" />
-//    </RadioGroup>
-//  </FormControl>}
-  //  {productCharacteristics.includes('Size') &&
-
-  // }
-
-  // return <div>hello</div>
-  // for (let property in characteristics) {
-  //   return {
-
-  //   }
-  // }
-  // Object.keys(characteristics).map(characteristic => {
-  //   return
-  // })
  }
-
-//  const sizeCharacteristic = () => {
-//    return
-{/* <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-//       <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
-//       <RadioGroup
-        aria-labelledby="demo-row-radio-buttons-group-label"
-        name="size"
-        // onChange={handleCharacteristics}
-          onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { e.target.name: e.target.value }})}}
-        >
-        <FormControlLabel value="1" control={<Radio />} label="Too small" />
-        <FormControlLabel value="2" control={<Radio />} label="1/2 size too small" />
-        <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-        <FormControlLabel value="4" control={<Radio />} label="1/2 size too big" />
-        <FormControlLabel value="5" control={<Radio />} label="Too big" />
-      </RadioGroup>
-    </FormControl> */}
-//  }
-
-// const widthCharacteristic = () => {
-//   return
-//     <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-//       <FormLabel id="demo-row-radio-buttons-group-label">Width</FormLabel>
-//       <RadioGroup
-//         aria-labelledby="demo-row-radio-buttons-group-label"
-//         name="width"
-//         onChange={handleCharacteristics}
-//       >
-//         <FormControlLabel value="1" control={<Radio />} label="Too narrow" />
-//         <FormControlLabel value="2" control={<Radio />} label="Slightly narrow" />
-//         <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-//         <FormControlLabel value="4" control={<Radio />} label="Slightly wide" />
-//         <FormControlLabel value="5" control={<Radio />} label="Too wide" />
-//       </RadioGroup>
-//     </FormControl>
-// }
-
-// const comfortCharacteristic = () => {
-// //   return
-// //   <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-// //   <FormLabel id="demo-row-radio-buttons-group-label">Comfort</FormLabel>
-// //   <RadioGroup
-// //     aria-labelledby="demo-row-radio-buttons-group-label"
-// //     name="comfort"
-// //     onChange={handleCharacteristics}
-// //   >
-// //     <FormControlLabel value="1" control={<Radio />} label="Uncomfortable" />
-// //     <FormControlLabel value="2" control={<Radio />} label="Slightly uncomfortable" />
-// //     <FormControlLabel value="3" control={<Radio />} label="Ok" />
-// //     <FormControlLabel value="4" control={<Radio />} label="Comfortable" />
-// //     <FormControlLabel value="5" control={<Radio />} label="Perfect" />
-// //   </RadioGroup>
-// // </FormControl>
-// }
-
-// const qualityCharacteristic = () => {
-//   // return
-//   //         <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-//   //           <FormLabel id="demo-row-radio-buttons-group-label">Quality</FormLabel>
-//   //           <RadioGroup
-//   //             aria-labelledby="demo-row-radio-buttons-group-label"
-//   //             name="quality"
-//   //             onChange={handleCharacteristics}
-//   //           >
-//   //             <FormControlLabel value="1" control={<Radio />} label="Poor" />
-//   //             <FormControlLabel value="2" control={<Radio />} label="Below average" />
-//   //             <FormControlLabel value="3" control={<Radio />} label="What I expected" />
-//   //             <FormControlLabel value="4" control={<Radio />} label="Pretty great" />
-//   //             <FormControlLabel value="5" control={<Radio />} label="Perfect" />
-//   //           </RadioGroup>
-//   //         </FormControl>
-
-// }
-
-// const lengthCharacteristic = () => {
-//   // return
-//   //   <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-//   //     <FormLabel id="demo-row-radio-buttons-group-label">Length</FormLabel>
-//   //     <RadioGroup
-//   //       aria-labelledby="demo-row-radio-buttons-group-label"
-//   //       name="length"
-//   //       onChange={handleCharacteristics}
-//   //     >
-//   //       <FormControlLabel value="1" control={<Radio />} label="Runs short" />
-//   //       <FormControlLabel value="2" control={<Radio />} label="Below average" />
-//   //       <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-//   //       <FormControlLabel value="4" control={<Radio />} label="Slightly long" />
-//   //       <FormControlLabel value="5" control={<Radio />} label="Runs long" />
-//   //     </RadioGroup>
-//   //   </FormControl>
-
-// }
-
-// const fitCharacteristic = () => {
-//   // return
-    // <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-    //   <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
-    //   <RadioGroup
-    //     aria-labelledby="demo-row-radio-buttons-group-label"
-    //     name="fit"
-    //     onChange={handleCharacteristics}
-    //   >
-    //     <FormControlLabel value="1" control={<Radio />} label="Runs tight" />
-    //     <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
-    //     <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-    //     <FormControlLabel value="4" control={<Radio />} label="Slightly loose" />
-    //     <FormControlLabel value="5" control={<Radio />} label="Runs loose" />
-    //   </RadioGroup>
-    // </FormControl>
-
-// }
-
-
-
-
-
-
-
-
-
-  // let [size, setSize] = useState(null);
-  // let [width, setWidth] = useState(null);
-  // let [comfort, setComfort] = useState(null);
-  // let [quality, setQuality] = useState(null);
-  // let [length, setLength] = useState(null);
-  // let [fit, setFit] = useState(null);
-
-  // let characteristics = {
-  //   size,
-  //   width,
-  //   comfort,
-  //   quality,
-  //   length,
-  //   fit
-  // };
 
 
   useEffect(() => {
@@ -417,7 +200,6 @@ useEffect(() => {
     setPicURLs([...picURLs, newURL]);
   }
 
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -429,29 +211,6 @@ useEffect(() => {
   const handleChange = (event) => {
     setRecommended(event.target.value);
   };
-
-  // const handleCharacteristics = (event) => {
-  //   switch (event.target.name) {
-  //     case "size":
-  //       setSize(event.target.value)
-  //       break;
-  //     case "width":
-  //       setWidth(event.target.value);
-  //       break;
-  //     case "comfort":
-  //       setComfort(event.target.value);
-  //       break;
-  //     case "quality":
-  //       setQuality(event.target.value);
-  //       break;
-  //     case "length":
-  //       setLength(event.target.value);
-  //       break;
-  //     case "fit":
-  //       setFit(event.target.value);
-  //       break;
-  //   }
-  // }
 
   const handleUserInput = (event) => {
     switch (event.target.name) {
@@ -480,9 +239,7 @@ useEffect(() => {
   //     name: userName,
   //     email: userEmail,
   //     photos: picURLs,
-  //     characteristics: {
-
-  //     }
+  //     characteristics
   //   })
   // }
 
@@ -615,10 +372,6 @@ useEffect(() => {
               return <img id="uploaded-review-thumbnail" src={pic? URL.createObjectURL(pic) : null} alt={pic? pic.name : null} width="200" height="250" key={`review-uploads-${idx}`}/>
             })}
 
-
-            {/* {upload && uploadedPics.map(pic => {
-              return <img id="uploaded-review-thumbnail" src={pic? () => {createPhotoURL(pic)} : null} alt={pic? pic.name : null}/>
-            })} */}
           </label>
           </Stack>
 
