@@ -88,15 +88,18 @@ var Selectors = () => {
         <div className="size-selector">
           {renderSizes(currentStyle.skus)}
         </div>
-      <button className="add-bag-btn" onClick={handleAddToBag}>
-        <p>Add to Bag</p>
-        <ShoppingBagIcon />
-      </button>
-      <br></br>
-      <button className="favorite-btn" onClick={handleAddFavorite}>
-        <p>Favorite</p>
-        <FavoriteIcon />
-      </button>
+      <div className="user-interest-btns">
+        <button className="add-bag-btn" onClick={handleAddToBag}>
+          <p>Add to Bag</p>
+          <ShoppingBagIcon />
+        </button>
+        <br></br>
+        <button className="favorite-btn" onClick={handleAddFavorite}>
+          <p>Favorite</p>
+          <FavoriteIcon />
+        </button>
+
+      </div>
     </div>
   )
   // }
