@@ -91,6 +91,7 @@ var Photos = () => {
         />
         <img
           src={photos[currentPhotoIdx].url}
+          className="image-narrow-view-main"
           alt={currentStyle.name}
           onClick={toggleModal}
         ></img>
