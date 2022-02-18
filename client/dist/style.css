@@ -1,12 +1,14 @@
-
-
 .question-container {
-  max-height: 30em;
-  max-width: 60em;
-  overflow: auto;
+  height: 30em;
+  width: 60em;
   
 }
 
+.question-answer-list {
+  max-height: 25em;
+  max-width: 60em;
+  overflow: auto;
+}
 
 
 .question-header {
