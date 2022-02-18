@@ -11,7 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 
-const QuestionForm = ({product, productName}) => {
+const QuestionForm = ({product, productName, addedQuestion}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => { setOpen(true) };
   const handleClose = () => { setOpen(false) };
@@ -46,7 +46,8 @@ const QuestionForm = ({product, productName}) => {
         setName('');
         setEmail('');
       })
-      .then(() => handleClose())
+      .then(addedQuestion())
+      .then(handleClose())
   }
 
   return (

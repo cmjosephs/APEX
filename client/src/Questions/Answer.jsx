@@ -3,6 +3,15 @@ import axios from 'axios';
 
 
 var Answer = ({answer, product, answerHelpful}) => {
+  let [clickedReport, setClickReport] = useState(true)
+
+  const reportAnswer = () => {
+    if (clickedReport) {
+      console.log('clicked');
+      setClickReport(false);
+
+    }
+  }
 
   const answererName = (answer) => {
     if ((answer.answerer_name) === 'Seller') {
@@ -13,6 +22,8 @@ var Answer = ({answer, product, answerHelpful}) => {
       )
     }
   }
+
+
   return (
     <div className="answer-container">
       <div>
@@ -35,7 +46,7 @@ var Answer = ({answer, product, answerHelpful}) => {
         </span>
         <span className="answer-helpful">({answer.helpfulness}) </span>
         <span className="seperator">|</span>
-        <span className="answer-report">Report</span>
+        {clickedReport ? <span className="answer-report" onClick={reportAnswer}>Report</span> : <span>Reported</span>}
       </div>
     </div>
   );

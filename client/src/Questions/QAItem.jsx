@@ -5,6 +5,7 @@ import axios from 'axios';
 
 var QAItem = ({question, getQuestions, product, productName}) => {
   let [answers, setAnswer] = useState([]);
+  let [totalAnswer, setTotalAnswer] = useState(0)
   let [count, setCount] = useState(2);
   let [showButton, setShowButton] = useState(true);
   let [markHelpful, setMarkHelpful] = useState(true);
@@ -17,19 +18,35 @@ var QAItem = ({question, getQuestions, product, productName}) => {
   const getAnswers = () => {
     axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`, {params: {count: 20}})
       .then((res) => {
+
         let sortedAnswers = res.data.results.sort((a, b) => {
           return b.helpfulness - a.helpfulness
         })
+
+        for (let i = 0; i < sortedAnswers.length; i++) {
+          let currentAnswer = sortedAnswers[i];
+          if (currentAnswer.answerer_name === "Seller") {
+            sortedAnswers.splice(i, 1);
+            sortedAnswers.unshift(currentAnswer)
+          }
+        }
+
         if (count >= sortedAnswers.length) {
           setShowButton(!showButton)
         }
+        setTotalAnswer(sortedAnswers.length)
         setAnswer(sortedAnswers.splice(0, count))
+
       })
       .catch((err) => console.log(err))
   }
 
   const getMoreAnswers = () => {
     setCount(count += 2)
+  }
+
+  const seeLessAnswers = () => {
+    setCount(2)
   }
 
   const questionHelpful = () => {
@@ -48,6 +65,18 @@ var QAItem = ({question, getQuestions, product, productName}) => {
     }
   }
 
+  const answerButton = () => {
+    if (totalAnswer <= 2) {
+      return (<div></div>)
+    }
+    if (count < totalAnswer) {
+      return (<button className="answerbutton" onClick={getMoreAnswers}>See More Answers</button>)
+    } else {
+      return (<button onClick={seeLessAnswers}>Collapse Answers</button>)
+    }
+
+  }
+
   return (
     <div className="indiv-question">
       <div className="question-heading">
@@ -63,13 +92,13 @@ var QAItem = ({question, getQuestions, product, productName}) => {
         </span>
       </div>
       <div>
-      <span className="answer-title">A:</span>
+      {totalAnswer ? <span className="answer-title">A:</span> : <span>No Answers Yet</span>}
         {answers.map((answer) => {
           return <Answer answer={answer} key={answer.answer_id} product={product} answerHelpful={answerHelpful}/>
         })}
       </div>
       <div>
-      {showButton && <button className="answerbutton" onClick={getMoreAnswers}>More Answers</button>}
+        {answerButton()}
       </div>
     </div>
   );
