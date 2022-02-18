@@ -1,20 +1,21 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import axios from 'axios';
 import AllReviews from './AllReviews.jsx';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import ReviewForm from './ReviewForm.jsx';
-// import AvgRatingReview from './AvgRatingReview.jsx';
+import AvgRatingReview from './AvgRatingReview.jsx';
+import { AppContext } from '../App.jsx';
 
-export const ProductContext = createContext();
+// export const ProductContext = createContext();
 export const SortContext = createContext();
 
 const ReviewList = () => {
   let [reviews, setReviews] = useState([]);
+  let { productId, reviewMetaData, productDetails } = useContext(AppContext);
   let [product, setProduct] = useState('42366');
   let [count, setCount] = useState(2);
   let [sort, setSort] = useState('newest');
   let [enoughReviews, setEnoughReviews] = useState(true);
-  // let [reviewForm, setReviewForm] = useState(false);
 
   useEffect(() =>
   {
@@ -52,16 +53,16 @@ const ReviewList = () => {
     setSort(e.target.value)
   }
 
-  // const showReviewForm = () => {
-  //   setReviewForm(!reviewForm)
-  // }
 
   // TODO: get total # of reviews for this product and replace the "20"
   // change the "ProductContext.Provider" to appropriate name later when we include it in the main app component
   return (
     <ProductContext.Provider value ={{ product }}>
     <div className="review-container">
-      <div className="avg-rating-review">Average Rating & Reviews</div>
+      <div className="avg-rating-review"><h3>Average Rating & Reviews</h3>
+      <AvgRatingReview/>
+
+      </div>
       <div className="sort-section">
         <h2>20 Reviews,
           <label for ="reviews-sort"> sorted by: </label>
@@ -76,11 +77,9 @@ const ReviewList = () => {
       {enoughReviews &&
       <div className="review-buttons">
         <button onClick={getMoreReviews}>MORE REVIEWS</button>
-        <ReviewForm/>
+        <ReviewForm getNewReviews={getReviews}/>
       </div>
       }
-      {/* <button onClick={setReviewForm}>ADD A REVIEW</button> */}
-      {/* {reviewForm && <ReviewForm reviewForm={reviewForm}/>} */}
     </div>
     </ProductContext.Provider>
   )

@@ -1,15 +1,17 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react';
-import { ProductContext } from './ReviewList.jsx';
+// import { ProductContext } from './ReviewList.jsx';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Input, InputLabel, MenuItem, Select, Rating, Radio, Typography, RadioGroup, FormControl, FormControlLabel, FormLabel, IconButton, Stack }
 from '@mui/material';
 import { styled } from '@mui/material/styles';
 import axios from 'axios';
+import { AppContext } from '../App.jsx';
 
 
 
-const ReviewForm = () => {
+const ReviewForm = ({ getNewReviews }) => {
 
   let currentProduct = useContext(ProductContext);
+  let { productId, reviewMetaData, productDetails } = useContext(AppContext);
   let [open, setOpen] = useState(false);
   let [rating, setRating] = useState(0);
   let [upload, setUpload] = useState(true);
@@ -49,8 +51,6 @@ const ReviewForm = () => {
     })
   }
 
- // on submit, update characteristics
- // send axios request
 
  const renderCharacteristics = () => {
    let productCharacteristics = Object.keys(characteristics);
@@ -189,10 +189,6 @@ const ReviewForm = () => {
     setOpen(false);
   };
 
-  const handleChange = (event) => {
-    setRecommended(event.target.value);
-  };
-
 
   const handleReviewSubmit = () => {
     let { recommend, name, email, summary, body } = state.reviewData;
@@ -209,6 +205,7 @@ const ReviewForm = () => {
       characteristics: state.characteristics
     }).then(() => {
       console.log('posted');
+      getNewReviews();
       handleClose();
     }).catch(err => {
       console.log(err)
@@ -220,7 +217,6 @@ const ReviewForm = () => {
   }
 
   return (
-    // <div><button onClick={getMetaData}>hi</button></div>
     <div className="review-form">
       <Button variant="outlined" onClick={handleClickOpen}>
         Write A Review
@@ -240,7 +236,7 @@ const ReviewForm = () => {
         <DialogTitle>Write A Review</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please share your experience.
+            Please share your experience about PRODUCT.
           </DialogContentText>
 
           <FormControl sx={{ display: 'block', my: 1}}>
@@ -269,10 +265,8 @@ const ReviewForm = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={recommended}
               name="recommend"
               label="Do you recommend this product?"
-              // onChange={handleChange}
               onChange={(e) => {dispatch({ type: "addReviewData", payload: { [e.target.name]: e.target.value }})}}
               sx={{ display: 'block'}}
             >
@@ -282,7 +276,6 @@ const ReviewForm = () => {
           </FormControl>
                 {renderCharacteristics()}
 
-          {/* <FormControl sx={{display: 'block', my: 1}} onChange={handleUserInput}> */}
           <FormControl sx={{display: 'block', my: 1}}
           onChange={(e) => {dispatch({ type: "addReviewData", payload: { [e.target.name]: e.target.value }})}}>
           <TextField
@@ -313,7 +306,6 @@ const ReviewForm = () => {
             margin="dense"
             fullWidth
             variant="outlined"
-            // onChange={handleUserInput}
             inputProps={{ maxLength: 60 }}
           />
 
@@ -327,7 +319,6 @@ const ReviewForm = () => {
             margin="dense"
             fullWidth
             variant="outlined"
-            // onChange={handleUserInput}
             inputProps={{ minLength: 50, maxLength: 1000 }}
           />
           </FormControl>
@@ -356,7 +347,6 @@ const ReviewForm = () => {
 
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          {/* <Button onClick={handleClose}>Submit</Button> */}
           <Button onClick={handleReviewSubmit}>Submit</Button>
         </DialogActions>
       </Dialog>

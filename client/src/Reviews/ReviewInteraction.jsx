@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { ProductContext } from './ReviewList.jsx';
+// import { ProductContext } from './ReviewList.jsx';
+import { AppContext } from '../App.jsx';
 
 
 const ReviewInteraction = ({ review, getNewReviews }) => {
-  let currentProduct = useContext(ProductContext);
+  let currentProduct = useContext(ProductContext); // not use
+  let { productId, reviewMetaData, productDetails } = useContext(AppContext);
   let [markHelpful, setMarkHelpful] = useState(true);
   let [markNotHelpful, setMarkNotHelpful] = useState(true);
   let [notHelpfulCount, setNotHelpfulCount] = useState(0);

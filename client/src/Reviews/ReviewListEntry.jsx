@@ -4,6 +4,7 @@ import Modal from '@mui/material/Modal';
 import CheckIcon from '@mui/icons-material/Check';
 import ReviewInteraction from './ReviewInteraction.jsx';
 import Rating from '@mui/material/Rating';
+
 const ReviewListEntry = ({ review, getNewReviews }) => {
 
   let [showMore, setShowMore] = useState(false);
@@ -37,6 +38,7 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
     })
   }
 
+
   return (
 
     <div className="review-tile">
@@ -50,7 +52,7 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
           month: 'long',
           year: 'numeric',
           day: '2-digit'
-        }).format(parseInt(review.date))}
+        }).format(new Date(review.date))}
         </span>
       </div>
 
