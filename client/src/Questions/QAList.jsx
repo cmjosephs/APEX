@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Search from './Search.jsx';
 import QAItem from './QAItem.jsx';
-import AllQuestions from './AllQuestions.jsx';
+//import AllQuestions from './AllQuestions.jsx';
+import {AppContext} from '../App.jsx';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -9,8 +10,9 @@ import QuestionForm from './QuestionForm.jsx';
 
 
 var QAList = () => {
-  let [product, setProduct] = useState('42369');
-  let [productName, setProductName] = useState('Slacker\'s Slacks')
+  //let [product, setProduct] = useState('42369');
+  const {productId, productDetails} = useContext(AppContext);
+  //let [productName, setProductName] = useState('Slacker\'s Slacks')
   let [questions, setQuestions] = useState([]);
   let [count, setCount] = useState(2);
   let [totalQuestions, setTotalQuestions] = useState(0);
@@ -19,10 +21,10 @@ var QAList = () => {
 
   useEffect(() => {
     getQuestions();
-  }, [product, count, questionAdded]);
+  }, [productId, count, questionAdded]);
 
   const getQuestions = () => {
-    axios.get(`/api/products/${product}/qa/questions`, {params: {product, count: 20}})
+    axios.get(`/api/products/${productId}/qa/questions`, {params: {product_id: productId, count: 20}})
       .then((res) => {
         let sortedQuestions = res.data.results.sort((a, b) => {
           return b.helpfulness - a.helpfulness
@@ -39,8 +41,26 @@ var QAList = () => {
     setCount(count +=2)
   }
 
-  const searchQuestions = () => {
-    console.log('Clicked');
+  const searchQuestions = (term) => {
+
+
+    if (term.length >= 3) {
+      let filter = questions.filter(question => {
+        if (question.question_body.toLowerCase().includes(term.toLowerCase())) {
+          return question;
+        }
+      })
+
+      let mappedFilter = filter.map(question => {
+        let strQuestion = JSON.stringify(question)
+
+      })
+      setQuestions(filter)
+      setTotalQuestions(filter.length)
+    } else {
+      getQuestions()
+      console.log('Need more than 3 characters')
+    }
   }
 
   const moreQuestionButton = () => {
@@ -61,15 +81,25 @@ var QAList = () => {
 
   const renderQuestions = () => {
     if (questions.length === 0) {
-      return (<QuestionForm product={product} productName={productName} addedQuestion={addedQuestion}/>)
+      return (<QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>)
     } else {
        return (
        <div className="question-answer-list">
-        <AllQuestions questions={questions} getQuestions={getQuestions} product={product} productName={productName}/>
+         <div className="questions-list">
+          {questions.map(question => {
+            return <QAItem
+              question={question}
+              key={question.question_id}
+              getQuestions={getQuestions}
+              productId={productId}
+              productName={productDetails.name}
+            />
+          })}
+          </div>
 
           <ButtonGroup variant="contained"  aria-label="outlined medium primary button group">
             {moreQuestionButton()}
-            <QuestionForm product={product} productName={productName} addedQuestion={addedQuestion}/>
+            <QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>
           </ButtonGroup>
 
         </div>
@@ -89,3 +119,5 @@ var QAList = () => {
 }
 
 export default QAList;
+
+{/* <AllQuestions questions={questions} getQuestions={getQuestions} productId={productId} productName={productDetails.name}/> */}

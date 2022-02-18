@@ -11,7 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 
-const QuestionForm = ({product, productName, addedQuestion}) => {
+const QuestionForm = ({productId, productName, addedQuestion}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => { setOpen(true) };
   const handleClose = () => { setOpen(false) };
@@ -45,7 +45,7 @@ const QuestionForm = ({product, productName, addedQuestion}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let message = {body, name, email, product_id: Number(product) }
+    let message = {body, name, email, product_id: Number(productId) }
     if (body === '' || name === '' || email === '') {
       return alert("You must enter the following: question/nickname/email")
     } else if (!validateEmail(email)) {

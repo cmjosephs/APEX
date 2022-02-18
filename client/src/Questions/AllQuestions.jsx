@@ -1,7 +1,7 @@
 import React from 'react';
 import QAItem from './QAItem.jsx';
 
-const AllQuestions = ({questions, getQuestions, product, productName}) => {
+const AllQuestions = ({questions, getQuestions, productId, productName}) => {
   return (
     <div className="questions-list">
     {questions.map(question => {
@@ -9,7 +9,7 @@ const AllQuestions = ({questions, getQuestions, product, productName}) => {
         question={question}
         key={question.question_id}
         getQuestions={getQuestions}
-        product={product}
+        productId={productId}
         productName={productName}
       />
     })}

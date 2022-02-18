@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 
-var Answer = ({answer, product, answerHelpful}) => {
+var Answer = ({answer, productId, answerHelpful}) => {
   let [clickedReport, setClickReport] = useState(true)
 
   const reportAnswer = () => {

@@ -3,7 +3,7 @@ import Answer from './Answer.jsx';
 import AnswerForm from './AnswerForm.jsx';
 import axios from 'axios';
 
-var QAItem = ({question, getQuestions, product, productName}) => {
+var QAItem = ({question, getQuestions, productId, productName}) => {
   let [answers, setAnswer] = useState([]);
   let [totalAnswer, setTotalAnswer] = useState(0)
   let [count, setCount] = useState(2);
@@ -16,7 +16,7 @@ var QAItem = ({question, getQuestions, product, productName}) => {
     }, [markHelpful, count])
 
   const getAnswers = () => {
-    axios.get(`/api/products/${product}/qa/questions/${question.question_id}/answers`, {params: {count: 20}})
+    axios.get(`/api/products/${productId}/qa/questions/${question.question_id}/answers`, {params: {count: 20}})
       .then((res) => {
 
         let sortedAnswers = res.data.results.sort((a, b) => {
@@ -51,7 +51,7 @@ var QAItem = ({question, getQuestions, product, productName}) => {
 
   const questionHelpful = () => {
     if(markQHelpful) {
-      axios.put(`/api/products/${product}/qa/questions/${question.question_id}/helpful`, {})
+      axios.put(`/api/products/${productId}/qa/questions/${question.question_id}/helpful`, {})
         .then(() => getQuestions())
         .then(setMarkQHelpful(false))
     }
@@ -59,7 +59,7 @@ var QAItem = ({question, getQuestions, product, productName}) => {
 
   const answerHelpful = (answer) => {
     if(markHelpful){
-      axios.put(`/api/products/${product}/qa/answers/${answer.answer_id}/helpful`, {})
+      axios.put(`/api/products/${productId}/qa/answers/${answer.answer_id}/helpful`, {})
         .then(getAnswers())
         .then(setMarkHelpful(false))
     }
@@ -88,13 +88,13 @@ var QAItem = ({question, getQuestions, product, productName}) => {
           <span>({question.question_helpfulness})</span>
           <span className="seperator">|</span>
 
-          <AnswerForm product={product} productName={productName} question={question} getAnswers={getAnswers}/>
+          <AnswerForm productId={productId} productName={productName} question={question} getAnswers={getAnswers}/>
         </span>
       </div>
       <div>
       {totalAnswer ? <span className="answer-title">A:</span> : <span>No Answers Yet</span>}
         {answers.map((answer) => {
-          return <Answer answer={answer} key={answer.answer_id} product={product} answerHelpful={answerHelpful}/>
+          return <Answer answer={answer} key={answer.answer_id} productId={productId} answerHelpful={answerHelpful}/>
         })}
       </div>
       <div>
