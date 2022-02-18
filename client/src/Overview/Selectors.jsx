@@ -98,7 +98,7 @@ var Selectors = () => {
         <button className="favorite-btn" onClick={handleAddFavorite}>
           <p>
             Favorite
-            <FavoriteIcon fontSize="small"/>
+            {/* <FavoriteIcon fontSize="small"/> */}
           </p>
         </button>
 
