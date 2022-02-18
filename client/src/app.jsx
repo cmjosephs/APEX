@@ -27,11 +27,21 @@ const App = () => {
   }
 
   useEffect(() => {
+<<<<<<< HEAD
       getProductDetails();
       getProductMetaData();
   }, [product_id]);
 
   if (!reviewMetaData || !productDetails) return <h2>Loading</h2>
+=======
+    if (productId) {
+      getProductDetails();
+      getProductMetaData();
+    }
+  }, [productId]);
+
+  if (!productId|| !reviewMetaData || !productDetails) return <h2>Loading</h2>
+>>>>>>> f90c663 (Wrote localStorage functions. Move to App.jsx and refactor with)
 
   return (
     <AppContext.Provider

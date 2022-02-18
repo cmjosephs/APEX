@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, userReducer, createContext, useRef } from 'react';
 import RelatedListCard from './RelatedListCard.jsx';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -37,10 +38,31 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
     })
     setFavorites(favoriteProductsArray);
     // setCount(prevCount => prevCount + 1);
+=======
+import React, { useState, useEffect, userReducer, createContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
+import Rating from '@mui/material/Rating';
+//import FavoriteListCard from './FavoriteListCard.jsx';
+
+const FavoriteList = ({ currentProductId, currentProductDetails, currentProductRating, currentProductImg }) => {
+  const [favorites, setFavorites] = useState([]);
+
+  function gatherObjects() {
+    const favoriteProductObjects = Object.values(localStorage);
+    const favoriteProductsArray = favoriteProductObjects.map((productObj) => JSON.parse(productObj));
+    return favoriteProductsArray;
+  }
+
+  function getFavorites() {
+    const updateStorage = gatherObjects();
+    setFavorites(updateStorage);
+>>>>>>> f90c663 (Wrote localStorage functions. Move to App.jsx and refactor with)
   }
 
   function addToFavorites() {
     const productToAdd = {
+<<<<<<< HEAD
       // startIndex: count,
       productID: currentProductId,
       productName: currentProductDetails.name,
@@ -48,10 +70,17 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
       url: currentProductImg.thumbnail_url,
       rating: currentProductRating,
       price: currentProductDetails.default_price
+=======
+      productName: currentProductDetails.name,
+      category: currentProductDetails.category,
+      url:  currentProductImg
+      rating: currentProductRating
+>>>>>>> f90c663 (Wrote localStorage functions. Move to App.jsx and refactor with)
     }
 
     localStorage.setItem(currentProductId, JSON.stringify(productToAdd));
     if (favorites.length !== localStorage.length) {
+<<<<<<< HEAD
       gatherFavorites();
     }
   }
@@ -69,10 +98,21 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
 
   const scrollProductsRight = (scrollOffset) => {
     favoriteRef.current.scrollLeft += 450;
+=======
+      getFavorites();
+    }
+  }
+
+  function delFavorites() {
+    localStorage.removeItem(currentProductId)
+    const updateStorage = gatherObjects();
+    setFavorites(updateStorage);
+>>>>>>> f90c663 (Wrote localStorage functions. Move to App.jsx and refactor with)
   }
 
   function renderFavorites() {
     if (favorites.length !== 0) {
+<<<<<<< HEAD
       return favorites.map((favorite, index) => {
         return (
           <>
@@ -135,3 +175,44 @@ export default FavoriteList;
             // />
             // console.log(favorite.productName);
             // <div className="hello-world">{favorite.productName}</div>
+=======
+      return (
+        {favorites.map((favorite, index) => (
+          <FavoriteListCard favorite={favorite} key={`${currentProductId}-${index}`}/>
+        ))}
+      )
+    } else {
+      return (
+
+      )
+    }
+  }
+  // useEffect(() => {
+
+  // }, [favorites])
+
+  return (
+    <div>
+      <button style={{ display: "flex", width: "300px", height: "375px" }} onClick={addToFavorites}>Add to Favorites +</button>
+      {favorites.map((favorite, index) => (
+
+        <FavoriteListCard favorite={favorite} key={`${currentProductId}-${index}`}/>
+      ))}
+
+      {relatedArr.map((relatedId, index) => (
+          <div style={{ display: "flex", margin: "5px" }}>
+            <RelatedListCard
+              relatedId={relatedId}
+              currentProductId={currentProductId}
+              key={`${index}-${relatedId}`}
+              currentProductDetails={productDetails}
+              currentProductImg={currentProductImg}/>
+          </div>
+        ))}
+    </div>
+
+  )
+}
+
+export default FavoriteList;
+>>>>>>> f90c663 (Wrote localStorage functions. Move to App.jsx and refactor with)
