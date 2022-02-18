@@ -23,15 +23,6 @@ const ReviewForm = () => {
   let [picURLs, setPicURLs] = useState([]);
   let [state, dispatch] = useReducer(characteristicsReducer, {});
 
-  // const characteristicsReducer = (state, action) => {
-  //   switch (action.type) {
-  //     case "addCharacteristic":
-  //       return {...state, characteristics[action.payload.name].id: action.payload.value};
-  //       break;
-  //     // default:
-  //     //   return state;
-  //   }
-  // }
 
   function characteristicsReducer(state, action) {
     switch (action.type) {
@@ -93,7 +84,8 @@ const ReviewForm = () => {
           <FormLabel id="demo-row-radio-buttons-group-label">Comfort</FormLabel>
           <RadioGroup
            aria-labelledby="demo-row-radio-buttons-group-label"
-           name="comfort"
+           name="Comfort"
+           onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
          >
            <FormControlLabel value="1" control={<Radio />} label="Uncomfortable" />
            <FormControlLabel value="2" control={<Radio />} label="Slightly uncomfortable" />
@@ -108,9 +100,8 @@ const ReviewForm = () => {
           <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
           <RadioGroup
             aria-labelledby="demo-row-radio-buttons-group-label"
-            name="size"
-            // onChange={handleCharacteristics}
-            //  onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { e.target.name: e.target.value }})}}
+            name="Size"
+            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
             >
             <FormControlLabel value="1" control={<Radio />} label="Too small" />
             <FormControlLabel value="2" control={<Radio />} label="1/2 size too small" />
@@ -126,8 +117,8 @@ const ReviewForm = () => {
           <FormLabel id="demo-row-radio-buttons-group-label">Width</FormLabel>
           <RadioGroup
           aria-labelledby="demo-row-radio-buttons-group-label"
-          name="width"
-          // onChange={handleCharacteristics}
+          name="Width"
+          onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
         >
           <FormControlLabel value="1" control={<Radio />} label="Too narrow" />
           <FormControlLabel value="2" control={<Radio />} label="Slightly narrow" />
@@ -143,8 +134,8 @@ const ReviewForm = () => {
           <FormLabel id="demo-row-radio-buttons-group-label">Quality</FormLabel>
           <RadioGroup
             aria-labelledby="demo-row-radio-buttons-group-label"
-            name="quality"
-            // onChange={handleCharacteristics}
+            name="Quality"
+            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
           >
             <FormControlLabel value="1" control={<Radio />} label="Poor" />
             <FormControlLabel value="2" control={<Radio />} label="Below average" />
@@ -160,8 +151,8 @@ const ReviewForm = () => {
           <FormLabel id="demo-row-radio-buttons-group-label">Length</FormLabel>
           <RadioGroup
             aria-labelledby="demo-row-radio-buttons-group-label"
-            name="length"
-            // onChange={handleCharacteristics}
+            name="Length"
+            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
           >
             <FormControlLabel value="1" control={<Radio />} label="Runs short" />
             <FormControlLabel value="2" control={<Radio />} label="Below average" />
