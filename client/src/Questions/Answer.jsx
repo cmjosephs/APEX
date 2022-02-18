@@ -26,9 +26,9 @@ var Answer = ({answer, productId, answerHelpful}) => {
 
   return (
     <div className="answer-container">
-      <div>
+      <div className="answer-body">
 
-        <span className="answer-body">{answer.body}</span>
+        <span >{answer.body}</span>
       </div>
       <div className="answer-info">
         <span>by User</span>
