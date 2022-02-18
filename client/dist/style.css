@@ -1,15 +1,15 @@
-.question-container {
+/* .question-container {
   height: 30em;
+  display: flex;
   width: 60em;
-  
-}
 
-.question-answer-list {
-  max-height: 25em;
-  max-width: 60em;
-  overflow: auto;
-}
+} */
 
+.question-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 
 .question-header {
   position: sticky;
@@ -17,27 +17,28 @@
   z-index: 1;
 }
 
-.question-answer-list {
-  overflow: auto;
-
-}
-
-
 .navbar {
   display: flex;
-
-}
-
-.navbar input {
   flex-grow: 1;
+  /* flex-shrink: 1; */
 }
 
-.sort {
+/* .sort {
   display: flex;
-}
+} */
 
-.search-input {
+/* .search-input {
   display: flex;
+  flex-direction: column;
+} */
+
+.question-answer-list {
+  max-height: 25em;
+  max-width: 60em;
+  overflow: auto;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
   flex-direction: column;
 }
 
@@ -54,7 +55,7 @@
   align-items: baseline;
   gap: 5px;
   margin-left: auto;
-  margin-right: 0;
+  margin-right: 2em;
 }
 
 .question-yes {
@@ -98,3 +99,10 @@
   margin-left: 10px;
 }
 
+.answer-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+  flex-direction: column;
+
+}
