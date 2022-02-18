@@ -14,21 +14,19 @@ var Photos = () => {
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => setOpenModal(!openModal);
 
-
-  const handlePhotoChange = (i) => {
-    setCurrentPhotoIdx(i);
-  }
-
-  const photoScrollRight = () => {
-    if (currentPhotoIdx < photos.length - 1) setCurrentPhotoIdx(currentPhotoIdx + 1);
-  }
-  const photoScrollLeft = () => {
+  // image gallery navigation functions
+  const photoScroll = {
+    right: () => {
+      if (currentPhotoIdx < photos.length - 1) setCurrentPhotoIdx(currentPhotoIdx + 1);
+    },
+    left: () => {
     if (currentPhotoIdx > 0) setCurrentPhotoIdx(currentPhotoIdx - 1);
+    },
+    click: (i) => setCurrentPhotoIdx(i)
   }
-
   ArrowKeysReact.config({
-    left: photoScrollLeft,
-    right: photoScrollRight
+    left: photoScroll.left,
+    right: photoScroll.right
   })
 
   // for window resize
@@ -44,7 +42,7 @@ var Photos = () => {
   const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
       return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="image-gallery-thumbnail"
-        onClick={(e) => handlePhotoChange(parseInt(e.target.alt))}></img>
+        onClick={(e) => photoScroll.click(parseInt(e.target.alt))}></img>
     })
   }
 
@@ -65,14 +63,14 @@ var Photos = () => {
                 fontSize="large"
                 className="expanded-scroller-arrow expanded-view-left-arrow"
                 color={currentPhotoIdx ? "primary" : "disabled"}
-                onClick={photoScrollLeft}
+                onClick={photoScroll.left}
               />
               <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo"></img>
               <ArrowForwardIosIcon
                 fontSize="large"
                 className="expanded-scroller-arrow expanded-view-right-arrow"
                 color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
-                onClick={photoScrollRight}
+                onClick={photoScroll.right}
               />
               <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
             </div>
@@ -94,13 +92,13 @@ var Photos = () => {
         <ArrowBackIosNewIcon
           fontSize="large"
           color={currentPhotoIdx ? "primary" : "disabled"}
-          onClick={photoScrollLeft}
+          onClick={photoScroll.left}
         />
         <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}  onClick={toggleModal}></img>
         <ArrowForwardIosIcon
         fontSize="large"
         color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
-        onClick={photoScrollRight}
+        onClick={photoScroll.right}
       />
       </div>
       {renderModal()}
