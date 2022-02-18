@@ -46,6 +46,50 @@ var Photos = () => {
     })
   }
 
+
+  const renderWideView = () => {
+    return (
+      <div className="images-gallery-wide-view">
+        {photos.map((photo, index) => {
+          return (
+            <img src={photo.url} key={index} alt={`${index}`}
+              className="full-image-wide-view"
+              onClick={(e) => {
+                photoScroll.click(parseInt(e.target.alt));
+                toggleModal();
+              }}
+            ></img>
+          );
+        });
+        }
+      </div>
+    );
+
+  }
+
+  const renderNarrowView = () => {
+    return (
+      <div className="images-gallery-narrow-view">
+        <ArrowBackIosNewIcon
+          fontSize="large"
+          color={currentPhotoIdx ? "primary" : "disabled"}
+          onClick={photoScroll.left}
+        />
+        <img
+          src={photos[currentPhotoIdx].url}
+          alt={currentStyle.name}
+          onClick={toggleModal}
+        ></img>
+        <ArrowForwardIosIcon
+          fontSize="large"
+          color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
+          onClick={photoScroll.right}
+        />
+      </div>
+    )
+  }
+
+
   const renderModal = () => {
     return (
       <div className="expanded-view" {...ArrowKeysReact.events} tabIndex="1">
@@ -96,10 +140,10 @@ var Photos = () => {
         />
         <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}  onClick={toggleModal}></img>
         <ArrowForwardIosIcon
-        fontSize="large"
-        color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
-        onClick={photoScroll.right}
-      />
+          fontSize="large"
+          color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
+          onClick={photoScroll.right}
+        />
       </div>
       {renderModal()}
       <div id="default-photos">
