@@ -250,10 +250,20 @@ nav {
 
 /* -------------- Info -------------- */
 
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.product-details h3:hover, .product-features h3:hover {
+  cursor: pointer;
+}
 
 .share-bar {
   display: flex;
   justify-content: space-between;
+  max-width: 50%;
   /* justify-content: center;
   align-content: center; */
 }
