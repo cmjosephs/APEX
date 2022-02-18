@@ -13,6 +13,10 @@ var Photos = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => setOpenModal(!openModal);
+  const wideViewModal = (i) => {
+    photoScroll.click(i);
+    toggleModal();
+  }
 
   // image gallery navigation functions
   const photoScroll = {
@@ -22,7 +26,11 @@ var Photos = () => {
     left: () => {
     if (currentPhotoIdx > 0) setCurrentPhotoIdx(currentPhotoIdx - 1);
     },
-    click: (i) => setCurrentPhotoIdx(i)
+    click: (i) => {
+      // console.log(i);
+      setCurrentPhotoIdx(i)
+      // if (cb) cb();
+    }
   }
   ArrowKeysReact.config({
     left: photoScroll.left,
@@ -45,26 +53,31 @@ var Photos = () => {
         onClick={(e) => photoScroll.click(parseInt(e.target.alt))}></img>
     })
   }
-
+{/* <img src={photo.url} key={index} alt={`${index}`}
+              className="full-image-wide-view"
+              onClick={(e) => photoScroll.click(parseInt(e.target.alt), cb);}
+            ></img> */}
 
   const renderWideView = () => {
     return (
       <div className="images-gallery-wide-view">
+
         {photos.map((photo, index) => {
           return (
-            <img src={photo.url} key={index} alt={`${index}`}
+            <img
+              src={photo.url}
+              key={index}
+              alt={`${index}`}
               className="full-image-wide-view"
-              onClick={(e) => {
-                photoScroll.click(parseInt(e.target.alt));
-                toggleModal();
-              }}
-            ></img>
-          );
-        });
-        }
+              onClick={(e) => wideViewModal(index)}
+              >
+            </img>
+          )
+        })}
+
+
       </div>
     );
-
   }
 
   const renderNarrowView = () => {
@@ -72,6 +85,7 @@ var Photos = () => {
       <div className="images-gallery-narrow-view">
         <ArrowBackIosNewIcon
           fontSize="large"
+          className="left-arrow-narrow-view"
           color={currentPhotoIdx ? "primary" : "disabled"}
           onClick={photoScroll.left}
         />
@@ -82,6 +96,7 @@ var Photos = () => {
         ></img>
         <ArrowForwardIosIcon
           fontSize="large"
+          className="right-arrow-narrow-view"
           color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
           onClick={photoScroll.right}
         />
@@ -132,25 +147,33 @@ var Photos = () => {
 
   return (
     <div className="image-gallery">
-      <div className="display-photo" {...ArrowKeysReact.events} tabIndex="1">
-        <ArrowBackIosNewIcon
-          fontSize="large"
-          color={currentPhotoIdx ? "primary" : "disabled"}
-          onClick={photoScroll.left}
-        />
-        <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}  onClick={toggleModal}></img>
-        <ArrowForwardIosIcon
-          fontSize="large"
-          color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
-          onClick={photoScroll.right}
-        />
-      </div>
       {renderModal()}
-      <div id="default-photos">
-        {renderThumbnails(photos)}
-      </div>
+      {window.innerWidth > 959 ? renderWideView() : renderNarrowView()}
     </div>
   )
+  // console.log(window.innerWidth);
+
+//   return (
+//     <div className="image-gallery">
+//       <div className="display-photo" {...ArrowKeysReact.events} tabIndex="1">
+//         <ArrowBackIosNewIcon
+//           fontSize="large"
+//           color={currentPhotoIdx ? "primary" : "disabled"}
+//           onClick={photoScroll.left}
+//         />
+//         <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}  onClick={toggleModal}></img>
+//         <ArrowForwardIosIcon
+//           fontSize="large"
+//           color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
+//           onClick={photoScroll.right}
+//         />
+//       </div>
+//       {renderModal()}
+//       <div id="default-photos">
+//         {renderThumbnails(photos)}
+//       </div>
+//     </div>
+//   )
 }
 
 export default Photos;

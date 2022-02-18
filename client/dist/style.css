@@ -19,8 +19,8 @@ nav {
   display: flex;
   flex-direction: column;
 } */
-@media (min-width: 60em) {
-  /* 960px */
+@media (min-width: 960px) {
+  /* 60em */
   .product-overview {
     /* flex-direction: row; */
     display: flex;
@@ -33,6 +33,9 @@ nav {
 }
 
 /* -------------- Photos -------------- */
+.image-gallery-wide-view {
+  max-width: 60%;
+}
 
 /* .display-photo {
   max-width: 100%;
