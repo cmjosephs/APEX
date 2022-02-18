@@ -108,9 +108,9 @@ nav {
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
-  gap: 1em;
-  max-width: 100%;
-  min-height: 10%;
+  gap: 0.5rem;
+  max-width: 70%;
+  height: 10%;
 }
 .expanded-photos-scroller > * {
   max-height: 50%;

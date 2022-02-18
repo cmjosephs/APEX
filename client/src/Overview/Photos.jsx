@@ -55,6 +55,7 @@ var Photos = () => {
         >
           <div className="expanded-view-window">
             <div className="expanded-main-photo-section">
+            <button  style={{ visibility: "hidden" }} className="expanded-view-exit-btn">X</button>
               <ArrowBackIosNewIcon
                 fontSize="large"
                 className="expanded-scroller-arrow"
@@ -68,7 +69,7 @@ var Photos = () => {
                 color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
                 onClick={photoScrollRight}
               />
-              {/* <button onClick={toggleModal} className="expanded-view-exit-btn">X</button> */}
+              <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
             </div>
             <div className="expanded-photos-scroller">
               {renderThumbnails(photos)}
