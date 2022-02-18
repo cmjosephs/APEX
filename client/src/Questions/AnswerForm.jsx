@@ -37,20 +37,32 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
     }
   };
 
+  const validateEmail = (email) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      return true
+    }
+      return false
+    }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     let message = {body, name, email, photos }
 
-    axios.post(`/api/products/${product}/qa/questions/${question.question_id}/answers`, message)
-      .then(() => {
-        setBody('');
-        setName('');
-        setEmail('');
-      })
-      .then(() => {
-        //console.log('in then statement of handlesubmit for answers');
-         getAnswers()})
-      .then(() => handleClose())
+    if (body === '' || name === '' || email === '') {
+      return alert("You must enter the following: answer/nickname/email")
+    } else if (!validateEmail(email)) {
+      return  alert("You have entered an invalid email address!")
+    } else {
+      axios.post(`/api/products/${product}/qa/questions/${question.question_id}/answers`, message)
+        .then(() => {
+          setBody('');
+          setName('');
+          setEmail('');
+        })
+        .then(() => getAnswers())
+        .then(() => handleClose())
+        .catch((err) => { console.log('Cannot submit your answer', err)})
+    }
   }
 
   return (
@@ -68,11 +80,13 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
           <TextField
             required
             id="outline-required"
-            label="Your Answer"
+            label="Your Answer (max 1000 characters)"
             name="body"
+            placeholder="Enter your answer here..." required
             value={body}
             autoFocus
             margin="dense"
+            maxLength="1000"
             fullWidth
             multiline={true}
             rows={4}
@@ -82,10 +96,11 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
             required
             helperText="“For privacy reasons, do not use your full name or email address"
             id="outlined-required"
-            label="Your Nickname"
+            label="Your Nickname (max 60 characters)"
             name="username"
-            placeholder="Example:Jack123 "
+            placeholder="Example:Jack123 " required
             value={name}
+            maxLength="60"
             fullWidth
             onChange={handleChange}
           />
@@ -93,11 +108,12 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
             required
             helperText="For authentication reasons, you will not be emailed"
             id="outlined-required"
-            label="Email"
+            label="Email (max 60 characters)"
             type="email"
             name="email"
             value={email}
-            placeholder="Example: jack@email.com"
+            placeholder="Example: jack@email.com" required
+            maxLength="60"
             fullWidth
             onChange={handleChange}
           />

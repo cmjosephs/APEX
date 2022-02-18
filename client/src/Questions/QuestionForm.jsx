@@ -36,18 +36,31 @@ const QuestionForm = ({product, productName, addedQuestion}) => {
     }
   };
 
+  const validateEmail = (email) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      return true
+    }
+      return false
+    }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     let message = {body, name, email, product_id: Number(product) }
-
-    axios.post(`/api/products/${product}/qa/questions`, message)
-      .then(() => {
-        setBody('');
-        setName('');
-        setEmail('');
-      })
-      .then(addedQuestion())
-      .then(handleClose())
+    if (body === '' || name === '' || email === '') {
+      return alert("You must enter the following: question/nickname/email")
+    } else if (!validateEmail(email)) {
+      return  alert("You have entered an invalid email address!")
+    } else {
+      axios.post(`/api/products/${product}/qa/questions`, message)
+        .then(() => {
+          setBody('');
+          setName('');
+          setEmail('');
+        })
+        .then(addedQuestion())
+        .then(handleClose())
+        .catch((err) => { console.log('Cannot submit your question', err)})
+    }
   }
 
   return (
@@ -64,11 +77,13 @@ const QuestionForm = ({product, productName, addedQuestion}) => {
           <TextField
             required
             id="outline-required"
-            label="Your Question"
+            label="Your Question (max 1000 characters)"
             name="body"
+            placeholder="Enter your question here..." required
             value={body}
             autoFocus
             margin="dense"
+            maxLength="1000"
             fullWidth
             multiline={true}
             rows={4}
@@ -78,10 +93,12 @@ const QuestionForm = ({product, productName, addedQuestion}) => {
             required
             helperText="“For privacy reasons, do not use your full name or email address"
             id="outlined-required"
-            label="Your Nickname"
+            label="Your Nickname (max 60 characters)"
+            type="text"
             name="username"
-            placeholder="Example:Jack123 "
+            placeholder="Example:Jack123 " required
             value={name}
+            maxLength="60"
             fullWidth
             onChange={handleChange}
           />
@@ -89,14 +106,16 @@ const QuestionForm = ({product, productName, addedQuestion}) => {
             required
             helperText="For authentication reasons, you will not be emailed"
             id="outlined-required"
-            label="Email"
+            label="Email (max 60 characters)"
             type="email"
             name="email"
             value={email}
-            placeholder="Example: jack@email.com"
+            placeholder="Example: jack@email.com" required
+            maxLength="60"
             fullWidth
             onChange={handleChange}
           />
+
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
@@ -105,6 +124,7 @@ const QuestionForm = ({product, productName, addedQuestion}) => {
       </Dialog>
     </div>
   );
+
 }
 
 export default QuestionForm;

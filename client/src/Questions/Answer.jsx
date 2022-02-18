@@ -33,12 +33,12 @@ var Answer = ({answer, product, answerHelpful}) => {
       <div className="answer-info">
         <span>by User</span>
         {answererName(answer)}
-        {new Intl.DateTimeFormat('en-US',
+        {new Date(answer.date).toLocaleDateString('en-us',
         {
           month: 'long',
           year: 'numeric',
-          day: '2-digit'
-        }).format(parseInt(answer.date))}
+          day: 'numeric'
+        })}
         <span className="seperator">|</span>
         <span className="answer-helpful">
           Helpful?
