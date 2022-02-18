@@ -25,7 +25,7 @@ const ReviewForm = () => {
 
     switch (action.type) {
       case "addCharacteristic":
-        return {...state, characteristics: {...state.characteristics, [characteristics[char[0]].id]: charValue[0]}};
+        return {...state, characteristics: {...state.characteristics, [characteristics[char[0]].id]: parseInt(charValue[0])}};
         break;
       case "addReviewData":
         return {...state, reviewData: {...state.reviewData, [char[0]]: charValue[0]}};
@@ -193,29 +193,12 @@ const ReviewForm = () => {
     setRecommended(event.target.value);
   };
 
-  const handleUserInput = (event) => {
-    switch (event.target.name) {
-      case "name":
-        setUserName(event.target.value);
-        break;
-      case "email":
-        setUserEmail(event.target.value);
-        break;
-      case "body":
-        setReviewBody(event.target.value);
-        break;
-      case "summary":
-        setReviewSummary(event.target.value);
-        break;
-    }
-  }
 
   const handleReviewSubmit = () => {
     let { recommend, name, email, summary, body } = state.reviewData;
-    let { characteristics } = state.characteristics;
 
     axios.post(`api/products/${currentProduct.product}/reviews`, {
-      product_id: `${currentProduct.product}`,
+      product_id: Number(currentProduct.product),
       rating,
       recommend,
       name,
@@ -223,13 +206,8 @@ const ReviewForm = () => {
       summary,
       body,
       photos: picURLs,
-      characteristics
-      // summary: state.reviewData.summary,
-      // body: state.reviewData.body,
-      // recommend: state.reviewData.recommend,
-      // name: state.reviewData.name,
-      // email: state.reviewData.email,
-    }).then(results => {
+      characteristics: state.characteristics
+    }).then(() => {
       console.log('posted');
       handleClose();
     }).catch(err => {
