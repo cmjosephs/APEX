@@ -3,7 +3,7 @@ import { StyleContext } from './Product.jsx';
 import { Modal } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-// import Box from '@mui/material/Box';
+import ArrowKeysReact from 'arrow-keys-react';
 
 var Photos = () => {
   const { currentStyle } = useContext(StyleContext);
@@ -26,6 +26,11 @@ var Photos = () => {
     if (currentPhotoIdx > 0) setCurrentPhotoIdx(currentPhotoIdx - 1);
   }
 
+  ArrowKeysReact.config({
+    left: photoScrollLeft,
+    right: photoScrollRight
+  })
+
   // for window resize
   // useEffect(() => {
   //   setWidth(window.innerWidth);
@@ -45,7 +50,7 @@ var Photos = () => {
 
   const renderModal = () => {
     return (
-      <div className="expanded-view">
+      <div className="expanded-view" {...ArrowKeysReact.events} tabIndex="1">
         <Modal
           open={openModal}
           onClose={toggleModal}
@@ -58,14 +63,14 @@ var Photos = () => {
             <button  style={{ visibility: "hidden" }} className="expanded-view-exit-btn">X</button>
               <ArrowBackIosNewIcon
                 fontSize="large"
-                className="expanded-scroller-arrow"
+                className="expanded-scroller-arrow expanded-view-left-arrow"
                 color={currentPhotoIdx ? "primary" : "disabled"}
                 onClick={photoScrollLeft}
               />
               <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo"></img>
               <ArrowForwardIosIcon
                 fontSize="large"
-                className="expanded-scroller-arrow"
+                className="expanded-scroller-arrow expanded-view-right-arrow"
                 color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
                 onClick={photoScrollRight}
               />
@@ -85,7 +90,7 @@ var Photos = () => {
 
   return (
     <div className="image-gallery">
-      <div className="display-photo">
+      <div className="display-photo" {...ArrowKeysReact.events} tabIndex="1">
         <ArrowBackIosNewIcon
           fontSize="large"
           color={currentPhotoIdx ? "primary" : "disabled"}

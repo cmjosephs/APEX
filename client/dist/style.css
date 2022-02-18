@@ -85,10 +85,19 @@ nav {
 .expanded-scroller-arrow {
   align-self: center;
   padding: 4px;
-  background-color: rgb(199, 199, 199);
+  background-color: rgb(199, 199, 199, 0.3);
   border-radius: 20px;
+  /* opacity: 60%; */
 
   /* :hover {} */
+}
+.expanded-view-right-arrow {
+  position: relative;
+  right: 45px;
+}
+.expanded-view-left-arrow {
+  position: relative;
+  left: 45px;
 }
 .expanded-view-exit-btn {
   position: relative;
@@ -200,7 +209,7 @@ nav {
 .add-bag-btn {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 /* .add-bag-btn > * {
