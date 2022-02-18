@@ -37,9 +37,11 @@ var Info = ({ productDetails }) => {
     if (showDetails) {
       return (
         <div className="product-details">
-          <h3 onClick={() => setShowDetails(!showDetails)}>Details -</h3>
+          <h3 onClick={() => setShowDetails(!showDetails)}>
+            Details -
+          </h3>
             <p className="product-slogan" role="product-slogan">{productDetails.slogan}</p>
-            <p role="product-description">{productDetails.description}</p>
+            <p className="product-description" role="product-description">{productDetails.description}</p>
         </div>
       )
     } else {

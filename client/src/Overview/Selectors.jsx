@@ -66,9 +66,9 @@ var Selectors = () => {
           ></input>
           <label
             htmlFor={sku}
-            className="size-label"
+            className={skus[sku].quantity ? "size-label" : "size-label-nostock"} //"size-label"
             style={skus[sku].quantity ? {color: "black"} : {color: "gray"}}
-          >{skus[sku].size}</label>
+          >M {skus[sku].size}</label>
         </div>
       )
     }
