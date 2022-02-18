@@ -12,15 +12,10 @@ const ReviewForm = () => {
   let currentProduct = useContext(ProductContext);
   let [open, setOpen] = useState(false);
   let [rating, setRating] = useState(0);
-  // let [recommended, setRecommended] = useState(true);
-  // let [userName, setUserName] = useState(null);
-  // let [userEmail, setUserEmail] = useState(null);
-  // let [reviewSummary, setReviewSummary] = useState(null);
-  // let [reviewBody, setReviewBody] = useState(null);
-  let [characteristics, setCharacteristics] = useState({});
   let [upload, setUpload] = useState(true);
   let [uploadedPics, setUploadedPics] = useState([]);
   let [picURLs, setPicURLs] = useState([]);
+  let [characteristics, setCharacteristics] = useState({})
   let [state, dispatch] = useReducer(reviewReducer, {characteristics: {}, reviewData: {}});
 
 
@@ -215,19 +210,32 @@ const ReviewForm = () => {
     }
   }
 
-  // const handleReviewSubmit = () => {
-  //   axios.post(`/products/${currentProduct}/reviews`, {
-  //     product_id: `${currentProduct}`,
-  //     rating,
-  //     summary: '',
-  //     body: reviewBody,
-  //     recommend: recommended,
-  //     name: userName,
-  //     email: userEmail,
-  //     photos: picURLs,
-  //     characteristics
-  //   })
-  // }
+  const handleReviewSubmit = () => {
+    let { recommend, name, email, summary, body } = state.reviewData;
+    let { characteristics } = state.characteristics;
+
+    axios.post(`api/products/${currentProduct.product}/reviews`, {
+      product_id: `${currentProduct.product}`,
+      rating,
+      recommend,
+      name,
+      email,
+      summary,
+      body,
+      photos: picURLs,
+      characteristics
+      // summary: state.reviewData.summary,
+      // body: state.reviewData.body,
+      // recommend: state.reviewData.recommend,
+      // name: state.reviewData.name,
+      // email: state.reviewData.email,
+    }).then(results => {
+      console.log('posted');
+      handleClose();
+    }).catch(err => {
+      console.log(err)
+    })
+  }
 
   if (!Object.keys(characteristics).length) {
     return <p>Loading...</p>
@@ -370,7 +378,8 @@ const ReviewForm = () => {
 
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Submit</Button>
+          {/* <Button onClick={handleClose}>Submit</Button> */}
+          <Button onClick={handleReviewSubmit}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>
