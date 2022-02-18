@@ -1,5 +1,5 @@
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Mulish', sans-serif;
   color: rgb(20, 20, 20);
 }
 
@@ -7,7 +7,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: red;
+  background-color: rgb(196, 93, 93);
+  border-radius: 6px;
 }
 /* nav > * {
   align-items: center;
@@ -126,6 +127,11 @@ nav {
 }
 /* -------------- All Details -------------- */
 
+.all-details {
+  display: flex;
+  flex-direction: column;
+}
+
 .avg-rating-title {
   /* display: flex;
   align-items: center; */
@@ -206,23 +212,44 @@ nav {
   border-radius: 4px;
 }
 
-.add-bag-btn {
+.user-interest-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.user-interest-btns > * {
+  min-width: 70%;
+  background-color: aliceblue;
+  border: solid gray;
+  border-radius: 5rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* .add-bag-btn > * {
+.add-bag-btn {
+  background-color: rgb(49, 49, 49);
+  color: azure;
+}
+.add-bag-btn:hover {
+  background-color: rgb(214, 214, 214);
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+}
+
+/* .favorite-btn {
+  min-width: 70%;
+
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 } */
 
-.favorite-btn {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
+/* -------------- Info -------------- */
+
 
 .share-bar {
   display: flex;
@@ -236,19 +263,3 @@ nav {
   justify-content: flex-end;
   align-items: center;
 }
-
-/* .share-bar > * {
-  justify-content: center;
-  align-content: center;
-} */
-
-/* -------------- Info -------------- */
-
-/* .product-details {
-  display: flex;
-  flex-direction: column;
-}
-.product-description {
-  flex-grow: 0;
-  flex-shrink: 0;
-} */

@@ -61,6 +61,7 @@ var AllDetails = () => {
         </h3>
         {currentStyle.sale_price && <h3>${currentStyle.sale_price}</h3>}
         <Selectors />
+        <br></br>
         <Info productDetails={productDetails}/>
       </div>
     )
