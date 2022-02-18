@@ -10,11 +10,6 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
   let [open, setOpen] = useState(false);
   let [currentPic, setCurrentPic] = useState('');
 
-  // let handleChange = (e) => {
-  //   setOpen(!open);
-  //   // setCurrentPic()
-  //   console.log(e.target.src)
-  // }
 
   let handleChange = (selectedPic) => {
     setOpen(!open);
@@ -25,8 +20,8 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
     return <Modal
       open={open}
       onClose={handleChange}
+      sx={{display: 'flex', justifyContent: 'center'}}
     >
-      {/* <img id="review-thumbnail-modal" src={`${photo.url}`}/> */}
       <img id="review-thumbnail-modal" src={currentPic}/>
     </Modal>
 
@@ -34,7 +29,11 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
 
   const showReviewThumbnails = (photos) => {
     return photos.map((photo, idx) => {
-      return <img key={`review-thumbnail-${idx}`} src={`${photo.url}`} style={{ width: 60, height: 60, marginRight: 20}} onClick={(e) => handleChange(e.target.src)}/>
+      return <img
+      key={`review-thumbnail-${idx}`}
+      src={`${photo.url}`}
+      style={{ width: 60, height: 60, marginRight: 20}}
+      onClick={(e) => handleChange(e.target.src)}/>
     })
   }
 
@@ -88,7 +87,8 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
           {review.response !== null &&
           <>
           <span>{review.response}</span>
-          </>}
+          </>
+          }
         </div>
 
       </div>
