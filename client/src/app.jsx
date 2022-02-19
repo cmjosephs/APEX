@@ -58,9 +58,10 @@ const App = () => {
   }
 
   // useEffect(getRandomProductId, []);
-  // useEffect(() => {
-  //   setProductId(product_id);
-  // }, [product_id]);
+  useEffect(() => {
+    setProductId(product_id);
+  }, [product_id]);
+
   useEffect(() => {
     if (productId) {
       getProductDetails();

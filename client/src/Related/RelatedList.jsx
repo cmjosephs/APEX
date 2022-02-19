@@ -19,7 +19,7 @@ const RelatedList = () => {
   }
 
   function getCurrentProductImg(product_id) {
-    axios.get(`api/products/${product_id}/styles`)
+    axios.get(`/api/products/${product_id}/styles`)
       .then(({ data }) => updateCurrentProductImg(data.results[0].photos[0]))
       .catch(err => console.error(err));
   }
@@ -50,7 +50,7 @@ const RelatedList = () => {
 
 
   return (
-    <div className="related-container" style={{ width: "1240px"}}>
+    <div className="related-container" style={{ width: "86vw"}}>
       <h3 style={{ textAlign: "center" }}>Recommended Products</h3>
       <div>
         <button className="scroll-right" onClick={() => scrollProducts(310)} style={{ float: "right" }}>
@@ -70,7 +70,7 @@ const RelatedList = () => {
               currentProductId={currentProductId}
               currentProductDetails={productDetails}
               currentProductImg={currentProductImg}
-              />
+            />
           </div>
         ))}
       </div>
