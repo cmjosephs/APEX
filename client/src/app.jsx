@@ -1,17 +1,31 @@
-import React, { useState, useEffect, useLayoutEffect, createContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useLayoutEffect, createContext, useReducer } from 'react';
 import axios from 'axios';
 import Product from './Overview/Product.jsx';
 import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
+import { useParams } from 'react-router-dom';
 
 export const AppContext = createContext();
 
+// const ACTIONS = {
+//   ADDTOFAVORITE: 'add',
+//   TOGGLEFAVORITE: 'toggle'
+// }
+// function reducer(state, action) {
+//   switch (action.type)  {
+//     case 'toggle':
+//       return
+//   }
+// }
+
 const App = () => {
-  const [productId, setProductId] = useState(null);
+  const { product_id } = useParams();
+  //const [state, dispatch] = useReducer(reducer, { favoriteProducts: [] })
+  const [productId, setProductId] = useState(product_id);
   const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
+
 
   function getRandomProductId() {
     axios.get('/api/products')
@@ -43,7 +57,10 @@ const App = () => {
     // setReviewMetaData(testReviewMetaData);
   }
 
-  useEffect(getRandomProductId, []);
+  // useEffect(getRandomProductId, []);
+  // useEffect(() => {
+  //   setProductId(product_id);
+  // }, [product_id]);
   useEffect(() => {
     if (productId) {
       getProductDetails();
@@ -51,7 +68,7 @@ const App = () => {
     }
   }, [productId]);
 
-  if (!productId|| !reviewMetaData || !productDetails) return <h2>Loading</h2>
+  if (!productId || !reviewMetaData || !productDetails) return <h2>Loading</h2>
 
   return (
     <AppContext.Provider
