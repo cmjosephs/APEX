@@ -66,14 +66,14 @@ const App = () => {
           <li>Women</li>
           <li>Kids</li>
         </ul>
-        <h1>FEC</h1>
+        <h1>RE AX</h1>
         <div>
           <input type="text" placeholder="Search"></input>
           <p>Favorites</p>
           <p>Bag</p>
         </div>
       </nav>
-      {/* <hr id="nav-break"/> */}
+      <hr id="nav-break"/>
       <div>
         <br></br>
         <Product />

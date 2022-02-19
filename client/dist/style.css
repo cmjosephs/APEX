@@ -13,6 +13,7 @@ body {
   margin: 0;
   background-color: #FCFCFC;
   font-family: 'Roboto', sans-serif;
+  font-weight: 100;
   color: #272727;
 }
 
@@ -22,17 +23,25 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: #FCFCFC;
+  height: 68px;
 }
 nav ul {
   display: flex;
 }
 nav h1 {
   font-family: 'Noto Serif Display', serif;
+  font-weight: 600;
+  font-size: 50px;
 }
 nav div {
   display: flex;
 }
 
+#nav-break {
+  color: #272727;
+  background-color: #272727;
+  width: 90%;
+}
 /* -------------- Product Overview -------------- */
 @media (min-width: 960px) {
   /* 60em */
@@ -147,7 +156,7 @@ nav div {
 
 .all-details h1 {
   font-family: 'Noto Serif Display', serif;
-  font-weight: thin;
+  font-weight: 400;
 }
 
 /* .avg-rating-title {
@@ -263,6 +272,9 @@ nav div {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+.product-details h3, .product-features h3 {
+  font-weight: 400;
 }
 
 .product-details h3:hover, .product-features h3:hover {
