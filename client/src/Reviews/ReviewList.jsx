@@ -24,7 +24,6 @@ const ReviewList = () => {
 
 
   const getReviews = async () => {
-    console.log("getReviews called")
     await axios.get(`api/products/${productId}/reviews`,
     {
       params: {
@@ -46,7 +45,6 @@ const ReviewList = () => {
     })
   }
 
-  // only want to show 20 reviews at most but this can change later
   const getMoreReviews = () => {
     setCount(count += 2)
     if (count >= totalReviews.length) {
@@ -59,8 +57,6 @@ const ReviewList = () => {
   }
 
   const filterStarReviews = async (checkedStars) => {
-    console.log("filterStarReviews called")
-    console.log(checkedStars)
     if (checkedStars.length > 0) {
       await axios.get(`api/products/${productId}/reviews`,
       {
@@ -80,23 +76,26 @@ const ReviewList = () => {
 
         setDisplayCount(filteredStarReviews.length)
 
-        console.log('this is the filtered ', filteredStarReviews.length)
-        setTotalReviews(filteredStarReviews);
+        // console.log('this is the filtered ', filteredStarReviews.length)
+        // setTotalReviews(filteredStarReviews);
 
-        setReviews(filteredStarReviews.splice(0, count));
-        console.log('this is the total ', totalReviews);
+        setReviews(filteredStarReviews)
+        setEnoughReviews(false)
+        // setReviews(filteredStarReviews.splice(0, count));
+        // console.log('this is the total ', totalReviews);
 
-        if (filteredStarReviews.length <= 2) {
-          setEnoughReviews(!enoughReviews)
-        }
+        // if (filteredStarReviews.length <= 2) {
+        //   setEnoughReviews(!enoughReviews)
+        // }
 
 
       }).catch(err => {
         console.log('error getting reviews')
-        setEnoughReviews(!enoughReviews)
+        setEnoughReviews(false)
 
       })
     } else {
+      setEnoughReviews(true)
       getReviews()
     }
   }
