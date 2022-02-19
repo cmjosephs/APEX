@@ -74,11 +74,11 @@ const RelatedList = () => {
         ))}
       </div>
       <h3 style={{ textAlign: "center" }}>Favorite Products</h3>
-      <FavoriteList
+      {/* <FavoriteList
         currentProductId={currentProductId}
         currentProductDetails={productDetails}
         currentProductRating={calcAverageRating(reviewMetaData.rating)}
-        currentProductImg={currentProductImg}/>
+        currentProductImg={currentProductImg}/> */}
     </div>
 
   )

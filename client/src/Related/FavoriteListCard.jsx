@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-const FavoriteListCard = () => {
+// const FavoriteListCard = () => {
 
-}
+// }
 
-export default FavoriteListCard;
+// export default FavoriteListCard;
