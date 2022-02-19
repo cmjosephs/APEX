@@ -1,18 +1,35 @@
+/*
+black #272727
+white #FCFCFC
+gray #E7E7E7
+beige #D6CCC2
+*/
+/*
+font-family: 'Noto Serif Display', serif;
+font-family: 'Roboto', sans-serif;
+*/
+
 body {
+  margin: 0;
+  background-color: #f0efef;
   font-family: 'Mulish', sans-serif;
   color: rgb(20, 20, 20);
 }
 
 /* -------------- Navigation -------------- */
-nav {
+/* nav {
+  background-color: red;
+} */
+nav ul {
+  /* height: ; */
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-around;
   background-color: #1F2833;
   color: #66FCF1;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
-nav h1 {
+nav ul {
   font-size: x-large;
 }
 

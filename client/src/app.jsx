@@ -62,8 +62,13 @@ const App = () => {
     >
       <div>
         <nav>
-          <h1>FEC project</h1>
-          <p>-------------Navigation Bar-------------</p>
+          <ul>
+            <li>FEC</li>
+            <li>Project</li>
+            <li>--------Navigation-------</li>
+          </ul>
+          {/* <h1>FEC project</h1>
+          <p>-------------Navigation Bar-------------</p> */}
         </nav>
         <br></br>
         <Product />
