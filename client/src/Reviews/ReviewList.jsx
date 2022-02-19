@@ -17,6 +17,7 @@ const ReviewList = () => {
   let [enoughReviews, setEnoughReviews] = useState(true);
   let [displayCount, setDisplayCount] = useState(0);
 
+
   useEffect(() =>
   {
     getReviews();
@@ -24,6 +25,7 @@ const ReviewList = () => {
 
 
   const getReviews = async () => {
+    console.log('getreviews is called')
     await axios.get(`api/products/${productId}/reviews`,
     {
       params: {
@@ -34,6 +36,7 @@ const ReviewList = () => {
     .then(results => {
       setTotalReviews(results.data.results);
       setDisplayCount(results.data.results.length);
+      // console.log("REVIEW COUNTS: ", results.data.results.length, 'ENOUGH REVIEWS: ', enoughReviews)
       if (results.data.results.length <= 2) {
         setEnoughReviews(!enoughReviews)
       }
@@ -67,45 +70,13 @@ const ReviewList = () => {
             }
           }
         })
+    setReviews(filteredStarReviews);
     setEnoughReviews(false);
     setDisplayCount(filteredStarReviews.length);
-    setReviews(filteredStarReviews);
     } else {
-      setEnoughReviews(true);
       getReviews();
+      setEnoughReviews(true)
     }
-
-
-    // if (checkedStars.length > 0) {
-    //   axios.get(`api/products/${productId}/reviews`,
-    //   {
-    //     params: {
-    //       count: 200,
-    //       sort: sort
-    //     }
-    //   })
-    //   .then(results => {
-    //     let filteredStarReviews = results.data.results.filter(review => {
-    //       for (let i = 0; i < checkedStars.length; i++) {
-    //         if (review.rating === checkedStars[i]) {
-    //           return review;
-    //         }
-    //       }
-    //     })
-
-    //     setEnoughReviews(false);
-    //     setDisplayCount(filteredStarReviews.length);
-    //     setReviews(filteredStarReviews);
-
-    //   }).catch(err => {
-    //     console.log('error getting reviews');
-    //     setEnoughReviews(false);
-
-    //   })
-    // } else {
-    //   setEnoughReviews(true);
-    //   getReviews();
-    // }
   }
 
 
@@ -114,11 +85,15 @@ const ReviewList = () => {
   }
 
   return (
+    <div className="review-section">
     <div className="review-container">
-      <div className="avg-rating-review"><h3>Average Rating & Reviews</h3>
-      <AvgRatingReview totalReviews={totalReviews} filterStarReviews={filterStarReviews}/>
+      <div className="review-container-child">
+        <div className="avg-rating-review"><h3>Average Rating & Reviews</h3>
+        <AvgRatingReview totalReviews={totalReviews} filterStarReviews={filterStarReviews}/>
 
+        </div>
       </div>
+      <div className="review-container-child">
       <div className="sort-section">
         <h2>{displayCount} Reviews,
           <label for ="reviews-sort"> sorted by: </label>
@@ -130,12 +105,17 @@ const ReviewList = () => {
         </h2>
       </div>
       <AllReviews reviews={reviews} getNewReviews={getReviews}/>
+      </div>
+    </div>
+      <div className="review-button-section">
       {enoughReviews &&
       <div className="review-buttons">
         <button onClick={getMoreReviews}>MORE REVIEWS</button>
       </div>
       }
       <ReviewForm getNewReviews={getReviews}/>
+      </div>
+
     </div>
   )
 }

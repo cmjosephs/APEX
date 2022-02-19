@@ -9,14 +9,14 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
   let [markNotHelpful, setMarkNotHelpful] = useState(true);
   let [notHelpfulCount, setNotHelpfulCount] = useState(0);
 
-  useEffect(() => {
-    getNewReviews()
-  }, [markHelpful])
+  // useEffect(() => {
+  //   getNewReviews()
+  // }, [markHelpful])
 
 
   let addHelpful = () => {
     axios.put(`api/products/${productId}/reviews/${review.review_id}/helpful`)
-    .then(getNewReviews())
+    // .then(getNewReviews())
     .then(setMarkHelpful(false))
     .catch(err => {
       'error marking as helpful'

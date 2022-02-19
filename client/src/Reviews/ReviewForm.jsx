@@ -221,8 +221,7 @@ const ReviewForm = ({ getNewReviews }) => {
         characteristics: state.characteristics
       }).then(() => {
         console.log('posted');
-        console.log(state)
-        getNewReviews();
+        // getNewReviews();
         handleClose();
         dispatch({ type: "clearData"})
       }).catch(err => {

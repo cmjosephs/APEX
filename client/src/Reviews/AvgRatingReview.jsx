@@ -4,7 +4,6 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import { getMetaData } from './ReviewForm.jsx';
 import { AppContext } from '../App.jsx';
-// import Stack from '@mui/material/Stack';
 import Slider from '@mui/material/Slider';
 // import { styled } from '@mui/material/styles';
 import axios from 'axios';
@@ -23,7 +22,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   // let { sort } = useContext(SortContext);
   let ratings = reviewMetaData.ratings;
   let characteristics = reviewMetaData.characteristics;
-  // let [starReviews, setStarReviews] = useState([]);
   let oneStar = ratings[1];
   let twoStar = ratings[2];
   let threeStar = ratings[3];
@@ -59,6 +57,10 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   );
 
   useEffect(() => {
+    handleChangeStar()
+  }, [state])
+
+  const handleChangeStar = () => {
     let checkedStars = [];
     for (let [key, value] of Object.entries(state)) {
       if (state[key]) {
@@ -66,9 +68,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
       }
     }
     filterStarReviews(checkedStars);
-  }, [state])
-
-
+  }
   // watch sort and if it changes then uncheck st
 
 
