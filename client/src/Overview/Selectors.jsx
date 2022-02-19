@@ -44,7 +44,11 @@ var Selectors = () => {
           onMouseEnter={(e) => setStyleDisplayName(e.target.alt)}
           onMouseLeave={() => setStyleDisplayName(currentStyle.name)}
           key={`${style.style_id}-${index}`}
-          style={{ border: style.style_id === currentStyle.style_id ? "thick solid red" : "none"}}
+          // style={{ border: style.style_id === currentStyle.style_id ? "thick solid #D6CCC2" : "none"}}
+          style={style.style_id === currentStyle.style_id ?
+            {border: "thick solid #D6CCC2",
+            boxShadow: "none"} : {border: "none"}}
+
         ></img>
       )
     })
