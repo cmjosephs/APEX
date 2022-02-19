@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { StyleContext } from './Product.jsx';
+import resizeWidth from './resizeWidth.jsx';
 import { Modal } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -7,7 +8,7 @@ import ArrowKeysReact from 'arrow-keys-react';
 
 var Photos = () => {
   const { currentStyle } = useContext(StyleContext);
-  // const [width, setWidth] = useState(window.innerWidth);
+  const { width } = resizeWidth();
   const [photos, setPhotos] = useState(currentStyle.photos);
   const [currentPhotoIdx, setCurrentPhotoIdx] = useState(0);
 
@@ -53,10 +54,6 @@ var Photos = () => {
         onClick={(e) => photoScroll.click(parseInt(e.target.alt))}></img>
     })
   }
-{/* <img src={photo.url} key={index} alt={`${index}`}
-              className="full-image-wide-view"
-              onClick={(e) => photoScroll.click(parseInt(e.target.alt), cb);}
-            ></img> */}
 
   const renderWideView = () => {
     return (
@@ -82,7 +79,7 @@ var Photos = () => {
 
   const renderNarrowView = () => {
     return (
-      <div className="images-gallery-narrow-view">
+      <div className="images-gallery-narrow-view" {...ArrowKeysReact.events} tabIndex="1">
         <ArrowBackIosNewIcon
           fontSize="large"
           className="left-arrow-narrow-view"
@@ -143,13 +140,13 @@ var Photos = () => {
       </div>
     )
   }
-
+  console.log(width);
   if (!Object.keys(currentStyle).length || !photos.length) return <p>Loading...</p>
 
   return (
     <div className="image-gallery">
       {renderModal()}
-      {window.innerWidth > 959 ? renderWideView() : renderNarrowView()}
+      {width > 959 ? renderWideView() : renderNarrowView()}
     </div>
   )
   // console.log(window.innerWidth);
