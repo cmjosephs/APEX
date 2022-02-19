@@ -46,6 +46,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
       <input
         onClick={e => {
           if (fnClick !== undefined) fnClick(e.target.checked);
+          console.log(e)
         }}
         // onChange={e => {
         //   if (fnChange !== undefined) fnChange(e.target.checked);
@@ -57,6 +58,24 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     </label>
   );
 
+  useEffect(() => {
+    let checkedStars = [];
+    for (let [key, value] of Object.entries(state)) {
+      if (state[key]) {
+        checkedStars.push(key);
+      }
+    }
+    filterStarReviews(checkedStars);
+  }, [state])
+
+
+  // const filterByRating = () => {
+  //   for (let star in state) {
+  //     if (state.star) {
+  //       filterStarReviews(star)
+  //     }
+  //   }
+  // }
 
   // let [checkbox, setCheckbox] = useState(false);
   // let [state, dispatch] = useReducer(starReducer, {starsChecked: []})
@@ -87,10 +106,17 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
 
   let averageRatingNumber = calcAverageRating(ratings);
 
-  const toggleCheckbox = () => {
-    setCheckbox(!checkbox);
+  function calcRecommended() {
+    let recommendedReviews = totalReviews.filter(review => {
+      return review.recommend === true;
+    })
+    return Math.ceil((recommendedReviews.length / totalReviews.length) * 100);
   }
 
+
+  if (!totalReviews) {
+    return <p>Loading review data...</p>
+  }
 
   const renderTotalStars = () => {
     return (
@@ -192,9 +218,109 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     return (
       <div className="avg-characteristics">
         {characteristics.hasOwnProperty('Fit') && <div>
-        <h3>Fit</h3>
-
+        <div>
+          <span className="characteristic-property">Fit</span>
+          <br />
+          <Slider
+            disabled
+            defaultValue={characteristics.Fit.value}
+            aria-label="Disabled slider"
+            min={1}
+            max={5}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            </div>
+          <span className="characteristic-description-left">Runs tight</span>
+          <span className="characteristic-description-middle">Perfect</span>
+          <span className="characteristic-description-right">Runs loose</span>
         </div>}
+        {characteristics.hasOwnProperty('Size') && <div>
+        <div>
+          <span className="characteristic-property">Size</span>
+          <br />
+          <Slider
+            disabled
+            defaultValue={characteristics.Size.value}
+            aria-label="Disabled slider"
+            min={1}
+            max={5}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            </div>
+          <span className="characteristic-description-left">Runs small</span>
+          <span className="characteristic-description-middle">Perfect</span>
+          <span className="characteristic-description-right">Runs big</span>
+        </div>}
+        {characteristics.hasOwnProperty('Width') && <div>
+        <div>
+          <span className="characteristic-property">Width</span>
+          <br />
+          <Slider
+            disabled
+            defaultValue={characteristics.Width.value}
+            aria-label="Disabled slider"
+            min={1}
+            max={5}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            </div>
+          <span className="characteristic-description-left">Runs narrow</span>
+          <span className="characteristic-description-middle">Perfect</span>
+          <span className="characteristic-description-right">Runs wide</span>
+        </div>}
+        {characteristics.hasOwnProperty('Quality') && <div>
+        <div>
+          <span className="characteristic-property">Quality</span>
+          <br />
+          <Slider
+            disabled
+            defaultValue={characteristics.Quality.value}
+            aria-label="Disabled slider"
+            min={1}
+            max={5}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            </div>
+          <span className="characteristic-description-left">Poor</span>
+          <span className="characteristic-description-middle">Average</span>
+          <span className="characteristic-description-right">Perfect</span>
+        </div>}
+        {characteristics.hasOwnProperty('Length') && <div>
+        <div>
+          <span className="characteristic-property">Length</span>
+          <br />
+          <Slider
+            disabled
+            defaultValue={characteristics.Length.value}
+            aria-label="Disabled slider"
+            min={1}
+            max={5}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            </div>
+          <span className="characteristic-description-left">Runs short</span>
+          <span className="characteristic-description-middle">Perfect</span>
+          <span className="characteristic-description-right">Runs long</span>
+        </div>}
+        {characteristics.hasOwnProperty('Comfort') && <div>
+        <div>
+          <span className="characteristic-property">Comfort</span>
+          <br />
+          <Slider
+            disabled
+            defaultValue={characteristics.Comfort.value}
+            aria-label="Disabled slider"
+            min={1}
+            max={5}
+            sx={{ display: 'flex', width: 1/7 }}/>
+          {/* <input
+            type="range"
+            min="1"
+            max="5"
+            value={characteristics.Comfort.value}
+            disabled
+            /> */}
+            </div>
+          <span className="characteristic-description-left">Uncomfortable</span>
+          <span className="characteristic-description-middle">Average</span>
+          <span className="characteristic-description-right">Perfect</span>
+        </div>}
+
       </div>
     )
   }
@@ -212,8 +338,12 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
           emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
         />
         </div>
+          <div>{calcRecommended()}% of reviews recommend this product</div>
+        <div className="rating-breakdown">
+          <h3>Rating Breakdown</h3>
           {renderTotalStars()}
           {renderCharacteristicsData()}
+        </div>
       </div>
 
 

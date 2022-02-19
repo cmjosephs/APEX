@@ -55,29 +55,40 @@ const ReviewList = () => {
     setSort(e.target.value)
   }
 
-  const filterStarReviews = (number) => {
-    axios.get(`api/products/${productId}/reviews`,
-    {
-      params: {
-        count: 200,
-        sort: sort
-      }
-    })
-    .then(results => {
-      let filteredStarReviews = results.data.results.filter(review => {
-        return review.rating === number
+  const filterStarReviews = (checkedStars) => {
+    if (checkedStars.length === 0) {
+      getReviews();
+    } else {
+      axios.get(`api/products/${productId}/reviews`,
+      {
+        params: {
+          count: 200,
+          sort: sort
+        }
       })
-      setTotalReviews(filteredStarReviews);
-      if (filteredStarReviews <= 2) {
+      .then(results => {
+        console.log(results)
+        let filteredStarReviews = results.data.results.filter(review => {
+          for (let i = 0; i < checkedStars.length; i++) {
+            if (review.rating === Number(checkedStars[i])) {
+              return review;
+            }
+          }
+        })
+        console.log(filteredStarReviews)
+        setTotalReviews(filteredStarReviews);
+        if (filteredStarReviews <= 2) {
+          setEnoughReviews(!enoughReviews)
+        }
+        setReviews(filteredStarReviews.splice(0, count));
+      }).catch(err => {
+        console.log('error getting reviews')
         setEnoughReviews(!enoughReviews)
-      }
-      setReviews(filteredStarReviews.splice(0, count));
-    }).catch(err => {
-      console.log('error getting reviews')
-      setEnoughReviews(!enoughReviews)
 
-    })
+      })
+    }
   }
+
 
   if (!totalReviews) {
     return <p>Loading reviews...</p>
@@ -86,7 +97,7 @@ const ReviewList = () => {
   return (
     <div className="review-container">
       <div className="avg-rating-review"><h3>Average Rating & Reviews</h3>
-      <AvgRatingReview reviews={totalReviews} filterStarReviews={filterStarReviews}/>
+      <AvgRatingReview totalReviews={totalReviews} filterStarReviews={filterStarReviews}/>
 
       </div>
       <div className="sort-section">
