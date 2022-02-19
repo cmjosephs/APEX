@@ -85,7 +85,7 @@ var Selectors = () => {
       <div className="style-selector">
         {renderStyles()}
       </div>
-      <p className="sizes">Sizes</p>
+      <p className="sizes">Select Size</p>
         <div className="size-selector">
           {renderSizes(currentStyle.skus)}
         </div>
