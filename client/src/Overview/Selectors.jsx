@@ -96,12 +96,11 @@ var Selectors = () => {
           {/* <ShoppingBagIcon /> */}
         </button>
         <br></br>
-        <button className="favorite-btn" onClick={handleAddFavorite}>
+        {/* <button className="favorite-btn" onClick={handleAddFavorite}>
           <p>
             Favorite
-            {/* <FavoriteIcon fontSize="small"/> */}
           </p>
-        </button>
+        </button> */}
 
       </div>
     </div>

@@ -63,10 +63,14 @@ const App = () => {
       <div>
         <nav>
           <ul>
-            <li>FEC</li>
-            <li>Project</li>
-            <li>--------Navigation-------</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>Kids</li>
           </ul>
+          <h1>FEC</h1>
+          <input type="text" placeholder="Search"></input>
+          <p>Favorites</p>
+          <p>Bag</p>
           {/* <h1>FEC project</h1>
           <p>-------------Navigation Bar-------------</p> */}
         </nav>
