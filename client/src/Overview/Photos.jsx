@@ -140,7 +140,6 @@ var Photos = () => {
       </div>
     )
   }
-  console.log(width);
   if (!Object.keys(currentStyle).length || !photos.length) return <p>Loading...</p>
 
   return (
@@ -149,29 +148,6 @@ var Photos = () => {
       {width > 959 ? renderWideView() : renderNarrowView()}
     </div>
   )
-  // console.log(window.innerWidth);
-
-//   return (
-//     <div className="image-gallery">
-//       <div className="display-photo" {...ArrowKeysReact.events} tabIndex="1">
-//         <ArrowBackIosNewIcon
-//           fontSize="large"
-//           color={currentPhotoIdx ? "primary" : "disabled"}
-//           onClick={photoScroll.left}
-//         />
-//         <img src={photos[currentPhotoIdx].thumbnail_url} alt={currentStyle.name}  onClick={toggleModal}></img>
-//         <ArrowForwardIosIcon
-//           fontSize="large"
-//           color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
-//           onClick={photoScroll.right}
-//         />
-//       </div>
-//       {renderModal()}
-//       <div id="default-photos">
-//         {renderThumbnails(photos)}
-//       </div>
-//     </div>
-//   )
 }
 
 export default Photos;
