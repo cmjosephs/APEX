@@ -48,6 +48,7 @@ const RelatedList = () => {
     divRef.current.scrollLeft += scrollOffset;
   }
 
+
   return (
     <div className="related-container" style={{ width: "1240px"}}>
       <h3 style={{ textAlign: "center" }}>Recommended Products</h3>
@@ -63,22 +64,22 @@ const RelatedList = () => {
       <br></br>
       <div className="related-slider" ref={divRef} style={{ display: "flex", overflow: "hidden" }}>
         {relatedArr.map((relatedId, index) => (
-          <div style={{ display: "flex", margin: "5px" }}>
+          <div style={{ display: "flex", margin: "5px" }} key={`${index}-${relatedId}`}>
             <RelatedListCard
               relatedId={relatedId}
               currentProductId={currentProductId}
-              key={`${index}-${relatedId}`}
               currentProductDetails={productDetails}
-              currentProductImg={currentProductImg}/>
+              currentProductImg={currentProductImg}
+              />
           </div>
         ))}
       </div>
       <h3 style={{ textAlign: "center" }}>Favorite Products</h3>
-      <FavoriteList
+      {/* <FavoriteList
         currentProductId={currentProductId}
         currentProductDetails={productDetails}
         currentProductRating={calcAverageRating(reviewMetaData.rating)}
-        currentProductImg={currentProductImg}/>
+        currentProductImg={currentProductImg}/> */}
     </div>
 
   )

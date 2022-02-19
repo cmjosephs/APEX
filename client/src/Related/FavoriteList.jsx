@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useState, useEffect, userReducer, createContext, useRef } from 'react';
 import RelatedListCard from './RelatedListCard.jsx';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -44,16 +45,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import Rating from '@mui/material/Rating';
 //import FavoriteListCard from './FavoriteListCard.jsx';
+=======
+// import React, { useState, useEffect, userReducer, createContext } from 'react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faX } from '@fortawesome/free-solid-svg-icons';
+// import Rating from '@mui/material/Rating';
+// //import FavoriteListCard from './FavoriteListCard.jsx';
+>>>>>>> 5aa82ec (working on react-router)
 
-const FavoriteList = ({ currentProductId, currentProductDetails, currentProductRating, currentProductImg }) => {
-  const [favorites, setFavorites] = useState([]);
+// const FavoriteList = ({ currentProductId, currentProductDetails, currentProductRating, currentProductImg }) => {
+//   const [favorites, setFavorites] = useState([]);
 
-  function gatherObjects() {
-    const favoriteProductObjects = Object.values(localStorage);
-    const favoriteProductsArray = favoriteProductObjects.map((productObj) => JSON.parse(productObj));
-    return favoriteProductsArray;
-  }
+//   function gatherObjects() {
+//     const favoriteProductObjects = Object.values(localStorage);
+//     const favoriteProductsArray = favoriteProductObjects.map((productObj) => JSON.parse(productObj));
+//     return favoriteProductsArray;
+//   }
 
+<<<<<<< HEAD
   function getFavorites() {
     const updateStorage = gatherObjects();
     setFavorites(updateStorage);
@@ -183,36 +192,76 @@ export default FavoriteList;
       )
     } else {
       return (
+=======
+//   function getFavorites() {
+//     const updateStorage = gatherObjects();
+//     setFavorites(updateStorage);
+//   }
 
-      )
-    }
-  }
-  // useEffect(() => {
+//   function addToFavorites() {
+//     const productToAdd = {
+//       productName: currentProductDetails.name,
+//       category: currentProductDetails.category,
+//       url:  currentProductImg
+//       rating: currentProductRating
+//     }
 
-  // }, [favorites])
+//     localStorage.setItem(currentProductId, JSON.stringify(productToAdd));
+//     if (favorites.length !== localStorage.length) {
+//       getFavorites();
+//     }
+//   }
 
-  return (
-    <div>
-      <button style={{ display: "flex", width: "300px", height: "375px" }} onClick={addToFavorites}>Add to Favorites +</button>
-      {favorites.map((favorite, index) => (
+//   function delFavorites() {
+//     localStorage.removeItem(currentProductId)
+//     const updateStorage = gatherObjects();
+//     setFavorites(updateStorage);
+//   }
 
-        <FavoriteListCard favorite={favorite} key={`${currentProductId}-${index}`}/>
-      ))}
+//   function renderFavorites() {
+//     if (favorites.length !== 0) {
+//       return (
+//         {favorites.map((favorite, index) => (
+//           <FavoriteListCard favorite={favorite} key={`${currentProductId}-${index}`}/>
+//         ))}
+//       )
+//     } else {
+//       return (
+>>>>>>> 5aa82ec (working on react-router)
 
-      {relatedArr.map((relatedId, index) => (
-          <div style={{ display: "flex", margin: "5px" }}>
-            <RelatedListCard
-              relatedId={relatedId}
-              currentProductId={currentProductId}
-              key={`${index}-${relatedId}`}
-              currentProductDetails={productDetails}
-              currentProductImg={currentProductImg}/>
-          </div>
-        ))}
-    </div>
+//       )
+//     }
+//   }
+//   // useEffect(() => {
 
-  )
-}
+//   // }, [favorites])
 
+//   return (
+//     <div>
+//       <button style={{ display: "flex", width: "300px", height: "375px" }} onClick={addToFavorites}>Add to Favorites +</button>
+//       {favorites.map((favorite, index) => (
+
+//         <FavoriteListCard favorite={favorite} key={`${currentProductId}-${index}`}/>
+//       ))}
+
+//       {relatedArr.map((relatedId, index) => (
+//           <div style={{ display: "flex", margin: "5px" }}>
+//             <RelatedListCard
+//               relatedId={relatedId}
+//               currentProductId={currentProductId}
+//               key={`${index}-${relatedId}`}
+//               currentProductDetails={productDetails}
+//               currentProductImg={currentProductImg}/>
+//           </div>
+//         ))}
+//     </div>
+
+//   )
+// }
+
+<<<<<<< HEAD
 export default FavoriteList;
 >>>>>>> f90c663 (Wrote localStorage functions. Move to App.jsx and refactor with)
+=======
+// export default FavoriteList;
+>>>>>>> 5aa82ec (working on react-router)
