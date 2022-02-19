@@ -4,10 +4,18 @@ var Info = ({ productDetails }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showFeatures, setShowFeatures] = useState(false);
 
+<<<<<<< HEAD
   const renderFeatures = (featList) => {
     if (showFeatures) {
       return (
         <div className="product-features" data-testid='features'>
+=======
+
+  const renderFeatures = (featList) => {
+    if (showFeatures) {
+      return (
+        <div className="product-features">
+>>>>>>> eb6b606 (Completed basic features model)
           <h3 onClick={() => setShowFeatures(!showFeatures)}>Features -</h3>
             {featList.map((feature, index) => {
               return (
@@ -31,11 +39,17 @@ var Info = ({ productDetails }) => {
     if (showDetails) {
       return (
         <div className="product-details">
+<<<<<<< HEAD
           <h3 onClick={() => setShowDetails(!showDetails)}>
             Details -
           </h3>
             <p className="product-slogan" data-testid="product-slogan">{productDetails.slogan}</p>
             <p className="product-description" role="product-description">{productDetails.description}</p>
+=======
+          <h3 onClick={() => setShowDetails(!showDetails)}>Details -</h3>
+            <p role="product-slogan">{productDetails.slogan}</p>
+            <p role="product-description">{productDetails.description}</p>
+>>>>>>> eb6b606 (Completed basic features model)
         </div>
       )
     } else {
@@ -49,6 +63,7 @@ var Info = ({ productDetails }) => {
 
   return (
     <div className="info">
+<<<<<<< HEAD
       <hr className="info-break"></hr>
       {renderDetails()}
       <hr className="info-break"></hr>
@@ -64,6 +79,17 @@ var Info = ({ productDetails }) => {
         </div>
       </div>
       <hr className="info-break"></hr>
+=======
+      {renderDetails()}
+      {renderFeatures(productDetails.features)}
+      <div className="share-bar">
+        <h3>Share</h3>
+        <button className="fb-share-btn">facebook</button>
+        <button className="ig-share-btn">instagram</button>
+        <button className="twitter-share-btn">twitter</button>
+        <button className="pinterest-share-btn">pinterest</button>
+      </div>
+>>>>>>> eb6b606 (Completed basic features model)
     </div>
   )
 }

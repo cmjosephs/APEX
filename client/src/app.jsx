@@ -68,10 +68,17 @@ const App = () => {
 <<<<<<< HEAD
 =======
   // useEffect(getRandomProductId, []);
+<<<<<<< HEAD
   // useEffect(() => {
   //   setProductId(product_id);
   // }, [product_id]);
 >>>>>>> 5aa82ec (working on react-router)
+=======
+  useEffect(() => {
+    setProductId(product_id);
+  }, [product_id]);
+
+>>>>>>> eb6b606 (Completed basic features model)
   useEffect(() => {
 <<<<<<< HEAD
       getProductDetails();
