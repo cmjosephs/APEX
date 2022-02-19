@@ -56,7 +56,8 @@ var Selectors = () => {
       availableSizes.push(
         <div className="size-option" key={sku}>
           <input
-            type="radio"
+            // type="radio"
+            type={skus[sku].quantity ? "radio" : ""}
             id={sku}
             // data={skus[sku].quantity}
             className="visually-hidden"
