@@ -39,7 +39,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
 
   const reducer = (state, action) => ({...state, ...action});
   let [state, setState] = useReducer(reducer, initialState);
-  // const clearFilter = () => setState(initialState);
 
   const Checkbox = ({ fnClick, fnChange, title = "0", checked = false }) => (
     <label>
@@ -67,29 +66,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     }
     filterStarReviews(checkedStars);
   }, [state])
-
-
-  // const filterByRating = () => {
-  //   for (let star in state) {
-  //     if (state.star) {
-  //       filterStarReviews(star)
-  //     }
-  //   }
-  // }
-
-  // let [checkbox, setCheckbox] = useState(false);
-  // let [state, dispatch] = useReducer(starReducer, {starsChecked: []})
-
-
-
-  // function starReducer(state, action) {
-  //   switch (action.type) {
-  //     case "addStar":
-  //       return {...state, starsChecked: [...state, action.payload]};
-  //     case "deleteStar":
-  //       return {}
-  //   }
-  // }
 
 
   function calcAverageRating(obj) {

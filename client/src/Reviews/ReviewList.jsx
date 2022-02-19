@@ -15,6 +15,7 @@ const ReviewList = () => {
   let [count, setCount] = useState(2);
   let [sort, setSort] = useState('newest');
   let [enoughReviews, setEnoughReviews] = useState(true);
+  let [displayCount, setDisplayCount] = useState(0);
 
   useEffect(() =>
   {
@@ -22,8 +23,9 @@ const ReviewList = () => {
   }, [productId, count, sort]);
 
 
-  const getReviews = () => {
-    axios.get(`api/products/${productId}/reviews`,
+  const getReviews = async () => {
+    console.log("getReviews called")
+    await axios.get(`api/products/${productId}/reviews`,
     {
       params: {
         count: 200,
@@ -32,6 +34,7 @@ const ReviewList = () => {
     })
     .then(results => {
       setTotalReviews(results.data.results);
+      setDisplayCount(results.data.results.length);
       if (results.data.results.length <= 2) {
         setEnoughReviews(!enoughReviews)
       }
@@ -55,11 +58,11 @@ const ReviewList = () => {
     setSort(e.target.value)
   }
 
-  const filterStarReviews = (checkedStars) => {
-    if (checkedStars.length === 0) {
-      getReviews();
-    } else {
-      axios.get(`api/products/${productId}/reviews`,
+  const filterStarReviews = async (checkedStars) => {
+    console.log("filterStarReviews called")
+    console.log(checkedStars)
+    if (checkedStars.length > 0) {
+      await axios.get(`api/products/${productId}/reviews`,
       {
         params: {
           count: 200,
@@ -67,7 +70,6 @@ const ReviewList = () => {
         }
       })
       .then(results => {
-        console.log(results)
         let filteredStarReviews = results.data.results.filter(review => {
           for (let i = 0; i < checkedStars.length; i++) {
             if (review.rating === Number(checkedStars[i])) {
@@ -75,17 +77,27 @@ const ReviewList = () => {
             }
           }
         })
-        console.log(filteredStarReviews)
+
+        setDisplayCount(filteredStarReviews.length)
+
+        console.log('this is the filtered ', filteredStarReviews.length)
         setTotalReviews(filteredStarReviews);
-        if (filteredStarReviews <= 2) {
+
+        setReviews(filteredStarReviews.splice(0, count));
+        console.log('this is the total ', totalReviews);
+
+        if (filteredStarReviews.length <= 2) {
           setEnoughReviews(!enoughReviews)
         }
-        setReviews(filteredStarReviews.splice(0, count));
+
+
       }).catch(err => {
         console.log('error getting reviews')
         setEnoughReviews(!enoughReviews)
 
       })
+    } else {
+      getReviews()
     }
   }
 
@@ -101,7 +113,7 @@ const ReviewList = () => {
 
       </div>
       <div className="sort-section">
-        <h2>{totalReviews.length} Reviews,
+        <h2>{displayCount} Reviews,
           <label for ="reviews-sort"> sorted by: </label>
           <select name="reviews-sort" id="reviews-sort" onChange={changeSort}>
             <option value="newest">Newest</option>
