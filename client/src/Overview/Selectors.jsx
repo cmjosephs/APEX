@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { AppContext } from '../App.jsx';
 import { StyleContext } from './Product.jsx';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 var Selectors = () => {
   const { allStyles, currentStyle, dispatch } = useContext(StyleContext);
+  const { productDetails } = useContext(AppContext);
   // const [stock, setStock] = useState(currentStyle.skus);
   const [currentSku, setCurrentSku] = useState(null);
   const [styleDisplayName, setStyleDisplayName] = useState(currentStyle.name);
@@ -73,7 +75,8 @@ var Selectors = () => {
             htmlFor={sku}
             className={skus[sku].quantity ? "size-label" : "size-label-nostock"} //"size-label"
             style={skus[sku].quantity ? {color: "black"} : {color: "gray"}}
-          >M {skus[sku].size}</label>
+          >{skus[sku].size}</label>
+          {/* {productDetails.category === 'Kicks' && 'M'} */}
         </div>
       )
     }

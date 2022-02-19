@@ -31,14 +31,27 @@ var AllDetails = () => {
     return avgRating
   }
 
-  // useEffect(() => {
-  //   getProductDetails(productId);
-  // }, [])
+  const renderSalePrice = (sale_price, original_price) => {
+    if (sale_price) {
+      return (
+        <div className="sale-price">
+          <h3>
+            ${sale_price}
+          </h3>
+          <p>
+            {Math.ceil(sale_price/original_price*100)}% off
+          </p>
+        </div>
+      )
+    }
+  }
 
 
   if (!Object.keys(productDetails).length) {
     return <h3>Loading...</h3>
   } else {
+    let original_price = currentStyle.original_price;
+    let sale_price = currentStyle.sale_price;
     return (
       <div className="all-details">
         <h1 className="product-name">{productDetails.name}</h1>
@@ -56,10 +69,10 @@ var AllDetails = () => {
         </div> {/* hyperlink to reviews */}
         <h3
           className="price"
-          style={{textDecoration: currentStyle.sale_price ? "line-through" : ""}}>
-            ${currentStyle.original_price}
+          style={{textDecoration: sale_price ? "line-through" : ""}}>
+            ${original_price}
         </h3>
-        {currentStyle.sale_price && <h3>${currentStyle.sale_price}</h3>}
+        {renderSalePrice(sale_price, original_price)}
         <Selectors />
         <br></br>
         <Info productDetails={productDetails}/>

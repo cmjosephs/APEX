@@ -24,27 +24,27 @@ const Product = () => {
   const { productId } = useContext(AppContext);
 
   function getStyles(product_id) {
-    // axios.get(`/api/products/${product_id}/styles`)
-    // .then(({ data }) => {
-    //   let styleObj = {};
-    //   data.results.forEach((style) => {
-    //     styleObj[style.style_id] = style;
-    //   });
-    //   dispatch({
-    //     type: 'newProduct',
-    //     payload: {allStyles: styleObj, currentStyle: data.results[0]}
-    //   })
-    // })
-    // .catch((err) => console.error(err));
-
-    let styleObj = {};
-    testStyles.results.forEach((style) => {
-      styleObj[style.style_id] = style;
-    });
-    dispatch({
-      type: 'newProduct',
-      payload: {allStyles: styleObj, currentStyle: testStyles.results[0]}
+    axios.get(`/api/products/${product_id}/styles`)
+    .then(({ data }) => {
+      let styleObj = {};
+      data.results.forEach((style) => {
+        styleObj[style.style_id] = style;
+      });
+      dispatch({
+        type: 'newProduct',
+        payload: {allStyles: styleObj, currentStyle: data.results[0]}
+      })
     })
+    .catch((err) => console.error(err));
+
+    // let styleObj = {};
+    // testStyles.results.forEach((style) => {
+    //   styleObj[style.style_id] = style;
+    // });
+    // dispatch({
+    //   type: 'newProduct',
+    //   payload: {allStyles: styleObj, currentStyle: testStyles.results[0]}
+    // })
   }
 
   useEffect(() => {
