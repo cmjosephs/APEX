@@ -1,0 +1,10 @@
+.related-product-card-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.related-image-container {
+  height: "40vh"
+}

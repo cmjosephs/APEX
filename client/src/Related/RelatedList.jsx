@@ -48,21 +48,9 @@ const RelatedList = () => {
     divRef.current.scrollLeft += scrollOffset;
   }
 
-
   return (
-    <div className="related-container" style={{ width: "86vw"}}>
-      <h3 style={{ textAlign: "center" }}>Recommended Products</h3>
-      <div>
-        <button className="scroll-right" onClick={() => scrollProducts(310)} style={{ float: "right" }}>
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
-        <button className="scroll-left" onClick={() => scrollProducts(-310)} style={{ float: "right" }}>
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
-      </div>
-      <br></br>
-      <br></br>
-      <div className="related-slider" ref={divRef} style={{ display: "flex", overflow: "hidden" }}>
+    <div>
+      <div className="related-slider" ref={divRef} style={{ display: "flex", width: "99vw" }}>
         {relatedArr.map((relatedId, index) => (
           <div style={{ display: "flex", margin: "5px" }} key={`${index}-${relatedId}`}>
             <RelatedListCard
@@ -74,16 +62,8 @@ const RelatedList = () => {
           </div>
         ))}
       </div>
-      <h3 style={{ textAlign: "center" }}>Favorite Products</h3>
-      {/* <FavoriteList
-        currentProductId={currentProductId}
-        currentProductDetails={productDetails}
-        currentProductRating={calcAverageRating(reviewMetaData.rating)}
-        currentProductImg={currentProductImg}/> */}
     </div>
-
   )
 }
 
 export default RelatedList;
-
