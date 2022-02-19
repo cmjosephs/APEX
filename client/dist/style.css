@@ -20,7 +20,17 @@ body {
 nav {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: #FCFCFC;
+}
+nav ul {
+  display: flex;
+}
+nav h1 {
+  font-family: 'Noto Serif Display', serif;
+}
+nav div {
+  display: flex;
 }
 
 /* -------------- Product Overview -------------- */

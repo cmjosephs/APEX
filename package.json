@@ -4,7 +4,7 @@
   "description": "## Goal This app is a single product page for an ecommerce website. It contains: - product details - recommendations (related products, what goes well together) - Q and A - Ratings and Reviews",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -w",
+    "react-dev": "webpack --watch",
     "server-dev": "nodemon server",
     "test": "jest",
     "test-overview": "jest Overview.test.jsx"

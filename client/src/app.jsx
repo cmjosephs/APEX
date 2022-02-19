@@ -67,10 +67,13 @@ const App = () => {
           <li>Kids</li>
         </ul>
         <h1>FEC</h1>
-        <input type="text" placeholder="Search"></input>
-        <p>Favorites</p>
-        <p>Bag</p>
+        <div>
+          <input type="text" placeholder="Search"></input>
+          <p>Favorites</p>
+          <p>Bag</p>
+        </div>
       </nav>
+      {/* <hr id="nav-break"/> */}
       <div>
         <br></br>
         <Product />
