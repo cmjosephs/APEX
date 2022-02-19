@@ -60,20 +60,18 @@ const App = () => {
     <AppContext.Provider
       value={{ productId, setProductId, reviewMetaData, productDetails }}
     >
+      <nav>
+        <ul>
+          <li>Men</li>
+          <li>Women</li>
+          <li>Kids</li>
+        </ul>
+        <h1>FEC</h1>
+        <input type="text" placeholder="Search"></input>
+        <p>Favorites</p>
+        <p>Bag</p>
+      </nav>
       <div>
-        <nav>
-          <ul>
-            <li>Men</li>
-            <li>Women</li>
-            <li>Kids</li>
-          </ul>
-          <h1>FEC</h1>
-          <input type="text" placeholder="Search"></input>
-          <p>Favorites</p>
-          <p>Bag</p>
-          {/* <h1>FEC project</h1>
-          <p>-------------Navigation Bar-------------</p> */}
-        </nav>
         <br></br>
         <Product />
         <br></br>
