@@ -190,7 +190,7 @@ nav div {
   /* height: 40%; */
   width: 23%;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px #272727;
+  box-shadow: 2px 2px 2px #E7E7E7;
 }
 
 .sizes {
@@ -260,6 +260,7 @@ nav div {
   align-items: center;
 }
 
+/* position over a little later */
 .add-bag-btn {
   background-color: #272727;
   color: #FCFCFC;
