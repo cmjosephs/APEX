@@ -9,6 +9,7 @@ import Slider from '@mui/material/Slider';
 // import { styled } from '@mui/material/styles';
 import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
+// import { SortContext } from './ReviewList.jsx';
 
 
 
@@ -19,6 +20,7 @@ import Checkbox from '@mui/material/Checkbox';
 const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
 
   let { productId, reviewMetaData, productDetails } = useContext(AppContext);
+  // let { sort } = useContext(SortContext);
   let ratings = reviewMetaData.ratings;
   let characteristics = reviewMetaData.characteristics;
   // let [starReviews, setStarReviews] = useState([]);
@@ -45,11 +47,10 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
       <input
         onClick={e => {
           if (fnClick !== undefined) fnClick(e.target.checked);
-          console.log(e)
         }}
-        // onChange={e => {
-        //   if (fnChange !== undefined) fnChange(e.target.checked);
-        // }}
+        onChange={e => {
+          if (fnChange !== undefined) fnChange(e.target.checked);
+        }}
         type="checkbox"
         checked={checked}
       />
@@ -61,11 +62,14 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     let checkedStars = [];
     for (let [key, value] of Object.entries(state)) {
       if (state[key]) {
-        checkedStars.push(key);
+        checkedStars.push(Number(key));
       }
     }
     filterStarReviews(checkedStars);
   }, [state])
+
+
+  // watch sort and if it changes then uncheck st
 
 
   function calcAverageRating(obj) {
@@ -105,7 +109,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex', width: 1/7 }}/>
-            <p id="star-sort" onClick={() => {filterStarReviews(1)}}>{oneStar}</p>
             <span>
               <Checkbox
               title={oneStar}
@@ -122,7 +125,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex', width: 1/7 }}/>
-            <p id="star-sort" onClick={() => {filterStarReviews(2)}}>{twoStar}</p>
             <span>
               <Checkbox
               title={twoStar}
@@ -139,7 +141,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex', width: 1/7 }}/>
-            <p id="star-sort" onClick={() => {filterStarReviews(3)}}>{threeStar}</p>
             <span>
               <Checkbox
               title={threeStar}
@@ -156,7 +157,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex', width: 1/7 }}/>
-            <p id="star-sort" onClick={() => {filterStarReviews(4)}}>{fourStar}</p>
             <span>
               <Checkbox
               title={fourStar}
@@ -173,7 +173,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex', width: 1/7 }}/>
-            <p id="star-sort" onClick={() => {filterStarReviews(5)}}>{fiveStar}</p>
             <span>
               <Checkbox
               title={fiveStar}
@@ -284,13 +283,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={1}
             max={5}
             sx={{ display: 'flex', width: 1/7 }}/>
-          {/* <input
-            type="range"
-            min="1"
-            max="5"
-            value={characteristics.Comfort.value}
-            disabled
-            /> */}
             </div>
           <span className="characteristic-description-left">Uncomfortable</span>
           <span className="characteristic-description-middle">Average</span>

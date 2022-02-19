@@ -56,48 +56,56 @@ const ReviewList = () => {
     setSort(e.target.value)
   }
 
-  const filterStarReviews = async (checkedStars) => {
+  const filterStarReviews = (checkedStars) => {
+    console.log(checkedStars)
     if (checkedStars.length > 0) {
-      await axios.get(`api/products/${productId}/reviews`,
-      {
-        params: {
-          count: 200,
-          sort: sort
-        }
-      })
-      .then(results => {
-        let filteredStarReviews = results.data.results.filter(review => {
+      let filteredStarReviews = totalReviews.filter(review => {
           for (let i = 0; i < checkedStars.length; i++) {
-            if (review.rating === Number(checkedStars[i])) {
+            if (review.rating === checkedStars[i]) {
+              console.log(review)
               return review;
             }
           }
         })
-
-        setDisplayCount(filteredStarReviews.length)
-
-        // console.log('this is the filtered ', filteredStarReviews.length)
-        // setTotalReviews(filteredStarReviews);
-
-        setReviews(filteredStarReviews)
-        setEnoughReviews(false)
-        // setReviews(filteredStarReviews.splice(0, count));
-        // console.log('this is the total ', totalReviews);
-
-        // if (filteredStarReviews.length <= 2) {
-        //   setEnoughReviews(!enoughReviews)
-        // }
-
-
-      }).catch(err => {
-        console.log('error getting reviews')
-        setEnoughReviews(false)
-
-      })
+    setEnoughReviews(false);
+    setDisplayCount(filteredStarReviews.length);
+    setReviews(filteredStarReviews);
     } else {
-      setEnoughReviews(true)
-      getReviews()
+      setEnoughReviews(true);
+      getReviews();
     }
+
+
+    // if (checkedStars.length > 0) {
+    //   axios.get(`api/products/${productId}/reviews`,
+    //   {
+    //     params: {
+    //       count: 200,
+    //       sort: sort
+    //     }
+    //   })
+    //   .then(results => {
+    //     let filteredStarReviews = results.data.results.filter(review => {
+    //       for (let i = 0; i < checkedStars.length; i++) {
+    //         if (review.rating === checkedStars[i]) {
+    //           return review;
+    //         }
+    //       }
+    //     })
+
+    //     setEnoughReviews(false);
+    //     setDisplayCount(filteredStarReviews.length);
+    //     setReviews(filteredStarReviews);
+
+    //   }).catch(err => {
+    //     console.log('error getting reviews');
+    //     setEnoughReviews(false);
+
+    //   })
+    // } else {
+    //   setEnoughReviews(true);
+    //   getReviews();
+    // }
   }
 
 
