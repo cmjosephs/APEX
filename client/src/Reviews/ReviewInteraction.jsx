@@ -1,11 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-// import { ProductContext } from './ReviewList.jsx';
 import { AppContext } from '../App.jsx';
 
 
 const ReviewInteraction = ({ review, getNewReviews }) => {
-  let currentProduct = useContext(ProductContext); // not use
   let { productId, reviewMetaData, productDetails } = useContext(AppContext);
   let [markHelpful, setMarkHelpful] = useState(true);
   let [markNotHelpful, setMarkNotHelpful] = useState(true);
@@ -17,7 +15,7 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
 
 
   let addHelpful = () => {
-    axios.put(`api/products/${currentProduct}/reviews/${review.review_id}/helpful`)
+    axios.put(`api/products/${productId}/reviews/${review.review_id}/helpful`)
     .then(getNewReviews())
     .then(setMarkHelpful(false))
     .catch(err => {

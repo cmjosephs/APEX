@@ -1,17 +1,80 @@
-import React from 'react';
+import React, { useContext, useState, useReducer, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import { getMetaData } from './ReviewForm.jsx';
 import { AppContext } from '../App.jsx';
+// import Stack from '@mui/material/Stack';
+import Slider from '@mui/material/Slider';
+// import { styled } from '@mui/material/styles';
+import axios from 'axios';
+import Checkbox from '@mui/material/Checkbox';
 
-const AvgRatingReview = () => {
+
+
+// keep track of all checked stars in an array [1, 2, 5] etc
+// if user clicks on that star #, add it to the array
+// if the user clicks on that star again, delete it from the array
+// do an axios get request and filter reviews with ratings in that array
+const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
 
   let { productId, reviewMetaData, productDetails } = useContext(AppContext);
+  let ratings = reviewMetaData.ratings;
+  let characteristics = reviewMetaData.characteristics;
+  // let [starReviews, setStarReviews] = useState([]);
+  let oneStar = ratings[1];
+  let twoStar = ratings[2];
+  let threeStar = ratings[3];
+  let fourStar = ratings[4];
+  let fiveStar = ratings[5];
+  let totalRatings = 0;
+
+  const initialState = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  }
+
+  const reducer = (state, action) => ({...state, ...action});
+  let [state, setState] = useReducer(reducer, initialState);
+  // const clearFilter = () => setState(initialState);
+
+  const Checkbox = ({ fnClick, fnChange, title = "0", checked = false }) => (
+    <label>
+      <input
+        onClick={e => {
+          if (fnClick !== undefined) fnClick(e.target.checked);
+        }}
+        // onChange={e => {
+        //   if (fnChange !== undefined) fnChange(e.target.checked);
+        // }}
+        type="checkbox"
+        checked={checked}
+      />
+      {title}
+    </label>
+  );
+
+
+  // let [checkbox, setCheckbox] = useState(false);
+  // let [state, dispatch] = useReducer(starReducer, {starsChecked: []})
+
+
+
+  // function starReducer(state, action) {
+  //   switch (action.type) {
+  //     case "addStar":
+  //       return {...state, starsChecked: [...state, action.payload]};
+  //     case "deleteStar":
+  //       return {}
+  //   }
+  // }
+
 
   function calcAverageRating(obj) {
     let avgRating = 0;
-    let totalRatings = 0;
     for (let key in obj) {
       let quant = parseInt(obj[key]);
       let rating = parseInt(key);
@@ -22,11 +85,136 @@ const AvgRatingReview = () => {
     return Math.ceil(avgRating / 0.25) * 0.25;
   }
 
-  // const avgStarRating = () => {
+  let averageRatingNumber = calcAverageRating(ratings);
 
-    // }
+  const toggleCheckbox = () => {
+    setCheckbox(!checkbox);
+  }
+
+
+  const renderTotalStars = () => {
     return (
-      <div>hi</div>
+      <div className="star-values">
+        {<span>1 star
+          <Slider
+            disabled
+            defaultValue={oneStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            <p id="star-sort" onClick={() => {filterStarReviews(1)}}>{oneStar}</p>
+            <span>
+              <Checkbox
+              title={oneStar}
+              sx={{display: 'inline'}}
+              checked={state[1]}
+              fnClick={v => setState({ 1: v})}/>
+              <p>{oneStar}</p>
+              </span>
+      </span>}
+      {<span>2 stars <Slider
+            disabled
+            defaultValue={twoStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            <p id="star-sort" onClick={() => {filterStarReviews(2)}}>{twoStar}</p>
+            <span>
+              <Checkbox
+              title={twoStar}
+              sx={{display: 'inline'}}
+              checked={state[2]}
+              fnClick={v => setState({ 2: v})}/>
+              <p>{twoStar}</p>
+              </span>
+      </span>}
+      {<span>3 stars <Slider
+            disabled
+            defaultValue={threeStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            <p id="star-sort" onClick={() => {filterStarReviews(3)}}>{threeStar}</p>
+            <span>
+              <Checkbox
+              title={threeStar}
+              sx={{display: 'inline'}}
+              checked={state[3]}
+              fnClick={v => setState({ 3: v})}/>
+              <p>{threeStar}</p>
+              </span>
+      </span>}
+      {<span>4 stars <Slider
+            disabled
+            defaultValue={fourStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            <p id="star-sort" onClick={() => {filterStarReviews(4)}}>{fourStar}</p>
+            <span>
+              <Checkbox
+              title={fourStar}
+              sx={{display: 'inline'}}
+              checked={state[4]}
+              fnClick={v => setState({ 4: v})}/>
+              <p>{fourStar}</p>
+              </span>
+      </span>}
+      {<span>5 stars <Slider
+            disabled
+            defaultValue={fiveStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex', width: 1/7 }}/>
+            <p id="star-sort" onClick={() => {filterStarReviews(5)}}>{fiveStar}</p>
+            <span>
+              <Checkbox
+              title={fiveStar}
+              sx={{display: 'inline'}}
+              checked={state[5]}
+              fnClick={v => setState({ 5: v})}/>
+              <p>{fiveStar}</p>
+              </span>
+      </span>}
+
+      </div>
+
+    )
+  }
+
+
+  const renderCharacteristicsData = () => {
+    return (
+      <div className="avg-characteristics">
+        {characteristics.hasOwnProperty('Fit') && <div>
+        <h3>Fit</h3>
+
+        </div>}
+      </div>
+    )
+  }
+
+
+    return (
+      <div>
+        <div className="avg-rating-number">{Math.round(averageRatingNumber * 10)/ 10}</div>
+        <div className="avg-rating-stars">
+        <Rating
+          name="text-feedback"
+          value={averageRatingNumber}
+          readOnly
+          precision={0.25}
+          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+        />
+        </div>
+          {renderTotalStars()}
+          {renderCharacteristicsData()}
+      </div>
 
 
     )

@@ -12,3 +12,7 @@
   background-position: center center;
   background-repeat: no-repeat;
 } */
+
+#star-sort:hover {
+  color: blue
+}

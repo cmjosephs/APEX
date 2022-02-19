@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react';
-// import { ProductContext } from './ReviewList.jsx';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Input, InputLabel, MenuItem, Select, Rating, Radio, Typography, RadioGroup, FormControl, FormControlLabel, FormLabel, IconButton, Stack }
 from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -10,155 +9,166 @@ import { AppContext } from '../App.jsx';
 
 const ReviewForm = ({ getNewReviews }) => {
 
-  let currentProduct = useContext(ProductContext);
   let { productId, reviewMetaData, productDetails } = useContext(AppContext);
   let [open, setOpen] = useState(false);
   let [rating, setRating] = useState(0);
   let [upload, setUpload] = useState(true);
   let [uploadedPics, setUploadedPics] = useState([]);
   let [picURLs, setPicURLs] = useState([]);
-  let [characteristics, setCharacteristics] = useState({})
+  let [characteristics, setCharacteristics] = useState({});
   let [state, dispatch] = useReducer(reviewReducer, {characteristics: {}, reviewData: {}});
 
 
   function reviewReducer(state, action) {
-    let char = (Object.keys(action.payload));
-    let charValue = (Object.values(action.payload))
+    let char;
+    let charValue;
 
     switch (action.type) {
       case "addCharacteristic":
+        char = (Object.keys(action.payload));
+        charValue = (Object.values(action.payload));
         return {...state, characteristics: {...state.characteristics, [characteristics[char[0]].id]: parseInt(charValue[0])}};
-        break;
       case "addReviewData":
+        char = (Object.keys(action.payload));
+        charValue = (Object.values(action.payload));
         return {...state, reviewData: {...state.reviewData, [char[0]]: charValue[0]}};
-
+      case "clearData":
+        console.log('hi in dispatch')
+        return {characteristics: {}, reviewData: {}};
       default:
         return state;
+
     }
   }
 
   useEffect(() => {
-    getMetaData()
-}, [])
+      setCharacteristics(reviewMetaData.characteristics)
+  }, [])
 
+  const validateEmail = (email) => {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    return true
+  }
+    return false
+  }
 
-  const getMetaData = () => {
-    axios.get(`/api/products/${currentProduct.product}/reviews/meta`)
-    .then(results => {
-      setCharacteristics(results.data.characteristics)
-    }).catch(err => {
-      console.log('error getting metadata')
+  // use later with localstorage or AWS
+  const checkURL = (urls) => {
+    urls.forEach(url => {
+      if (url.match(/\.(jpeg|jpg|gif|png)$/) === null) {
+        return false;
+      }
+      return true;
     })
   }
 
+  const renderCharacteristics = () => {
+    let productCharacteristics = Object.keys(characteristics);
+    return (
+      <div>
+        {productCharacteristics.includes('Fit') &&
+        <FormControl sx={{ display: 'inline-flex', my: 1 }}>
+              <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
+              <RadioGroup
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="Fit"
+              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+            >
+              <FormControlLabel value="1" control={<Radio />} label="Runs tight" />
+              <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
+              <FormControlLabel value="3" control={<Radio />} label="Perfect" />
+              <FormControlLabel value="4" control={<Radio />} label="Slightly loose" />
+              <FormControlLabel value="5" control={<Radio />} label="Runs loose" />
+            </RadioGroup>
+        </FormControl>}
 
- const renderCharacteristics = () => {
-   let productCharacteristics = Object.keys(characteristics);
-   return (
-     <div>
-       {productCharacteristics.includes('Fit') &&
-       <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-            <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
+        {productCharacteristics.includes('Comfort') &&
+        <FormControl sx={{ display: 'inline-flex', my: 1 }}>
+            <FormLabel id="demo-row-radio-buttons-group-label">Comfort</FormLabel>
             <RadioGroup
             aria-labelledby="demo-row-radio-buttons-group-label"
-            name="Fit"
-            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
-           >
-             <FormControlLabel value="1" control={<Radio />} label="Runs tight" />
-             <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
-             <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-             <FormControlLabel value="4" control={<Radio />} label="Slightly loose" />
-             <FormControlLabel value="5" control={<Radio />} label="Runs loose" />
-           </RadioGroup>
-       </FormControl>}
-
-       {productCharacteristics.includes('Comfort') &&
-       <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-          <FormLabel id="demo-row-radio-buttons-group-label">Comfort</FormLabel>
-          <RadioGroup
-           aria-labelledby="demo-row-radio-buttons-group-label"
-           name="Comfort"
-           onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
-         >
-           <FormControlLabel value="1" control={<Radio />} label="Uncomfortable" />
-           <FormControlLabel value="2" control={<Radio />} label="Slightly uncomfortable" />
-           <FormControlLabel value="3" control={<Radio />} label="Ok" />
-           <FormControlLabel value="4" control={<Radio />} label="Comfortable" />
-           <FormControlLabel value="5" control={<Radio />} label="Perfect" />
-         </RadioGroup>
-         </FormControl>}
-
-      {productCharacteristics.includes('Size') &&
-        <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-          <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="Size"
-            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
-            >
-            <FormControlLabel value="1" control={<Radio />} label="Too small" />
-            <FormControlLabel value="2" control={<Radio />} label="1/2 size too small" />
-            <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-            <FormControlLabel value="4" control={<Radio />} label="1/2 size too big" />
-            <FormControlLabel value="5" control={<Radio />} label="Too big" />
-          </RadioGroup>
-        </FormControl>
-      }
-
-      {productCharacteristics.includes('Width') &&
-      <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-          <FormLabel id="demo-row-radio-buttons-group-label">Width</FormLabel>
-          <RadioGroup
-          aria-labelledby="demo-row-radio-buttons-group-label"
-          name="Width"
-          onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
-        >
-          <FormControlLabel value="1" control={<Radio />} label="Too narrow" />
-          <FormControlLabel value="2" control={<Radio />} label="Slightly narrow" />
-          <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-          <FormControlLabel value="4" control={<Radio />} label="Slightly wide" />
-          <FormControlLabel value="5" control={<Radio />} label="Too wide" />
-        </RadioGroup>
-        </FormControl>
-      }
-
-      {productCharacteristics.includes('Quality') &&
-        <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-          <FormLabel id="demo-row-radio-buttons-group-label">Quality</FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="Quality"
+            name="Comfort"
             onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
           >
-            <FormControlLabel value="1" control={<Radio />} label="Poor" />
-            <FormControlLabel value="2" control={<Radio />} label="Below average" />
-            <FormControlLabel value="3" control={<Radio />} label="What I expected" />
-            <FormControlLabel value="4" control={<Radio />} label="Pretty great" />
+            <FormControlLabel value="1" control={<Radio />} label="Uncomfortable" />
+            <FormControlLabel value="2" control={<Radio />} label="Slightly uncomfortable" />
+            <FormControlLabel value="3" control={<Radio />} label="Ok" />
+            <FormControlLabel value="4" control={<Radio />} label="Comfortable" />
             <FormControlLabel value="5" control={<Radio />} label="Perfect" />
           </RadioGroup>
-        </FormControl>
-      }
+          </FormControl>}
 
-      {productCharacteristics.includes('Length') &&
+        {productCharacteristics.includes('Size') &&
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
+            <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="Size"
+              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+              >
+              <FormControlLabel value="1" control={<Radio />} label="Too small" />
+              <FormControlLabel value="2" control={<Radio />} label="1/2 size too small" />
+              <FormControlLabel value="3" control={<Radio />} label="Perfect" />
+              <FormControlLabel value="4" control={<Radio />} label="1/2 size too big" />
+              <FormControlLabel value="5" control={<Radio />} label="Too big" />
+            </RadioGroup>
+          </FormControl>
+        }
+
+        {productCharacteristics.includes('Width') &&
         <FormControl sx={{ display: 'inline-flex', my: 1 }}>
-          <FormLabel id="demo-row-radio-buttons-group-label">Length</FormLabel>
-          <RadioGroup
+            <FormLabel id="demo-row-radio-buttons-group-label">Width</FormLabel>
+            <RadioGroup
             aria-labelledby="demo-row-radio-buttons-group-label"
-            name="Length"
+            name="Width"
             onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
           >
-            <FormControlLabel value="1" control={<Radio />} label="Runs short" />
-            <FormControlLabel value="2" control={<Radio />} label="Below average" />
+            <FormControlLabel value="1" control={<Radio />} label="Too narrow" />
+            <FormControlLabel value="2" control={<Radio />} label="Slightly narrow" />
             <FormControlLabel value="3" control={<Radio />} label="Perfect" />
-            <FormControlLabel value="4" control={<Radio />} label="Slightly long" />
-            <FormControlLabel value="5" control={<Radio />} label="Runs long" />
+            <FormControlLabel value="4" control={<Radio />} label="Slightly wide" />
+            <FormControlLabel value="5" control={<Radio />} label="Too wide" />
           </RadioGroup>
-        </FormControl>
-      }
-     </div>
+          </FormControl>
+        }
 
-   )
- }
+        {productCharacteristics.includes('Quality') &&
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
+            <FormLabel id="demo-row-radio-buttons-group-label">Quality</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="Quality"
+              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+            >
+              <FormControlLabel value="1" control={<Radio />} label="Poor" />
+              <FormControlLabel value="2" control={<Radio />} label="Below average" />
+              <FormControlLabel value="3" control={<Radio />} label="What I expected" />
+              <FormControlLabel value="4" control={<Radio />} label="Pretty great" />
+              <FormControlLabel value="5" control={<Radio />} label="Perfect" />
+            </RadioGroup>
+          </FormControl>
+        }
+
+        {productCharacteristics.includes('Length') &&
+          <FormControl sx={{ display: 'inline-flex', my: 1 }}>
+            <FormLabel id="demo-row-radio-buttons-group-label">Length</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="Length"
+              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+            >
+              <FormControlLabel value="1" control={<Radio />} label="Runs short" />
+              <FormControlLabel value="2" control={<Radio />} label="Below average" />
+              <FormControlLabel value="3" control={<Radio />} label="Perfect" />
+              <FormControlLabel value="4" control={<Radio />} label="Slightly long" />
+              <FormControlLabel value="5" control={<Radio />} label="Runs long" />
+            </RadioGroup>
+          </FormControl>
+        }
+      </div>
+
+    )
+  }
 
   useEffect(() => {
     maxUpload();
@@ -192,24 +202,34 @@ const ReviewForm = ({ getNewReviews }) => {
 
   const handleReviewSubmit = () => {
     let { recommend, name, email, summary, body } = state.reviewData;
+    if (rating === 0 || recommend === undefined || state.characteristics === {} || name === '' || email === '' || body === '') {
+      return alert('You must enter the following: rating, recommend, characteristics, name, email, and review');
+    } else if (!validateEmail(email)) {
+      return alert('You have entered an invalid email address!');
+    } else if (body.length < 50) {
+      return alert('Your review must be at least 50 characters long');
+    } else {
+      axios.post(`api/products/${productId}/reviews`, {
+        product_id: Number(productId),
+        rating,
+        recommend,
+        name,
+        email,
+        summary,
+        body,
+        photos: picURLs,
+        characteristics: state.characteristics
+      }).then(() => {
+        console.log('posted');
+        console.log(state)
+        getNewReviews();
+        handleClose();
+        dispatch({ type: "clearData"})
+      }).catch(err => {
+        console.log(err)
+      })
+    }
 
-    axios.post(`api/products/${currentProduct.product}/reviews`, {
-      product_id: Number(currentProduct.product),
-      rating,
-      recommend,
-      name,
-      email,
-      summary,
-      body,
-      photos: picURLs,
-      characteristics: state.characteristics
-    }).then(() => {
-      console.log('posted');
-      getNewReviews();
-      handleClose();
-    }).catch(err => {
-      console.log(err)
-    })
   }
 
   if (!Object.keys(characteristics).length) {
@@ -236,7 +256,7 @@ const ReviewForm = ({ getNewReviews }) => {
         <DialogTitle>Write A Review</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please share your experience about PRODUCT.
+            Please share your experience about {productDetails.name}.
           </DialogContentText>
 
           <FormControl sx={{ display: 'block', my: 1}}>
