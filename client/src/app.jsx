@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect, createContext } from 'reac
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Product from './Overview/Product.jsx';
+import resizeWidth from './Overview/resizeWidth.jsx';
 import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
@@ -12,6 +13,7 @@ export const AppContext = createContext();
 
 const App = () => {
   const { product_id } = useParams();
+  const { width } = resizeWidth();
   const [productId, setProductId] = useState(product_id);
   const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
@@ -63,14 +65,20 @@ const App = () => {
       value={{ productId, setProductId, reviewMetaData, productDetails }}
     >
       <nav>
-        <ul>
+      {width > 959 ?
+      <ul>
+        <li>Men</li>
+        <li>Women</li>
+        <li>Kids</li>
+      </ul> : <ul>lll</ul>}
+        {/* <ul>
           <li>Men</li>
           <li>Women</li>
           <li>Kids</li>
-        </ul>
-        <h1>RE AX</h1>
+        </ul> */}
+        <h1>{width > 959 ? "AXIOS" : "A"}</h1>
         <div>
-          <input type="text" placeholder="Search"></input>
+          <input type="text" placeholder="Search" className="nav-search"></input>
           <p>Favorites</p>
           <p>Bag</p>
         </div>
