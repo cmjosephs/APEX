@@ -16,6 +16,7 @@ app.use('/api', router);
 // app.get('/products', (req, res) => {
 //   res.redirect('/products/42366');
 // });
+app.get('/products', (req, res) => res.status(404).send('404 error Page Not Found'));
 app.get('/products/*', (req, res, next) => {
   res.sendFile('index.html', {root: path.join(__dirname, '../client/dist')})
 });

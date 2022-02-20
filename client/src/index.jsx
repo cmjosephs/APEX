@@ -7,8 +7,8 @@ render(
   // <App />,
   <BrowserRouter>
     <Routes>
-      <Route exact path="/" element={<Navigate to="/products/42368/253630" />}></Route>
-      <Route exact path="/products" element={<Navigate to="/products/42368/253630"/>}></Route>
+      <Route exact path="/" element={<Navigate to="/products/42368" />}></Route>
+      <Route exact path="/products" element={<Navigate to="/42368" />}></Route>
       <Route path='/products/:product_id' element={<App />}></Route>
       <Route path='/products/:product_id/:style_id' element={<App />}></Route>
     </Routes>
