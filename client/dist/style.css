@@ -185,10 +185,16 @@ nav div {
   gap: 0.5em;
   width: 100%;
 }
+.style-selector > * {
+  width: 23%;
+  /* border-radius: 15px;
+  box-shadow: 2px 2px 2px #E7E7E7; */
+}
 .style {
   cursor: pointer;
   /* height: 40%; */
-  width: 23%;
+  /* width: 23%; */
+  width: 100%;
   border-radius: 15px;
   box-shadow: 2px 2px 2px #E7E7E7;
 }

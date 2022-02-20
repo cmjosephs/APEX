@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../App.jsx';
 import { StyleContext } from './Product.jsx';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
@@ -37,21 +38,22 @@ var Selectors = () => {
   const renderStyles = () => {
     return Object.values(allStyles).map((style, index) => {
       return (
-        <img
-          src={style.photos[0].thumbnail_url}
-          alt={style.name}
-          className="style"
-          id={style.style_id}
-          onClick={(e) => dispatch({ type: 'switchCurrentStyle', payload: {id: parseInt(e.target.id)} })}
-          onMouseEnter={(e) => setStyleDisplayName(e.target.alt)}
-          onMouseLeave={() => setStyleDisplayName(currentStyle.name)}
-          key={`${style.style_id}-${index}`}
-          // style={{ border: style.style_id === currentStyle.style_id ? "thick solid #D6CCC2" : "none"}}
-          style={style.style_id === currentStyle.style_id ?
-            {border: "thick solid #D6CCC2",
-            boxShadow: "none"} : {border: "none"}}
-
-        ></img>
+        <Link to={`/products/${productDetails.id}/${style.style_id}`}>
+          <img
+            src={style.photos[0].thumbnail_url}
+            alt={style.name}
+            className="style"
+            id={style.style_id}
+            onClick={(e) => dispatch({ type: 'switchCurrentStyle', payload: {id: parseInt(e.target.id)} })}
+            onMouseEnter={(e) => setStyleDisplayName(e.target.alt)}
+            onMouseLeave={() => setStyleDisplayName(currentStyle.name)}
+            key={`${style.style_id}-${index}`}
+            // style={{ border: style.style_id === currentStyle.style_id ? "thick solid #D6CCC2" : "none"}}
+            style={style.style_id === currentStyle.style_id ?
+              {border: "thick solid #D6CCC2",
+              boxShadow: "none"} : {border: "none"}}
+          ></img>
+        </Link>
       )
     })
   }

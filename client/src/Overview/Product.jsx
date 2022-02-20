@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useReducer, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { AppContext } from '../App.jsx';
 import Photos from './Photos.jsx';
@@ -22,6 +23,8 @@ const styleReducer = (state, action) => {
 const Product = () => {
   const [state, dispatch] = useReducer(styleReducer, {allStyles: {}, currentStyle: {}});
   const { productId } = useContext(AppContext);
+  const { style_id } = useParams();
+  console.log(style_id);
 
   function getStyles(product_id) {
     axios.get(`/api/products/${product_id}/styles`)
@@ -32,7 +35,10 @@ const Product = () => {
       });
       dispatch({
         type: 'newProduct',
-        payload: {allStyles: styleObj, currentStyle: data.results[0]}
+        payload: {
+          allStyles: styleObj,
+          currentStyle: style_id ? styleObj[style_id] : data.results[0]
+        }
       })
     })
     .catch((err) => console.error(err));

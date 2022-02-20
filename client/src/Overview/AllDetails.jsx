@@ -39,7 +39,7 @@ var AllDetails = () => {
             ${sale_price}
           </h3>
           <p>
-            {Math.ceil(sale_price/original_price*100)}% off
+            {Math.ceil((1-(sale_price/original_price))*100)}% off
           </p>
         </div>
       )
