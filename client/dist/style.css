@@ -123,6 +123,17 @@ h4.review-summary {
 .review-interaction:hover {
   color: #D6CCC2;
 }
+
+h4.characteristic-property {
+  margin: 0px 0px;
+}
+
+.characteristic-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 /* -------------- Review Images -------------- */
 
 .review-thumbnail {
@@ -162,3 +173,12 @@ h4.review-summary {
   justify-content: space-between;
 }
 
+.avg-rating-header {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.avg-rating-number {
+  font-weight: 400;
+  font-size: 50px;
+}

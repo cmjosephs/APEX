@@ -103,13 +103,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     return (
       <div className="star-values">
         {<span className="star-bar">1 star
-              <Checkbox
-              // title={oneStar}
-              readOnly
-              sx={{display: 'inline'}}
-              checked={state[1]}
-              fnClick={v => setState({ 1: v})}/>
-              {/* <p>{oneStar}</p> */}
           <Slider
             disabled
             defaultValue={oneStar}
@@ -117,18 +110,18 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex' }}
+            style={{ color: '#D6CCC2'}}
             />
             <span>
+              <Checkbox
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[1]}
+              fnClick={v => setState({ 1: v})}/>
+              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">2 stars
-              <Checkbox
-              // title={oneStar}
-              readOnly
-              sx={{display: 'inline'}}
-              checked={state[2]}
-              fnClick={v => setState({ 2: v})}/>
-              {/* <p>{oneStar}</p> */}
           <Slider
             disabled
             defaultValue={twoStar}
@@ -136,18 +129,18 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex' }}
+            style={{ color: '#D6CCC2'}}
             />
             <span>
+              <Checkbox
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[2]}
+              fnClick={v => setState({ 2: v})}/>
+              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">3 stars
-              <Checkbox
-              // title={oneStar}
-              readOnly
-              sx={{display: 'inline'}}
-              checked={state[3]}
-              fnClick={v => setState({ 3: v})}/>
-              {/* <p>{oneStar}</p> */}
           <Slider
             disabled
             defaultValue={threeStar}
@@ -155,18 +148,18 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex' }}
+            style={{ color: '#D6CCC2'}}
             />
             <span>
+              <Checkbox
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[3]}
+              fnClick={v => setState({ 3: v})}/>
+              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">4 stars
-              <Checkbox
-              // title={oneStar}
-              readOnly
-              sx={{display: 'inline'}}
-              checked={state[4]}
-              fnClick={v => setState({ 4: v})}/>
-              {/* <p>{oneStar}</p> */}
           <Slider
             disabled
             defaultValue={fourStar}
@@ -174,18 +167,18 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex' }}
+            style={{ color: '#D6CCC2'}}
             />
             <span>
+              <Checkbox
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[4]}
+              fnClick={v => setState({ 4: v})}/>
+              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">5 stars
-              <Checkbox
-              // title={oneStar}
-              readOnly
-              sx={{display: 'inline'}}
-              checked={state[5]}
-              fnClick={v => setState({ 5: v})}/>
-              {/* <p>{oneStar}</p> */}
           <Slider
             disabled
             defaultValue={fiveStar}
@@ -193,74 +186,17 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             min={0}
             max={totalRatings}
             sx={{ display: 'flex' }}
+            style={{ color: '#D6CCC2'}}
             />
             <span>
-              </span>
-      </span>}
-      {/* {<span>2 stars <Slider
-            disabled
-            defaultValue={twoStar}
-            aria-label="Disabled slider"
-            min={0}
-            max={totalRatings}
-            sx={{ display: 'flex'}}/>
-            <span>
               <Checkbox
-              title={twoStar}
-              sx={{display: 'inline'}}
-              checked={state[2]}
-              fnClick={v => setState({ 2: v})}/>
-              <p>{twoStar}</p>
-              </span>
-      </span>}
-      {<span>3 stars <Slider
-            disabled
-            defaultValue={threeStar}
-            aria-label="Disabled slider"
-            min={0}
-            max={totalRatings}
-            sx={{ display: 'flex'}}/>
-            <span>
-              <Checkbox
-              title={threeStar}
-              sx={{display: 'inline'}}
-              checked={state[3]}
-              fnClick={v => setState({ 3: v})}/>
-              <p>{threeStar}</p>
-              </span>
-      </span>}
-      {<span>4 stars <Slider
-            disabled
-            defaultValue={fourStar}
-            aria-label="Disabled slider"
-            min={0}
-            max={totalRatings}
-            sx={{ display: 'flex'}}/>
-            <span>
-              <Checkbox
-              title={fourStar}
-              sx={{display: 'inline'}}
-              checked={state[4]}
-              fnClick={v => setState({ 4: v})}/>
-              <p>{fourStar}</p>
-              </span>
-      </span>}
-      {<span>5 stars <Slider
-            disabled
-            defaultValue={fiveStar}
-            aria-label="Disabled slider"
-            min={0}
-            max={totalRatings}
-            sx={{ display: 'flex'}}/>
-            <span>
-              <Checkbox
-              title={fiveStar}
+              readOnly
               sx={{display: 'inline'}}
               checked={state[5]}
               fnClick={v => setState({ 5: v})}/>
-              <p>{fiveStar}</p>
+              {/* <p>{oneStar}</p> */}
               </span>
-      </span>} */}
+      </span>}
 
       </div>
 
@@ -273,7 +209,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
       <div className="avg-characteristics">
         {characteristics.hasOwnProperty('Fit') && <div>
         <div>
-          <span className="characteristic-property">Fit</span>
+          <h4 className="characteristic-property">Fit</h4>
           <br />
           <Slider
             disabled
@@ -281,15 +217,19 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex'}}/>
+            sx={{ display: 'flex'}}
+            style={{ color: '#D6CCC2'}}
+            />
             </div>
+            <div className="characteristic-description">
           <span className="characteristic-description-left">Runs tight</span>
           <span className="characteristic-description-middle">Perfect</span>
           <span className="characteristic-description-right">Runs loose</span>
+            </div>
         </div>}
         {characteristics.hasOwnProperty('Size') && <div>
         <div>
-          <span className="characteristic-property">Size</span>
+          <h4 className="characteristic-property">Size</h4>
           <br />
           <Slider
             disabled
@@ -297,15 +237,19 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex'}}/>
+            sx={{ display: 'flex'}}
+            style={{ color: '#D6CCC2'}}
+            />
             </div>
+            <div className="characteristic-description">
           <span className="characteristic-description-left">Runs small</span>
           <span className="characteristic-description-middle">Perfect</span>
           <span className="characteristic-description-right">Runs big</span>
+          </div>
         </div>}
         {characteristics.hasOwnProperty('Width') && <div>
         <div>
-          <span className="characteristic-property">Width</span>
+          <h4 className="characteristic-property">Width</h4>
           <br />
           <Slider
             disabled
@@ -313,15 +257,19 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex'}}/>
+            sx={{ display: 'flex'}}
+            style={{ color: '#D6CCC2'}}
+            />
             </div>
+            <div className="characteristic-description">
           <span className="characteristic-description-left">Runs narrow</span>
           <span className="characteristic-description-middle">Perfect</span>
           <span className="characteristic-description-right">Runs wide</span>
+          </div>
         </div>}
         {characteristics.hasOwnProperty('Quality') && <div>
         <div>
-          <span className="characteristic-property">Quality</span>
+          <h4 className="characteristic-property">Quality</h4>
           <br />
           <Slider
             disabled
@@ -329,15 +277,18 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex'}}/>
+            sx={{ display: 'flex'}}
+            style={{ color: '#D6CCC2'}}/>
             </div>
+            <div className="characteristic-description">
           <span className="characteristic-description-left">Poor</span>
           <span className="characteristic-description-middle">Average</span>
           <span className="characteristic-description-right">Perfect</span>
+          </div>
         </div>}
         {characteristics.hasOwnProperty('Length') && <div>
         <div>
-          <span className="characteristic-property">Length</span>
+          <h4 className="characteristic-property">Length</h4>
           <br />
           <Slider
             disabled
@@ -345,15 +296,19 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex'}}/>
+            sx={{ display: 'flex'}}
+            style={{ color: '#D6CCC2'}}
+            />
             </div>
+            <div className="characteristic-description">
           <span className="characteristic-description-left">Runs short</span>
           <span className="characteristic-description-middle">Perfect</span>
           <span className="characteristic-description-right">Runs long</span>
+          </div>
         </div>}
         {characteristics.hasOwnProperty('Comfort') && <div>
         <div>
-          <span className="characteristic-property">Comfort</span>
+          <h4 className="characteristic-property">Comfort</h4>
           <br />
           <Slider
             disabled
@@ -361,11 +316,15 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex'}}/>
+            sx={{ display: 'flex'}}
+            style={{ color: '#D6CCC2'}}
+            />
             </div>
+            <div className="characteristic-description">
           <span className="characteristic-description-left">Uncomfortable</span>
           <span className="characteristic-description-middle">Average</span>
           <span className="characteristic-description-right">Perfect</span>
+          </div>
         </div>}
 
       </div>
@@ -375,6 +334,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
 
     return (
       <div>
+        <div className="avg-rating-header">
         <div className="avg-rating-number">{Math.round(averageRatingNumber * 10)/ 10}</div>
         <div className="avg-rating-stars">
         <Rating
@@ -383,8 +343,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
           readOnly
           precision={0.25}
           emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-        />
+          />
         </div>
+          </div>
           <div>{calcRecommended()}% of reviews recommend this product</div>
         <div className="rating-breakdown">
           <h3>Rating Breakdown</h3>
