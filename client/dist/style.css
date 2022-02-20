@@ -1,10 +1,27 @@
-.related-product-card-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 1em;
+body {
+  margin: 0;
+  background-color: #FCFCFC;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: #272727;
 }
 
-.related-image-container {
-  height: "40vh"
+.related-slider {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.related-card {
+  background-color: black;
+}
+
+.related-container {
+  object-fit: contain;
+}
+
+.features-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

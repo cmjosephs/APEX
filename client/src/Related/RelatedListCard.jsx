@@ -8,7 +8,6 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import Modal from '@mui/material/Modal';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../App.jsx';
-import bootstrap from 'bootstrap'
 
 const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }) => {
   const { setProductId } = useContext(AppContext);
@@ -62,13 +61,13 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }
   function hasSalePrice() {
     if (salePrice.sale_price === null) {
       return (
-        <div className="related-price" style={{ textAlign: "center" }}>{relatedProduct.default_price}</div>
+        <div className="related-price">{relatedProduct.default_price}</div>
       )
     } else {
       return (
         <>
-          <div className="related-price" style={{ textDecoration: "line-through", textAlign: "center" }}>{relatedProduct.default_price}</div>
-          <div className="sale-price" style={{ textAlign: "center" }}>{salePrice.sale_price}</div>
+          <div className="related-price" style={{ textDecoration: "line-through" }}>{relatedProduct.default_price}</div>
+          <div className="sale-price">{salePrice.sale_price}</div>
         </>
       )
     }
@@ -79,17 +78,24 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }
   // }
 
   return (
-    <div className="related-product-card-container">
-      <div class="related-image-container" style={{ height: "40vh", objectFit: "contain" }}>
-        <Link to={`/products/${relatedId}`} >
-          <img src={relatedImgUrl.thumbnail_url} class="card-img-top"/>
-        </Link>
-      </div>
-      <div class="related-product-card-body">
-        <h4 class="related-product-title">{relatedProduct.name}</h4>
-        <h5 class="related-product-category">{relatedProduct.category}</h5>
-        <p class="related-product-price">{hasSalePrice()}</p>
-      </div>
+    <div className="related-card">
+       <div className="related-container">
+         <Link to={`/products/${relatedId}`}>
+           <img src={relatedImgUrl.thumbnail_url}/>
+         </Link>
+       </div>
+       <div className="related-rating"><Rating name="read-only" value={calcAverageRating(rating)} precision={0.25} readOnly />  {calcAverageRating(rating)}</div>
+       <div className="category-name">{relatedProduct.category}</div>
+       <div className="related-name">{relatedProduct.name}</div>
+       {hasSalePrice()}
+       <FontAwesomeIcon icon={faHeart} onClick={handleChange}/>
+       <Modal open={showModal} onClose={handleChange}>
+         <ComparisonModal
+           relatedProduct={relatedProduct}
+           currentProduct={currentProductDetails}
+           relatedImg={relatedImgUrl}
+           currentProductImg={currentProductImg}/>
+       </Modal>
     </div>
   )
 }
@@ -115,3 +121,43 @@ export default RelatedListCard;
     //       currentProductImg={currentProductImg}/>
     //   </Modal>
     // </div> */}
+
+  //   bootstrap
+  //   <div className="related-product-card-container">
+  //   <div className="related-image-container">
+  //     <Link to={`/products/${relatedId}`} >
+  //       <img src={relatedImgUrl.thumbnail_url} className="card-img-top"/>
+  //     </Link>
+  //   </div>
+  //   <div className="related-product-card-body">
+  //     <h4 className="related-product-title">{relatedProduct.name}</h4>
+  //     <h5 className="related-product-category">{relatedProduct.category}</h5>
+  //     <p className="related-product-price">{hasSalePrice()}</p>
+  //   </div>
+  // </div>
+
+
+  // mui card
+//   <Card sx={{ maxWidth: 345 }}>
+//   <CardMedia
+//     component="img"
+//     height="300"
+//     image={relatedImgUrl.thumbnail_url}
+//     alt="related-product-image"
+//   />
+//   <CardContent>
+//     <Typography gutterBottom variant="h5" component="div">
+//       {relatedProduct.name}
+//     </Typography>
+//     <Typography variant="body2" color="text.secondary">
+//       {relatedProduct.category}
+//     </Typography>
+//     <Typography>
+//       {hasSalePrice()}
+//     </Typography>
+//   </CardContent>
+//   <CardActions>
+//     <Button size="small">Share</Button>
+//     <Button size="small">Learn More</Button>
+//   </CardActions>
+// </Card>
