@@ -21,7 +21,7 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
     return <Modal
       open={open}
       onClose={handleChange}
-      sx={{display: 'flex', justifyContent: 'center'}}
+      sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}
     >
       <img id="review-thumbnail-modal" src={currentPic}/>
     </Modal>
@@ -56,15 +56,15 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
         </span>
       </div>
 
-      <div className="review-summary">
+      <h4 className="review-summary">
         {review.summary.substring(0, 60)}
-      </div>
+      </h4>
 
       <div className="review-body">
         {showMore ? review.body : review.body.substring(0,250)}
 
         {review.body.length > 250 &&
-          <a href="#" onClick={() =>
+          <a href="#" className="review-interaction" onClick={() =>
             {setShowMore(!showMore)}}>{showMore ? '...Show less' : '...Show more'}
           </a>
         }

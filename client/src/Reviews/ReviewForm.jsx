@@ -221,7 +221,7 @@ const ReviewForm = ({ getNewReviews }) => {
         characteristics: state.characteristics
       }).then(() => {
         console.log('posted');
-        // getNewReviews();
+        getNewReviews();
         handleClose();
         dispatch({ type: "clearData"})
       }).catch(err => {
@@ -237,9 +237,10 @@ const ReviewForm = ({ getNewReviews }) => {
 
   return (
     <div className="review-form">
-      <Button variant="outlined" onClick={handleClickOpen}>
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
         Write A Review
-      </Button>
+      </Button> */}
+      <button className="review-button" onClick={handleClickOpen}>Write A Review</button>
 
       <Dialog
         open={open}

@@ -6,6 +6,7 @@ import ReviewForm from './ReviewForm.jsx';
 import AvgRatingReview from './AvgRatingReview.jsx';
 import { AppContext } from '../App.jsx';
 
+
 export const SortContext = createContext();
 
 const ReviewList = () => {
@@ -40,7 +41,7 @@ const ReviewList = () => {
       if (results.data.results.length <= 2) {
         setEnoughReviews(!enoughReviews)
       }
-      setReviews(results.data.results.splice(0, count));
+      setReviews(results.data.results.slice(0, count));
     }).catch(err => {
       console.log('error getting reviews')
       setEnoughReviews(!enoughReviews)
@@ -60,23 +61,34 @@ const ReviewList = () => {
   }
 
   const filterStarReviews = (checkedStars) => {
-    console.log(checkedStars)
-    if (checkedStars.length > 0) {
-      let filteredStarReviews = totalReviews.filter(review => {
-          for (let i = 0; i < checkedStars.length; i++) {
-            if (review.rating === checkedStars[i]) {
-              console.log(review)
-              return review;
-            }
-          }
-        })
-    setReviews(filteredStarReviews);
-    setEnoughReviews(false);
-    setDisplayCount(filteredStarReviews.length);
-    } else {
-      getReviews();
-      setEnoughReviews(true)
-    }
+
+    let filteredStarReviews = totalReviews.filter(review => {
+      if (checkedStars[review.rating]) {
+        return review;
+        }
+      })
+
+      // if there's no reviews with this star count
+      if (filteredStarReviews.length === 0) {
+        setReviews(filteredStarReviews);
+        setEnoughReviews(false);
+        setDisplayCount(filteredStarReviews.length);
+      }
+
+      // if there's reviews with this star count
+      if (filteredStarReviews.length !== 0) {
+        setReviews(filteredStarReviews);
+        setEnoughReviews(false);
+        setDisplayCount(filteredStarReviews.length);
+      }
+
+      // if there's nothing checked
+      if (Object.values(checkedStars).every(star => star === false)) {
+        setEnoughReviews(true)
+        setReviews(totalReviews)
+        setDisplayCount(totalReviews.length)
+      }
+
   }
 
 
@@ -85,38 +97,37 @@ const ReviewList = () => {
   }
 
   return (
-    <div className="review-section">
     <div className="review-container">
-      <div className="review-container-child">
-        <div className="avg-rating-review"><h3>Average Rating & Reviews</h3>
+      <div className="review-container-left">
+        <div className="avg-rating-review">
+          <h3>Average Rating & Reviews</h3>
         <AvgRatingReview totalReviews={totalReviews} filterStarReviews={filterStarReviews}/>
-
         </div>
       </div>
-      <div className="review-container-child">
-      <div className="sort-section">
-        <h2>{displayCount} Reviews,
-          <label for ="reviews-sort"> sorted by: </label>
-          <select name="reviews-sort" id="reviews-sort" onChange={changeSort}>
-            <option value="newest">Newest</option>
-            <option value="helpful">Helpful</option>
-            <option value="relevant">Relevant</option>
-          </select>
-        </h2>
-      </div>
-      <AllReviews reviews={reviews} getNewReviews={getReviews}/>
-      </div>
-    </div>
-      <div className="review-button-section">
-      {enoughReviews &&
-      <div className="review-buttons">
-        <button onClick={getMoreReviews}>MORE REVIEWS</button>
-      </div>
-      }
-      <ReviewForm getNewReviews={getReviews}/>
-      </div>
 
+      <div className="review-container-right">
+        <div className="review-container-right-list">
+          <div className="sort-section">
+            <h2>{displayCount} Reviews,
+              <label for ="reviews-sort"> sorted by: </label>
+              <select name="reviews-sort" className="reviews-sort-dropdown" onChange={changeSort}>
+                <option value="newest">Newest</option>
+                <option value="helpful">Helpful</option>
+                <option value="relevant">Relevant</option>
+              </select>
+            </h2>
+          </div>
+          <AllReviews reviews={reviews} getNewReviews={getReviews}/>
+        </div>
+          <div className="review-button-section">
+            {enoughReviews &&
+              <button onClick={getMoreReviews} className="review-button">More Reviews</button>
+            }
+            <ReviewForm getNewReviews={getReviews}/>
+          </div>
+      </div>
     </div>
+
   )
 }
 

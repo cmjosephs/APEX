@@ -19,7 +19,6 @@ import Checkbox from '@mui/material/Checkbox';
 const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
 
   let { productId, reviewMetaData, productDetails } = useContext(AppContext);
-  // let { sort } = useContext(SortContext);
   let ratings = reviewMetaData.ratings;
   let characteristics = reviewMetaData.characteristics;
   let oneStar = ratings[1];
@@ -61,13 +60,15 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   }, [state])
 
   const handleChangeStar = () => {
-    let checkedStars = [];
-    for (let [key, value] of Object.entries(state)) {
-      if (state[key]) {
-        checkedStars.push(Number(key));
-      }
-    }
-    filterStarReviews(checkedStars);
+    // refactor to keep object instead of turning into an array
+    filterStarReviews(state)
+    // let checkedStars = [];
+    // for (let [key, value] of Object.entries(state)) {
+    //   if (state[key]) {
+    //     checkedStars.push(Number(key));
+    //   }
+    // }
+    // filterStarReviews(checkedStars);
   }
   // watch sort and if it changes then uncheck st
 
@@ -108,7 +109,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex' }}/>
             <span>
               <Checkbox
               title={oneStar}
@@ -124,7 +125,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             <span>
               <Checkbox
               title={twoStar}
@@ -140,7 +141,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             <span>
               <Checkbox
               title={threeStar}
@@ -156,7 +157,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             <span>
               <Checkbox
               title={fourStar}
@@ -172,7 +173,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             <span>
               <Checkbox
               title={fiveStar}
@@ -202,7 +203,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             </div>
           <span className="characteristic-description-left">Runs tight</span>
           <span className="characteristic-description-middle">Perfect</span>
@@ -218,7 +219,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             </div>
           <span className="characteristic-description-left">Runs small</span>
           <span className="characteristic-description-middle">Perfect</span>
@@ -234,7 +235,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             </div>
           <span className="characteristic-description-left">Runs narrow</span>
           <span className="characteristic-description-middle">Perfect</span>
@@ -250,7 +251,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             </div>
           <span className="characteristic-description-left">Poor</span>
           <span className="characteristic-description-middle">Average</span>
@@ -266,7 +267,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             </div>
           <span className="characteristic-description-left">Runs short</span>
           <span className="characteristic-description-middle">Perfect</span>
@@ -282,7 +283,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={1}
             max={5}
-            sx={{ display: 'flex', width: 1/7 }}/>
+            sx={{ display: 'flex'}}/>
             </div>
           <span className="characteristic-description-left">Uncomfortable</span>
           <span className="characteristic-description-middle">Average</span>
