@@ -23,7 +23,7 @@ nav {
   top: 0px; */
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: #FCFCFC;
   height: 68px;
 }
@@ -48,7 +48,7 @@ nav h1:hover {
 nav div {
   flex: 2, 1, 100%;
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   align-items: center;
   gap: 2em;
   height: 100%;
