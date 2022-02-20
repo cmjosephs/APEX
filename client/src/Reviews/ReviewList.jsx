@@ -65,8 +65,8 @@ const ReviewList = () => {
     let filteredStarReviews = totalReviews.filter(review => {
       if (checkedStars[review.rating]) {
         return review;
-        }
-      })
+      }
+    })
 
       // if there's no reviews with this star count
       if (filteredStarReviews.length === 0) {
@@ -89,7 +89,9 @@ const ReviewList = () => {
         setDisplayCount(totalReviews.length)
       }
 
+
   }
+
 
 
   if (!totalReviews) {
@@ -100,7 +102,7 @@ const ReviewList = () => {
     <div className="review-container">
       <div className="review-container-left">
         <div className="avg-rating-review">
-          <h3>Average Rating & Reviews</h3>
+          <h1 className="review-header">Rating & Reviews</h1>
         <AvgRatingReview totalReviews={totalReviews} filterStarReviews={filterStarReviews}/>
         </div>
       </div>

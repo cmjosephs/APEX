@@ -39,19 +39,19 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   const reducer = (state, action) => ({...state, ...action});
   let [state, setState] = useReducer(reducer, initialState);
 
-  const Checkbox = ({ fnClick, fnChange, title = "0", checked = false }) => (
+  const Checkbox = ({ fnClick, checked = false }) => (
     <label>
       <input
         onClick={e => {
           if (fnClick !== undefined) fnClick(e.target.checked);
         }}
-        onChange={e => {
-          if (fnChange !== undefined) fnChange(e.target.checked);
-        }}
+        // onChange={e => {
+        //   if (fnChange !== undefined) fnChange(e.target.checked);
+        // }}
         type="checkbox"
         checked={checked}
       />
-      {title}
+      {/* {title} */}
     </label>
   );
 
@@ -102,24 +102,102 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   const renderTotalStars = () => {
     return (
       <div className="star-values">
-        {<span>1 star
+        {<span className="star-bar">1 star
+              <Checkbox
+              // title={oneStar}
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[1]}
+              fnClick={v => setState({ 1: v})}/>
+              {/* <p>{oneStar}</p> */}
           <Slider
             disabled
             defaultValue={oneStar}
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
-            sx={{ display: 'flex' }}/>
+            sx={{ display: 'flex' }}
+            />
             <span>
-              <Checkbox
-              title={oneStar}
-              sx={{display: 'inline'}}
-              checked={state[1]}
-              fnClick={v => setState({ 1: v})}/>
-              <p>{oneStar}</p>
               </span>
       </span>}
-      {<span>2 stars <Slider
+      {<span className="star-bar">2 stars
+              <Checkbox
+              // title={oneStar}
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[2]}
+              fnClick={v => setState({ 2: v})}/>
+              {/* <p>{oneStar}</p> */}
+          <Slider
+            disabled
+            defaultValue={twoStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex' }}
+            />
+            <span>
+              </span>
+      </span>}
+      {<span className="star-bar">3 stars
+              <Checkbox
+              // title={oneStar}
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[3]}
+              fnClick={v => setState({ 3: v})}/>
+              {/* <p>{oneStar}</p> */}
+          <Slider
+            disabled
+            defaultValue={threeStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex' }}
+            />
+            <span>
+              </span>
+      </span>}
+      {<span className="star-bar">4 stars
+              <Checkbox
+              // title={oneStar}
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[4]}
+              fnClick={v => setState({ 4: v})}/>
+              {/* <p>{oneStar}</p> */}
+          <Slider
+            disabled
+            defaultValue={fourStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex' }}
+            />
+            <span>
+              </span>
+      </span>}
+      {<span className="star-bar">5 stars
+              <Checkbox
+              // title={oneStar}
+              readOnly
+              sx={{display: 'inline'}}
+              checked={state[5]}
+              fnClick={v => setState({ 5: v})}/>
+              {/* <p>{oneStar}</p> */}
+          <Slider
+            disabled
+            defaultValue={fiveStar}
+            aria-label="Disabled slider"
+            min={0}
+            max={totalRatings}
+            sx={{ display: 'flex' }}
+            />
+            <span>
+              </span>
+      </span>}
+      {/* {<span>2 stars <Slider
             disabled
             defaultValue={twoStar}
             aria-label="Disabled slider"
@@ -182,7 +260,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
               fnClick={v => setState({ 5: v})}/>
               <p>{fiveStar}</p>
               </span>
-      </span>}
+      </span>} */}
 
       </div>
 

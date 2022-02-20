@@ -88,13 +88,16 @@ body {
 
 /* -------------- Review Text -------------- */
 
+h1.review-header {
+  font-family: 'Noto Serif Display', serif;
+}
+
 .review-details {
   display: flex;
   flex-direction: row;
   margin: 1em 0em;
   justify-content: space-between;
 }
-
 
 h4.review-summary {
   margin: 10px 0px;
@@ -129,4 +132,33 @@ h4.review-summary {
 .review-thumbnail-modal {
   width: 70vw;
   height: 70vh;
+
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #272727;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #D6CCC2;
+}
+
+
+/* -------------- Average Ratings & Reviews -------------- */
+
+.star-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
