@@ -10,12 +10,12 @@ app.use(express.static('client/dist'));
 app.use('/api', router);
 
 
-app.get('/', (req, res) => {
-  res.redirect('/products/42366');
-});
-app.get('/products', (req, res) => {
-  res.redirect('/products/42366');
-});
+// app.get('/', (req, res) => {
+//   res.redirect('/products/42366');
+// });
+// app.get('/products', (req, res) => {
+//   res.redirect('/products/42366');
+// });
 app.get('/products/*', (req, res, next) => {
   res.sendFile('index.html', {root: path.join(__dirname, '../client/dist')})
 });
