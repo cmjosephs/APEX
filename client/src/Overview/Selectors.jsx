@@ -38,7 +38,7 @@ var Selectors = () => {
   const renderStyles = () => {
     return Object.values(allStyles).map((style, index) => {
       return (
-        <Link to={`/products/${productDetails.id}/${style.style_id}`}>
+        <Link to={`/products/${productDetails.id}/${style.style_id}`} key={index}>
           <img
             src={style.photos[0].thumbnail_url}
             alt={style.name}

@@ -24,7 +24,6 @@ const Product = () => {
   const [state, dispatch] = useReducer(styleReducer, {allStyles: {}, currentStyle: {}});
   const { productId } = useContext(AppContext);
   const { style_id } = useParams();
-  console.log(style_id);
 
   function getStyles(product_id) {
     axios.get(`/api/products/${product_id}/styles`)
