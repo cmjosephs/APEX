@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect, createContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Product from './Overview/Product.jsx';
 import ReviewList from './Reviews/ReviewList.jsx';
@@ -11,7 +11,8 @@ import { testProduct, testStyles, testReviewMetaData } from '../../__tests__/Ove
 export const AppContext = createContext();
 
 const App = () => {
-  const [productId, setProductId] = useState(null);
+  const { product_id } = useParams();
+  const [productId, setProductId] = useState(product_id);
   const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
@@ -46,8 +47,9 @@ const App = () => {
     // setReviewMetaData(testReviewMetaData);
   }
 
-  useEffect(getRandomProductId, []);
+  // useEffect(getRandomProductId, []);
   useEffect(() => {
+    // console.log(params.product_id);
     if (productId) {
       getProductDetails();
       getProductMetaData();
