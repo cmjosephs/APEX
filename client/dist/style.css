@@ -160,6 +160,10 @@ nav div {
   font-family: 'Noto Serif Display', serif;
   font-weight: 400;
 }
+.prices {
+  display: flex;
+  gap: 2em;
+}
 .sale-price {
   display: flex;
   justify-content: flex-start;
@@ -187,6 +191,8 @@ nav div {
 }
 .style-selector > * {
   width: 23%;
+  /* display: flex; */
+  /* height: 20%; */
   /* border-radius: 15px;
   box-shadow: 2px 2px 2px #E7E7E7; */
 }
@@ -194,8 +200,10 @@ nav div {
   cursor: pointer;
   /* height: 40%; */
   /* width: 23%; */
+  object-fit: cover;
   width: 100%;
   border-radius: 15px;
+  margin: 0px;
   box-shadow: 2px 2px 2px #E7E7E7;
 }
 

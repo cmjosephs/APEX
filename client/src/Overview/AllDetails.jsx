@@ -67,12 +67,14 @@ var AllDetails = () => {
           <p className="same-page-review-link">See all reviews ADD HREF LATER</p>
           {/* Rating: {calcAverageRating(reviewMetaData.ratings)} see all reviews link */}
         </div> {/* hyperlink to reviews */}
-        <h3
-          className="price"
-          style={{textDecoration: sale_price ? "line-through" : ""}}>
-            ${original_price}
-        </h3>
-        {renderSalePrice(sale_price, original_price)}
+        <div className="prices">
+          <h3
+            className="original-price"
+            style={{textDecoration: sale_price ? "line-through" : ""}}>
+              ${original_price}
+          </h3>
+          {renderSalePrice(sale_price, original_price)}
+        </div>
         <Selectors />
         <br></br>
         <Info productDetails={productDetails}/>
