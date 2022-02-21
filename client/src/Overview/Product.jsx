@@ -29,16 +29,19 @@ const Product = () => {
     axios.get(`/api/products/${product_id}/styles`)
     .then(({ data }) => {
       let styleObj = {};
+      let defaultStyle = data.results[0];
       data.results.forEach((style) => {
         styleObj[style.style_id] = style;
+        if (style['default?']) defaultStyle = style;
       });
       dispatch({
         type: 'newProduct',
         payload: {
           allStyles: styleObj,
-          currentStyle: style_id ? styleObj[style_id] : data.results[0]
+          currentStyle: style_id ? styleObj[style_id] : defaultStyle
         }
       })
+
     })
     .catch((err) => console.error(err));
 
