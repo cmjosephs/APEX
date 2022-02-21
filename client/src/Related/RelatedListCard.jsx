@@ -13,7 +13,6 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
   const [relatedProduct, updateRelatedProduct] = useState({ info: {} });
   const [relatedImgUrl, updateRelatedImgUrl] = useState({ img: {} });
   const [salePrice, updateSalePrice] = useState({ sale: {} });
-  // const [relatedStyles, updateRelatedStyles] = useState({ info: {} });
   const [rating, updateRating] = useState({ rating: {} });
   const [numberOfStyles, updateNumberOfStyles] = useState(1);
   const [showModal, setShowModal] = useState(false);
@@ -25,9 +24,6 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
       .then(() => {
         axios.get(`/api/products/${relatedId}/styles`)
           .then(({ data }) => {
-            // updateRelatedImgUrl(data.results[0].photos[0])
-            // // updateRelatedImgUrl(data.results)
-            // updateSalePrice(data.results[0])
             let defaultStyle = data.results[0];
             for (let i = 1; i < data.results.length; i++) {
               if (data.results[i]['default?'] === true) {
@@ -37,7 +33,6 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
             updateRelatedImgUrl(defaultStyle.photos[0].thumbnail_url)
             updateSalePrice(defaultStyle)
             updateNumberOfStyles(data.results.length)
-            // console.log(defaultStyle.photos[0].thumbnail_url)
           })
           .catch(err => console.error(err));
       })
@@ -87,6 +82,22 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
     }
   }
 
+  function numStyles() {
+    if (numberOfStyles === 1) {
+      return (
+        <>
+          1 Style
+        </>
+      )
+    } else {
+      return (
+        <>
+          {numberOfStyles} Styles
+        </>
+      )
+    }
+  }
+
   const cardRef = React.useRef();
 
   useEffect(() => {
@@ -106,7 +117,7 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
       <h4 className="related-category-styles">
         {relatedProduct.category}
         <br></br>
-        {numberOfStyles} Styles
+        {numStyles()}
         </h4>
       {hasSalePrice()}
       <StarBorderIcon className="related-comparison-open" onClick={handleChange}/>
