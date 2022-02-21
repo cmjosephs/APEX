@@ -64,7 +64,7 @@ var AllDetails = () => {
             sx={{color: "#757575"}}
             readOnly
           />
-          <a href=".review-container" className="same-page-review-link">See all reviews</a>
+          <a href="#review-container" className="same-page-review-link">See all reviews</a>
         </div>
         <div className="prices">
           <h3

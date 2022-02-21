@@ -248,14 +248,9 @@ nav div {
 
 .size-option {
   flex: 0 1 45%;
-  /* flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: 50%; */
 }
 .size-option input[type=radio]:checked+label {
-  /* border-style: solid;
-  border-color: rgb(12, 12, 12); */
-  border: solid rgb(12, 12, 12);
+  border: solid #272727;
   border-radius: 4px;
 }
 
@@ -316,14 +311,6 @@ nav div {
   color: #272727;
   cursor: pointer;
 }
-
-/* .favorite-btn {
-  min-width: 70%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 /* -------------- Info -------------- */
 
