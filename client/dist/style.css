@@ -69,11 +69,16 @@ nav div {
   /* 60em */
   .product-overview {
     display: flex;
+    /* flex-shrink: 0; */
   }
 }
 
 /* -------------- Photos -------------- */
+.image-gallery {
+  flex: 1 0 65%;
+}
 .images-gallery-wide-view {
+  /* flex: 1 0 80%; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -173,7 +178,7 @@ nav div {
 }
 /* -------------- All Details -------------- */
 .all-details {
-  min-width: 35%
+  min-width: 35%;
 }
 
 .all-details h1 {

@@ -18,9 +18,11 @@ var Selectors = () => {
   }
 
   const handleAddToBag = () => {
-    // axios.post('/api/cart', {sku_id: parseInt(currentSku)})
-    // .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
-    // .catch(err => console.error(err))
+    // if (currentSku) {
+      // axios.post('/api/cart', {sku_id: parseInt(currentSku)})
+      // .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
+      // .catch(err => console.error(err))
+    // }
     console.log({sku_id: currentSku})
   }
 
