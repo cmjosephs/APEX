@@ -144,7 +144,7 @@ h4.review-summary {
   color: #D6CCC2;
 }
 
-h4.characteristic-property {
+h4.characteristic-property-name {
   margin: 0px 0px;
 }
 
@@ -188,9 +188,13 @@ h4.characteristic-property {
 
 /* -------------- Average Ratings & Reviews -------------- */
 
+.star-values {
+  margin-bottom: 2vh;
+}
 .star-bar {
   display: flex;
-  justify-content: space-between;
+  margin-bottom: 1vh;
+  /* justify-content: space-between; */
 }
 
 .avg-rating-header {
@@ -201,4 +205,9 @@ h4.characteristic-property {
 .avg-rating-number {
   font-weight: 400;
   font-size: 50px;
+}
+
+
+.characteristic-description {
+  margin-bottom: 2vh;
 }

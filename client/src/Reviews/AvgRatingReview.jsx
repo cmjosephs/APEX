@@ -45,13 +45,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
         onClick={e => {
           if (fnClick !== undefined) fnClick(e.target.checked);
         }}
-        // onChange={e => {
-        //   if (fnChange !== undefined) fnChange(e.target.checked);
-        // }}
         type="checkbox"
         checked={checked}
       />
-      {/* {title} */}
     </label>
   );
 
@@ -60,17 +56,8 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   }, [state])
 
   const handleChangeStar = () => {
-    // refactor to keep object instead of turning into an array
     filterStarReviews(state)
-    // let checkedStars = [];
-    // for (let [key, value] of Object.entries(state)) {
-    //   if (state[key]) {
-    //     checkedStars.push(Number(key));
-    //   }
-    // }
-    // filterStarReviews(checkedStars);
   }
-  // watch sort and if it changes then uncheck st
 
 
   function calcAverageRating(obj) {
@@ -207,9 +194,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   const renderCharacteristicsData = () => {
     return (
       <div className="avg-characteristics">
-        {characteristics.hasOwnProperty('Fit') && <div>
+        {characteristics.hasOwnProperty('Fit') && <div className="characteristic-property">
         <div>
-          <h4 className="characteristic-property">Fit</h4>
+          <h4 className="characteristic-property-name">Fit</h4>
           <br />
           <Slider
             disabled
@@ -227,9 +214,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
           <span className="characteristic-description-right">Runs loose</span>
             </div>
         </div>}
-        {characteristics.hasOwnProperty('Size') && <div>
+        {characteristics.hasOwnProperty('Size') && <div className="characteristic-property">
         <div>
-          <h4 className="characteristic-property">Size</h4>
+          <h4 className="characteristic-property-name">Size</h4>
           <br />
           <Slider
             disabled
@@ -247,9 +234,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
           <span className="characteristic-description-right">Runs big</span>
           </div>
         </div>}
-        {characteristics.hasOwnProperty('Width') && <div>
+        {characteristics.hasOwnProperty('Width') && <div className="characteristic-property">
         <div>
-          <h4 className="characteristic-property">Width</h4>
+          <h4 className="characteristic-property-name">Width</h4>
           <br />
           <Slider
             disabled
@@ -267,9 +254,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
           <span className="characteristic-description-right">Runs wide</span>
           </div>
         </div>}
-        {characteristics.hasOwnProperty('Quality') && <div>
+        {characteristics.hasOwnProperty('Quality') && <div className="characteristic-property">
         <div>
-          <h4 className="characteristic-property">Quality</h4>
+          <h4 className="characteristic-property-name">Quality</h4>
           <br />
           <Slider
             disabled
@@ -286,9 +273,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
           <span className="characteristic-description-right">Perfect</span>
           </div>
         </div>}
-        {characteristics.hasOwnProperty('Length') && <div>
+        {characteristics.hasOwnProperty('Length') && <div className="characteristic-property">
         <div>
-          <h4 className="characteristic-property">Length</h4>
+          <h4 className="characteristic-property-name">Length</h4>
           <br />
           <Slider
             disabled
@@ -306,9 +293,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
           <span className="characteristic-description-right">Runs long</span>
           </div>
         </div>}
-        {characteristics.hasOwnProperty('Comfort') && <div>
+        {characteristics.hasOwnProperty('Comfort') && <div className="characteristic-property">
         <div>
-          <h4 className="characteristic-property">Comfort</h4>
+          <h4 className="characteristic-property-name">Comfort</h4>
           <br />
           <Slider
             disabled

@@ -9,13 +9,6 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
   let [markNotHelpful, setMarkNotHelpful] = useState(true);
   let [notHelpfulCount, setNotHelpfulCount] = useState(0);
 
-  // useEffect(() => {
-  //   getNewReviews()
-  // }, [markHelpful])
-
-  // in main app, check if filter is on, don't fire getReviews
-
-
   let addHelpful = () => {
     axios.put(`api/products/${productId}/reviews/${review.review_id}/helpful`)
     .then(getNewReviews())
@@ -29,6 +22,11 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
     setNotHelpfulCount(markNotHelpful++);
     setMarkHelpful(false);
   }
+
+  // not in business doc
+  // let reportReview = () => {
+
+  // }
 
 
   return (

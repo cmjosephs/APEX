@@ -88,7 +88,7 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
         <div className="seller-response">
           {review.response !== null &&
           <>
-          <span>{review.response}</span>
+          <span>Seller response: {review.response}</span>
           </>
           }
         </div>

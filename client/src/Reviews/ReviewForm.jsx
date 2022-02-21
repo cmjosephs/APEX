@@ -237,9 +237,6 @@ const ReviewForm = ({ getNewReviews }) => {
 
   return (
     <div className="review-form">
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Write A Review
-      </Button> */}
       <button className="review-button" onClick={handleClickOpen}>Write A Review</button>
 
       <Dialog
