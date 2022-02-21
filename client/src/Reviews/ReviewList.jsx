@@ -85,7 +85,7 @@ const ReviewList = () => {
       // if there's nothing checked
       if (Object.values(checkedStars).every(star => star === false)) {
         setEnoughReviews(true)
-        setReviews(totalReviews)
+        setReviews(totalReviews.slice(0, count))
         setDisplayCount(totalReviews.length)
       }
 
@@ -99,7 +99,7 @@ const ReviewList = () => {
   }
 
   return (
-    <div className="review-container">
+    <div id="review-container">
       <div className="review-container-left">
         <div className="avg-rating-review">
           <h1 className="review-header">Rating & Reviews</h1>

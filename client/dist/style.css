@@ -27,27 +27,47 @@ body {
   overflow-x: break-word;
 }
 
-.review-container {
+/* .review-container {
   display: flex;
-  /* max-width: 100vw;
-  max-height: 100vh; */
+  max-width: 100vw;
+  max-height: 100vh;
   flex-direction: wrap;
   margin: 2em;
-}
+} */
 
 .review-container-left {
   display: flex;
-  margin-right: 2em;
-  flex-direction:column;
+  margin-right: 1vw;
+  flex-direction: column;
   overflow-x: break-word;
-  width: 20%;
+  min-width: 20%;
 }
 
 .review-container-right {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  min-width: 80%;
 }
+
+@media (min-width: 960px) {
+  #review-container {
+    display: flex;
+    flex-direction: wrap;
+    margin: 2em;
+  },
+  .review-container-right {
+    display: flex;
+    flex-direction: wrap;
+  },
+  .review-container-left {
+    display: flex;
+    flex-direction: wrap;
+  }
+}
+
+
+
+
 
 /* -------------- Review Buttons -------------- */
 .reviews-sort-dropdown {

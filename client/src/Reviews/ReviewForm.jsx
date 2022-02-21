@@ -250,7 +250,7 @@ const ReviewForm = ({ getNewReviews }) => {
         sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
-        alignItems: 'center',
+        justifyContent: 'center',
       }} >
 
         <DialogTitle>Write A Review</DialogTitle>
