@@ -18,11 +18,9 @@ var Selectors = () => {
   }
 
   const handleAddToBag = () => {
-    // if (currentSku) {
-      // axios.post('/api/cart', {sku_id: parseInt(currentSku)})
-      // .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
-      // .catch(err => console.error(err))
-    // }
+    // axios.post('/api/cart', {sku_id: parseInt(currentSku)})
+    // .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
+    // .catch(err => console.error(err))
     console.log({sku_id: currentSku})
   }
 
@@ -102,7 +100,9 @@ var Selectors = () => {
         </div>
       <br></br>
       <div className="user-interest-btns">
-        <button className="add-bag-btn" onClick={handleAddToBag}>
+        <button
+          className="add-bag-btn"
+          onClick={currentSku ? handleAddToBag : ()=>{}}>
           <p>Add to Bag</p>
           {/* <ShoppingBagIcon /> */}
         </button>
