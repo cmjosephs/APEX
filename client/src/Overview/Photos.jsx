@@ -14,7 +14,7 @@ var Photos = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => setOpenModal(!openModal);
-  const wideViewModal = (i) => {
+  const wideViewToModal = (i) => {
     photoScroll.click(i);
     toggleModal();
   }
@@ -73,7 +73,7 @@ var Photos = () => {
           return (
             <img src={photo.url} key={index} alt={`${index}`}
               className="full-image-wide-view"
-              onClick={() => wideViewModal(index)}
+              onClick={() => wideViewToModal(index)}
             ></img>
           )
         })}
@@ -123,8 +123,8 @@ var Photos = () => {
       </div>
     )
   }
-  if (!Object.keys(currentStyle).length || !photos.length) return <p>Loading...</p>
 
+  if (!Object.keys(currentStyle).length || !photos.length) return <p>Loading...</p>
   return (
     <div className="image-gallery">
       {renderModal()}
