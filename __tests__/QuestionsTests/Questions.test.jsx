@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {rest} from 'msw';
 import {setupServer} from 'msw/node';
 import {render, getByText, waitFor, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import QAList from '../../client/src/Questions/QAList.jsx';
 import questions from './testData.js';
+import {renderHook} from '@testing-library/react-hooks';
+import App from '../../client/src/App.jsx';
+import AppContext from '../../client/src/App.jsx';
 
 const server = setupServer(
   rest.get('/api/products/:product_id/qa/questions', (req, res, ctx) => {

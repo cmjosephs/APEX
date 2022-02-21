@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import Search from './Search.jsx';
 import QAItem from './QAItem.jsx';
-//import AllQuestions from './AllQuestions.jsx';
 import {AppContext} from '../App.jsx';
 import axios from 'axios';
 import Button from '@mui/material/Button';
@@ -10,14 +9,11 @@ import QuestionForm from './QuestionForm.jsx';
 
 
 var QAList = () => {
-  //let [product, setProduct] = useState('42369');
   const {productId, productDetails} = useContext(AppContext);
-  //let [productName, setProductName] = useState('Slacker\'s Slacks')
   let [questions, setQuestions] = useState([]);
   let [count, setCount] = useState(2);
   let [totalQuestions, setTotalQuestions] = useState(0);
   let [questionAdded, setQuestionAdded] = useState(false);
-
 
   useEffect(() => {
     getQuestions();
@@ -42,8 +38,6 @@ var QAList = () => {
   }
 
   const searchQuestions = (term) => {
-
-
     if (term.length >= 3) {
       let filter = questions.filter(question => {
         if (question.question_body.toLowerCase().includes(term.toLowerCase())) {
@@ -51,12 +45,9 @@ var QAList = () => {
         }
       })
 
-      let mappedFilter = filter.map(question => {
-        let strQuestion = JSON.stringify(question)
-
-      })
       setQuestions(filter)
       setTotalQuestions(filter.length)
+
     } else {
       getQuestions()
       console.log('Need more than 3 characters')
@@ -68,11 +59,10 @@ var QAList = () => {
       return (<div></div>)
     }
     if (count < totalQuestions) {
-      return (<Button onClick={getMoreQuestions}>More Questions</Button>)
+      return (<button className="question-button" onClick={getMoreQuestions}>More Questions</button>)
     } else {
       return (<div></div>)
     }
-
   }
 
   const addedQuestion = () => {
@@ -96,11 +86,10 @@ var QAList = () => {
             />
           })}
           </div>
-
-          <ButtonGroup variant="contained"  aria-label="outlined medium primary button group">
+          <div className="question-button-section">
             {moreQuestionButton()}
             <QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>
-          </ButtonGroup>
+          </div>
 
         </div>
        )
@@ -109,15 +98,15 @@ var QAList = () => {
 
   return (
     <div className="question-container">
-      <div className="question-header">
-        <h3>Questions and Answers</h3>
+      <h2 className="question-header">Questions and Answers</h2>
+      <div>
         <Search onSearch={searchQuestions}/>
       </div>
+      <div>
         {renderQuestions()}
+      </div>
     </div>
   )
 }
 
 export default QAList;
-
-{/* <AllQuestions questions={questions} getQuestions={getQuestions} productId={productId} productName={productDetails.name}/> */}

@@ -65,9 +65,9 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
 
   return (
     <div>
-      <Button variant="contained" onClick={handleOpen}>
+      <button className="question-button" onClick={handleOpen}>
         Add Question +
-      </Button>
+      </button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Ask Your Question</DialogTitle>
         <DialogContent>

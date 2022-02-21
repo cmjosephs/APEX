@@ -31,7 +31,7 @@ var Answer = ({answer, productId, answerHelpful}) => {
         <span >{answer.body}</span>
       </div>
       <div className="answer-info">
-        <span>by User</span>
+        <span>by User{'  '}</span>
         {answererName(answer)}
         {new Date(answer.date).toLocaleDateString('en-us',
         {

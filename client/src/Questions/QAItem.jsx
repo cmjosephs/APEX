@@ -70,7 +70,7 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
       return (<div></div>)
     }
     if (count < totalAnswer) {
-      return (<button className="answerbutton" onClick={getMoreAnswers}>See More Answers</button>)
+      return (<button className="answer-button" onClick={getMoreAnswers}>See More Answers</button>)
     } else {
       return (<button onClick={seeLessAnswers}>Collapse Answers</button>)
     }
@@ -78,7 +78,7 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
   }
 
   return (
-    <div className="indiv-question">
+    <div className="questionBlock">
       <div className="question-heading">
         <p><b>Q:</b></p>
         <p><b>{question.question_body}</b></p>
@@ -100,9 +100,8 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
       <div>
         {answerButton()}
       </div>
-    </div>
+      </div>
   );
 };
 
 export default QAItem;
-
