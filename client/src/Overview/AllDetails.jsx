@@ -64,9 +64,8 @@ var AllDetails = () => {
             sx={{color: "#757575"}}
             readOnly
           />
-          <p className="same-page-review-link">See all reviews ADD HREF LATER</p>
-          {/* Rating: {calcAverageRating(reviewMetaData.ratings)} see all reviews link */}
-        </div> {/* hyperlink to reviews */}
+          <a href=".review-container" className="same-page-review-link">See all reviews</a>
+        </div>
         <div className="prices">
           <h3
             className="original-price"
