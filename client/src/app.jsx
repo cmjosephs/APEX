@@ -76,7 +76,7 @@ const App = () => {
           <li>Women</li>
           <li>Kids</li>
         </ul> */}
-        <h1>{width > 959 ? "AXIOS" : "A"}</h1>
+        <h1>{width > 959 ? "APEX" : "A"}</h1>
         <div>
           <input type="text" placeholder="Search" className="nav-search"></input>
           <p>Favorites</p>

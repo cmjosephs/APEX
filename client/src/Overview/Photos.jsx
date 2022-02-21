@@ -50,8 +50,8 @@ var Photos = () => {
 
   const renderThumbnails = (photos) => {
     return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="image-gallery-thumbnail"
-        onClick={(e) => photoScroll.click(parseInt(e.target.alt))}></img>
+      return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="expanded-view-thumbnail"
+        onClick={(e) => photoScroll.click(parseInt(index))}></img>
     })
   }
 

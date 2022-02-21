@@ -133,14 +133,16 @@ nav div {
   margin: 1%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  align-items: center;
+
 }
 .expanded-display-photo {
   max-height: 100%;
   max-width: 88%;
 }
 .expanded-scroller-arrow {
-  align-self: center;
+  /* align-self: center; */
   padding: 4px;
   background-color: rgb(199, 199, 199, 0.3);
   border-radius: 20px;
@@ -154,6 +156,7 @@ nav div {
   left: 45px;
 }
 .expanded-view-exit-btn {
+  align-self: flex-start;
   position: relative;
   cursor: pointer;
   color: white;
@@ -163,6 +166,10 @@ nav div {
   font-size: 60px;
   opacity: 60%;
   border: none;
+}
+
+.expanded-view-thumbnail:hover {
+  cursor: pointer;
 }
 
 .expanded-photos-scroller {
