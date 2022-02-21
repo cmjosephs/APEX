@@ -20,6 +20,7 @@ import { testStyles, testProduct, testReviewMetaData } from './overviewTestData.
 // Need to make a server
 const stylesEndPoint = '/api/products/:product_id/styles';
 const productDetailsEndPoint = '/api/products/:product_id';
+const addToBagEndPoint = 'api/cart';
 const server = setupServer(
   rest.get(productDetailsEndPoint, (req, res, ctx) => {
     return res(ctx.json(testProduct));
@@ -27,6 +28,9 @@ const server = setupServer(
   rest.get(stylesEndPoint, (req, res, ctx) => {
     return res(ctx.json(testStyles));
   }),
+  rest.post(addToBagEndPoint, (req, res, ctx) => {
+
+  })
 
 )
 
