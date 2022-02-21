@@ -4,9 +4,18 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   color: #272727;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .related-title {
+  text-align: center;
+  font-family: 'Noto Serif Display', serif;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.favorite-title {
   text-align: center;
   font-family: 'Noto Serif Display', serif;
   font-weight: 600;
@@ -21,22 +30,52 @@ body {
   padding: 0 20px;
 }
 
+.favorite-wrapper {
+  max-width: 85vw;
+  width: 100%;
+  min-height: 300px;
+  margin: auto;
+  padding: 0 20px;
+}
+
 .related-carousel {
   width: 100%;
   display: flex;
   overflow: hidden;
-  gap: 2em;
+  gap: 1em;
+}
+
+.favorite-carousel {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  gap: 1em;
 }
 
 .related-card {
-  min-width: 27%;
+  min-width: 25%;
   overflow: hidden;
-  padding: 5px;
+  padding: 3px;
   border: 3px solid #eee;
-  box-shadow: 5px 5px #FCFCFC;
+  box-shadow: 10px 10px #FCFCFC;
+}
+
+.favorite-card {
+  min-width: 25%;
+  max-width: 25%;
+  overflow: hidden;
+  padding: 3px;
+  border: 3px solid #eee;
+  box-shadow: 10px 10px #FCFCFC;
 }
 
 .related-card .related-rating-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -8px;
+}
+
+.favorite-card .favorite-rating-container {
   display: flex;
   flex-direction: row;
   margin-bottom: -8px;
@@ -47,11 +86,24 @@ body {
   padding-left: 3px
 }
 
+.favorite-card .favorite-rating-container .favorite-rating {
+  padding-top: 4px;
+  padding-left: 3px
+}
+
 .related-card img {
   width: 100%;
-  height: 250px;
+  height: 275px;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  background-color: #E7E7E7;
+}
+
+.favorite-card img {
+  width: 100%;
+  height: 275px;
+  display: block;
+  object-fit: cover;
   background-color: #E7E7E7;
 }
 
@@ -62,7 +114,19 @@ body {
   margin-left: 4px;
 }
 
+.favorite-card h2 {
+  font-family: 'Noto Serif Display', serif;
+  font-weight: 400;
+  margin-bottom: -20px;
+  margin-left: 4px;
+}
+
 .related-card h4 {
+  margin-left: 4px;
+  color: #D6CCC2;
+}
+
+.favorite-card h4 {
   margin-left: 4px;
   color: #D6CCC2;
 }
@@ -108,16 +172,45 @@ body {
   }
 }
 
+@media (max-width: 960px){
+  .favorite-card {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 600px){
+  .favorite-card {
+    min-width: 100%;
+  }
+}
+
 .comparison-modal {
   display: flex;
-  align-items: center;
   justify-content: center;
+  border-radius: 10px;
 }
 
 .features-modal {
   display: flex;
   align-items: center;
-  justify-content: center;
+  border-radius: 10px;
+}
+
+.features-modal img {
+  width: 40%;
+  height: 30%;
+  object-fit: cover;
+  background-color: #E7E7E7;
+  gap: 1em;
+}
+
+.features-container {
+  display: flex;
+  height: 30%;
+  background-color: #FCFCFC;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .related-comparison-open {

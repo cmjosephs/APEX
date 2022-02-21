@@ -2,24 +2,22 @@ import React, { useState, useEffect, userReducer, createContext, useRef } from '
 import RelatedListCard from './RelatedListCard.jsx';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Rating from '@mui/material/Rating';
 import FavoriteListCard from './FavoriteListCard.jsx'
 
 const FavoriteList = ({ currentProductId, currentProductDetails, currentProductRating, currentProductImg }) => {
   const [favorites, setFavorites] = useState([]);
 
+  useEffect(() => {
+    gatherFavorites();
+  }, [])
+
   function gatherFavorites() {
-    // console.log(localStorage);
     const favoriteProductObjects = Object.values(localStorage);
     const favoriteProductsArray = [];
     favoriteProductObjects.map((productObj) => {
       favoriteProductsArray.push(JSON.parse(productObj));
     })
-    // console.log(favoriteProductsArray)
-    // console.log(favoriteProductsArray[0])
-    // console.log(favoriteProductsArray[0].productName)
-    // console.log(favoriteProductsArray[0].url)
-    // console.log(favoriteProductsArray[0].category)
-    // console.log(favoriteProductsArray[0].rating)
     setFavorites(favoriteProductsArray);
   }
 
@@ -42,10 +40,6 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
     gatherFavorites();
   }
 
-  useEffect(() => {
-    gatherFavorites();
-  }, [])
-
   const favoriteRef = React.useRef();
 
   const scrollProductsLeft = (scrollOffset) => {
@@ -59,21 +53,17 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
   }
 
   function renderFavorites() {
-    if(favorites.length !== 0) {
-      console.log(favorites[0].productName)
-      return (
-        <>
-          <div>Help Me</div>
-          {favorites.map((favorite, index) => {
-            <FavoriteListCard
-              productName={favorite.productName}
-              category={favorite.category}
-              url={favorite.url}
-              rating={favorite.rating}
-            />
-          })}
-        </>
-      )
+    // console.log(favorites);
+    if (favorites.length !== 0) {
+      // console.log(favorites);
+      return favorites.map((favorite, index) => {
+        return (
+          <FavoriteListCard
+            favorite={favorite}
+            key={`${currentProductId}-${index}`}
+          />
+        )
+      })
     }
   }
 
@@ -110,3 +100,13 @@ export default FavoriteList;
 // {"productName":"Morning Joggers","category":"Pants","url":"https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80","rating":4}
 
 // {"productName":"Heir Force Ones","category":"Kicks","url":"https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80","rating":3.25}
+
+            // console.log(favorite, index, '***all saved products***');
+            //console.log(typeof favorite);
+            // <FavoriteListCard
+            //   // favorite={favorite}
+            //   someProductName={favorite.productName}
+            //   key={`${currentProductId}-${index}`}
+            // />
+            // console.log(favorite.productName);
+            // <div className="hello-world">{favorite.productName}</div>
