@@ -81,7 +81,7 @@ const App = () => {
           <p>-------------Navigation Bar-------------</p>
         </nav>
         <br></br>
-        {/* <Product /> */}
+        <Product />
         <br></br>
         <RelatedList />
         <QAList />
