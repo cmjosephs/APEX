@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
-var ComparisonModal = ({  relatedProduct, currentProduct, relatedImg, currentProductImg }) => {
+var ComparisonModal = ({  relatedProduct, currentProduct, relatedImg, currentProductImg, handleChange }) => {
   var currentArray = [];
   var relatedArray = [];
   var featuresObj = {};
@@ -39,6 +39,7 @@ var ComparisonModal = ({  relatedProduct, currentProduct, relatedImg, currentPro
 
   return (
     <div className="features-modal">
+      <button className="exit-comparison-modal" onClick={handleChange}>X</button>
       <img src={currentProductImg.thumbnail_url}/>
       <div className="features-container">
         {Object.keys(featuresObj).map((feature, index) => {
@@ -52,44 +53,9 @@ var ComparisonModal = ({  relatedProduct, currentProduct, relatedImg, currentPro
           )
         })}
       </div>
-      <img src={relatedImg.thumbnail_url}/>
+      <img src={relatedImg}/>
     </div>
 
-    // <div>
-    //   <h5 style={{ textAlign: "center" }}>Compare Product</h5>
-    //   <div className="comparison-container" style={{ display: "flex", flexDirection: "row", width: "300px", height: "300" }}>
-    //     <img src={currentProductImg.thumbnail_url} style={{ objectFit: "contain" }}/>
-    //     <table style={{ backgroundColor: "white" }}>
-    //       <thead>
-    //         <tr>
-    //           <td>{currentProduct.name}</td>
-    //           <td>{relatedProduct.name}</td>
-    //         </tr>
-    //       </thead>
-    //       <tbody>
-    //         <td>
-    //           {currentArray.map((feature, index) => {
-    //             return (
-    //               <tr key={index}>
-    //                 <td>{feature}</td>
-    //               </tr>
-    //             );
-    //           })}
-    //         </td>
-    //         <td>
-    //           {relatedArray.map((feature, index) => {
-    //             return (
-    //               <tr key={index}>
-    //                 <td>{feature}</td>
-    //               </tr>
-    //             )
-    //           })}
-    //         </td>
-    //       </tbody>
-    //     </table>
-    //     <img src={relatedImg.thumbnail_url} style={{ objectFit: "contain" }}/>
-    //   </div>
-    // </div>
   )
 }
 

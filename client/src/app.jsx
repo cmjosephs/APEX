@@ -108,7 +108,7 @@ const App = () => {
       <hr id="nav-break"/>
       <div>
         <br></br>
-        {/* <Product /> */}
+        <Product />
         <br></br>
         <RelatedList />
         <QAList />

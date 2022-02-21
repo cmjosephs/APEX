@@ -21,6 +21,7 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* -------------- rating stars -------------- */
 .avg-rating {
   display: flex;
@@ -222,12 +223,32 @@ nav div {
   gap: 1em;
 =======
 .related-slider {
+=======
+.related-title {
+  text-align: center;
+  font-family: 'Noto Serif Display', serif;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.related-wrapper {
+  max-width: 85vw;
+  width: 100%;
+  min-height: 300px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.related-carousel {
+  width: 100%;
+>>>>>>> fff3303 (Completed rendering carousel for related products)
   display: flex;
   overflow: hidden;
-  flex-direction: row;
+  gap: 2em;
 }
 
 .related-card {
+<<<<<<< HEAD
   background-color: black;
 >>>>>>> 0d88de5 (Testing css)
 }
@@ -379,12 +400,107 @@ nav div {
   margin-left: 0px;
 =======
 .related-container {
+=======
+  min-width: 27%;
+  overflow: hidden;
+  padding: 5px;
+  border: 3px solid #eee;
+}
+
+.related-card .related-rating-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -8px;
+}
+
+.related-card .related-rating-container .related-rating {
+  padding-top: 4px;
+  padding-left: 3px
+}
+
+.related-card img {
+  width: 100%;
+  height: 250px;
+  display: block;
+>>>>>>> fff3303 (Completed rendering carousel for related products)
   object-fit: contain;
+  background-color: #E7E7E7;
+}
+
+.related-card h2 {
+  font-family: 'Noto Serif Display', serif;
+  font-weight: 400;
+  margin-bottom: -20px;
+  margin-left: 4px;
+}
+
+.related-card h4 {
+  margin-left: 4px;
+  color: #D6CCC2;
+}
+
+.related-card .related-price {
+  margin-left: 4px;
+  font-weight: 400;
+}
+
+.related-card .sale-price {
+  margin-left: 4px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.related-card .related-comparison-open:hover {
+  color: crimson;
+}
+
+.related-prev, .related-next {
+  position: absolute;
+  top: 68%;
+  cursor: pointer;
+}
+
+.related-prev {
+  left: 5%;
+}
+
+.related-next {
+  right: 5%;
+}
+
+@media (max-width: 960px){
+  .related-card {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 600px){
+  .related-card {
+    min-width: 100%;
+  }
+}
+
+.comparison-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .features-modal {
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
 >>>>>>> 0d88de5 (Testing css)
+=======
+}
+
+.related-comparison-open {
+  position: relative;
+  cursor:  pointer;
+  border-radius: 50%;
+  border: 2px solid #FCFCFC;
+  background-color:  #FCFCFC;
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+>>>>>>> fff3303 (Completed rendering carousel for related products)
 }
