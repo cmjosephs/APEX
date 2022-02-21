@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useReducer, useContext } from 'react';
+import React, { useEffect, useReducer, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { AppContext } from '../App.jsx';
 import Photos from './Photos.jsx';
 import AllDetails from './AllDetails.jsx';
-import { testStyles } from '../../../__tests__/OverviewTests/overviewTestData.js';
 
-// manage current style across Overview
 export const StyleContext = React.createContext();
 
 const styleReducer = (state, action) => {
@@ -38,21 +36,11 @@ const Product = () => {
         type: 'newProduct',
         payload: {
           allStyles: styleObj,
-          currentStyle: style_id ? styleObj[style_id] : defaultStyle
+          currentStyle: style_id ? styleObj[style_id] : defaultStyle // check later if ternary is necessary
         }
       })
-
     })
     .catch((err) => console.error(err));
-
-    // let styleObj = {};
-    // testStyles.results.forEach((style) => {
-    //   styleObj[style.style_id] = style;
-    // });
-    // dispatch({
-    //   type: 'newProduct',
-    //   payload: {allStyles: styleObj, currentStyle: testStyles.results[0]}
-    // })
   }
 
   useEffect(() => {

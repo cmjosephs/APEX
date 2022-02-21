@@ -28,9 +28,7 @@ var Photos = () => {
     if (currentPhotoIdx > 0) setCurrentPhotoIdx(currentPhotoIdx - 1);
     },
     click: (i) => {
-      // console.log(i);
       setCurrentPhotoIdx(i)
-      // if (cb) cb();
     }
   }
   ArrowKeysReact.config({
@@ -38,41 +36,30 @@ var Photos = () => {
     right: photoScroll.right
   })
 
-  // for window resize
-  // useEffect(() => {
-  //   setWidth(window.innerWidth);
-  // }, [])
-
   useEffect(() => {
     setPhotos(currentStyle.photos);
-    setCurrentPhotoIdx(0); // resets photo on style change, can omit if want to stay on index
+    setCurrentPhotoIdx(0);
   }, [currentStyle])
 
-  const renderThumbnails = (photos) => {
+  const renderThumbnails = () => {
     return photos.map((photo, index) => {
-      return <img src={photo.thumbnail_url} key={index} alt={`${index}`} className="expanded-view-thumbnail"
-        onClick={(e) => photoScroll.click(parseInt(index))}></img>
+      return <img src={photo.thumbnail_url} key={index} alt={`${index}`}
+        className="expanded-view-thumbnail"
+        onClick={() => photoScroll.click(index)}></img>
     })
   }
 
   const renderWideView = () => {
     return (
       <div className="images-gallery-wide-view">
-
         {photos.map((photo, index) => {
           return (
-            <img
-              src={photo.url}
-              key={index}
-              alt={`${index}`}
+            <img src={photo.url} key={index} alt={`${index}`}
               className="full-image-wide-view"
-              onClick={(e) => wideViewModal(index)}
-              >
-            </img>
+              onClick={() => wideViewModal(index)}
+            ></img>
           )
         })}
-
-
       </div>
     );
   }
@@ -109,13 +96,14 @@ var Photos = () => {
         <Modal
           open={openModal}
           onClose={toggleModal}
-          aria-labelledby="expanded-photo"
-          aria-describedby="description"
           className="img-gallery-modal"
         >
           <div className="expanded-view-window">
             <div className="expanded-main-photo-section">
-            <button  style={{ visibility: "hidden" }} className="expanded-view-exit-btn">X</button>
+              <button
+                style={{ visibility: "hidden" }}
+                className="expanded-view-exit-btn"
+              >X</button>
               <ArrowBackIosNewIcon
                 fontSize="large"
                 className="expanded-scroller-arrow expanded-view-left-arrow"
@@ -132,9 +120,8 @@ var Photos = () => {
               <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
             </div>
             <div className="expanded-photos-scroller">
-              {renderThumbnails(photos)}
+              {renderThumbnails()}
             </div>
-
           </div>
         </Modal>
       </div>

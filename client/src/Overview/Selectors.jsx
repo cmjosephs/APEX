@@ -1,33 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../App.jsx';
 import { StyleContext } from './Product.jsx';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
 var Selectors = () => {
   const { allStyles, currentStyle, dispatch } = useContext(StyleContext);
   const { productDetails } = useContext(AppContext);
-  // const [stock, setStock] = useState(currentStyle.skus);
   const [currentSku, setCurrentSku] = useState(null);
   const [styleDisplayName, setStyleDisplayName] = useState(currentStyle.name);
 
-  const calcAvailable = (styleSkusObj) => {
-    // returns total stock of style
-    // this will be for whether to fade out the style selector for a style
-  }
-
   const handleAddToBag = () => {
-    // axios.post('/api/cart', {sku_id: parseInt(currentSku)})
-    // .then(() => console.log('Added to Cart!')) // fix this later to show cart pop up
-    // .catch(err => console.error(err))
-    console.log({sku_id: currentSku})
-  }
-
-  const handleAddFavorite = () => {
-    // talk to kevin about how he wants to store
-    // product_id or style_id???
-    console.log('Clicked on added to Favorites');
+    axios.post('/api/cart', {sku_id: parseInt(currentSku)})
+    .then(() => console.log('Added to Bag!')) // fix this later to show cart pop up
+    .catch(err => console.error(err));
   }
 
   useEffect(() => {
@@ -44,11 +30,12 @@ var Selectors = () => {
             alt={style.name}
             className="style"
             id={style.style_id}
-            onClick={(e) => dispatch({ type: 'switchCurrentStyle', payload: {id: parseInt(e.target.id)} })}
-            onMouseEnter={(e) => setStyleDisplayName(e.target.alt)}
+            onClick={() => dispatch({
+              type: 'switchCurrentStyle',
+              payload: {id: style.style_id}
+            })}
+            onMouseEnter={() => setStyleDisplayName(style.name)}
             onMouseLeave={() => setStyleDisplayName(currentStyle.name)}
-            key={`${style.style_id}-${index}`}
-            // style={{ border: style.style_id === currentStyle.style_id ? "thick solid #D6CCC2" : "none"}}
             style={style.style_id === currentStyle.style_id ?
               {border: "solid #D6CCC2",
               boxShadow: "none"} : {border: "none"}}
@@ -64,18 +51,16 @@ var Selectors = () => {
       availableSizes.push(
         <div className="size-option" key={sku}>
           <input
-            // type="radio"
             type={skus[sku].quantity ? "radio" : ""}
             id={sku}
-            // data={skus[sku].quantity}
             className="visually-hidden"
             name="skuAndSize"
             onClick={
-              parseInt(skus[sku].quantity) ? (e) => setCurrentSku(e.target.id) : () => {}}
+              skus[sku].quantity ? () => setCurrentSku(sku) : () => {}}
           ></input>
           <label
             htmlFor={sku}
-            className={skus[sku].quantity ? "size-label" : "size-label-nostock"} //"size-label"
+            className={skus[sku].quantity ? "size-label" : "size-label-nostock"}
             style={skus[sku].quantity ? {color: "black"} : {color: "gray"}}
           >{skus[sku].size}</label>
           {/* {productDetails.category === 'Kicks' && 'M'} */}
@@ -85,9 +70,6 @@ var Selectors = () => {
     return availableSizes;
   }
 
-  // if (!Object.keys(currentStyle).length) {
-  //   return <div>Loading</div>
-  // } else {
   return (
     <div className="selectors">
       <p>{styleDisplayName}</p>
@@ -104,19 +86,12 @@ var Selectors = () => {
           className="add-bag-btn"
           onClick={currentSku ? handleAddToBag : ()=>{}}>
           <p>Add to Bag</p>
-          {/* <ShoppingBagIcon /> */}
         </button>
         <br></br>
-        {/* <button className="favorite-btn" onClick={handleAddFavorite}>
-          <p>
-            Favorite
-          </p>
-        </button> */}
-
       </div>
     </div>
   )
-  // }
+
 }
 
 export default Selectors;

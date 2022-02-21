@@ -16,16 +16,16 @@ const App = () => {
   const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
-  function getRandomProductId() {
-    axios.get('/api/products')
-    .then(
-      ({ data }) => {
-        let ids = data.map(product => product.id);
-        setProductId(ids[Math.floor(Math.random()*ids.length)]);
-      }
-    )
-    .catch((err) => console.error('Network error: ', err));
-  }
+  // function getRandomProductId() {
+  //   axios.get('/api/products')
+  //   .then(
+  //     ({ data }) => {
+  //       let ids = data.map(product => product.id);
+  //       setProductId(ids[Math.floor(Math.random()*ids.length)]);
+  //     }
+  //   )
+  //   .catch((err) => console.error('Network error: ', err));
+  // }
 
   function getProductDetails() {
     axios.get(`/api/products/${productId}`)
@@ -51,12 +51,12 @@ const App = () => {
       value={{ productId, setProductId, reviewMetaData, productDetails }}
     >
       <nav>
-      {width > 959 ?
-      <ul>
-        <li>Men</li>
-        <li>Women</li>
-        <li>Kids</li>
-      </ul> : <ul>lll</ul>}
+        {width > 959 ?
+        <ul>
+          <li>Men</li>
+          <li>Women</li>
+          <li>Kids</li>
+        </ul> : <ul>lll</ul>}
         <h1>{width > 959 ? "APEX" : "A"}</h1>
         <div>
           <input type="text" placeholder="Search" className="nav-search"></input>
