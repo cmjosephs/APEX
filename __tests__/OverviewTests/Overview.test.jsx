@@ -58,58 +58,72 @@ const renderWithRouter = (ui, {route = '/products/42370'} = {}) => {
   return render(ui, {wrapper: BrowserRouter})
 }
 
+
 /////////////// Tests //////////////////////
-test('Show loading text on first render', async () => {
-  const history = createMemoryHistory({initialEntries: ['/products/42370']});
-  render(
-    <Router location={history.location} navigator={history}>
-      <App />
-    </Router>
-  )
+describe('Product Overview', () => {
 
-  expect(history.location.pathname).toBe('/products/42370')
+  test('Show loading text on first render', async () => {
+    const history = createMemoryHistory({initialEntries: ['/products/42370']});
+    render(
+      <Router location={history.location} navigator={history}>
+        <App />
+      </Router>
+    )
 
-  await waitFor(() => screen.getByText('Loading'));
-  expect(screen.getByText('Loading')).toBeInTheDocument();
-  await waitForElementToBeRemoved(screen.getByText(/Loading/i));
-  await waitForElementToBeRemoved(screen.getByText(/Loading*/i));
-});
+    expect(history.location.pathname).toBe('/products/42370')
 
-test('Should display title for a product', async () => {
-  // render page w router and contexts
-  renderWithRouter(<App />);
+    await waitFor(() => screen.getByText('Loading'));
+    expect(screen.getByText('Loading')).toBeInTheDocument();
+    await waitForElementToBeRemoved(screen.getByText(/Loading/i));
+    await waitForElementToBeRemoved(screen.getByText(/Loading*/i));
+  });
 
-  // waits for second render
-  await waitForElementToBeRemoved(screen.getByText('Loading'));
-  await waitForElementToBeRemoved(screen.getByText('Loading...'));
-  // await waitFor(screen.getByText('Heir Force Ones'));
+  beforeEach(async () => {
+    renderWithRouter(<App />);
+    await waitForElementToBeRemoved(screen.getByText('Loading'));
+    await waitForElementToBeRemoved(screen.getByText('Loading...'));
+  })
 
-  // check if title is in document
-  expect(screen.getByText('Morning Joggers')).toBeInTheDocument();
-});
+  test('Should display information for a product', async () => {
+    expect(screen.getByText(testProduct.name)).toBeInTheDocument();
+    expect(screen.getByText(testProduct.category)).toBeInTheDocument();
+    expect(screen.getByText('$' + testStyles.results[0].original_price)).toBeInTheDocument();
+  });
 
-// test('Should show sale price when product is on sale', async () => {});
+  xtest('Should show sale price when product is on sale', async () => {
+    renderWithRouter(<App />);
 
-// test('Should render a single photo carousel when screen width is narrow', async () => {});
+    await waitForElementToBeRemoved(screen.getByText('Loading'));
+    await waitForElementToBeRemoved(screen.getByText('Loading...'));
 
-// test('Should render a photo grid when screen width is wide', async () => {});
+    // click event on product that has sale price
+    // assertion on sale price
 
-// test('Should open a modal when a photo is clicked on', async () => {});
+  });
 
-// test('Photos should change when a different style is clicked on', async () => {});
+  // xtest('Should render a single photo carousel when screen width is narrow', async () => {});
 
-// test('Should keep track of the sku when a size is clicked on', async () => {});
+  // xtest('Should render a photo grid when screen width is wide', async () => {});
 
-// test('Should submit the sku to API when after a size is selected', async () => {});
+  // xtest('Should open a modal when a photo is clicked on', async () => {});
 
-// test('Shows product slogan and description on click of details', async () => {
-//   render(<App url="/products/42370" />);
+  // test('Photos should change when a different style is clicked on', async () => {});
 
-//   await waitFor(() => screen.getByText('Heir Force Ones'));
+  // test('Should keep track of the sku when a size is clicked on', async () => {});
 
-//   fireEvent.click(screen.getByText('Details +'));
+  // test('Should submit the sku to API when after a size is selected', async () => {});
 
-//   const detailsText = await waitFor(() => screen.getByRole('product-slogan'));
+  xtest('Shows product slogan and description on click of details', async () => {
+    renderWithRouter(<App />);
 
-//   expect(detailsText).toHaveTextContent('A sneaker dynasty');
-// });
+    await waitFor(() => screen.getByText('Morning Joggers'));
+
+    fireEvent.click(screen.getByText('Details +'));
+
+    const detailsText = await waitFor(() => screen.getByRole('product-slogan'));
+
+    expect(detailsText).toHaveTextContent('Make yourself a morning person');
+  });
+
+
+})
