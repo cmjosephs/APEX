@@ -17,6 +17,7 @@ const AvgRating = ({ metaDataRatings }) => {
     }
     avgRating = avgRating / totalRatings;
     return Math.ceil(avgRating / 0.25) * 0.25;
+    // return Math.round(avgRating / 4) * 4;
     // return avgRating;
   }
 
