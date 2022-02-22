@@ -62,10 +62,14 @@ var Info = ({ productDetails }) => {
       <div className="share-bar">
         <h3>Share</h3>
         <div className="share-icons">
-          <FacebookIcon className="share-icon" sx={{ color: "#272727" }} />
+          {/* <FacebookIcon className="share-icon" sx={{ color: "#272727" }} />
           <InstagramIcon className="share-icon" sx={{ color: "#272727" }} />
           <TwitterIcon className="share-icon" sx={{ color: "#272727" }} />
-          <PinterestIcon className="share-icon" sx={{ color: "#272727" }} />
+          <PinterestIcon className="share-icon" sx={{ color: "#272727" }} /> */}
+          <img src="/images/facebook.svg" alt="fb-btn"></img>
+          <img src="/images/instagram.svg" alt="ig-btn"></img>
+          <img src="/images/twitter.svg" alt="twitter-btn"></img>
+          <img src="/images/pinterest.svg" alt="pint-btn"></img>
         </div>
       </div>
       <hr className="info-break"></hr>
