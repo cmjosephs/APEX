@@ -9,7 +9,6 @@ var Answer = ({answer, productId, answerHelpful}) => {
     if (clickedReport) {
       console.log('clicked');
       setClickReport(false);
-
     }
   }
 
@@ -27,7 +26,6 @@ var Answer = ({answer, productId, answerHelpful}) => {
   return (
     <div className="answer-container">
       <div className="answer-body">
-
         <span >{answer.body}</span>
       </div>
       <div className="answer-info">

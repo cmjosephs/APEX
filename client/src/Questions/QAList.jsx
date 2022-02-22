@@ -74,18 +74,20 @@ var QAList = () => {
       return (<QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>)
     } else {
        return (
-       <div className="question-answer-list">
-         <div className="questions-list">
-          {questions.map(question => {
-            return <QAItem
-              question={question}
-              key={question.question_id}
-              getQuestions={getQuestions}
-              productId={productId}
-              productName={productDetails.name}
-            />
-          })}
-          </div>
+       <div >
+         <div className="question-answer-list">
+          <div className="questions-list">
+            {questions.map(question => {
+              return <QAItem
+                question={question}
+                key={question.question_id}
+                getQuestions={getQuestions}
+                productId={productId}
+                productName={productDetails.name}
+              />
+            })}
+            </div>
+         </div>
           <div className="question-button-section">
             {moreQuestionButton()}
             <QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>

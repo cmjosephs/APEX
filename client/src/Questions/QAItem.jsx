@@ -80,8 +80,8 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
   return (
     <div className="questionBlock">
       <div className="question-heading">
-        <p><b>Q:</b></p>
-        <p><b>{question.question_body}</b></p>
+        <h4><b>Q:</b></h4>
+        <h4><b>{question.question_body}</b></h4>
         <span className="question-helpful">
           Helpful?
           <a className="question-yes" onClick={questionHelpful}>Yes</a>
@@ -93,9 +93,11 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
       </div>
       <div>
       {totalAnswer ? <span className="answer-title">A:</span> : <span>No Answers Yet</span>}
+      
         {answers.map((answer) => {
           return <Answer answer={answer} key={answer.answer_id} productId={productId} answerHelpful={answerHelpful}/>
         })}
+
       </div>
       <div>
         {answerButton()}
