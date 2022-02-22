@@ -14,7 +14,10 @@ import FormControl from '@mui/material/FormControl';
 const AnswerForm = ({product, productName, question, getAnswers}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => { setOpen(true) };
-  const handleClose = () => { setOpen(false) };
+  const handleClose = () => {
+    console.log("formed closed")
+    setOpen(false)
+  };
 
   let [body, setBody] = useState('');
   let [name, setName] = useState('');
@@ -91,6 +94,7 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
             multiline={true}
             rows={4}
             onChange={handleChange}
+
             />
            <TextField
             required
@@ -98,7 +102,7 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
             id="outlined-required"
             label="Your Nickname (max 60 characters)"
             name="username"
-            placeholder="Example:Jack123 " required
+            placeholder="Example:Jack123"
             value={name}
             maxLength="60"
             fullWidth

@@ -66,6 +66,7 @@ var QAList = () => {
   }
 
   const addedQuestion = () => {
+    console.log("Question Added");
     setQuestionAdded(true);
   }
 

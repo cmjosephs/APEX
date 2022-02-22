@@ -51,7 +51,7 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
     } else if (!validateEmail(email)) {
       return  alert("You have entered an invalid email address!")
     } else {
-      axios.post(`/api/products/${product}/qa/questions`, message)
+      axios.post(`/api/products/${productId}/qa/questions`, message)
         .then(() => {
           setBody('');
           setName('');
@@ -88,6 +88,7 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
             multiline={true}
             rows={4}
             onChange={handleChange}
+
             />
            <TextField
             required
@@ -96,7 +97,7 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
             label="Your Nickname (max 60 characters)"
             type="text"
             name="username"
-            placeholder="Example:Jack123 " required
+            placeholder="Example: Jack123"
             value={name}
             maxLength="60"
             fullWidth
@@ -118,8 +119,8 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <button className="question-button" onClick={handleClose}>Cancel</button>
+          <button className="question-button" onClick={handleSubmit}>Submit</button>
         </DialogActions>
       </Dialog>
     </div>
