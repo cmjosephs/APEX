@@ -1,5 +1,7 @@
 import React from 'react';
 
+// NEEDS to be passed ONLY the ratings object from the meta data response body
+
 const AvgRating = ({ metaDataRatings }) => {
 
   const calcAverageRating = (ratingsObj) => {
@@ -16,13 +18,36 @@ const AvgRating = ({ metaDataRatings }) => {
     // return avgRating;
   }
 
-  const renderStars = (rating) => {
+  const evalStarCount = (rating) => {
+    stars = [];
+    while (stars.length < 5) {
+      if (rating <= 0) {
+        stars.push(0);
+      } else if (rating >= 1) {
+        stars.push(1);
+        rating--;
+      } else {
+        stars.push(rating);
+        rating -= rating;
+      }
+    }
+    return stars;
+  }
 
+  const renderStars = (starCountArr) => {
+    return starCountArr.map((star, index) => {
+      if (star === 1) let fill = 'full';
+      if (star === 0.75) let fill = 'quarter';
+      if (star === 0.5) let fill = 'half';
+      if (star === 0.25) let fill = 'three-quarter';
+      if (star === 0) let fill = 'empty';
+      return <img src={`/images/${fill}-star.svg`} key={`${index}-${fill}`} className="rating-star"></img>
+    })
   }
 
   return (
     <div className="avg-rating">
-      {renderStars(calcAverageRating(metaDataRatings))}
+      {renderStars(evalStarCount(calcAverageRating(metaDataRatings)))}
     </div>
   )
 }
