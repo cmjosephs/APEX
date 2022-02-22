@@ -15,8 +15,8 @@ const NavBar = () => {
       <h1>{width > 959 ? "APEX" : "A"}</h1>
       <div>
         <input type="text" placeholder="Search" className="nav-search"></input>
-        <img src="/images/heart.svg" alt="favorites" ></img>
-        <img src="/images/bag.svg" alt="shopping-bag" ></img>
+        <img src="/images/heart.svg" alt="favorites" className="nav-btn"></img>
+        <img src="/images/bag.svg" alt="shopping-bag" className="nav-btn"></img>
       </div>
     </nav>
   )

@@ -48,7 +48,6 @@ nav h1:hover {
 nav div {
   flex: 2, 1, 100%;
   display: flex;
-  /* justify-content: flex-start; */
   align-items: center;
   gap: 2em;
   height: 100%;
@@ -57,6 +56,12 @@ nav div {
   border-radius: 12px;
   border: thin solid #E7E7E7;
   min-height: 40%;
+}
+.nav-btn:hover {
+  cursor: pointer;
+  padding: 6px;
+  background-color: #D6CCC2;
+  border-radius: 10px;
 }
 
 #nav-break {
