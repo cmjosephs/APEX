@@ -6,6 +6,7 @@ import resizeWidth from './Overview/resizeWidth.jsx';
 import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
+// import 'bag.svg' from '../dist/images/bag.svg';
 
 export const AppContext = createContext();
 
@@ -60,8 +61,8 @@ const App = () => {
         <h1>{width > 959 ? "APEX" : "A"}</h1>
         <div>
           <input type="text" placeholder="Search" className="nav-search"></input>
-          <p>Favorites</p>
-          <p>Bag</p>
+          <img src="/images/heart.svg" alt="favorites" ></img>
+          <img src="/images/bag.svg" alt="shopping-bag" ></img>
         </div>
       </nav>
       <hr id="nav-break"/>
