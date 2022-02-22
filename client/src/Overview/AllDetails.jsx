@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
-import AvgRating from '../AvgRating.jsx';
+import AvgRating from '../Shared/AvgRating.jsx';
 import { StyleContext } from './Product.jsx';
 import { AppContext } from '../App.jsx';
 import Selectors from './Selectors.jsx';
