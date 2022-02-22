@@ -1,5 +1,4 @@
 import React from 'react';
-// import { act } from 'react-dom/test-utils';
 import { BrowserRouter, Router } from 'react-router-dom'
 import {createMemoryHistory} from 'history';
 
@@ -118,22 +117,16 @@ describe('Product Overview', () => {
 
 
   test('Should change selected size when size is clicked on', async () => {
-    // click on size label button
     fireEvent.click(screen.getByLabelText('L'));
-    // assign to variable
     const clickedSize = await waitFor(() => screen.getByLabelText('L'));
-    // expect it to not be disabled
     expect(clickedSize).not.toHaveAttribute('disabled');
   });
 
 
   test('Shows product slogan on click of details', async () => {
     fireEvent.click(screen.getByText('Details +'));
-
     const detailsText = await waitFor(() => screen.getByTestId('product-slogan'));
-
     expect(detailsText).toHaveTextContent('Make yourself a morning person');
-
   });
 
   test('Show product features on click of features', async () => {
