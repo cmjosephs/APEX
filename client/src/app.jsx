@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useLayoutEffect, createContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import NavBar from './NavBar.jsx';
 import Product from './Overview/Product.jsx';
 import resizeWidth from './Overview/resizeWidth.jsx';
 import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
-// import 'bag.svg' from '../dist/images/bag.svg';
 
 export const AppContext = createContext();
 
@@ -16,17 +16,6 @@ const App = () => {
   const [productId, setProductId] = useState(product_id);
   const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
-
-  // function getRandomProductId() {
-  //   axios.get('/api/products')
-  //   .then(
-  //     ({ data }) => {
-  //       let ids = data.map(product => product.id);
-  //       setProductId(ids[Math.floor(Math.random()*ids.length)]);
-  //     }
-  //   )
-  //   .catch((err) => console.error('Network error: ', err));
-  // }
 
   function getProductDetails() {
     axios.get(`/api/products/${productId}`)
@@ -51,7 +40,7 @@ const App = () => {
     <AppContext.Provider
       value={{ productId, setProductId, reviewMetaData, productDetails }}
     >
-      <nav>
+      {/* <nav>
         {width > 959 ?
         <ul>
           <li>Men</li>
@@ -64,7 +53,8 @@ const App = () => {
           <img src="/images/heart.svg" alt="favorites" ></img>
           <img src="/images/bag.svg" alt="shopping-bag" ></img>
         </div>
-      </nav>
+      </nav> */}
+      <NavBar />
       <hr id="nav-break"/>
       <div>
         <br></br>
