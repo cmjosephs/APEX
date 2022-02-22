@@ -17,7 +17,7 @@ const ReviewList = () => {
   let [sort, setSort] = useState('newest');
   let [enoughReviews, setEnoughReviews] = useState(true);
   let [displayCount, setDisplayCount] = useState(0);
-  // let [reviewSearch, setReviewSearch] = useState()
+  let [searchKeyword, setSearchKeyword] = useState('');
 
   useEffect(() =>
   {
@@ -26,7 +26,7 @@ const ReviewList = () => {
 
 
   const getReviews = async () => {
-    console.log('getreviews is called')
+    console.log('get reviews is called')
     await axios.get(`api/products/${productId}/reviews`,
     {
       params: {
@@ -40,7 +40,11 @@ const ReviewList = () => {
       if (results.data.results.length <= 2) {
         setEnoughReviews(!enoughReviews)
       }
-      setReviews(results.data.results.slice(0, count));
+        if (searchKeyword !== '') {
+          searchReviews(searchKeyword)
+        } else {
+          setReviews(results.data.results.slice(0, count));
+        }
     }).catch(err => {
       console.log('error getting reviews')
       setEnoughReviews(!enoughReviews)
@@ -61,27 +65,36 @@ const ReviewList = () => {
 
   const filterStarReviews = (checkedStars) => {
 
-    let filteredStarReviews = totalReviews.filter(review => {
-      if (checkedStars[review.rating]) {
-        return review;
-      }
-    })
-
-      // if there's no reviews with this star count
-      if (filteredStarReviews.length === 0) {
+    if (searchKeyword !== '') {
+      let filteredStarReviews = totalReviews.filter(review => {
+        if (checkedStars[review.rating] &&
+        (review.body.toLowerCase().includes(searchKeyword.toLowerCase())
+        || review.summary.toLowerCase().includes(searchKeyword.toLowerCase()))) {
+          return review;
+        }
+      })
+      if (filteredStarReviews.length === 0 || filteredStarReviews.length !== 0) {
         setReviews(filteredStarReviews);
         setEnoughReviews(false);
         setDisplayCount(filteredStarReviews.length);
       }
-
-      // if there's reviews with this star count
-      if (filteredStarReviews.length !== 0) {
+    } else {
+      let filteredStarReviews = totalReviews.filter(review => {
+        if (checkedStars[review.rating]) {
+          return review;
+        }
+      })
+      if (filteredStarReviews.length === 0 || filteredStarReviews.length !== 0) {
         setReviews(filteredStarReviews);
         setEnoughReviews(false);
         setDisplayCount(filteredStarReviews.length);
       }
-
-      // if there's nothing checked
+    }
+      // if (filteredStarReviews.length !== 0) {
+      //   setReviews(filteredStarReviews);
+      //   setEnoughReviews(false);
+      //   setDisplayCount(filteredStarReviews.length);
+      // }
       if (Object.values(checkedStars).every(star => star === false)) {
         setEnoughReviews(true)
         setReviews(totalReviews.slice(0, count))
@@ -91,25 +104,30 @@ const ReviewList = () => {
   }
 
   const searchReviews = (keyword) => {
-    let filteredSearchReviews = totalReviews.filter(review => {
-      if (review.body.toLowerCase().includes(keyword.toLowerCase()) || review.summary.toLowerCase().includes(keyword.toLowerCase())) {
-        return review;
-      }
-    })
+    console.log('searchreviews is called')
+    if (keyword.length >= 3) {
+      setSearchKeyword(keyword);
+      let filteredSearchReviews = totalReviews.filter(review => {
+        if (review.body.toLowerCase().includes(keyword.toLowerCase())
+        || review.summary.toLowerCase().includes(keyword.toLowerCase())) {
+          return review;
+        }
+      })
 
-    if (filteredSearchReviews.length === 0) {
-      setReviews(filteredSearchReviews);
-      setEnoughReviews(false);
-      setDisplayCount(filteredSearchReviews.length);
+      // if (filteredSearchReviews.length === 0 || filteredSearchReviews.length !== 0) {
+        setReviews(filteredSearchReviews);
+        setEnoughReviews(false);
+        setDisplayCount(filteredSearchReviews.length);
+      // }
+
+      // if (filteredSearchReviews.length !== 0) {
+      //   setReviews(filteredSearchReviews);
+      //   setEnoughReviews(false);
+      //   setDisplayCount(filteredSearchReviews.length);
+      // }
     }
 
-    if (filteredSearchReviews.length !== 0) {
-      setReviews(filteredSearchReviews);
-      setEnoughReviews(false);
-      setDisplayCount(filteredSearchReviews.length);
-    }
-
-    if (keyword === '') {
+    else {
       setEnoughReviews(true)
       setReviews(totalReviews.slice(0, count))
       setDisplayCount(totalReviews.length)
