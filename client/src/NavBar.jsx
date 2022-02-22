@@ -11,7 +11,7 @@ const NavBar = () => {
         <li>Men</li>
         <li>Women</li>
         <li>Kids</li>
-      </ul> : <ul>lll</ul>}
+      </ul> : <img src="/images/justify.svg" alt="side-nav"></img>}
       <h1>{width > 959 ? "APEX" : "A"}</h1>
       <div>
         <input type="text" placeholder="Search" className="nav-search"></input>
