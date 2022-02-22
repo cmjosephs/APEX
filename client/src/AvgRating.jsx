@@ -1,6 +1,8 @@
 import React from 'react';
 
 // NEEDS to be passed ONLY the ratings object from the meta data response body
+// props needs to be metaDataRatings
+// needs CSS styling when implemented
 
 const AvgRating = ({ metaDataRatings }) => {
 
@@ -19,7 +21,7 @@ const AvgRating = ({ metaDataRatings }) => {
   }
 
   const evalStarCount = (rating) => {
-    stars = [];
+    const stars = [];
     while (stars.length < 5) {
       if (rating <= 0) {
         stars.push(0);
@@ -36,11 +38,12 @@ const AvgRating = ({ metaDataRatings }) => {
 
   const renderStars = (starCountArr) => {
     return starCountArr.map((star, index) => {
-      if (star === 1) let fill = 'full';
-      if (star === 0.75) let fill = 'quarter';
-      if (star === 0.5) let fill = 'half';
-      if (star === 0.25) let fill = 'three-quarter';
-      if (star === 0) let fill = 'empty';
+      let fill;
+      if (star === 1) fill = 'full';
+      if (star === 0.75) fill = 'quarter';
+      if (star === 0.5) fill = 'half';
+      if (star === 0.25) fill = 'three-quarter';
+      if (star === 0) fill = 'empty';
       return <img src={`/images/${fill}-star.svg`} key={`${index}-${fill}`} className="rating-star"></img>
     })
   }

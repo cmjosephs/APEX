@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
+import AvgRating from '../AvgRating.jsx';
 import { StyleContext } from './Product.jsx';
 import { AppContext } from '../App.jsx';
 import Selectors from './Selectors.jsx';
@@ -57,13 +58,14 @@ var AllDetails = () => {
         <h1 className="product-name">{productDetails.name}</h1>
         <h2 className="product-category">{productDetails.category}</h2>
         <div className="avg-rating-title">
-          <Rating
+          {/* <Rating
             name="title-rating-read"
             value={calcAverageRating(reviewMetaData.ratings)}
             precision={0.25}
             sx={{color: "#757575"}}
             readOnly
-          />
+          /> */}
+          <AvgRating metaDataRatings={reviewMetaData.ratings} />
           <a href="#review-container" className="same-page-review-link">See all reviews</a>
         </div>
         <div className="prices">
