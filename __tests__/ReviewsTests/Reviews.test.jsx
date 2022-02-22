@@ -121,7 +121,7 @@ test('allows user to recommend product', async () => {
   expect(recommend.value).toBe("true");
 })
 
-test('change fit rating', async() => {
+test('allow user to change fit rating', async() => {
   render(<App/>)
   const reviewButton = await waitFor(() => screen.getByRole('write-review'));
   fireEvent.click(reviewButton);
@@ -131,7 +131,7 @@ test('change fit rating', async() => {
 
 })
 
-test('change comfort rating', async() => {
+test('allow user to change comfort rating', async() => {
   render(<App/>)
   const reviewButton = await waitFor(() => screen.getByRole('write-review'));
   fireEvent.click(reviewButton);
@@ -141,7 +141,7 @@ test('change comfort rating', async() => {
 })
 
 
-test('change length rating', async() => {
+test('allow user to change length rating', async() => {
   render(<App/>)
   const reviewButton = await waitFor(() => screen.getByRole('write-review'));
   fireEvent.click(reviewButton);
@@ -150,7 +150,7 @@ test('change length rating', async() => {
   expect(length).not.toHaveAttribute('disabled');
 })
 
-test('change quality rating', async() => {
+test('allow user to change quality rating', async() => {
   render(<App/>)
   const reviewButton = await waitFor(() => screen.getByRole('write-review'));
   fireEvent.click(reviewButton);
