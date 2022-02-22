@@ -60,38 +60,20 @@ const renderWithRouter = (ui, {route = '/products/42370'} = {}) => {
 
 /////////////// Tests //////////////////////
 test('Show loading text on first render', async () => {
-  // render page w router and contexts
   const history = createMemoryHistory({initialEntries: ['/products/42370']});
-  // history.push('/products/42370');
   render(
     <Router location={history.location} navigator={history}>
       <App />
     </Router>
   )
+
   expect(history.location.pathname).toBe('/products/42370')
-  // renderWithRouter(
-  //   // <Routes>
-  //   //   <Route path='/products/:product_id' element={<App />} />
-  //   // </Routes>
-  //   <App />
-  // )
-  // renderWithRouter(
-  //   // <Routes>
-  //   //   <Route path='/products/:product_id' element={<App />} />
-  //   // </Routes>
-  //   act(() => (<App />))
-  // );
-  // check if App is loading
+
   await waitFor(() => screen.getByText('Loading'));
   expect(screen.getByText('Loading')).toBeInTheDocument();
-  await waitForElementToBeRemoved(screen.getByText('Loading'));
-  await waitForElementToBeRemoved(screen.getByText('Loading...'));
+  await waitForElementToBeRemoved(screen.getByText(/Loading/i));
+  await waitForElementToBeRemoved(screen.getByText(/Loading*/i));
 });
-
-
-
-
-
 
 test('Should display title for a product', async () => {
   // render page w router and contexts
@@ -103,19 +85,8 @@ test('Should display title for a product', async () => {
   // await waitFor(screen.getByText('Heir Force Ones'));
 
   // check if title is in document
-  expect(screen.getByText('Heir Force Ones')).toBeInTheDocument();
+  expect(screen.getByText('Morning Joggers')).toBeInTheDocument();
 });
-
-
-
-
-
-
-
-
-
-
-
 
 // test('Should show sale price when product is on sale', async () => {});
 
