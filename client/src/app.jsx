@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from './NavBar.jsx';
 import Product from './Overview/Product.jsx';
-import resizeWidth from './Overview/resizeWidth.jsx';
 import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
@@ -12,19 +11,17 @@ export const AppContext = createContext();
 
 const App = () => {
   const { product_id } = useParams();
-  const { width } = resizeWidth();
-  const [productId, setProductId] = useState(product_id);
-  const [productDetails, setProductDetails] = useState({});
+  const [productDetails, setProductDetails] = useState(null);
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getProductDetails() {
-    axios.get(`/api/products/${productId}`)
+    axios.get(`/api/products/${product_id}`)
     .then(({ data }) => setProductDetails(data))
     .catch(err => console.error(err));
   }
 
   function getProductMetaData() {
-    axios.get(`/api/products/${productId}/reviews/meta`)
+    axios.get(`/api/products/${product_id}/reviews/meta`)
     .then(({ data }) => setReviewMetaData(data))
     .catch((err) => console.error(err));
   }
@@ -32,28 +29,14 @@ const App = () => {
   useEffect(() => {
       getProductDetails();
       getProductMetaData();
-  }, [productId]);
+  }, [product_id]);
 
-  if (!reviewMetaData || !productDetails.id) return <h2>Loading</h2>
+  if (!reviewMetaData || !productDetails) return <h2>Loading</h2>
 
   return (
     <AppContext.Provider
-      value={{ productId, setProductId, reviewMetaData, productDetails }}
+      value={{ productId: product_id, reviewMetaData, productDetails }}
     >
-      {/* <nav>
-        {width > 959 ?
-        <ul>
-          <li>Men</li>
-          <li>Women</li>
-          <li>Kids</li>
-        </ul> : <ul>lll</ul>}
-        <h1>{width > 959 ? "APEX" : "A"}</h1>
-        <div>
-          <input type="text" placeholder="Search" className="nav-search"></input>
-          <img src="/images/heart.svg" alt="favorites" ></img>
-          <img src="/images/bag.svg" alt="shopping-bag" ></img>
-        </div>
-      </nav> */}
       <NavBar />
       <hr id="nav-break"/>
       <div>
