@@ -72,7 +72,7 @@ var Selectors = () => {
 
   return (
     <div className="selectors">
-      <p>{styleDisplayName}</p>
+      <p data-testid="selected-style-name">{styleDisplayName}</p>
       <div className="style-selector">
         {renderStyles()}
       </div>

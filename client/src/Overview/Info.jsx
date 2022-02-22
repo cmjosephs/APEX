@@ -12,7 +12,7 @@ var Info = ({ productDetails }) => {
   const renderFeatures = (featList) => {
     if (showFeatures) {
       return (
-        <div className="product-features">
+        <div className="product-features" data-testid='features'>
           <h3 onClick={() => setShowFeatures(!showFeatures)}>Features -</h3>
             {featList.map((feature, index) => {
               return (
@@ -39,7 +39,7 @@ var Info = ({ productDetails }) => {
           <h3 onClick={() => setShowDetails(!showDetails)}>
             Details -
           </h3>
-            <p className="product-slogan" role="product-slogan">{productDetails.slogan}</p>
+            <p className="product-slogan" data-testid="product-slogan">{productDetails.slogan}</p>
             <p className="product-description" role="product-description">{productDetails.description}</p>
         </div>
       )

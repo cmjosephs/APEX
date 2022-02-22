@@ -1,6 +1,6 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { BrowserRouter, Router, Routes, Route, Navigate } from 'react-router-dom'
+// import { act } from 'react-dom/test-utils';
+import { BrowserRouter, Router } from 'react-router-dom'
 import {createMemoryHistory} from 'history';
 
 import {rest} from 'msw';
@@ -14,6 +14,10 @@ import {
   fireEvent,
   getByText,
   getByRole,
+  getByAltText,
+  getByLabelText,
+  findByTestId,
+  within
 } from '@testing-library/react';
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -90,40 +94,56 @@ describe('Product Overview', () => {
     expect(screen.getByText('$' + testStyles.results[0].original_price)).toBeInTheDocument();
   });
 
-  xtest('Should show sale price when product is on sale', async () => {
-    renderWithRouter(<App />);
 
-    await waitForElementToBeRemoved(screen.getByText('Loading'));
-    await waitForElementToBeRemoved(screen.getByText('Loading...'));
-
-    // click event on product that has sale price
-    // assertion on sale price
-
+  test('Should show sale price when product is on sale', async () => {
+    fireEvent.click(screen.getByAltText('Goldenrod'));
+    const salePrice = await waitFor(() => screen.getByText('$35.00'));
+    expect(salePrice).toBeInTheDocument();
   });
 
-  // xtest('Should render a single photo carousel when screen width is narrow', async () => {});
 
-  // xtest('Should render a photo grid when screen width is wide', async () => {});
+  test('Should open a modal when a photo is clicked on', async () => {
+    fireEvent.click(screen.getByAltText('1'));
+    const button = await waitFor(() => screen.getByRole('button', {name: 'X'}))
+    expect(button).toBeVisible();
+  });
 
-  // xtest('Should open a modal when a photo is clicked on', async () => {});
 
-  // test('Photos should change when a different style is clicked on', async () => {});
+  test('Photos should change when a different style is clicked on', async () => {
+    const originalStyle = screen.getByText('Black')
+    fireEvent.click(screen.getByAltText('Maroon'))
+    const newStyle = await screen.findByTestId('selected-style-name');
+    expect(newStyle.textContent).toBe('Maroon');
+  });
 
-  // test('Should keep track of the sku when a size is clicked on', async () => {});
 
-  // test('Should submit the sku to API when after a size is selected', async () => {});
+  test('Should change selected size when size is clicked on', async () => {
+    // click on size label button
+    fireEvent.click(screen.getByLabelText('L'));
+    // assign to variable
+    const clickedSize = await waitFor(() => screen.getByLabelText('L'));
+    // expect it to not be disabled
+    expect(clickedSize).not.toHaveAttribute('disabled');
+  });
 
-  xtest('Shows product slogan and description on click of details', async () => {
-    renderWithRouter(<App />);
 
-    await waitFor(() => screen.getByText('Morning Joggers'));
-
+  test('Shows product slogan on click of details', async () => {
     fireEvent.click(screen.getByText('Details +'));
 
-    const detailsText = await waitFor(() => screen.getByRole('product-slogan'));
+    const detailsText = await waitFor(() => screen.getByTestId('product-slogan'));
 
     expect(detailsText).toHaveTextContent('Make yourself a morning person');
+
   });
 
+  test('Show product features on click of features', async () => {
+    fireEvent.click(screen.getByText('Features +'));
 
-})
+    const featText = await waitFor(() => {
+      screen.getByTestId('features');
+    });
+
+    expect(screen.getByText(/Fabric*/i)).toBeInTheDocument();
+  });
+
+});
