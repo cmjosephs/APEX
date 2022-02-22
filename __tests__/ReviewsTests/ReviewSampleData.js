@@ -44,7 +44,87 @@ const reviews = {
           "helpfulness": 6,
           "photos": []
       },
+      {
+        "review_id": 1135605,
+        "rating": 3,
+        "summary": "oneTwoThree",
+        "recommend": true,
+        "response": null,
+        "body": "FourFiveSix",
+        "date": "2022-02-16T00:00:00.000Z",
+        "reviewer_name": "Test",
+        "helpfulness": 20,
+        "photos": [
+            {
+                "id": 2180036,
+                "url": "https://push2production1337.s3.amazonaws.com/image_number_963.8460584319653"
+            },
+            {
+                "id": 2180037,
+                "url": "https://push2production1337.s3.amazonaws.com/image_number_204.5028422824373"
+            }
+        ]
+    },
     ]
 }
 
-module.exports = reviews;
+const reviewMetaData = {
+    "product_id": "42366",
+    "ratings": {
+        "1": "25",
+        "2": "13",
+        "3": "58",
+        "4": "118",
+        "5": "66"
+    },
+    "recommended": {
+        "false": "75",
+        "true": "205"
+    },
+    "characteristics": {
+        "Fit": {
+            "id": 142032,
+            "value": "3.4276315789473684"
+        },
+        "Length": {
+            "id": 142033,
+            "value": "3.1619718309859155"
+        },
+        "Comfort": {
+            "id": 142034,
+            "value": "3.6344827586206897"
+        },
+        "Quality": {
+            "id": 142035,
+            "value": "3.2413793103448276"
+        }
+    }
+}
+
+const productDetails = {
+    "id": 42366,
+    "campus": "hr-lax",
+    "name": "Camo Onesie",
+    "slogan": "Blend in to your crowd",
+    "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
+    "category": "Jackets",
+    "default_price": "140.00",
+    "created_at": "2021-08-13T14:39:39.968Z",
+    "updated_at": "2021-08-13T14:39:39.968Z",
+    "features": [
+        {
+            "feature": "Fabric",
+            "value": "Canvas"
+        },
+        {
+            "feature": "Buttons",
+            "value": "Brass"
+        }
+    ]
+}
+
+export {
+    reviews,
+    reviewMetaData,
+    productDetails
+}

@@ -10,14 +10,14 @@ import { AppContext } from '../App.jsx';
 export const SortContext = createContext();
 
 const ReviewList = () => {
-  let [reviews, setReviews] = useState([]);
-  let [totalReviews, setTotalReviews] = useState([]);
   let { productId, reviewMetaData, productDetails } = useContext(AppContext);
+  let [totalReviews, setTotalReviews] = useState([]);
+  let [reviews, setReviews] = useState([]);
   let [count, setCount] = useState(2);
   let [sort, setSort] = useState('newest');
   let [enoughReviews, setEnoughReviews] = useState(true);
   let [displayCount, setDisplayCount] = useState(0);
-
+  // let [reviewSearch, setReviewSearch] = useState()
 
   useEffect(() =>
   {
@@ -37,7 +37,6 @@ const ReviewList = () => {
     .then(results => {
       setTotalReviews(results.data.results);
       setDisplayCount(results.data.results.length);
-      // console.log("REVIEW COUNTS: ", results.data.results.length, 'ENOUGH REVIEWS: ', enoughReviews)
       if (results.data.results.length <= 2) {
         setEnoughReviews(!enoughReviews)
       }
@@ -89,9 +88,33 @@ const ReviewList = () => {
         setDisplayCount(totalReviews.length)
       }
 
-
   }
 
+  const searchReviews = (keyword) => {
+    let filteredSearchReviews = totalReviews.filter(review => {
+      if (review.body.toLowerCase().includes(keyword.toLowerCase()) || review.summary.toLowerCase().includes(keyword.toLowerCase())) {
+        return review;
+      }
+    })
+
+    if (filteredSearchReviews.length === 0) {
+      setReviews(filteredSearchReviews);
+      setEnoughReviews(false);
+      setDisplayCount(filteredSearchReviews.length);
+    }
+
+    if (filteredSearchReviews.length !== 0) {
+      setReviews(filteredSearchReviews);
+      setEnoughReviews(false);
+      setDisplayCount(filteredSearchReviews.length);
+    }
+
+    if (keyword === '') {
+      setEnoughReviews(true)
+      setReviews(totalReviews.slice(0, count))
+      setDisplayCount(totalReviews.length)
+    }
+  }
 
 
   if (!totalReviews) {
@@ -112,18 +135,23 @@ const ReviewList = () => {
           <div className="sort-section">
             <h2>{displayCount} Reviews,
               <label for ="reviews-sort"> sorted by: </label>
-              <select name="reviews-sort" className="reviews-sort-dropdown" onChange={changeSort}>
-                <option value="newest">Newest</option>
+              <select name="reviews-sort" className="reviews-sort-dropdown" onChange={changeSort} role="review-sort">
+                <option placeholder="newest-sort" value="newest">Newest</option>
                 <option value="helpful">Helpful</option>
                 <option value="relevant">Relevant</option>
               </select>
             </h2>
           </div>
+          <div className="review-searchbar">
+          <nav className="navbar">
+      <input className="search-input" onChange={(e) => searchReviews(e.target.value)} placeholder="Search reviews..."/>
+    </nav>
+          </div>
           <AllReviews reviews={reviews} getNewReviews={getReviews}/>
         </div>
           <div className="review-button-section">
             {enoughReviews &&
-              <button onClick={getMoreReviews} className="review-button">More Reviews</button>
+              <button onClick={getMoreReviews} className="review-button" role="get-more-reviews">More Reviews</button>
             }
             <ReviewForm getNewReviews={getReviews}/>
           </div>

@@ -34,14 +34,14 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
       <span>Helpful?  </span>
       {markHelpful ?
       <>
-      <span>   {review.helpfulness}   </span>
+      <span role="helpful">   {review.helpfulness}   </span>
       <span><a href="#" className="review-interaction" onClick={addHelpful}>Yes</a>
       <span>   |   </span>
       </span>
       </>
       :
       <>
-      <span>   {review.helpfulness}   </span>
+      <span role="helpful">   {review.helpfulness}   </span>
       <span> Yes</span>
       <span>    |    </span>
       </>

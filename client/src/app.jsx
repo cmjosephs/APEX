@@ -9,22 +9,22 @@ import QAList from './Questions/QAList.jsx';
 export const AppContext = createContext();
 
 const App = () => {
-  const [productId, setProductId] = useState(null);
+  const [productId, setProductId] = useState(42366);
   const [productDetails, setProductDetails] = useState({});
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
-    axios.get('/api/products')
-    .then(
-      ({ data }) => {
-        let ids = data.map(product => product.id);
-        setProductId(ids[Math.floor(Math.random()*ids.length)]);
-      }
-    )
-    .catch((err) => console.error('Network error: ', err));
+    // axios.get('/api/products')
+    // .then(
+    //   ({ data }) => {
+    //     let ids = data.map(product => product.id);
+    //     setProductId(ids[Math.floor(Math.random()*ids.length)]);
+    //   }
+    // )
+    // .catch((err) => console.error('Network error: ', err));
 
     // setProductId(parseInt(testReviewMetaData.product_id));
-    // setProductId(42370);
+    setProductId(42366);
   }
 
   function getProductDetails() {
@@ -51,8 +51,9 @@ const App = () => {
     }
   }, [productId]);
 
-  
+
   if (!productId || !reviewMetaData || !productDetails.id) return <h2>Loading</h2>
+  // if (!productId) return <h2>Loading</h2>
 
   return (
     <AppContext.Provider

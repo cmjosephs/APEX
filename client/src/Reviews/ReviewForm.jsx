@@ -33,7 +33,6 @@ const ReviewForm = ({ getNewReviews }) => {
         charValue = (Object.values(action.payload));
         return {...state, reviewData: {...state.reviewData, [char[0]]: charValue[0]}};
       case "clearData":
-        console.log('hi in dispatch')
         return {characteristics: {}, reviewData: {}};
       default:
         return state;
@@ -67,20 +66,29 @@ const ReviewForm = ({ getNewReviews }) => {
     return (
       <div>
         {productCharacteristics.includes('Fit') &&
+        <div>
         <FormControl sx={{ display: 'inline-flex', my: 1 }}>
               <FormLabel id="demo-row-radio-buttons-group-label">Fit</FormLabel>
               <RadioGroup
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="Fit"
+              label="Fit"
+              inputProps={{
+                "data-testid": 'fit',
+            }}
               onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
             >
-              <FormControlLabel value="1" control={<Radio />} label="Runs tight" />
+              <FormControlLabel value="1" control={<Radio role="fit"/>} label="Runs tight" />
               <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
               <FormControlLabel value="3" control={<Radio />} label="Perfect" />
               <FormControlLabel value="4" control={<Radio />} label="Slightly loose" />
               <FormControlLabel value="5" control={<Radio />} label="Runs loose" />
             </RadioGroup>
-        </FormControl>}
+        </FormControl>
+          </div>
+
+        }
+
 
         {productCharacteristics.includes('Comfort') &&
         <FormControl sx={{ display: 'inline-flex', my: 1 }}>
@@ -90,7 +98,7 @@ const ReviewForm = ({ getNewReviews }) => {
             name="Comfort"
             onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
           >
-            <FormControlLabel value="1" control={<Radio />} label="Uncomfortable" />
+            <FormControlLabel value="1" control={<Radio role="comfort"/>} label="Uncomfortable" />
             <FormControlLabel value="2" control={<Radio />} label="Slightly uncomfortable" />
             <FormControlLabel value="3" control={<Radio />} label="Ok" />
             <FormControlLabel value="4" control={<Radio />} label="Comfortable" />
@@ -140,8 +148,8 @@ const ReviewForm = ({ getNewReviews }) => {
               name="Quality"
               onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
             >
-              <FormControlLabel value="1" control={<Radio />} label="Poor" />
-              <FormControlLabel value="2" control={<Radio />} label="Below average" />
+              <FormControlLabel value="1" control={<Radio role="quality-1" />} label="Poor" />
+              <FormControlLabel value="2" control={<Radio role="quality-2" />} label="Below average" />
               <FormControlLabel value="3" control={<Radio />} label="What I expected" />
               <FormControlLabel value="4" control={<Radio />} label="Pretty great" />
               <FormControlLabel value="5" control={<Radio />} label="Perfect" />
@@ -157,7 +165,7 @@ const ReviewForm = ({ getNewReviews }) => {
               name="Length"
               onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
             >
-              <FormControlLabel value="1" control={<Radio />} label="Runs short" />
+              <FormControlLabel value="1" control={<Radio role="length-1" />} label="Runs short" />
               <FormControlLabel value="2" control={<Radio />} label="Below average" />
               <FormControlLabel value="3" control={<Radio />} label="Perfect" />
               <FormControlLabel value="4" control={<Radio />} label="Slightly long" />
@@ -237,13 +245,13 @@ const ReviewForm = ({ getNewReviews }) => {
 
   return (
     <div className="review-form">
-      <button className="review-button" onClick={handleClickOpen}>Write A Review</button>
+      <button role="write-review" className="review-button" onClick={handleClickOpen}>Write A Review</button>
 
       <Dialog
         open={open}
         onClose={handleClose}
-        fullWidth
-        maxWidth='xl'
+        // fullWidth
+        maxWidth
         sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
@@ -263,6 +271,8 @@ const ReviewForm = ({ getNewReviews }) => {
               <Rating
                 name="simple-controlled"
                 value={rating}
+                placeholder="rating"
+                inputProps={{ "data-testid": "content-input" }}
                 onChange={(event, newRating) => {
                   setRating(newRating);
                 }}
@@ -284,6 +294,7 @@ const ReviewForm = ({ getNewReviews }) => {
               id="demo-simple-select"
               name="recommend"
               label="Do you recommend this product?"
+              placeholder="Do you recommend this product?"
               onChange={(e) => {dispatch({ type: "addReviewData", payload: { [e.target.name]: e.target.value }})}}
               sx={{ display: 'block'}}
             >
@@ -291,7 +302,8 @@ const ReviewForm = ({ getNewReviews }) => {
               <MenuItem value={false}>No</MenuItem>
             </Select>
           </FormControl>
-                {renderCharacteristics()}
+          {renderCharacteristics()}
+
 
           <FormControl sx={{display: 'block', my: 1}}
           onChange={(e) => {dispatch({ type: "addReviewData", payload: { [e.target.name]: e.target.value }})}}>
@@ -300,6 +312,7 @@ const ReviewForm = ({ getNewReviews }) => {
             id="nickname"
             name="name"
             label="Nickname"
+            placeholder="Nickname"
             variant="outlined"
             sx={{display: 'inline-flex',
               pr: 1}}
@@ -310,6 +323,7 @@ const ReviewForm = ({ getNewReviews }) => {
             id="email"
             name="email"
             label="Email"
+            placeholder="Email"
             variant="outlined"
             sx={{display: 'inline-flex'}}
             inputProps={{ maxLength: 60 }}
@@ -319,6 +333,7 @@ const ReviewForm = ({ getNewReviews }) => {
             id="review-summary"
             name="summary"
             label="Review summary here"
+            placeholder="Review summary here"
             autoFocus
             margin="dense"
             fullWidth
@@ -332,6 +347,7 @@ const ReviewForm = ({ getNewReviews }) => {
             id="review-body"
             name="body"
             label="Write your review here"
+            placeholder="Write your review here"
             autoFocus
             margin="dense"
             fullWidth
@@ -342,23 +358,24 @@ const ReviewForm = ({ getNewReviews }) => {
 
 
 
-
             <Stack direction="row" alignItems="center" spacing={2}>
             <label htmlFor="contained-button-file">
 
-            <Input accept="image/*" id="contained-button-file" multiple type="file" onChange={handlePhotoUpload} />
+            <Input accept="image/*" id="contained-button-file" multiple type="file" onChange={handlePhotoUpload}/>
 
             {upload && <Button variant="contained" component="span">
               Upload photos
             </Button>}
 
-
+                <div role="uploaded-pic">
             {uploadedPics.map((pic, idx) => {
               return <img id="uploaded-review-thumbnail" src={pic? URL.createObjectURL(pic) : null} alt={pic? pic.name : null} width="200" height="250" key={`review-uploads-${idx}`}/>
             })}
+                </div>
 
           </label>
           </Stack>
+
 
         </DialogContent>
 

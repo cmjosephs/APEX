@@ -56,7 +56,7 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
         </span>
       </div>
 
-      <h4 className="review-summary">
+      <h4 className="review-summary" role="review-summary">
         {review.summary.substring(0, 60)}
       </h4>
 

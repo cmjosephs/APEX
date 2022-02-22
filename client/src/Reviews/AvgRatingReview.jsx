@@ -99,12 +99,13 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             sx={{ display: 'flex' }}
             style={{ color: '#D6CCC2'}}
             />
-            <span>
+            <span role="1-star">
               <Checkbox
               readOnly
               sx={{display: 'inline'}}
               checked={state[1]}
-              fnClick={v => setState({ 1: v})}/>
+              fnClick={v => setState({ 1: v})}
+              />
               {/* <p>{oneStar}</p> */}
               </span>
       </span>}
