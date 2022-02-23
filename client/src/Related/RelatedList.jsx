@@ -60,6 +60,7 @@ const RelatedList = () => {
 
   function getProductCardWidth(productCardWidth) {
     setOffset(productCardWidth);
+    console.log(productCardWidth);
   }
 
   // useEffect(() => {

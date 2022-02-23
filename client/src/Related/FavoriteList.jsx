@@ -8,6 +8,7 @@ import RelatedListCard from './RelatedListCard.jsx';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Rating from '@mui/material/Rating';
 import FavoriteListCard from './FavoriteListCard.jsx'
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -72,24 +73,24 @@ import Rating from '@mui/material/Rating';
     setFavorites(updateStorage);
 >>>>>>> f90c663 (Wrote localStorage functions. Move to App.jsx and refactor with)
 =======
+=======
+import Rating from '@mui/material/Rating';
+>>>>>>> 55ade99 (Completed functionality working on css)
 import FavoriteListCard from './FavoriteListCard.jsx'
 
 const FavoriteList = ({ currentProductId, currentProductDetails, currentProductRating, currentProductImg }) => {
   const [favorites, setFavorites] = useState([]);
 
+  useEffect(() => {
+    gatherFavorites();
+  }, [])
+
   function gatherFavorites() {
-    // console.log(localStorage);
     const favoriteProductObjects = Object.values(localStorage);
     const favoriteProductsArray = [];
     favoriteProductObjects.map((productObj) => {
       favoriteProductsArray.push(JSON.parse(productObj));
     })
-    // console.log(favoriteProductsArray)
-    // console.log(favoriteProductsArray[0])
-    // console.log(favoriteProductsArray[0].productName)
-    // console.log(favoriteProductsArray[0].url)
-    // console.log(favoriteProductsArray[0].category)
-    // console.log(favoriteProductsArray[0].rating)
     setFavorites(favoriteProductsArray);
 >>>>>>> 3dbdce4 (Favorite products list not rendering)
   }
@@ -177,10 +178,6 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
     gatherFavorites();
   }
 
-  useEffect(() => {
-    gatherFavorites();
-  }, [])
-
   const favoriteRef = React.useRef();
 
   const scrollProductsLeft = (scrollOffset) => {
@@ -194,6 +191,7 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
   }
 
   function renderFavorites() {
+<<<<<<< HEAD
     if(favorites.length !== 0) {
       console.log(favorites[0].productName)
       return (
@@ -210,6 +208,19 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
         </>
       )
 >>>>>>> 3dbdce4 (Favorite products list not rendering)
+=======
+    // console.log(favorites);
+    if (favorites.length !== 0) {
+      // console.log(favorites);
+      return favorites.map((favorite, index) => {
+        return (
+          <FavoriteListCard
+            favorite={favorite}
+            key={`${currentProductId}-${index}`}
+          />
+        )
+      })
+>>>>>>> 55ade99 (Completed functionality working on css)
     }
   }
 
@@ -274,6 +285,9 @@ export default FavoriteList;
 // {"productName":"Morning Joggers","category":"Pants","url":"https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80","rating":4}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 55ade99 (Completed functionality working on css)
 // {"productName":"Heir Force Ones","category":"Kicks","url":"https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80","rating":3.25}
 
             // console.log(favorite, index, '***all saved products***');
@@ -284,6 +298,7 @@ export default FavoriteList;
             //   key={`${currentProductId}-${index}`}
             // />
             // console.log(favorite.productName);
+<<<<<<< HEAD
             // <div className="hello-world">{favorite.productName}</div>
 =======
       return (
@@ -369,3 +384,6 @@ export default FavoriteList;
 =======
 // {"productName":"Heir Force Ones","category":"Kicks","url":"https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80","rating":3.25}
 >>>>>>> 3dbdce4 (Favorite products list not rendering)
+=======
+            // <div className="hello-world">{favorite.productName}</div>
+>>>>>>> 55ade99 (Completed functionality working on css)
