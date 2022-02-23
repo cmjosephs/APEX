@@ -14,6 +14,7 @@ const RelatedList = () => {
   const [currentProductImg, updateCurrentProductImg] = useState({ img: {} })
   const [carouselScrollOffset, setOffset] = useState(250);
   const [currentProductRating, setRating] = useState();
+  const [resetCarousel, setCarousel] = useState(0);
 
   function getRelatedProducts(product_id) {
     axios.get(`/api/products/${product_id}/related`)
@@ -49,48 +50,36 @@ const RelatedList = () => {
   const relatedRef = React.useRef();
 
   const scrollProductsLeft = (scrollOffset) => {
-    console.log(scrollOffset);
-    relatedRef.current.scrollLeft -= scrollOffset;
+    relatedRef.current.scrollLeft -= 450;
   }
 
   const scrollProductsRight = (scrollOffset) => {
-    console.log(scrollOffset);
-    relatedRef.current.scrollLeft += scrollOffset;
+    relatedRef.current.scrollLeft += 450;
   }
-
-  function getProductCardWidth(productCardWidth) {
-    setOffset(productCardWidth);
-    console.log(productCardWidth);
-  }
-
-  // useEffect(() => {
-  //   setOffset(carouselScrollOffset);
-  // }, [carouselScrollOffset])
 
   return (
     <div>
       <div className="related-wrapper">
         <h3 className="related-title">Recommended Products</h3>
 
+        <div className="related-row">
+          <div className="related-next">
+            <ArrowForwardIosIcon fontSize="large" className="related-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)}/>
+          </div>
+          <div className="related-prev">
+            <ArrowBackIosNewIcon fontSize="large" className="related-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)}/>
+          </div>
+        </div>
+
         <div className="related-carousel" ref={relatedRef}>
           {relatedArr.map((relatedId, index) => (
               <RelatedListCard
                 relatedId={relatedId}
-                currentProductId={currentProductId}
+                productId={productId}
                 currentProductDetails={productDetails}
                 currentProductImg={currentProductImg}
-                getProductCardWidth={getProductCardWidth}
                 key={`${index}-${relatedId}`}/>
           ))}
-        </div>
-
-        <div className="related-row">
-          <div className="related-prev">
-            <ArrowBackIosNewIcon fontSize="large" className="related-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)}/>
-          </div>
-          <div className="related-next">
-            <ArrowForwardIosIcon fontSize="large" className="related-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)}/>
-          </div>
         </div>
 
         <br></br>
@@ -99,7 +88,7 @@ const RelatedList = () => {
 
       <div className="favorites-wrapper">
         <FavoriteList
-          currentProductId={currentProductId}
+          currentProductId={productId}
           currentProductDetails={productDetails}
           currentProductImg={currentProductImg}
           currentProductRating={currentProductRating}/>

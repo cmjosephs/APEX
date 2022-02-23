@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import ComparisonModal from './ComparisonModal.jsx';
 import Features from './Features.jsx';
 import axios from 'axios';
-import Rating from '@mui/material/Rating';
+import AvgRating from '../Shared/AvgRating.jsx';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Modal from '@mui/material/Modal';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../App.jsx';
 
-const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, getProductCardWidth }) => {
+const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }) => {
   const { setProductId } = useContext(AppContext);
   const [relatedProduct, updateRelatedProduct] = useState({ info: {} });
   const [relatedImgUrl, updateRelatedImgUrl] = useState({ img: {} });
@@ -16,7 +16,6 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
   const [rating, updateRating] = useState({ rating: {} });
   const [numberOfStyles, updateNumberOfStyles] = useState(1);
   const [showModal, setShowModal] = useState(false);
-  const [cardOffset, setCardOffset] = useState(0);
 
   function getRelatedProductsInfo(relatedId) {
     axios.get(`/api/products/${relatedId}`)
@@ -69,14 +68,14 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
     if (salePrice.sale_price === null) {
       return (
         <>
-          <div className="related-price">{salePrice.original_price}</div>
+          <div className="related-price">${salePrice.original_price}</div>
         </>
       )
     } else {
       return (
         <>
-          <div className="related-price" style={{ textDecoration: "line-through", fontWeight: '100' }}>{salePrice.original_price}</div>
-          <div className="sale-price" style={{color: 'RGBA(255,0,0,0.8)'}}>{salePrice.sale_price}</div>
+          <div className="related-price" style={{ textDecoration: "line-through", fontWeight: '100' }}>${salePrice.original_price}</div>
+          <div className="sale-price" style={{color: 'RGBA(255,0,0,0.8)'}}>${salePrice.sale_price}</div>
         </>
       )
     }
@@ -98,15 +97,8 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
     }
   }
 
-  const cardRef = React.useRef();
-
-  useEffect(() => {
-    setCardOffset(cardRef.current.offsetWidth)
-    getProductCardWidth(cardOffset);
-  }, [cardOffset])
-
   return (
-    <div className="related-card" ref={cardRef}>
+    <div className="related-card">
       <Link to={`/products/${relatedId}/${salePrice.style_id}`}>
         <img src={relatedImgUrl} alt=""/>
       </Link>
@@ -134,5 +126,3 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
 }
 
 export default RelatedListCard;
-
-
