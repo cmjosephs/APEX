@@ -26,7 +26,6 @@ const ReviewList = () => {
 
 
   const getReviews = async () => {
-    console.log('get reviews is called')
     await axios.get(`api/products/${productId}/reviews`,
     {
       params: {

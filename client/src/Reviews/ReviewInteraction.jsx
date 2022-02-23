@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, usePrevious } from 'react';
 import axios from 'axios';
 import { AppContext } from '../App.jsx';
 
@@ -9,6 +9,8 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
   let [markNotHelpful, setMarkNotHelpful] = useState(true);
   let [notHelpfulCount, setNotHelpfulCount] = useState(0);
 
+
+  // TODO: re-render reviews after marking helpful
 
   let addHelpful = () => {
     axios.put(`api/products/${productId}/reviews/${review.review_id}/helpful`)
@@ -23,11 +25,6 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
     setNotHelpfulCount(markNotHelpful++);
     setMarkHelpful(false);
   }
-
-  // not in business doc
-  // let reportReview = () => {
-
-  // }
 
 
   return (

@@ -12,6 +12,9 @@ export const lightMode = {
   scrollThumb: '#272727',
   scrollThumbHover: '#D6CCC2',
   generalButton: '#272727',
+  reviewQA: '#FCFCFC',
+  reviewQAShadow: 'none',
+  reviewQABorder: 'none'
 }
 
 export const darkMode = {
@@ -21,6 +24,9 @@ export const darkMode = {
   scrollThumb: '#D6CCC2',
   scrollThumbHover: '#FCFCFC',
   generalButton: '#FCFCFC',
+  reviewQA: '#303030',
+  reviewQAShadow: '0px 8px 16px 0px rgba(0,0,0,0.2);',
+  reviewQABorder: '15px;'
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -28,6 +34,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     background-color: ${props => props.theme.body};
     color: ${props => props.theme.fontColor};
+    font-weight: 300;
 
   }
   ::-webkit-scrollbar {
@@ -48,10 +55,22 @@ export const GlobalStyles = createGlobalStyle`
 
   // REVIEWS
 
+  .review-container-left {
+    background-color: ${props => props.theme.QA};
+    border-radius: ${props => props.theme.reviewQABorder};
+    box-shadow: ${props => props.theme.reviewQAShadow};
+  }
+
+  .review-container-right {
+    background-color:  ${props => props.theme.QA};
+    border-radius: ${props => props.theme.reviewQABorder};
+    box-shadow: ${props => props.theme.reviewQAShadow};
+  }
+
   h1.review-header {
     font-family: 'Noto Serif Display', serif;
   }
-  
+
   .review-button {
     background-color: ${props => props.theme.generalButton};
     color: ${props => props.theme.body};
@@ -117,13 +136,11 @@ export const GlobalStyles = createGlobalStyle`
 
   // Q&A
   .search-input {
-    display: inline-flex;
-    background-color: #FCFCFC;
+    display: flex;
     color: ${props => props.theme.fontColor};
     width: 90vw;
     padding: 12px 16px;
     z-index: 1;
-    border-width: px;
     border-radius: 5rem;
   }
 
