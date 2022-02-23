@@ -9,9 +9,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import Wrapper from '../InteractionsTracker.jsx';
-import InteractionsTracker from '../InteractionsTracker.jsx';
-
 
 const QuestionForm = ({productId, productName, addedQuestion}) => {
   const [open, setOpen] = useState(false);
@@ -21,7 +18,6 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
   let [body, setBody] = useState('');
   let [name, setName] = useState('');
   let [email, setEmail] = useState('');
-
 
   const handleChange = (event) => {
     let ename = event.target.name;
@@ -90,7 +86,6 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
             multiline={true}
             rows={4}
             onChange={handleChange}
-
             />
            <TextField
             required
@@ -127,7 +122,6 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
       </Dialog>
     </div>
   );
-
 }
 
 export default QuestionForm;

@@ -18,7 +18,6 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
   const getAnswers = () => {
     axios.get(`/api/products/${productId}/qa/questions/${question.question_id}/answers`, {params: {count: 20}})
       .then((res) => {
-
         let sortedAnswers = res.data.results.sort((a, b) => {
           return b.helpfulness - a.helpfulness
         })
@@ -34,20 +33,16 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
         if (count >= sortedAnswers.length) {
           setShowButton(!showButton)
         }
+
         setTotalAnswer(sortedAnswers.length)
         setAnswer(sortedAnswers.splice(0, count))
-
       })
       .catch((err) => console.log(err))
   }
 
-  const getMoreAnswers = () => {
-    setCount(count += 2)
-  }
+  const getMoreAnswers = () => {setCount(count += 2)}
 
-  const seeLessAnswers = () => {
-    setCount(2)
-  }
+  const seeLessAnswers = () => {setCount(2)}
 
   const questionHelpful = () => {
     if(markQHelpful) {
@@ -74,7 +69,6 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
     } else {
       return (<button onClick={seeLessAnswers}>Collapse Answers</button>)
     }
-
   }
 
   return (
@@ -92,17 +86,15 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
         </span>
       </div>
       <div>
-      {totalAnswer ? <span className="answer-title">A:</span> : <span>No Answers Yet</span>}
-      
+        {totalAnswer ? <span className="answer-title">A:</span> : <span>No Answers Yet</span>}
         {answers.map((answer) => {
           return <Answer answer={answer} key={answer.answer_id} productId={productId} answerHelpful={answerHelpful}/>
         })}
-
       </div>
       <div>
         {answerButton()}
       </div>
-      </div>
+    </div>
   );
 };
 

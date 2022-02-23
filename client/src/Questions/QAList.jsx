@@ -7,9 +7,6 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import QuestionForm from './QuestionForm.jsx';
 
-import Track from '../InteractionsTracker.jsx';
-
-
 var QAList = () => {
   const {productId, productDetails} = useContext(AppContext);
   let [questions, setQuestions] = useState([]);
@@ -32,13 +29,9 @@ var QAList = () => {
         setQuestionAdded(false);
       })
       .catch((err) => console.log(err))
-
   }
 
-  const getMoreQuestions = () => {
-    console.log('in get more questions')
-    setCount(count +=2)
-  }
+  const getMoreQuestions = () => {setCount(count +=2)}
 
   const searchQuestions = (term) => {
     if (term.length >= 3) {
@@ -62,44 +55,37 @@ var QAList = () => {
       return (<div></div>)
     }
     if (count < totalQuestions) {
-      return (
-        <button className="question-button" onClick={getMoreQuestions}>More Questions</button>
-      )
-
+      return (<button className="question-button" onClick={getMoreQuestions}>More Questions</button>)
     } else {
       return (<div></div>)
     }
   }
 
-  const addedQuestion = () => {
-    console.log("Question Added");
-    setQuestionAdded(true);
-  }
+  const addedQuestion = () => {setQuestionAdded(true)}
 
   const renderQuestions = () => {
     if (questions.length === 0) {
       return (<QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>)
     } else {
        return (
-       <div >
-         <div className="question-answer-list">
-          <div className="questions-list">
-            {questions.map(question => {
-              return <QAItem
-                question={question}
-                key={question.question_id}
-                getQuestions={getQuestions}
-                productId={productId}
-                productName={productDetails.name}
-              />
-            })}
+        <div >
+          <div className="question-answer-list">
+            <div className="questions-list">
+              {questions.map(question => {
+                return <QAItem
+                  question={question}
+                  key={question.question_id}
+                  getQuestions={getQuestions}
+                  productId={productId}
+                  productName={productDetails.name}
+                />
+              })}
             </div>
-         </div>
+          </div>
           <div className="question-button-section">
             {moreQuestionButton()}
             <QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>
           </div>
-
         </div>
        )
     }

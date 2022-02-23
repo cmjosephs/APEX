@@ -10,20 +10,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
-
 const AnswerForm = ({product, productName, question, getAnswers}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => { setOpen(true) };
-  const handleClose = () => {
-    console.log("formed closed")
-    setOpen(false)
-  };
+  const handleClose = () => { setOpen(false) };
 
   let [body, setBody] = useState('');
   let [name, setName] = useState('');
   let [email, setEmail] = useState('');
   let [photos, setPhotos] = useState([]);
-
 
   const handleChange = (event) => {
     let ename = event.target.name;
@@ -94,7 +89,6 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
             multiline={true}
             rows={4}
             onChange={handleChange}
-
             />
            <TextField
             required

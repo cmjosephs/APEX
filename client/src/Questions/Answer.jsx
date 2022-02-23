@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-
 var Answer = ({answer, productId, answerHelpful}) => {
   let [clickedReport, setClickReport] = useState(true)
 
@@ -16,12 +15,9 @@ var Answer = ({answer, productId, answerHelpful}) => {
     if ((answer.answerer_name) === 'Seller') {
       return (<span><b>{answer.answerer_name}</b>,  </span>)
     } else {
-      return (
-        <span>{answer.answerer_name},  </span>
-      )
+      return (<span>{answer.answerer_name},  </span>)
     }
   }
-
 
   return (
     <div className="answer-container">
@@ -32,11 +28,11 @@ var Answer = ({answer, productId, answerHelpful}) => {
         <span>by User{'  '}</span>
         {answererName(answer)}
         {new Date(answer.date).toLocaleDateString('en-us',
-        {
-          month: 'long',
-          year: 'numeric',
-          day: 'numeric'
-        })}
+          {
+            month: 'long',
+            year: 'numeric',
+            day: 'numeric'
+          })}
         <span className="seperator">|</span>
         <span className="answer-helpful">
           Helpful?
