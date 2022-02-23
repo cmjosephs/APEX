@@ -1,7 +1,8 @@
 import React from 'react';
 import Rating from '@mui/material/Rating';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-const FavoriteListCard = ({ favorite }) => {
+const FavoriteListCard = ({ favorite, delFavorites }) => {
   return (
     <div className="favorite-card">
       <img src={favorite.url} alt="" />
@@ -13,6 +14,8 @@ const FavoriteListCard = ({ favorite }) => {
         {favorite.category}
         <br></br>
       </h4>
+      <div className="favorite-price">${favorite.price}</div>
+      <FavoriteBorderIcon className="remove-from-favorites" onClick={() => delFavorites(favorite.productID)}/>
     </div>
   )
 }

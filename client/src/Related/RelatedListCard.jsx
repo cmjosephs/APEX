@@ -69,14 +69,14 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg, 
     if (salePrice.sale_price === null) {
       return (
         <>
-          <div className="related-price">{salePrice.original_price}</div>
+          <div className="related-price">${salePrice.original_price}</div>
         </>
       )
     } else {
       return (
         <>
-          <div className="related-price" style={{ textDecoration: "line-through", fontWeight: '100' }}>{salePrice.original_price}</div>
-          <div className="sale-price" style={{color: 'RGBA(255,0,0,0.8)'}}>{salePrice.sale_price}</div>
+          <div className="related-price" style={{ textDecoration: "line-through", fontWeight: '100' }}>${salePrice.original_price}</div>
+          <div className="sale-price" style={{color: 'RGBA(255,0,0,0.8)'}}>${salePrice.sale_price}</div>
         </>
       )
     }

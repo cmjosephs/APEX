@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckIcon from '@mui/icons-material/Check';
 
-var ComparisonModal = ({  relatedProduct, currentProduct, relatedImg, currentProductImg, handleChange }) => {
+var ComparisonModal = ({ relatedProduct, currentProduct, relatedImg, currentProductImg, handleChange }) => {
   var currentArray = [];
   var relatedArray = [];
   var featuresObj = {};
@@ -25,10 +25,10 @@ var ComparisonModal = ({  relatedProduct, currentProduct, relatedImg, currentPro
     }
   })
 
-  function hasFeature (obj, array) {
+  function hasFeature(obj, array) {
     if (array.includes(obj)) {
       return (
-        <CheckCircleOutlineIcon />
+        <CheckIcon />
       )
     } else {
       return (
@@ -40,22 +40,26 @@ var ComparisonModal = ({  relatedProduct, currentProduct, relatedImg, currentPro
   return (
     <div className="features-modal">
       <button className="exit-comparison-modal" onClick={handleChange}>X</button>
-      <img src={currentProductImg.thumbnail_url}/>
+      <img src={currentProductImg.thumbnail_url} />
       <div className="features-container">
-        {Object.keys(featuresObj).map((feature, index) => {
-          return (
-            <div key={`${feature}-${index}`}>
-              {hasFeature(feature, currentArray)}
-              {feature}
-              {hasFeature(feature, relatedArray)}
-              <br></br>
-            </div>
-          )
-        })}
+        <h3>Product Features</h3>
+        <table>
+          <th>{currentProduct.name}</th>
+          <th></th>
+          <th>{relatedProduct.name}</th>
+          {Object.keys(featuresObj).map((feature, index) => {
+            return (
+              <tr>
+                <td>{hasFeature(feature, currentArray)}</td>
+                <td>{feature}</td>
+                <td>{hasFeature(feature, relatedArray)}</td>
+              </tr>
+            )
+          })}
+        </table>
       </div>
-      <img src={relatedImg}/>
+      <img src={relatedImg} />
     </div>
-
   )
 }
 

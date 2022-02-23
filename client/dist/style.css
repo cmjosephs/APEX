@@ -53,6 +53,8 @@ body {
 }
 
 .related-card {
+  display: flex;
+  flex-direction: column;
   min-width: 25%;
   overflow: hidden;
   padding: 3px;
@@ -136,6 +138,11 @@ body {
   font-weight: 400;
 }
 
+.favorite-card .favorite-price {
+  margin-left: 4px;
+  font-weight: 400;
+}
+
 .related-card .sale-price {
   margin-left: 4px;
   font-weight: 400;
@@ -143,26 +150,34 @@ body {
 }
 
 .related-card .related-comparison-open:hover {
-  color: crimson;
-}
-
-.related-prev, .related-next {
-  position: absolute;
-  top: 68%;
-  cursor: pointer;
+  background-color: #D6CCC2;
 }
 
 .related-prev {
-  left: 5%;
+  border-radius: 75%;
+}
+
+.related-prev:hover {
+  background-color: #D6CCC2;
 }
 
 .related-next {
-  right: 5%;
+  border-radius: 75%;
+}
+
+.related-next:hover {
+  background-color: #D6CCC2;
+}
+
+.related-row {
+  direction: rtl;
+  display: flex;
+  cursor: pointer;
 }
 
 @media (max-width: 960px){
   .related-card {
-    min-width: 50%;
+    min-width: 45%;
   }
 }
 
@@ -191,33 +206,80 @@ body {
 }
 
 .features-modal {
+  height: 50vw;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 10px;
 }
 
 .features-modal img {
-  width: 40%;
-  height: 30%;
+  height: 60%;
+  width: 25%;
   object-fit: cover;
   background-color: #E7E7E7;
   gap: 1em;
 }
 
 .features-container {
+  height: 60%;
   display: flex;
-  height: 30%;
+  width: 30%;
   background-color: #FCFCFC;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-
+  text-align: center;
 }
 
 .related-comparison-open {
-  position: relative;
   cursor:  pointer;
   border-radius: 50%;
   border: 2px solid #FCFCFC;
   background-color:  #FCFCFC;
   box-shadow: 0 0 3px rgb(0, 0, 0);
+  opacity: 60%;
+  margin: 7px;
+}
+
+/* .exit-comparison-modal {
+  right: 600px;
+} */
+
+.remove-from-favorites {
+  align-self: flex-start;
+  cursor:  pointer;
+  border-radius: 50%;
+  border: 2px solid #FCFCFC;
+  background-color:  #FCFCFC;
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+  bottom: 390px;
+  left: 265px;
+  opacity: 60%;
+}
+
+.remove-from-favorites:hover {
+  background-color: #D6CCC2;
+}
+
+.favorite-row {
+  direction: rtl;
+  cursor: pointer;
+  display: flex;
+}
+
+.favorite-prev {
+  border-radius: 75%;
+}
+
+.favorite-next {
+  border-radius: 75%;
+}
+
+.favorite-prev:hover {
+  background-color: #D6CCC2;
+}
+
+.favorite-next:hover {
+  background-color: #D6CCC2;
 }

@@ -4,29 +4,50 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Rating from '@mui/material/Rating';
 import FavoriteListCard from './FavoriteListCard.jsx'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const FavoriteList = ({ currentProductId, currentProductDetails, currentProductRating, currentProductImg }) => {
   const [favorites, setFavorites] = useState([]);
+  // const [count, setCount] = useState(0);
 
   useEffect(() => {
     gatherFavorites();
   }, [])
 
+  // useEffect(() => {
+  //   updateCount();
+  // }, [])
+
+  // function updateCount() {
+  //   let newCount = 0;
+  //   if (favorites.length !== 0) {
+  //     lastIndex = favorites.length - 1;
+  //     newCount = favorites[lastIndex].startIndex + 1;
+  //   }
+  //   setCount(newCount);
+  // }
+
   function gatherFavorites() {
     const favoriteProductObjects = Object.values(localStorage);
     const favoriteProductsArray = [];
+    // favoriteProductObjects.sort((a, b) => (a.startIndex > b.startIndex) ? 1 : -1);
     favoriteProductObjects.map((productObj) => {
       favoriteProductsArray.push(JSON.parse(productObj));
     })
     setFavorites(favoriteProductsArray);
+    // setCount(prevCount => prevCount + 1);
   }
 
   function addToFavorites() {
     const productToAdd = {
+      // startIndex: count,
+      productID: currentProductId,
       productName: currentProductDetails.name,
       category: currentProductDetails.category,
       url: currentProductImg.thumbnail_url,
-      rating: currentProductRating
+      rating: currentProductRating,
+      price: currentProductDetails.default_price
     }
 
     localStorage.setItem(currentProductId, JSON.stringify(productToAdd));
@@ -35,33 +56,34 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
     }
   }
 
-  function delFavorites() {
-    localStorage.removeItem(currentProductId)
+  function delFavorites(favoriteProductId) {
+    localStorage.removeItem(favoriteProductId);
     gatherFavorites();
   }
 
   const favoriteRef = React.useRef();
 
   const scrollProductsLeft = (scrollOffset) => {
-    console.log(scrollOffset);
-    favoriteRef.current.scrollLeft -= scrollOffset;
+    favoriteRef.current.scrollLeft -= 450;
   }
 
   const scrollProductsRight = (scrollOffset) => {
-    console.log(scrollOffset);
-    favoriteRef.current.scrollLeft += scrollOffset;
+    favoriteRef.current.scrollLeft += 450;
   }
 
   function renderFavorites() {
-    // console.log(favorites);
     if (favorites.length !== 0) {
-      // console.log(favorites);
       return favorites.map((favorite, index) => {
         return (
-          <FavoriteListCard
-            favorite={favorite}
-            key={`${currentProductId}-${index}`}
-          />
+          <>
+            <FavoriteListCard
+              favorite={favorite}
+              delFavorites={delFavorites}
+              key={`${favorite.productID}-${index}`}
+            />
+            {/* <FavoriteBorderIcon onClick={() => delFavorites(favorite.productID)}/> */}
+            {/* <button onClick={() => delFavorites(favorite.productID)}>Remove from favorites -</button> */}
+          </>
         )
       })
     }
@@ -69,29 +91,32 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductR
 
   return (
     <div>
+      <h3 className="favorite-title">Your Favorite Products</h3>
       <div className="favorite-wrapper">
-        <h3 className="favorite-title">Your Favorite Products</h3>
-
+        <div className="favorite-row">
+          <div className="favorite-next">
+            <ArrowForwardIosIcon fontSize="large" className="favorite-scroll-right" onClick={() => scrollProductsRight()} />
+          </div>
+          <div className="favorite-prev">
+            <ArrowBackIosNewIcon fontSize="large" className="favorite-scroll-left" onClick={() => scrollProductsLeft()} />
+          </div>
+        </div>
         <div className="favorite-carousel" ref={favoriteRef}>
-          <button onClick={addToFavorites}>Add to your favorites +</button>
-          <button onClick={delFavorites}>Remove from favorites -</button>
+          <div className="favorite-card">
+            <button onClick={() => addToFavorites(currentProductId)}>
+              <div className="add-favorite-button">Add to Your Favorites</div>
+              <FavoriteIcon />
+            </button>
+          </div>
+          {/* <button onClick={() => delFavorites(currentProductId)}>Remove from favorites -</button> */}
           {renderFavorites()}
         </div>
 
-        <div className="favorite-row">
-          <div className="favorite-prev">
-            <ArrowBackIosNewIcon fontSize="large" className="favorite-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)} />
-          </div>
-          <div className="favorite-next">
-            <ArrowForwardIosIcon fontSize="large" className="favorite-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)} />
-          </div>
-        </div>
 
         <br></br>
         <br></br>
       </div>
     </div>
-
   )
 }
 
