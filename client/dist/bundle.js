@@ -9,7 +9,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-<<<<<<< HEAD
 /***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
@@ -20,8 +19,6 @@ eval("function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? o
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js ***!
@@ -242,8 +239,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/base/TextareaAutosize/TextareaAutosize.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/@mui/base/TextareaAutosize/TextareaAutosize.js ***!
@@ -255,7 +250,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/base/Unstable_TrapFocus/Unstable_TrapFocus.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/@mui/base/Unstable_TrapFocus/Unstable_TrapFocus.js ***!
@@ -322,7 +316,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/@mui/icons-material/ArrowBackIosNew.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@mui/icons-material/ArrowBackIosNew.js ***!
@@ -400,8 +393,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/Backdrop/Backdrop.js":
 /*!*********************************************************!*\
   !*** ./node_modules/@mui/material/Backdrop/Backdrop.js ***!
@@ -413,8 +404,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/material/Button/Button.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/material/Button/Button.js ***!
@@ -624,7 +613,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/Fade/Fade.js":
 /*!*************************************************!*\
   !*** ./node_modules/@mui/material/Fade/Fade.js ***!
@@ -636,8 +624,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/material/FilledInput/FilledInput.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@mui/material/FilledInput/FilledInput.js ***!
@@ -924,7 +910,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/Modal/Modal.js":
 /*!***************************************************!*\
   !*** ./node_modules/@mui/material/Modal/Modal.js ***!
@@ -936,8 +921,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/material/NativeSelect/NativeSelectInput.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@mui/material/NativeSelect/NativeSelectInput.js ***!
@@ -1070,7 +1053,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/SvgIcon/SvgIcon.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@mui/material/SvgIcon/SvgIcon.js ***!
@@ -1093,8 +1075,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/material/TextField/TextField.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@mui/material/TextField/TextField.js ***!
@@ -1139,7 +1119,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/colors/blue.js":
 /*!***************************************************!*\
   !*** ./node_modules/@mui/material/colors/blue.js ***!
@@ -1228,8 +1207,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/material/internal/svg-icons/ArrowDropDown.js":
 /*!************************************************************************!*\
   !*** ./node_modules/@mui/material/internal/svg-icons/ArrowDropDown.js ***!
@@ -1241,7 +1218,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/styles/createMixins.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@mui/material/styles/createMixins.js ***!
@@ -1385,7 +1361,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/@mui/material/utils/createChainedFunction.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@mui/material/utils/createChainedFunction.js ***!
@@ -1397,8 +1372,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/utils/createSvgIcon.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@mui/material/utils/createSvgIcon.js ***!
@@ -1421,7 +1394,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/@mui/material/utils/deprecatedPropType.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@mui/material/utils/deprecatedPropType.js ***!
@@ -1433,15 +1405,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/utils/index.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/utils/index.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"capitalize\": () => (/* reexport safe */ _capitalize__WEBPACK_IMPORTED_MODULE_0__[\"default\"]),\n/* harmony export */   \"createChainedFunction\": () => (/* reexport safe */ _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__[\"default\"]),\n/* harmony export */   \"createSvgIcon\": () => (/* reexport safe */ _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__[\"default\"]),\n/* harmony export */   \"debounce\": () => (/* reexport safe */ _debounce__WEBPACK_IMPORTED_MODULE_3__[\"default\"]),\n/* harmony export */   \"deprecatedPropType\": () => (/* reexport safe */ _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__[\"default\"]),\n/* harmony export */   \"isMuiElement\": () => (/* reexport safe */ _isMuiElement__WEBPACK_IMPORTED_MODULE_5__[\"default\"]),\n/* harmony export */   \"ownerDocument\": () => (/* reexport safe */ _ownerDocument__WEBPACK_IMPORTED_MODULE_6__[\"default\"]),\n/* harmony export */   \"ownerWindow\": () => (/* reexport safe */ _ownerWindow__WEBPACK_IMPORTED_MODULE_7__[\"default\"]),\n/* harmony export */   \"requirePropFactory\": () => (/* reexport safe */ _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__[\"default\"]),\n/* harmony export */   \"setRef\": () => (/* reexport safe */ _setRef__WEBPACK_IMPORTED_MODULE_9__[\"default\"]),\n/* harmony export */   \"unstable_useEnhancedEffect\": () => (/* reexport safe */ _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__[\"default\"]),\n/* harmony export */   \"unstable_useId\": () => (/* reexport safe */ _useId__WEBPACK_IMPORTED_MODULE_11__[\"default\"]),\n/* harmony export */   \"unsupportedProp\": () => (/* reexport safe */ _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__[\"default\"]),\n/* harmony export */   \"useControlled\": () => (/* reexport safe */ _useControlled__WEBPACK_IMPORTED_MODULE_13__[\"default\"]),\n/* harmony export */   \"useEventCallback\": () => (/* reexport safe */ _useEventCallback__WEBPACK_IMPORTED_MODULE_14__[\"default\"]),\n/* harmony export */   \"useForkRef\": () => (/* reexport safe */ _useForkRef__WEBPACK_IMPORTED_MODULE_15__[\"default\"]),\n/* harmony export */   \"useIsFocusVisible\": () => (/* reexport safe */ _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__[\"default\"]),\n/* harmony export */   \"unstable_ClassNameGenerator\": () => (/* reexport safe */ _mui_base__WEBPACK_IMPORTED_MODULE_17__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./capitalize */ \"./node_modules/@mui/material/utils/capitalize.js\");\n/* harmony import */ var _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createChainedFunction */ \"./node_modules/@mui/material/utils/createChainedFunction.js\");\n/* harmony import */ var _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createSvgIcon */ \"./node_modules/@mui/material/utils/createSvgIcon.js\");\n/* harmony import */ var _debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./debounce */ \"./node_modules/@mui/material/utils/debounce.js\");\n/* harmony import */ var _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./deprecatedPropType */ \"./node_modules/@mui/material/utils/deprecatedPropType.js\");\n/* harmony import */ var _isMuiElement__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isMuiElement */ \"./node_modules/@mui/material/utils/isMuiElement.js\");\n/* harmony import */ var _ownerDocument__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ownerDocument */ \"./node_modules/@mui/material/utils/ownerDocument.js\");\n/* harmony import */ var _ownerWindow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ownerWindow */ \"./node_modules/@mui/material/utils/ownerWindow.js\");\n/* harmony import */ var _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./requirePropFactory */ \"./node_modules/@mui/material/utils/requirePropFactory.js\");\n/* harmony import */ var _setRef__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setRef */ \"./node_modules/@mui/material/utils/setRef.js\");\n/* harmony import */ var _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./useEnhancedEffect */ \"./node_modules/@mui/material/utils/useEnhancedEffect.js\");\n/* harmony import */ var _useId__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./useId */ \"./node_modules/@mui/material/utils/useId.js\");\n/* harmony import */ var _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./unsupportedProp */ \"./node_modules/@mui/material/utils/unsupportedProp.js\");\n/* harmony import */ var _useControlled__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./useControlled */ \"./node_modules/@mui/material/utils/useControlled.js\");\n/* harmony import */ var _useEventCallback__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./useEventCallback */ \"./node_modules/@mui/material/utils/useEventCallback.js\");\n/* harmony import */ var _useForkRef__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./useForkRef */ \"./node_modules/@mui/material/utils/useForkRef.js\");\n/* harmony import */ var _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./useIsFocusVisible */ \"./node_modules/@mui/material/utils/useIsFocusVisible.js\");\n/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @mui/base */ \"./node_modules/@mui/base/generateUtilityClass/ClassNameGenerator.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack://fec2/./node_modules/@mui/material/utils/index.js?");
-=======
 /***/ "./node_modules/@mui/material/utils/getScrollbarSize.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@mui/material/utils/getScrollbarSize.js ***!
@@ -1450,7 +1413,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/getScrollbarSize.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://fec2/./node_modules/@mui/material/utils/getScrollbarSize.js?");
->>>>>>> QARebase
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/utils/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@mui/material/utils/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"capitalize\": () => (/* reexport safe */ _capitalize__WEBPACK_IMPORTED_MODULE_0__[\"default\"]),\n/* harmony export */   \"createChainedFunction\": () => (/* reexport safe */ _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__[\"default\"]),\n/* harmony export */   \"createSvgIcon\": () => (/* reexport safe */ _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__[\"default\"]),\n/* harmony export */   \"debounce\": () => (/* reexport safe */ _debounce__WEBPACK_IMPORTED_MODULE_3__[\"default\"]),\n/* harmony export */   \"deprecatedPropType\": () => (/* reexport safe */ _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__[\"default\"]),\n/* harmony export */   \"isMuiElement\": () => (/* reexport safe */ _isMuiElement__WEBPACK_IMPORTED_MODULE_5__[\"default\"]),\n/* harmony export */   \"ownerDocument\": () => (/* reexport safe */ _ownerDocument__WEBPACK_IMPORTED_MODULE_6__[\"default\"]),\n/* harmony export */   \"ownerWindow\": () => (/* reexport safe */ _ownerWindow__WEBPACK_IMPORTED_MODULE_7__[\"default\"]),\n/* harmony export */   \"requirePropFactory\": () => (/* reexport safe */ _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__[\"default\"]),\n/* harmony export */   \"setRef\": () => (/* reexport safe */ _setRef__WEBPACK_IMPORTED_MODULE_9__[\"default\"]),\n/* harmony export */   \"unstable_useEnhancedEffect\": () => (/* reexport safe */ _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__[\"default\"]),\n/* harmony export */   \"unstable_useId\": () => (/* reexport safe */ _useId__WEBPACK_IMPORTED_MODULE_11__[\"default\"]),\n/* harmony export */   \"unsupportedProp\": () => (/* reexport safe */ _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__[\"default\"]),\n/* harmony export */   \"useControlled\": () => (/* reexport safe */ _useControlled__WEBPACK_IMPORTED_MODULE_13__[\"default\"]),\n/* harmony export */   \"useEventCallback\": () => (/* reexport safe */ _useEventCallback__WEBPACK_IMPORTED_MODULE_14__[\"default\"]),\n/* harmony export */   \"useForkRef\": () => (/* reexport safe */ _useForkRef__WEBPACK_IMPORTED_MODULE_15__[\"default\"]),\n/* harmony export */   \"useIsFocusVisible\": () => (/* reexport safe */ _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__[\"default\"]),\n/* harmony export */   \"unstable_ClassNameGenerator\": () => (/* reexport safe */ _mui_base__WEBPACK_IMPORTED_MODULE_17__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./capitalize */ \"./node_modules/@mui/material/utils/capitalize.js\");\n/* harmony import */ var _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createChainedFunction */ \"./node_modules/@mui/material/utils/createChainedFunction.js\");\n/* harmony import */ var _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createSvgIcon */ \"./node_modules/@mui/material/utils/createSvgIcon.js\");\n/* harmony import */ var _debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./debounce */ \"./node_modules/@mui/material/utils/debounce.js\");\n/* harmony import */ var _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./deprecatedPropType */ \"./node_modules/@mui/material/utils/deprecatedPropType.js\");\n/* harmony import */ var _isMuiElement__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isMuiElement */ \"./node_modules/@mui/material/utils/isMuiElement.js\");\n/* harmony import */ var _ownerDocument__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ownerDocument */ \"./node_modules/@mui/material/utils/ownerDocument.js\");\n/* harmony import */ var _ownerWindow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ownerWindow */ \"./node_modules/@mui/material/utils/ownerWindow.js\");\n/* harmony import */ var _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./requirePropFactory */ \"./node_modules/@mui/material/utils/requirePropFactory.js\");\n/* harmony import */ var _setRef__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setRef */ \"./node_modules/@mui/material/utils/setRef.js\");\n/* harmony import */ var _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./useEnhancedEffect */ \"./node_modules/@mui/material/utils/useEnhancedEffect.js\");\n/* harmony import */ var _useId__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./useId */ \"./node_modules/@mui/material/utils/useId.js\");\n/* harmony import */ var _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./unsupportedProp */ \"./node_modules/@mui/material/utils/unsupportedProp.js\");\n/* harmony import */ var _useControlled__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./useControlled */ \"./node_modules/@mui/material/utils/useControlled.js\");\n/* harmony import */ var _useEventCallback__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./useEventCallback */ \"./node_modules/@mui/material/utils/useEventCallback.js\");\n/* harmony import */ var _useForkRef__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./useForkRef */ \"./node_modules/@mui/material/utils/useForkRef.js\");\n/* harmony import */ var _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./useIsFocusVisible */ \"./node_modules/@mui/material/utils/useIsFocusVisible.js\");\n/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @mui/base */ \"./node_modules/@mui/base/generateUtilityClass/ClassNameGenerator.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack://fec2/./node_modules/@mui/material/utils/index.js?");
 
 /***/ }),
 
@@ -1487,7 +1460,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/@mui/material/utils/requirePropFactory.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@mui/material/utils/requirePropFactory.js ***!
@@ -1521,8 +1493,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/utils/useControlled.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@mui/material/utils/useControlled.js ***!
@@ -1567,7 +1537,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/@mui/material/utils/useId.js":
 /*!***************************************************!*\
   !*** ./node_modules/@mui/material/utils/useId.js ***!
@@ -1579,8 +1548,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/@mui/material/utils/useIsFocusVisible.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@mui/material/utils/useIsFocusVisible.js ***!
@@ -1900,8 +1867,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js ***!
@@ -1913,7 +1878,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/system/esm/styleFunctionSx/styleFunctionSx.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/@mui/system/esm/styleFunctionSx/styleFunctionSx.js ***!
@@ -2046,7 +2010,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/@mui/utils/esm/deprecatedPropType.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@mui/utils/esm/deprecatedPropType.js ***!
@@ -2058,8 +2021,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/@mui/utils/esm/elementAcceptingRef.js":
 /*!************************************************************!*\
   !*** ./node_modules/@mui/utils/esm/elementAcceptingRef.js ***!
@@ -2071,8 +2032,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/utils/esm/elementTypeAcceptingRef.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@mui/utils/esm/elementTypeAcceptingRef.js ***!
@@ -2084,7 +2043,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/utils/esm/exactProp.js":
 /*!**************************************************!*\
   !*** ./node_modules/@mui/utils/esm/exactProp.js ***!
@@ -2118,8 +2076,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/utils/esm/integerPropType.js":
 /*!********************************************************!*\
   !*** ./node_modules/@mui/utils/esm/integerPropType.js ***!
@@ -2131,7 +2087,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/@mui/utils/esm/isMuiElement.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/utils/esm/isMuiElement.js ***!
@@ -2165,16 +2120,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./node_modules/@mui/utils/esm/requirePropFactory.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/requirePropFactory.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ requirePropFactory)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n\nfunction requirePropFactory(componentNameInError, Component) {\n  if (false) {} // eslint-disable-next-line react/forbid-foreign-prop-types\n\n\n  const prevPropTypes = Component ? (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({}, Component.propTypes) : null;\n\n  const requireProp = requiredProp => (props, propName, componentName, location, propFullName, ...args) => {\n    const propFullNameSafe = propFullName || propName;\n    const defaultTypeChecker = prevPropTypes == null ? void 0 : prevPropTypes[propFullNameSafe];\n\n    if (defaultTypeChecker) {\n      const typeCheckerResult = defaultTypeChecker(props, propName, componentName, location, propFullName, ...args);\n\n      if (typeCheckerResult) {\n        return typeCheckerResult;\n      }\n    }\n\n    if (typeof props[propName] !== 'undefined' && !props[requiredProp]) {\n      return new Error(`The prop \\`${propFullNameSafe}\\` of ` + `\\`${componentNameInError}\\` can only be used together with the \\`${requiredProp}\\` prop.`);\n    }\n\n    return null;\n  };\n\n  return requireProp;\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@mui/utils/esm/requirePropFactory.js?");
-=======
 /***/ "./node_modules/@mui/utils/esm/refType.js":
 /*!************************************************!*\
   !*** ./node_modules/@mui/utils/esm/refType.js ***!
@@ -2183,7 +2128,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);\n\nconst refType = prop_types__WEBPACK_IMPORTED_MODULE_0___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_0___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_0___default().object)]);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (refType);\n\n//# sourceURL=webpack://fec2/./node_modules/@mui/utils/esm/refType.js?");
->>>>>>> QARebase
+
+/***/ }),
+
+/***/ "./node_modules/@mui/utils/esm/requirePropFactory.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@mui/utils/esm/requirePropFactory.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ requirePropFactory)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n\nfunction requirePropFactory(componentNameInError, Component) {\n  if (false) {} // eslint-disable-next-line react/forbid-foreign-prop-types\n\n\n  const prevPropTypes = Component ? (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({}, Component.propTypes) : null;\n\n  const requireProp = requiredProp => (props, propName, componentName, location, propFullName, ...args) => {\n    const propFullNameSafe = propFullName || propName;\n    const defaultTypeChecker = prevPropTypes == null ? void 0 : prevPropTypes[propFullNameSafe];\n\n    if (defaultTypeChecker) {\n      const typeCheckerResult = defaultTypeChecker(props, propName, componentName, location, propFullName, ...args);\n\n      if (typeCheckerResult) {\n        return typeCheckerResult;\n      }\n    }\n\n    if (typeof props[propName] !== 'undefined' && !props[requiredProp]) {\n      return new Error(`The prop \\`${propFullNameSafe}\\` of ` + `\\`${componentNameInError}\\` can only be used together with the \\`${requiredProp}\\` prop.`);\n    }\n\n    return null;\n  };\n\n  return requireProp;\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@mui/utils/esm/requirePropFactory.js?");
 
 /***/ }),
 
@@ -2209,7 +2164,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/@mui/utils/esm/unsupportedProp.js":
 /*!********************************************************!*\
   !*** ./node_modules/@mui/utils/esm/unsupportedProp.js ***!
@@ -2221,8 +2175,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/@mui/utils/esm/useControlled.js":
 /*!******************************************************!*\
   !*** ./node_modules/@mui/utils/esm/useControlled.js ***!
@@ -2289,7 +2241,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/arrow-keys-react/lib/ArrowKeysReact.js":
 /*!*************************************************************!*\
   !*** ./node_modules/arrow-keys-react/lib/ArrowKeysReact.js ***!
@@ -2311,8 +2262,6 @@ eval("module.exports = __webpack_require__(/*! ./lib/ArrowKeysReact */ \"./node_
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -2637,7 +2586,6 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"AppContext\": () => (/* binding */ AppContext),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _NavBar_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavBar.jsx */ \"./client/src/NavBar.jsx\");\n/* harmony import */ var _Overview_Product_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Overview/Product.jsx */ \"./client/src/Overview/Product.jsx\");\n/* harmony import */ var _Reviews_ReviewList_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Reviews/ReviewList.jsx */ \"./client/src/Reviews/ReviewList.jsx\");\n/* harmony import */ var _Related_RelatedList_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Related/RelatedList.jsx */ \"./client/src/Related/RelatedList.jsx\");\n/* harmony import */ var _Questions_QAList_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Questions/QAList.jsx */ \"./client/src/Questions/QAList.jsx\");\n\n\n\n\n\n\n\n\n\nvar AppContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();\n\nvar App = function App() {\n  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),\n      product_id = _useParams.product_id;\n\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState, 2),\n      productDetails = _useState2[0],\n      setProductDetails = _useState2[1];\n\n  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),\n      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState3, 2),\n      reviewMetaData = _useState4[0],\n      setReviewMetaData = _useState4[1];\n\n  function getProductDetails() {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/products/\".concat(product_id)).then(function (_ref) {\n      var data = _ref.data;\n      return setProductDetails(data);\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  function getProductMetaData() {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/products/\".concat(product_id, \"/reviews/meta\")).then(function (_ref2) {\n      var data = _ref2.data;\n      return setReviewMetaData(data);\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {\n    getProductDetails();\n    getProductMetaData();\n  }, [product_id]);\n  if (!reviewMetaData || !productDetails) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"h2\", null, \"Loading\");\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(AppContext.Provider, {\n    value: {\n      productId: product_id,\n      reviewMetaData: reviewMetaData,\n      productDetails: productDetails\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_NavBar_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"hr\", {\n    id: \"nav-break\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Overview_Product_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Related_RelatedList_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Questions_QAList_jsx__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Reviews_ReviewList_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null)));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://fec2/./client/src/App.jsx?");
 
 /***/ }),
@@ -2683,9 +2631,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Product_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product.jsx */ \"./client/src/Overview/Product.jsx\");\n/* harmony import */ var _resizeWidth_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./resizeWidth.jsx */ \"./client/src/Overview/resizeWidth.jsx\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Modal/Modal.js\");\n/* harmony import */ var _mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/ArrowBackIosNew */ \"./node_modules/@mui/icons-material/ArrowBackIosNew.js\");\n/* harmony import */ var _mui_icons_material_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/icons-material/ArrowForwardIos */ \"./node_modules/@mui/icons-material/ArrowForwardIos.js\");\n/* harmony import */ var arrow_keys_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! arrow-keys-react */ \"./node_modules/arrow-keys-react/main.js\");\n\n\n\n\n\n\n\n\n\n\nvar Photos = function Photos() {\n  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_Product_jsx__WEBPACK_IMPORTED_MODULE_3__.StyleContext),\n      currentStyle = _useContext.currentStyle;\n\n  var _resizeWidth = (0,_resizeWidth_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(),\n      width = _resizeWidth.width;\n\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(currentStyle.photos),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(_useState, 2),\n      photos = _useState2[0],\n      setPhotos = _useState2[1];\n\n  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(0),\n      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(_useState3, 2),\n      currentPhotoIdx = _useState4[0],\n      setCurrentPhotoIdx = _useState4[1];\n\n  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),\n      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(_useState5, 2),\n      openModal = _useState6[0],\n      setOpenModal = _useState6[1];\n\n  var toggleModal = function toggleModal() {\n    return setOpenModal(!openModal);\n  };\n\n  var wideViewToModal = function wideViewToModal(i) {\n    photoScroll.click(i);\n    toggleModal();\n  }; // image gallery navigation functions\n\n\n  var photoScroll = {\n    right: function right() {\n      if (currentPhotoIdx < photos.length - 1) setCurrentPhotoIdx(currentPhotoIdx + 1);\n    },\n    left: function left() {\n      if (currentPhotoIdx > 0) setCurrentPhotoIdx(currentPhotoIdx - 1);\n    },\n    click: function click(i) {\n      setCurrentPhotoIdx(i);\n    }\n  };\n  arrow_keys_react__WEBPACK_IMPORTED_MODULE_5__[\"default\"].config({\n    left: photoScroll.left,\n    right: photoScroll.right\n  });\n  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {\n    setPhotos(currentStyle.photos);\n    setCurrentPhotoIdx(0);\n  }, [currentStyle]);\n\n  var leftArrow = function leftArrow(className) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n      fontSize: \"large\",\n      className: className,\n      color: currentPhotoIdx ? \"primary\" : \"disabled\",\n      onClick: photoScroll.left\n    });\n  };\n\n  var rightArrow = function rightArrow(className) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_mui_icons_material_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n      fontSize: \"large\",\n      className: className,\n      color: currentPhotoIdx === photos.length - 1 ? \"disabled\" : \"primary\",\n      onClick: photoScroll.right\n    });\n  };\n\n  var renderThumbnails = function renderThumbnails() {\n    return photos.map(function (photo, index) {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"img\", {\n        src: photo.thumbnail_url,\n        key: index,\n        alt: \"\".concat(index),\n        className: \"expanded-view-thumbnail\",\n        onClick: function onClick() {\n          return photoScroll.click(index);\n        }\n      });\n    });\n  };\n\n  var renderWideView = function renderWideView() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", {\n      className: \"images-gallery-wide-view\"\n    }, photos.map(function (photo, index) {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"img\", {\n        src: photo.url,\n        key: index,\n        alt: \"\".concat(index),\n        className: \"full-image-wide-view\",\n        onClick: function onClick() {\n          return wideViewToModal(index);\n        }\n      });\n    }));\n  };\n\n  var renderNarrowView = function renderNarrowView() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({\n      className: \"images-gallery-narrow-view\"\n    }, arrow_keys_react__WEBPACK_IMPORTED_MODULE_5__[\"default\"].events, {\n      tabIndex: \"1\"\n    }), leftArrow(\"left-arrow-narrow-view\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"img\", {\n      src: photos[currentPhotoIdx].url,\n      className: \"image-narrow-view-main\",\n      alt: currentStyle.name,\n      onClick: toggleModal\n    }), rightArrow(\"right-arrow-narrow-view\"));\n  };\n\n  var renderModal = function renderModal() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({\n      className: \"expanded-view\"\n    }, arrow_keys_react__WEBPACK_IMPORTED_MODULE_5__[\"default\"].events, {\n      tabIndex: \"1\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__[\"default\"], {\n      open: openModal,\n      onClose: toggleModal,\n      className: \"img-gallery-modal\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", {\n      className: \"expanded-view-window\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", {\n      className: \"expanded-main-photo-section\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"button\", {\n      style: {\n        visibility: \"hidden\"\n      },\n      className: \"expanded-view-exit-btn\"\n    }, \"X\"), leftArrow(\"expanded-scroller-arrow expanded-view-left-arrow\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"img\", {\n      src: photos[currentPhotoIdx].url,\n      alt: currentStyle.name,\n      className: \"expanded-display-photo\"\n    }), rightArrow(\"expanded-scroller-arrow expanded-view-right-arrow\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"button\", {\n      onClick: toggleModal,\n      className: \"expanded-view-exit-btn\"\n    }, \"X\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", {\n      className: \"expanded-photos-scroller\"\n    }, renderThumbnails()))));\n  };\n\n  if (!Object.keys(currentStyle).length || !photos.length) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"p\", null, \"Loading...\");\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", {\n    className: \"image-gallery\"\n  }, renderModal(), width > 959 ? renderWideView() : renderNarrowView());\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Photos);\n\n//# sourceURL=webpack://fec2/./client/src/Overview/Photos.jsx?");
-=======
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"AppContext\": () => (/* binding */ AppContext),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _Overview_Product_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Overview/Product.jsx */ \"./client/src/Overview/Product.jsx\");\n/* harmony import */ var _Reviews_ReviewList_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reviews/ReviewList.jsx */ \"./client/src/Reviews/ReviewList.jsx\");\n/* harmony import */ var _Related_RelatedList_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Related/RelatedList.jsx */ \"./client/src/Related/RelatedList.jsx\");\n/* harmony import */ var _Questions_QAList_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Questions/QAList.jsx */ \"./client/src/Questions/QAList.jsx\");\n\n\n\n\n\n\n\n\nvar AppContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();\n\nvar App = function App() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState, 2),\n      productId = _useState2[0],\n      setProductId = _useState2[1];\n\n  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({}),\n      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState3, 2),\n      productDetails = _useState4[0],\n      setProductDetails = _useState4[1];\n\n  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),\n      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState5, 2),\n      reviewMetaData = _useState6[0],\n      setReviewMetaData = _useState6[1];\n\n  function getRandomProductId() {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/products').then(function (_ref) {\n      var data = _ref.data;\n      var ids = data.map(function (product) {\n        return product.id;\n      });\n      setProductId(ids[Math.floor(Math.random() * ids.length)]);\n    })[\"catch\"](function (err) {\n      return console.error('Network error: ', err);\n    });\n  }\n\n  function getProductDetails() {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/products/\".concat(productId)).then(function (_ref2) {\n      var data = _ref2.data;\n      return setProductDetails(data);\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  function getProductMetaData() {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/products/\".concat(productId, \"/reviews/meta\")).then(function (_ref3) {\n      var data = _ref3.data;\n      return setReviewMetaData(data);\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(getRandomProductId, []);\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {\n    if (productId) {\n      getProductDetails();\n      getProductMetaData();\n    }\n  }, [productId]);\n  if (!productId) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"h2\", null, \"Loading\");\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(AppContext.Provider, {\n    value: {\n      productId: productId,\n      setProductId: setProductId,\n      reviewMetaData: reviewMetaData,\n      productDetails: productDetails\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"nav\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"h1\", null, \"FEC project\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"p\", null, \"-------------Navigation Bar-------------\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Overview_Product_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Related_RelatedList_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Questions_QAList_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Reviews_ReviewList_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null)));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://fec2/./client/src/App.jsx?");
->>>>>>> QARebase
 
 /***/ }),
 
@@ -2696,7 +2641,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"StyleContext\": () => (/* binding */ StyleContext),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ \"./node_modules/@babel/runtime/helpers/esm/defineProperty.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../App.jsx */ \"./client/src/App.jsx\");\n/* harmony import */ var _Photos_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Photos.jsx */ \"./client/src/Overview/Photos.jsx\");\n/* harmony import */ var _AllDetails_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AllDetails.jsx */ \"./client/src/Overview/AllDetails.jsx\");\n\n\n\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }\n\n\n\n\n\n\n\nvar StyleContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createContext();\n\nvar styleReducer = function styleReducer(state, action) {\n  switch (action.type) {\n    case 'switchCurrentStyle':\n      return _objectSpread(_objectSpread({}, state), {}, {\n        currentStyle: state.allStyles[action.payload.id]\n      });\n\n    case 'newProduct':\n      return {\n        allStyles: action.payload.allStyles,\n        currentStyle: action.payload.currentStyle\n      };\n\n    default:\n      return state;\n  }\n};\n\nvar Product = function Product() {\n  var _useReducer = (0,react__WEBPACK_IMPORTED_MODULE_2__.useReducer)(styleReducer, {\n    allStyles: {},\n    currentStyle: {}\n  }),\n      _useReducer2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useReducer, 2),\n      state = _useReducer2[0],\n      dispatch = _useReducer2[1];\n\n  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_App_jsx__WEBPACK_IMPORTED_MODULE_4__.AppContext),\n      productId = _useContext.productId;\n\n  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useParams)(),\n      style_id = _useParams.style_id;\n\n  function getStyles(product_id) {\n    axios__WEBPACK_IMPORTED_MODULE_3___default().get(\"/api/products/\".concat(product_id, \"/styles\")).then(function (_ref) {\n      var data = _ref.data;\n      var styleObj = {};\n      var defaultStyle = data.results[0];\n      data.results.forEach(function (style) {\n        styleObj[style.style_id] = style;\n        if (style['default?']) defaultStyle = style;\n      });\n      dispatch({\n        type: 'newProduct',\n        payload: {\n          allStyles: styleObj,\n          currentStyle: style_id ? styleObj[style_id] : defaultStyle // check later if ternary is necessary\n\n        }\n      });\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {\n    getStyles(productId);\n  }, [productId]);\n\n  if (!state.currentStyle || !Object.keys(state.currentStyle).length) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"h3\", null, \"Loading...\");\n  } else {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(StyleContext.Provider, {\n      value: {\n        allStyles: state.allStyles,\n        currentStyle: state.currentStyle,\n        dispatch: dispatch\n      }\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(\"div\", {\n      className: \"product-overview\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_Photos_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_AllDetails_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null)));\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Product);\n\n//# sourceURL=webpack://fec2/./client/src/Overview/Product.jsx?");
 
 /***/ }),
@@ -2720,9 +2664,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ resizeWidth)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction resizeWidth() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(window.innerWidth),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState, 2),\n      width = _useState2[0],\n      setWidth = _useState2[1];\n\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {\n    var handleWindowResize = function handleWindowResize() {\n      return setWidth(window.innerWidth);\n    };\n\n    window.addEventListener('resize', handleWindowResize);\n    return function () {\n      return window.removeEventListener('resize', handleWindowResize);\n    };\n  }, []);\n  return {\n    width: width\n  };\n}\n\n//# sourceURL=webpack://fec2/./client/src/Overview/resizeWidth.jsx?");
-=======
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Product = function Product() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Product Overview\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Product);\n\n//# sourceURL=webpack://fec2/./client/src/Overview/Product.jsx?");
->>>>>>> QARebase
 
 /***/ }),
 
@@ -2766,9 +2707,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar QAList = function QAList() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Questions and Answers\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QAList);\n\n//# sourceURL=webpack://fec2/./client/src/Questions/QAList.jsx?");
-=======
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Search_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Search.jsx */ \"./client/src/Questions/Search.jsx\");\n/* harmony import */ var _QAItem_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QAItem.jsx */ \"./client/src/Questions/QAItem.jsx\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../App.jsx */ \"./client/src/App.jsx\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _QuestionForm_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./QuestionForm.jsx */ \"./client/src/Questions/QuestionForm.jsx\");\n\n\n\n\n\n\n\n\n\n\nvar QAList = function QAList() {\n  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_App_jsx__WEBPACK_IMPORTED_MODULE_4__.AppContext),\n      productId = _useContext.productId,\n      productDetails = _useContext.productDetails;\n\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState, 2),\n      questions = _useState2[0],\n      setQuestions = _useState2[1];\n\n  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(2),\n      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState3, 2),\n      count = _useState4[0],\n      setCount = _useState4[1];\n\n  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),\n      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState5, 2),\n      totalQuestions = _useState6[0],\n      setTotalQuestions = _useState6[1];\n\n  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),\n      _useState8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState7, 2),\n      questionAdded = _useState8[0],\n      setQuestionAdded = _useState8[1];\n\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {\n    getQuestions();\n  }, [productId, count, questionAdded]);\n\n  var getQuestions = function getQuestions() {\n    axios__WEBPACK_IMPORTED_MODULE_5___default().get(\"/api/products/\".concat(productId, \"/qa/questions\"), {\n      params: {\n        product_id: productId,\n        count: 20\n      }\n    }).then(function (res) {\n      var sortedQuestions = res.data.results.sort(function (a, b) {\n        return b.helpfulness - a.helpfulness;\n      });\n      setTotalQuestions(sortedQuestions.length);\n      setQuestions(sortedQuestions.splice(0, count));\n      setQuestionAdded(false);\n    })[\"catch\"](function (err) {\n      return console.log(err);\n    });\n  };\n\n  var getMoreQuestions = function getMoreQuestions() {\n    setCount(count += 2);\n  };\n\n  var searchQuestions = function searchQuestions(term) {\n    if (term.length >= 3) {\n      var filter = questions.filter(function (question) {\n        if (question.question_body.toLowerCase().includes(term.toLowerCase())) {\n          return question;\n        }\n      });\n      setQuestions(filter);\n      setTotalQuestions(filter.length);\n    } else {\n      getQuestions();\n      console.log('Need more than 3 characters');\n    }\n  };\n\n  var moreQuestionButton = function moreQuestionButton() {\n    if (totalQuestions <= 2) {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null);\n    }\n\n    if (count < totalQuestions) {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"button\", {\n        className: \"question-button\",\n        onClick: getMoreQuestions\n      }, \"More Questions\");\n    } else {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null);\n    }\n  };\n\n  var addedQuestion = function addedQuestion() {\n    setQuestionAdded(true);\n  };\n\n  var renderQuestions = function renderQuestions() {\n    if (questions.length === 0) {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_QuestionForm_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n        productId: productId,\n        productName: productDetails.name,\n        addedQuestion: addedQuestion\n      });\n    } else {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n        className: \"question-answer-list\"\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n        className: \"questions-list\"\n      }, questions.map(function (question) {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_QAItem_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n          question: question,\n          key: question.question_id,\n          getQuestions: getQuestions,\n          productId: productId,\n          productName: productDetails.name\n        });\n      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n        className: \"question-button-section\"\n      }, moreQuestionButton(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_QuestionForm_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n        productId: productId,\n        productName: productDetails.name,\n        addedQuestion: addedQuestion\n      })));\n    }\n  };\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"question-container\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"h2\", {\n    className: \"question-header\"\n  }, \"Questions and Answers\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Search_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    onSearch: searchQuestions\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null, renderQuestions()));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QAList);\n\n//# sourceURL=webpack://fec2/./client/src/Questions/QAList.jsx?");
 
 /***/ }),
@@ -2792,7 +2730,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Search = function Search(_ref) {\n  var onSearch = _ref.onSearch;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"search\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"text\",\n    className: \"search-input\",\n    onChange: function onChange(e) {\n      return onSearch(e.target.value);\n    },\n    placeholder: \"Have a question? Search for answers...\"\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);\n\n//# sourceURL=webpack://fec2/./client/src/Questions/Search.jsx?");
->>>>>>> QARebase
 
 /***/ }),
 
@@ -2846,7 +2783,6 @@ eval("// import React, { useState, useEffect } from 'react';\n// var Features = 
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _RelatedListCard_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RelatedListCard.jsx */ \"./client/src/Related/RelatedListCard.jsx\");\n/* harmony import */ var _FavoriteList_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FavoriteList.jsx */ \"./client/src/Related/FavoriteList.jsx\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../App.jsx */ \"./client/src/App.jsx\");\n/* harmony import */ var _mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/icons-material/ArrowBackIosNew */ \"./node_modules/@mui/icons-material/ArrowBackIosNew.js\");\n/* harmony import */ var _mui_icons_material_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/ArrowForwardIos */ \"./node_modules/@mui/icons-material/ArrowForwardIos.js\");\n\n\n\n\n\n\n\n\n\n\nvar RelatedList = function RelatedList() {\n  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_App_jsx__WEBPACK_IMPORTED_MODULE_5__.AppContext),\n      productId = _useContext.productId,\n      productDetails = _useContext.productDetails,\n      reviewMetaData = _useContext.reviewMetaData;\n\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState, 2),\n      relatedArr = _useState2[0],\n      updateRelated = _useState2[1];\n\n  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(productId),\n      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState3, 2),\n      currentProductId = _useState4[0],\n      updateCurrentId = _useState4[1];\n\n  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({\n    img: {}\n  }),\n      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState5, 2),\n      currentProductImg = _useState6[0],\n      updateCurrentProductImg = _useState6[1];\n\n  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(250),\n      _useState8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState7, 2),\n      carouselScrollOffset = _useState8[0],\n      setOffset = _useState8[1];\n\n  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),\n      _useState10 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState9, 2),\n      currentProductRating = _useState10[0],\n      setRating = _useState10[1];\n\n  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),\n      _useState12 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState11, 2),\n      resetCarousel = _useState12[0],\n      setCarousel = _useState12[1];\n\n  function getRelatedProducts(product_id) {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/products/\".concat(product_id, \"/related\")).then(function (_ref) {\n      var data = _ref.data;\n      return updateRelated(data);\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  function getCurrentProductImg(product_id) {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/products/\".concat(product_id, \"/styles\")).then(function (_ref2) {\n      var data = _ref2.data;\n      return updateCurrentProductImg(data.results[0].photos[0]);\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {\n    getRelatedProducts(productId);\n    getCurrentProductImg(productId);\n    calcAverageRating(reviewMetaData.ratings);\n  }, [productId]);\n\n  function calcAverageRating(obj) {\n    var avgRating = 0;\n    var totalRatings = 0;\n\n    for (var key in obj) {\n      var quant = parseInt(obj[key]);\n      var rating = parseInt(key);\n      avgRating += quant * rating;\n      totalRatings += quant;\n    }\n\n    avgRating = avgRating / totalRatings;\n    setRating(Math.ceil(avgRating / 0.25) * 0.25);\n  }\n\n  var relatedRef = react__WEBPACK_IMPORTED_MODULE_1__.useRef();\n\n  var scrollProductsLeft = function scrollProductsLeft(scrollOffset) {\n    relatedRef.current.scrollLeft -= 450;\n  };\n\n  var scrollProductsRight = function scrollProductsRight(scrollOffset) {\n    relatedRef.current.scrollLeft += 450;\n  };\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"related-wrapper\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"h3\", {\n    className: \"related-title\"\n  }, \"Recommended Products\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"related-row\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"related-next\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mui_icons_material_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    fontSize: \"large\",\n    className: \"related-scroll-right\",\n    onClick: function onClick() {\n      return scrollProductsRight(carouselScrollOffset);\n    }\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"related-prev\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mui_icons_material_ArrowBackIosNew__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    fontSize: \"large\",\n    className: \"related-scroll-left\",\n    onClick: function onClick() {\n      return scrollProductsLeft(carouselScrollOffset);\n    }\n  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"related-carousel\",\n    ref: relatedRef\n  }, relatedArr.map(function (relatedId, index) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_RelatedListCard_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n      relatedId: relatedId,\n      productId: productId,\n      currentProductDetails: productDetails,\n      currentProductImg: currentProductImg,\n      key: \"\".concat(index, \"-\").concat(relatedId)\n    });\n  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"favorites-wrapper\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_FavoriteList_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"], {\n    currentProductId: productId,\n    currentProductDetails: productDetails,\n    currentProductImg: currentProductImg,\n    currentProductRating: currentProductRating\n  })));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RelatedList);\n\n//# sourceURL=webpack://fec2/./client/src/Related/RelatedList.jsx?");
 
 /***/ }),
@@ -2859,9 +2795,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _ComparisonModal_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ComparisonModal.jsx */ \"./client/src/Related/ComparisonModal.jsx\");\n/* harmony import */ var _Features_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Features.jsx */ \"./client/src/Related/Features.jsx\");\n/* harmony import */ var _Features_jsx__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Features_jsx__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _Shared_AvgRating_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Shared/AvgRating.jsx */ \"./client/src/Shared/AvgRating.jsx\");\n/* harmony import */ var _mui_icons_material_StarBorder__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/StarBorder */ \"./node_modules/@mui/icons-material/StarBorder.js\");\n/* harmony import */ var _mui_material_Modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/Modal */ \"./node_modules/@mui/material/Modal/Modal.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/index.js\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../App.jsx */ \"./client/src/App.jsx\");\n\n\n\n\n\n\n\n\n\n\n\nvar RelatedListCard = function RelatedListCard(_ref) {\n  var relatedId = _ref.relatedId,\n      currentProductDetails = _ref.currentProductDetails,\n      currentProductImg = _ref.currentProductImg;\n\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({\n    info: {}\n  }),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState, 2),\n      relatedProduct = _useState2[0],\n      updateRelatedProduct = _useState2[1];\n\n  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({\n    img: {}\n  }),\n      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState3, 2),\n      relatedImgUrl = _useState4[0],\n      updateRelatedImgUrl = _useState4[1];\n\n  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({\n    sale: {}\n  }),\n      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState5, 2),\n      salePrice = _useState6[0],\n      updateSalePrice = _useState6[1];\n\n  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({\n    rating: {}\n  }),\n      _useState8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState7, 2),\n      rating = _useState8[0],\n      updateRating = _useState8[1];\n\n  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1),\n      _useState10 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState9, 2),\n      numberOfStyles = _useState10[0],\n      updateNumberOfStyles = _useState10[1];\n\n  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),\n      _useState12 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(_useState11, 2),\n      showModal = _useState12[0],\n      setShowModal = _useState12[1];\n\n  function getRelatedProductsInfo(relatedId) {\n    axios__WEBPACK_IMPORTED_MODULE_4___default().get(\"/api/products/\".concat(relatedId)).then(function (_ref2) {\n      var data = _ref2.data;\n      return updateRelatedProduct(data);\n    }).then(function () {\n      axios__WEBPACK_IMPORTED_MODULE_4___default().get(\"/api/products/\".concat(relatedId, \"/styles\")).then(function (_ref3) {\n        var data = _ref3.data;\n        var defaultStyle = data.results[0];\n\n        for (var i = 1; i < data.results.length; i++) {\n          if (data.results[i]['default?'] === true) {\n            defaultStyle = data.results[i];\n          }\n        }\n\n        updateRelatedImgUrl(defaultStyle.photos[0].thumbnail_url);\n        updateSalePrice(defaultStyle);\n        updateNumberOfStyles(data.results.length);\n      })[\"catch\"](function (err) {\n        return console.error(err);\n      });\n    }).then(function () {\n      axios__WEBPACK_IMPORTED_MODULE_4___default().get(\"/api/products/\".concat(relatedId, \"/reviews/meta\")).then(function (_ref4) {\n        var data = _ref4.data;\n        return updateRating(data.ratings);\n      })[\"catch\"](function (err) {\n        return console.error(err);\n      });\n    })[\"catch\"](function (err) {\n      return console.error(err);\n    });\n  }\n\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {\n    getRelatedProductsInfo(relatedId);\n  }, []);\n\n  var handleChange = function handleChange() {\n    setShowModal(!showModal);\n  };\n\n  function hasSalePrice() {\n    if (salePrice.sale_price === null) {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n        className: \"related-price\"\n      }, \"$\", salePrice.original_price));\n    } else {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n        className: \"related-price\",\n        style: {\n          textDecoration: \"line-through\",\n          fontWeight: '100'\n        }\n      }, \"$\", salePrice.original_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n        className: \"sale-price\",\n        style: {\n          color: 'RGBA(255,0,0,0.8)'\n        }\n      }, \"$\", salePrice.sale_price));\n    }\n  }\n\n  function numStyles() {\n    if (numberOfStyles === 1) {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, \"1 Style\");\n    } else {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, numberOfStyles, \" Styles\");\n    }\n  }\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"related-card\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {\n    to: \"/products/\".concat(relatedId, \"/\").concat(salePrice.style_id)\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"img\", {\n    src: relatedImgUrl,\n    alt: \"\",\n    className: \"related-product-image\"\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"related-avg-rating-title\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Shared_AvgRating_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"], {\n    metaDataRatings: rating\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"h2\", {\n    className: \"related-name\"\n  }, relatedProduct.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"h4\", {\n    className: \"related-category-styles\"\n  }, relatedProduct.category, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"br\", null), numStyles()), hasSalePrice(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mui_icons_material_StarBorder__WEBPACK_IMPORTED_MODULE_8__[\"default\"], {\n    className: \"related-comparison-open\",\n    onClick: handleChange\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_mui_material_Modal__WEBPACK_IMPORTED_MODULE_9__[\"default\"], {\n    open: showModal,\n    onClose: handleChange,\n    className: \"comparison-modal\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_ComparisonModal_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    relatedProduct: relatedProduct,\n    currentProduct: currentProductDetails,\n    relatedImg: relatedImgUrl,\n    currentProductImg: currentProductImg,\n    handleChange: handleChange\n  })));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RelatedListCard);\n\n//# sourceURL=webpack://fec2/./client/src/Related/RelatedListCard.jsx?");
-=======
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar RelatedList = function RelatedList() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Related Products List\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RelatedList);\n\n//# sourceURL=webpack://fec2/./client/src/Related/RelatedList.jsx?");
->>>>>>> QARebase
 
 /***/ }),
 
@@ -2905,7 +2838,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/index.js\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.jsx */ \"./client/src/App.jsx\");\n/* harmony import */ var _ScrollToTop_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ScrollToTop.jsx */ \"./client/src/ScrollToTop.jsx\");\n\n\n\n\n\n\n(0,react_dom__WEBPACK_IMPORTED_MODULE_2__.render)(\n/*#__PURE__*/\n// <App />,\nreact__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ScrollToTop_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {\n  exact: true,\n  path: \"/\",\n  element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Navigate, {\n    to: \"/products/42370\"\n  })\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {\n  path: \"/products/:product_id\",\n  element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null)\n}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {\n  path: \"/products/:product_id/:style_id\",\n  element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null)\n})))), document.getElementById('app'));\n\n//# sourceURL=webpack://fec2/./client/src/index.jsx?");
 
 /***/ }),
@@ -2929,53 +2861,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Action\": () => (/* binding */ r),\n/* harmony export */   \"createBrowserHistory\": () => (/* binding */ createBrowserHistory),\n/* harmony export */   \"createHashHistory\": () => (/* binding */ createHashHistory),\n/* harmony export */   \"createMemoryHistory\": () => (/* binding */ createMemoryHistory),\n/* harmony export */   \"createPath\": () => (/* binding */ I),\n/* harmony export */   \"parsePath\": () => (/* binding */ J)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\nvar r,B=r||(r={});B.Pop=\"POP\";B.Push=\"PUSH\";B.Replace=\"REPLACE\";var C= true?function(b){return Object.freeze(b)}:0;function D(b,h){if(!b){\"undefined\"!==typeof console&&console.warn(h);try{throw Error(h);}catch(e){}}}function E(b){b.preventDefault();b.returnValue=\"\"}\nfunction F(){var b=[];return{get length(){return b.length},push:function(h){b.push(h);return function(){b=b.filter(function(e){return e!==h})}},call:function(h){b.forEach(function(e){return e&&e(h)})}}}function H(){return Math.random().toString(36).substr(2,8)}function I(b){var h=b.pathname;h=void 0===h?\"/\":h;var e=b.search;e=void 0===e?\"\":e;b=b.hash;b=void 0===b?\"\":b;e&&\"?\"!==e&&(h+=\"?\"===e.charAt(0)?e:\"?\"+e);b&&\"#\"!==b&&(h+=\"#\"===b.charAt(0)?b:\"#\"+b);return h}\nfunction J(b){var h={};if(b){var e=b.indexOf(\"#\");0<=e&&(h.hash=b.substr(e),b=b.substr(0,e));e=b.indexOf(\"?\");0<=e&&(h.search=b.substr(e),b=b.substr(0,e));b&&(h.pathname=b)}return h}\nfunction createBrowserHistory(b){function h(){var c=p.location,a=m.state||{};return[a.idx,C({pathname:c.pathname,search:c.search,hash:c.hash,state:a.usr||null,key:a.key||\"default\"})]}function e(c){return\"string\"===typeof c?c:I(c)}function x(c,a){void 0===a&&(a=null);return C((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({pathname:q.pathname,hash:\"\",search:\"\"},\"string\"===typeof c?J(c):c,{state:a,key:H()}))}function z(c){t=c;c=h();v=c[0];q=c[1];d.call({action:t,location:q})}function A(c,a){function f(){A(c,a)}var l=r.Push,k=x(c,\na);if(!g.length||(g.call({action:l,location:k,retry:f}),!1)){var n=[{usr:k.state,key:k.key,idx:v+1},e(k)];k=n[0];n=n[1];try{m.pushState(k,\"\",n)}catch(G){p.location.assign(n)}z(l)}}function y(c,a){function f(){y(c,a)}var l=r.Replace,k=x(c,a);g.length&&(g.call({action:l,location:k,retry:f}),1)||(k=[{usr:k.state,key:k.key,idx:v},e(k)],m.replaceState(k[0],\"\",k[1]),z(l))}function w(c){m.go(c)}void 0===b&&(b={});b=b.window;var p=void 0===b?document.defaultView:b,m=p.history,u=null;p.addEventListener(\"popstate\",\nfunction(){if(u)g.call(u),u=null;else{var c=r.Pop,a=h(),f=a[0];a=a[1];if(g.length)if(null!=f){var l=v-f;l&&(u={action:c,location:a,retry:function(){w(-1*l)}},w(l))}else true?D(!1,\"You are trying to block a POP navigation to a location that was not created by the history library. The block will fail silently in production, but in general you should do all navigation with the history library (instead of using window.history.pushState directly) to avoid this situation.\"):\n0;else z(c)}});var t=r.Pop;b=h();var v=b[0],q=b[1],d=F(),g=F();null==v&&(v=0,m.replaceState((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({},m.state,{idx:v}),\"\"));return{get action(){return t},get location(){return q},createHref:e,push:A,replace:y,go:w,back:function(){w(-1)},forward:function(){w(1)},listen:function(c){return d.push(c)},block:function(c){var a=g.push(c);1===g.length&&p.addEventListener(\"beforeunload\",E);return function(){a();g.length||p.removeEventListener(\"beforeunload\",E)}}}};\nfunction createHashHistory(b){function h(){var a=J(m.location.hash.substr(1)),f=a.pathname,l=a.search;a=a.hash;var k=u.state||{};return[k.idx,C({pathname:void 0===f?\"/\":f,search:void 0===l?\"\":l,hash:void 0===a?\"\":a,state:k.usr||null,key:k.key||\"default\"})]}function e(){if(t)c.call(t),t=null;else{var a=r.Pop,f=h(),l=f[0];f=f[1];if(c.length)if(null!=l){var k=q-l;k&&(t={action:a,location:f,retry:function(){p(-1*k)}},p(k))}else true?D(!1,\"You are trying to block a POP navigation to a location that was not created by the history library. The block will fail silently in production, but in general you should do all navigation with the history library (instead of using window.history.pushState directly) to avoid this situation.\"):\n0;else A(a)}}function x(a){var f=document.querySelector(\"base\"),l=\"\";f&&f.getAttribute(\"href\")&&(f=m.location.href,l=f.indexOf(\"#\"),l=-1===l?f:f.slice(0,l));return l+\"#\"+(\"string\"===typeof a?a:I(a))}function z(a,f){void 0===f&&(f=null);return C((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({pathname:d.pathname,hash:\"\",search:\"\"},\"string\"===typeof a?J(a):a,{state:f,key:H()}))}function A(a){v=a;a=h();q=a[0];d=a[1];g.call({action:v,location:d})}function y(a,f){function l(){y(a,f)}var k=r.Push,n=z(a,f); true?\nD(\"/\"===n.pathname.charAt(0),\"Relative pathnames are not supported in hash history.push(\"+JSON.stringify(a)+\")\"):0;if(!c.length||(c.call({action:k,location:n,retry:l}),!1)){var G=[{usr:n.state,key:n.key,idx:q+1},x(n)];n=G[0];G=G[1];try{u.pushState(n,\"\",G)}catch(K){m.location.assign(G)}A(k)}}function w(a,f){function l(){w(a,f)}var k=r.Replace,n=z(a,f); true?D(\"/\"===n.pathname.charAt(0),\"Relative pathnames are not supported in hash history.replace(\"+JSON.stringify(a)+\n\")\"):0;c.length&&(c.call({action:k,location:n,retry:l}),1)||(n=[{usr:n.state,key:n.key,idx:q},x(n)],u.replaceState(n[0],\"\",n[1]),A(k))}function p(a){u.go(a)}void 0===b&&(b={});b=b.window;var m=void 0===b?document.defaultView:b,u=m.history,t=null;m.addEventListener(\"popstate\",e);m.addEventListener(\"hashchange\",function(){var a=h()[1];I(a)!==I(d)&&e()});var v=r.Pop;b=h();var q=b[0],d=b[1],g=F(),c=F();null==q&&(q=0,u.replaceState((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({},u.state,{idx:q}),\"\"));return{get action(){return v},get location(){return d},\ncreateHref:x,push:y,replace:w,go:p,back:function(){p(-1)},forward:function(){p(1)},listen:function(a){return g.push(a)},block:function(a){var f=c.push(a);1===c.length&&m.addEventListener(\"beforeunload\",E);return function(){f();c.length||m.removeEventListener(\"beforeunload\",E)}}}};\nfunction createMemoryHistory(b){function h(d,g){void 0===g&&(g=null);return C((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({pathname:t.pathname,search:\"\",hash:\"\"},\"string\"===typeof d?J(d):d,{state:g,key:H()}))}function e(d,g,c){return!q.length||(q.call({action:d,location:g,retry:c}),!1)}function x(d,g){u=d;t=g;v.call({action:u,location:t})}function z(d,g){var c=r.Push,a=h(d,g); true?D(\"/\"===t.pathname.charAt(0),\"Relative pathnames are not supported in memory history.push(\"+JSON.stringify(d)+\")\"):\n0;e(c,a,function(){z(d,g)})&&(m+=1,p.splice(m,p.length,a),x(c,a))}function A(d,g){var c=r.Replace,a=h(d,g); true?D(\"/\"===t.pathname.charAt(0),\"Relative pathnames are not supported in memory history.replace(\"+JSON.stringify(d)+\")\"):0;e(c,a,function(){A(d,g)})&&(p[m]=a,x(c,a))}function y(d){var g=Math.min(Math.max(m+d,0),p.length-1),c=r.Pop,a=p[g];e(c,a,function(){y(d)})&&(m=g,x(c,a))}void 0===b&&(b={});var w=b;b=w.initialEntries;w=w.initialIndex;var p=(void 0===\nb?[\"/\"]:b).map(function(d){var g=C((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({pathname:\"/\",search:\"\",hash:\"\",state:null,key:H()},\"string\"===typeof d?J(d):d)); true?D(\"/\"===g.pathname.charAt(0),\"Relative pathnames are not supported in createMemoryHistory({ initialEntries }) (invalid entry: \"+JSON.stringify(d)+\")\"):0;return g}),m=Math.min(Math.max(null==w?p.length-1:w,0),p.length-1),u=r.Pop,t=p[m],v=F(),q=F();return{get index(){return m},get action(){return u},get location(){return t},createHref:function(d){return\"string\"===\ntypeof d?d:I(d)},push:z,replace:A,go:y,back:function(){y(-1)},forward:function(){y(1)},listen:function(d){return v.push(d)},block:function(d){return q.push(d)}}};\n//# sourceMappingURL=index.js.map\n\n\n//# sourceURL=webpack://fec2/./node_modules/history/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js":
-/*!**********************************************************************************!*\
-  !*** ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
-  \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\n\nvar reactIs = __webpack_require__(/*! react-is */ \"./node_modules/hoist-non-react-statics/node_modules/react-is/index.js\");\n\n/**\n * Copyright 2015, Yahoo! Inc.\n * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.\n */\nvar REACT_STATICS = {\n  childContextTypes: true,\n  contextType: true,\n  contextTypes: true,\n  defaultProps: true,\n  displayName: true,\n  getDefaultProps: true,\n  getDerivedStateFromError: true,\n  getDerivedStateFromProps: true,\n  mixins: true,\n  propTypes: true,\n  type: true\n};\nvar KNOWN_STATICS = {\n  name: true,\n  length: true,\n  prototype: true,\n  caller: true,\n  callee: true,\n  arguments: true,\n  arity: true\n};\nvar FORWARD_REF_STATICS = {\n  '$$typeof': true,\n  render: true,\n  defaultProps: true,\n  displayName: true,\n  propTypes: true\n};\nvar MEMO_STATICS = {\n  '$$typeof': true,\n  compare: true,\n  defaultProps: true,\n  displayName: true,\n  propTypes: true,\n  type: true\n};\nvar TYPE_STATICS = {};\nTYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;\nTYPE_STATICS[reactIs.Memo] = MEMO_STATICS;\n\nfunction getStatics(component) {\n  // React v16.11 and below\n  if (reactIs.isMemo(component)) {\n    return MEMO_STATICS;\n  } // React v16.12 and above\n\n\n  return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;\n}\n\nvar defineProperty = Object.defineProperty;\nvar getOwnPropertyNames = Object.getOwnPropertyNames;\nvar getOwnPropertySymbols = Object.getOwnPropertySymbols;\nvar getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;\nvar getPrototypeOf = Object.getPrototypeOf;\nvar objectPrototype = Object.prototype;\nfunction hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {\n  if (typeof sourceComponent !== 'string') {\n    // don't hoist over string (html) components\n    if (objectPrototype) {\n      var inheritedComponent = getPrototypeOf(sourceComponent);\n\n      if (inheritedComponent && inheritedComponent !== objectPrototype) {\n        hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);\n      }\n    }\n\n    var keys = getOwnPropertyNames(sourceComponent);\n\n    if (getOwnPropertySymbols) {\n      keys = keys.concat(getOwnPropertySymbols(sourceComponent));\n    }\n\n    var targetStatics = getStatics(targetComponent);\n    var sourceStatics = getStatics(sourceComponent);\n\n    for (var i = 0; i < keys.length; ++i) {\n      var key = keys[i];\n\n      if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {\n        var descriptor = getOwnPropertyDescriptor(sourceComponent, key);\n\n        try {\n          // Avoid failures from read-only properties\n          defineProperty(targetComponent, key, descriptor);\n        } catch (e) {}\n      }\n    }\n  }\n\n  return targetComponent;\n}\n\nmodule.exports = hoistNonReactStatics;\n\n\n//# sourceURL=webpack://fec2/./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js?");
-
-/***/ }),
-
-/***/ "./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-eval("/** @license React v16.13.1\n * react-is.development.js\n *\n * Copyright (c) Facebook, Inc. and its affiliates.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE file in the root directory of this source tree.\n */\n\n\n\n\n\nif (true) {\n  (function() {\n'use strict';\n\n// The Symbol used to tag the ReactElement-like types. If there is no native Symbol\n// nor polyfill, then a plain number is used for performance.\nvar hasSymbol = typeof Symbol === 'function' && Symbol.for;\nvar REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;\nvar REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;\nvar REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;\nvar REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;\nvar REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;\nvar REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;\nvar REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary\n// (unstable) APIs that have been removed. Can we remove the symbols?\n\nvar REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;\nvar REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;\nvar REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;\nvar REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;\nvar REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;\nvar REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;\nvar REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;\nvar REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;\nvar REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;\nvar REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;\nvar REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;\n\nfunction isValidElementType(type) {\n  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.\n  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);\n}\n\nfunction typeOf(object) {\n  if (typeof object === 'object' && object !== null) {\n    var $$typeof = object.$$typeof;\n\n    switch ($$typeof) {\n      case REACT_ELEMENT_TYPE:\n        var type = object.type;\n\n        switch (type) {\n          case REACT_ASYNC_MODE_TYPE:\n          case REACT_CONCURRENT_MODE_TYPE:\n          case REACT_FRAGMENT_TYPE:\n          case REACT_PROFILER_TYPE:\n          case REACT_STRICT_MODE_TYPE:\n          case REACT_SUSPENSE_TYPE:\n            return type;\n\n          default:\n            var $$typeofType = type && type.$$typeof;\n\n            switch ($$typeofType) {\n              case REACT_CONTEXT_TYPE:\n              case REACT_FORWARD_REF_TYPE:\n              case REACT_LAZY_TYPE:\n              case REACT_MEMO_TYPE:\n              case REACT_PROVIDER_TYPE:\n                return $$typeofType;\n\n              default:\n                return $$typeof;\n            }\n\n        }\n\n      case REACT_PORTAL_TYPE:\n        return $$typeof;\n    }\n  }\n\n  return undefined;\n} // AsyncMode is deprecated along with isAsyncMode\n\nvar AsyncMode = REACT_ASYNC_MODE_TYPE;\nvar ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;\nvar ContextConsumer = REACT_CONTEXT_TYPE;\nvar ContextProvider = REACT_PROVIDER_TYPE;\nvar Element = REACT_ELEMENT_TYPE;\nvar ForwardRef = REACT_FORWARD_REF_TYPE;\nvar Fragment = REACT_FRAGMENT_TYPE;\nvar Lazy = REACT_LAZY_TYPE;\nvar Memo = REACT_MEMO_TYPE;\nvar Portal = REACT_PORTAL_TYPE;\nvar Profiler = REACT_PROFILER_TYPE;\nvar StrictMode = REACT_STRICT_MODE_TYPE;\nvar Suspense = REACT_SUSPENSE_TYPE;\nvar hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated\n\nfunction isAsyncMode(object) {\n  {\n    if (!hasWarnedAboutDeprecatedIsAsyncMode) {\n      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint\n\n      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');\n    }\n  }\n\n  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;\n}\nfunction isConcurrentMode(object) {\n  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;\n}\nfunction isContextConsumer(object) {\n  return typeOf(object) === REACT_CONTEXT_TYPE;\n}\nfunction isContextProvider(object) {\n  return typeOf(object) === REACT_PROVIDER_TYPE;\n}\nfunction isElement(object) {\n  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;\n}\nfunction isForwardRef(object) {\n  return typeOf(object) === REACT_FORWARD_REF_TYPE;\n}\nfunction isFragment(object) {\n  return typeOf(object) === REACT_FRAGMENT_TYPE;\n}\nfunction isLazy(object) {\n  return typeOf(object) === REACT_LAZY_TYPE;\n}\nfunction isMemo(object) {\n  return typeOf(object) === REACT_MEMO_TYPE;\n}\nfunction isPortal(object) {\n  return typeOf(object) === REACT_PORTAL_TYPE;\n}\nfunction isProfiler(object) {\n  return typeOf(object) === REACT_PROFILER_TYPE;\n}\nfunction isStrictMode(object) {\n  return typeOf(object) === REACT_STRICT_MODE_TYPE;\n}\nfunction isSuspense(object) {\n  return typeOf(object) === REACT_SUSPENSE_TYPE;\n}\n\nexports.AsyncMode = AsyncMode;\nexports.ConcurrentMode = ConcurrentMode;\nexports.ContextConsumer = ContextConsumer;\nexports.ContextProvider = ContextProvider;\nexports.Element = Element;\nexports.ForwardRef = ForwardRef;\nexports.Fragment = Fragment;\nexports.Lazy = Lazy;\nexports.Memo = Memo;\nexports.Portal = Portal;\nexports.Profiler = Profiler;\nexports.StrictMode = StrictMode;\nexports.Suspense = Suspense;\nexports.isAsyncMode = isAsyncMode;\nexports.isConcurrentMode = isConcurrentMode;\nexports.isContextConsumer = isContextConsumer;\nexports.isContextProvider = isContextProvider;\nexports.isElement = isElement;\nexports.isForwardRef = isForwardRef;\nexports.isFragment = isFragment;\nexports.isLazy = isLazy;\nexports.isMemo = isMemo;\nexports.isPortal = isPortal;\nexports.isProfiler = isProfiler;\nexports.isStrictMode = isStrictMode;\nexports.isSuspense = isSuspense;\nexports.isValidElementType = isValidElementType;\nexports.typeOf = typeOf;\n  })();\n}\n\n\n//# sourceURL=webpack://fec2/./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js?");
-
-/***/ }),
-
-/***/ "./node_modules/hoist-non-react-statics/node_modules/react-is/index.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/hoist-non-react-statics/node_modules/react-is/index.js ***!
-  \*****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ \"./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js\");\n}\n\n\n//# sourceURL=webpack://fec2/./node_modules/hoist-non-react-statics/node_modules/react-is/index.js?");
-=======
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.jsx */ \"./client/src/App.jsx\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), document.getElementById('app'));\n\n//# sourceURL=webpack://fec2/./client/src/index.jsx?");
->>>>>>> QARebase
-
-/***/ }),
-
-/***/ "./node_modules/clsx/dist/clsx.m.js":
-/*!******************************************!*\
-  !*** ./node_modules/clsx/dist/clsx.m.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction toVal(mix) {\n\tvar k, y, str='';\n\n\tif (typeof mix === 'string' || typeof mix === 'number') {\n\t\tstr += mix;\n\t} else if (typeof mix === 'object') {\n\t\tif (Array.isArray(mix)) {\n\t\t\tfor (k=0; k < mix.length; k++) {\n\t\t\t\tif (mix[k]) {\n\t\t\t\t\tif (y = toVal(mix[k])) {\n\t\t\t\t\t\tstr && (str += ' ');\n\t\t\t\t\t\tstr += y;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t} else {\n\t\t\tfor (k in mix) {\n\t\t\t\tif (mix[k]) {\n\t\t\t\t\tstr && (str += ' ');\n\t\t\t\t\tstr += k;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\treturn str;\n}\n\n/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {\n\tvar i=0, tmp, x, str='';\n\twhile (i < arguments.length) {\n\t\tif (tmp = arguments[i++]) {\n\t\t\tif (x = toVal(tmp)) {\n\t\t\t\tstr && (str += ' ');\n\t\t\t\tstr += x\n\t\t\t}\n\t\t}\n\t}\n\treturn str;\n}\n\n\n//# sourceURL=webpack://fec2/./node_modules/clsx/dist/clsx.m.js?");
 
 /***/ }),
 
@@ -3142,7 +3027,6 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/react-router-dom/index.js":
 /*!************************************************!*\
   !*** ./node_modules/react-router-dom/index.js ***!
@@ -3165,8 +3049,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-=======
->>>>>>> QARebase
 /***/ "./node_modules/react-transition-group/esm/Transition.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/Transition.js ***!
@@ -3178,8 +3060,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/react-transition-group/esm/TransitionGroup.js":
 /*!********************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/TransitionGroup.js ***!
@@ -3191,7 +3071,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/react-transition-group/esm/TransitionGroupContext.js":
 /*!***************************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/TransitionGroupContext.js ***!
@@ -3214,8 +3093,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/react-transition-group/esm/utils/ChildMapping.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/utils/ChildMapping.js ***!
@@ -3227,7 +3104,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> QARebase
 /***/ "./node_modules/react-transition-group/esm/utils/PropTypes.js":
 /*!********************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/utils/PropTypes.js ***!
@@ -3331,18 +3207,6 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /*!*********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
   \*********************************************************************/
-<<<<<<< HEAD
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _arrayLikeToArray)\n/* harmony export */ });\nfunction _arrayLikeToArray(arr, len) {\n  if (len == null || len > arr.length) len = arr.length;\n\n  for (var i = 0, arr2 = new Array(len); i < len; i++) {\n    arr2[i] = arr[i];\n  }\n\n  return arr2;\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js ***!
-=======
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3375,19 +3239,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
->>>>>>> QARebase
-  \*******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-<<<<<<< HEAD
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _arrayWithHoles)\n/* harmony export */ });\nfunction _arrayWithHoles(arr) {\n  if (Array.isArray(arr)) return arr;\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
   \*******************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -3436,52 +3287,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-=======
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _defineProperty)\n/* harmony export */ });\nfunction _defineProperty(obj, key, value) {\n  if (key in obj) {\n    Object.defineProperty(obj, key, {\n      value: value,\n      enumerable: true,\n      configurable: true,\n      writable: true\n    });\n  } else {\n    obj[key] = value;\n  }\n\n  return obj;\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@babel/runtime/helpers/esm/defineProperty.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _extends)\n/* harmony export */ });\nfunction _extends() {\n  _extends = Object.assign || function (target) {\n    for (var i = 1; i < arguments.length; i++) {\n      var source = arguments[i];\n\n      for (var key in source) {\n        if (Object.prototype.hasOwnProperty.call(source, key)) {\n          target[key] = source[key];\n        }\n      }\n    }\n\n    return target;\n  };\n\n  return _extends.apply(this, arguments);\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@babel/runtime/helpers/esm/extends.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _inheritsLoose)\n/* harmony export */ });\n/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ \"./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js\");\n\nfunction _inheritsLoose(subClass, superClass) {\n  subClass.prototype = Object.create(superClass.prototype);\n  subClass.prototype.constructor = subClass;\n  (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(subClass, superClass);\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _iterableToArrayLimit)\n/* harmony export */ });\nfunction _iterableToArrayLimit(arr, i) {\n  var _i = arr == null ? null : typeof Symbol !== \"undefined\" && arr[Symbol.iterator] || arr[\"@@iterator\"];\n\n  if (_i == null) return;\n  var _arr = [];\n  var _n = true;\n  var _d = false;\n\n  var _s, _e;\n\n  try {\n    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {\n      _arr.push(_s.value);\n\n      if (i && _arr.length === i) break;\n    }\n  } catch (err) {\n    _d = true;\n    _e = err;\n  } finally {\n    try {\n      if (!_n && _i[\"return\"] != null) _i[\"return\"]();\n    } finally {\n      if (_d) throw _e;\n    }\n  }\n\n  return _arr;\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
->>>>>>> QARebase
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _nonIterableRest)\n/* harmony export */ });\nfunction _nonIterableRest() {\n  throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\");\n}\n\n//# sourceURL=webpack://fec2/./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js?");
 
 /***/ }),
