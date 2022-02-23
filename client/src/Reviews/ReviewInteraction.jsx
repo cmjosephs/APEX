@@ -9,6 +9,7 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
   let [markNotHelpful, setMarkNotHelpful] = useState(true);
   let [notHelpfulCount, setNotHelpfulCount] = useState(0);
 
+
   let addHelpful = () => {
     axios.put(`api/products/${productId}/reviews/${review.review_id}/helpful`)
     .then(getNewReviews())

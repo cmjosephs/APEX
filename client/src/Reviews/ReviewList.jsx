@@ -90,6 +90,7 @@ const ReviewList = () => {
         setDisplayCount(filteredStarReviews.length);
       }
     }
+
       // if (filteredStarReviews.length !== 0) {
       //   setReviews(filteredStarReviews);
       //   setEnoughReviews(false);

@@ -1,32 +1,29 @@
 import React, { useContext, useState, useReducer, useEffect } from 'react';
 import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import { getMetaData } from './ReviewForm.jsx';
 import { AppContext } from '../App.jsx';
 import Slider from '@mui/material/Slider';
-// import { styled } from '@mui/material/styles';
 import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
-// import { SortContext } from './ReviewList.jsx';
+import AvgRating from '../AvgRating.jsx';
 
 
-
-// keep track of all checked stars in an array [1, 2, 5] etc
-// if user clicks on that star #, add it to the array
-// if the user clicks on that star again, delete it from the array
-// do an axios get request and filter reviews with ratings in that array
 const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
 
   let { productId, reviewMetaData, productDetails } = useContext(AppContext);
-  let ratings = reviewMetaData.ratings;
   let characteristics = reviewMetaData.characteristics;
-  let oneStar = ratings[1];
-  let twoStar = ratings[2];
-  let threeStar = ratings[3];
-  let fourStar = ratings[4];
-  let fiveStar = ratings[5];
+  let ratings = reviewMetaData.ratings;
   let totalRatings = 0;
+  let averageRatingNumber = calcAverageRating(ratings);
+
+  const starRatings = {
+    1: ratings[1],
+    2: ratings[2],
+    3: ratings[3],
+    4: ratings[4],
+    5: ratings[5]
+  }
 
   const initialState = {
     1: false,
@@ -35,9 +32,11 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     4: false,
     5: false
   }
-
   const reducer = (state, action) => ({...state, ...action});
   let [state, setState] = useReducer(reducer, initialState);
+
+
+
 
   const Checkbox = ({ fnClick, checked = false }) => (
     <label>
@@ -72,7 +71,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     return Math.ceil(avgRating / 0.25) * 0.25;
   }
 
-  let averageRatingNumber = calcAverageRating(ratings);
 
   function calcRecommended() {
     let recommendedReviews = totalReviews.filter(review => {
@@ -92,7 +90,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
         {<span className="star-bar">1 star
           <Slider
             disabled
-            defaultValue={oneStar}
+            defaultValue={starRatings[1]}
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
@@ -106,13 +104,12 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
               checked={state[1]}
               fnClick={v => setState({ 1: v})}
               />
-              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">2 stars
           <Slider
             disabled
-            defaultValue={twoStar}
+            defaultValue={starRatings[2]}
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
@@ -125,13 +122,12 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
               sx={{display: 'inline'}}
               checked={state[2]}
               fnClick={v => setState({ 2: v})}/>
-              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">3 stars
           <Slider
             disabled
-            defaultValue={threeStar}
+            defaultValue={starRatings[3]}
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
@@ -144,13 +140,12 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
               sx={{display: 'inline'}}
               checked={state[3]}
               fnClick={v => setState({ 3: v})}/>
-              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">4 stars
           <Slider
             disabled
-            defaultValue={fourStar}
+            defaultValue={starRatings[4]}
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
@@ -163,13 +158,12 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
               sx={{display: 'inline'}}
               checked={state[4]}
               fnClick={v => setState({ 4: v})}/>
-              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
       {<span className="star-bar">5 stars
           <Slider
             disabled
-            defaultValue={fiveStar}
+            defaultValue={starRatings[5]}
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
@@ -182,7 +176,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
               sx={{display: 'inline'}}
               checked={state[5]}
               fnClick={v => setState({ 5: v})}/>
-              {/* <p>{oneStar}</p> */}
               </span>
       </span>}
 
@@ -323,18 +316,14 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     return (
       <div>
         <div className="avg-rating-header">
-        <div className="avg-rating-number">{Math.round(averageRatingNumber * 10)/ 10}</div>
-        <div className="avg-rating-stars">
-        <Rating
-          name="text-feedback"
-          value={averageRatingNumber}
-          readOnly
-          precision={0.25}
-          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-          />
+        <div className="avg-rating-number">{Math.round(averageRatingNumber * 10)/ 10}
+        {/* <div className="reviews-avg-rating-stars"> */}
+          <AvgRating metaDataRatings={ratings}/>
+          {/* </div> */}
+
         </div>
           </div>
-          <div>{calcRecommended()}% of reviews recommend this product</div>
+          <div>{calcRecommended() ? calcRecommended() : '...'}% of reviews recommend this product</div>
         <div className="rating-breakdown">
           <h3>Rating Breakdown</h3>
           {renderTotalStars()}
