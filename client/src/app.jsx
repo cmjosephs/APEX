@@ -6,49 +6,64 @@ import Product from './Overview/Product.jsx';
 import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
+import styled, { ThemeProvider } from 'styled-components';
+import { lightMode, darkMode, GlobalStyles } from './Themes.js';
 
 export const AppContext = createContext();
+
+const StyledApp = styled.div``;
 
 const App = () => {
   const { product_id } = useParams();
   const [productDetails, setProductDetails] = useState(null);
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
+  const [theme, setTheme] = useState('light');
+
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  }
+
   function getProductDetails() {
     axios.get(`/api/products/${product_id}`)
-    .then(({ data }) => setProductDetails(data))
-    .catch(err => console.error(err));
+      .then(({ data }) => setProductDetails(data))
+      .catch(err => console.error(err));
   }
 
   function getProductMetaData() {
     axios.get(`/api/products/${product_id}/reviews/meta`)
-    .then(({ data }) => setReviewMetaData(data))
-    .catch((err) => console.error(err));
+      .then(({ data }) => setReviewMetaData(data))
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {
-      getProductDetails();
-      getProductMetaData();
+    getProductDetails();
+    getProductMetaData();
   }, [product_id]);
 
   if (!reviewMetaData || !productDetails) return <h2>Loading</h2>
 
   return (
-    <AppContext.Provider
-      value={{ productId: product_id, reviewMetaData, productDetails }}
-    >
-      <NavBar />
-      <hr id="nav-break"/>
-      <div>
-        <br></br>
-        <Product />
-        <br></br>
-        <RelatedList />
-        <QAList />
-        <ReviewList />
-      </div>
-    </AppContext.Provider>
-
+    <ThemeProvider theme={theme === 'light' ? lightMode : darkMode}>
+      <GlobalStyles />
+      <AppContext.Provider
+        value={{ productId: product_id, reviewMetaData, productDetails }}
+      >
+        <StyledApp>
+          <NavBar />
+          <hr id="nav-break" />
+          <div>
+            <br></br>
+            <Product />
+            <br></br>
+            <RelatedList />
+            <QAList />
+            <ReviewList />
+            <button onClick={() => themeToggler()}>Change Theme</button>
+          </div>
+        </StyledApp>
+      </AppContext.Provider>
+    </ThemeProvider>
   );
 }
 
