@@ -305,6 +305,8 @@ nav div {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* transition-duration: 100ms; */
 }
 
 /* position over a little later */
@@ -326,6 +328,11 @@ nav div {
   flex-direction: column;
   justify-content: flex-start;
 }
+
+.product-details {
+  transition: ease-in-out 1000ms;
+
+}
 .product-details h3, .product-features h3 {
   font-weight: 400;
 }
@@ -334,9 +341,19 @@ nav div {
   cursor: pointer;
 }
 
-.product-details p, .product-features p {
+.product-details p, .product-features div {
   max-width: 80%;
+  /* transform: rotate(90deg); */
+  /* animation: dropDown linear 1000ms forwards; */
 }
+/* @keyframes dropDown {
+  0% {
+
+  }
+  100%{
+
+  }
+} */
 
 .share-bar {
   display: flex;
@@ -345,9 +362,18 @@ nav div {
 }
 
 .share-icons {
+  /* justify-self: flex-end; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 1.5em;
+}
+.share-icons > * {
+  height: auto;
+  width: 1.5em;
+}
+.share-icons > *:hover {
+  cursor: pointer;
 }
 
 .info-break {
