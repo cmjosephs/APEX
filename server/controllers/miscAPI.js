@@ -23,9 +23,9 @@ module.exports = {
 
   // Edit after frontend is built out
   logInteractions: (req, res) => {
-    // axios.post(`${baseUrl}/interactions`, options)
-    // .then(() => res.sendStatus(201))
-    // .catch((err) => res.status(500).send(err))
-    res.status(500).send('Redo this ajax on backend');
+    axios.post(`${baseUrl}/interactions`, req.body, options)
+    .then(() => res.sendStatus(201))
+    .catch((err) => res.status(500).send(err))
+    //res.status(500).send('Redo this ajax on backend');
   }
 }
