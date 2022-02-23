@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 
-var Features = () => {
-  return (
-    <div>
-      <h3>Product Features</h3>
-    </div>
+// var Features = ({ relatedProduct, currentProduct }) => {
+//   return (
+//     <div>
+//       <h3>Product Features</h3>
+//     </div>
 
-  )
-}
+//   )
+// }
 
-export default Features;
+// export default Features;
