@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, userReducer, createContext, useRef } from 'react';
+import React, { useState, useEffect, useContext, createContext, useRef } from 'react';
 import RelatedListCard from './RelatedListCard.jsx';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -7,6 +6,7 @@ import AvgRating from '../Shared/AvgRating.jsx';
 import FavoriteListCard from './FavoriteListCard.jsx'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { AppContext } from '../App.jsx';
 
 const FavoriteList = ({ currentProductId, currentProductDetails, currentProductImg }) => {
   const { productId, productDetails, reviewMetaData } = useContext(AppContext);

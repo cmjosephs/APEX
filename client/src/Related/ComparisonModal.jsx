@@ -38,27 +38,29 @@ var ComparisonModal = ({ relatedProduct, currentProduct, relatedImg, currentProd
   }
 
   return (
-    <div className="features-modal">
-      <button className="exit-comparison-modal" onClick={handleChange}>X</button>
-      <img src={currentProductImg.thumbnail_url} />
-      <div className="features-container">
-        <h3>Product Features</h3>
-        <table>
-          <th>{currentProduct.name}</th>
-          <th></th>
-          <th>{relatedProduct.name}</th>
-          {Object.keys(featuresObj).map((feature, index) => {
-            return (
-              <tr>
-                <td>{hasFeature(feature, currentArray)}</td>
-                <td>{feature}</td>
-                <td>{hasFeature(feature, relatedArray)}</td>
-              </tr>
-            )
-          })}
-        </table>
+    <div className="features-wrapper">
+      <div className="features-modal">
+        <img src={currentProductImg.thumbnail_url} />
+        <div className="features-container">
+          <h3>Product Features</h3>
+          <table>
+            <th>{currentProduct.name}</th>
+            <th></th>
+            <th>{relatedProduct.name}</th>
+            {Object.keys(featuresObj).map((feature, index) => {
+              return (
+                <tr>
+                  <td>{hasFeature(feature, currentArray)}</td>
+                  <td>{feature}</td>
+                  <td>{hasFeature(feature, relatedArray)}</td>
+                </tr>
+              )
+            })}
+          </table>
+        </div>
+        <img src={relatedImg} />
+        <button className="exit-comparison-modal" onClick={handleChange}>X</button>
       </div>
-      <img src={relatedImg} />
     </div>
   )
 }

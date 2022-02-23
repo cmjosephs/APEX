@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../App.jsx';
 
 const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }) => {
-  const { setProductId } = useContext(AppContext);
   const [relatedProduct, updateRelatedProduct] = useState({ info: {} });
   const [relatedImgUrl, updateRelatedImgUrl] = useState({ img: {} });
   const [salePrice, updateSalePrice] = useState({ sale: {} });
@@ -41,19 +40,6 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }
           .catch(err => console.error(err));
       })
       .catch(err => console.error(err));
-  }
-
-  function calcAverageRating(obj) {
-    let avgRating = 0;
-    let totalRatings = 0;
-    for (let key in obj) {
-      let quant = parseInt(obj[key]);
-      let rating = parseInt(key);
-      avgRating += quant * rating;
-      totalRatings += quant;
-    }
-    avgRating = avgRating / totalRatings;
-    return Math.ceil(avgRating / 0.25) * 0.25;
   }
 
   useEffect(() => {
@@ -100,11 +86,11 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }
   return (
     <div className="related-card">
       <Link to={`/products/${relatedId}/${salePrice.style_id}`}>
-        <img src={relatedImgUrl} alt=""/>
+        <img src={relatedImgUrl} alt="" className="related-product-image"/>
       </Link>
-      <div className="related-rating-container"><Rating name="read-only" value={calcAverageRating(rating)} precision={0.25} readOnly />
-        <div className="related-rating">{calcAverageRating(rating)}</div>
-        </div>
+      <div className="related-avg-rating-title">
+        <AvgRating metaDataRatings={rating} />
+      </div>
       <h2 className="related-name">{relatedProduct.name}</h2>
       <h4 className="related-category-styles">
         {relatedProduct.category}

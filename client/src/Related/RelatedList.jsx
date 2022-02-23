@@ -81,9 +81,6 @@ const RelatedList = () => {
                 key={`${index}-${relatedId}`}/>
           ))}
         </div>
-
-        <br></br>
-        <br></br>
       </div>
 
       <div className="favorites-wrapper">
