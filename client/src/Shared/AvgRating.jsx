@@ -41,9 +41,9 @@ const AvgRating = ({ metaDataRatings }) => {
     return starCountArr.map((star, index) => {
       let fill;
       if (star === 1) fill = 'full';
-      if (star === 0.75) fill = 'quarter';
+      if (star === 0.75) fill = 'three-quarter';
       if (star === 0.5) fill = 'half';
-      if (star === 0.25) fill = 'three-quarter';
+      if (star === 0.25) fill = 'quarter';
       if (star === 0) fill = 'empty';
       return <img src={`/images/${fill}-star.svg`} key={`${index}-${fill}`} className="rating-star"></img>
     })
