@@ -1,6 +1,6 @@
 const axios = require('axios');
 const API_KEY = require('../config/config.js');
-const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
+const baseUrl = require('../config/config.baseURL.js');
 
 const options = {
   headers: {

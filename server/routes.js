@@ -1,7 +1,5 @@
-// const express = require('express');
 const router = require('express').Router();
 const axios = require('axios');
-const API_KEY = require('./config/config.js');
 const { products, qA, reviews, miscAPI } = require('./controllers');
 // const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
 
