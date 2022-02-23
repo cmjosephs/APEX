@@ -64,43 +64,69 @@ const ReviewList = () => {
   }
 
   const filterStarReviews = (checkedStars) => {
-
-    if (searchKeyword !== '') {
-      let filteredStarReviews = totalReviews.filter(review => {
-        if (checkedStars[review.rating] &&
-        (review.body.toLowerCase().includes(searchKeyword.toLowerCase())
-        || review.summary.toLowerCase().includes(searchKeyword.toLowerCase()))) {
+// if there's a search keyword and star(s) are checked
+    if (searchKeyword !== '' && !Object.values(checkedStars).every(star => star === false)) {
+      let filteredReviews = totalReviews.filter(review => {
+        if ((review.body.toLowerCase().includes(searchKeyword) || review.summary.toLowerCase().includes(searchKeyword)) && checkedStars[review.rating]) {
           return review;
         }
       })
-      if (filteredStarReviews.length === 0 || filteredStarReviews.length !== 0) {
-        setReviews(filteredStarReviews);
-        setEnoughReviews(false);
-        setDisplayCount(filteredStarReviews.length);
-      }
-    } else {
-      let filteredStarReviews = totalReviews.filter(review => {
+      setReviews(filteredReviews)
+      setEnoughReviews(false)
+      setDisplayCount(filteredReviews.length)
+    }
+
+    // no search keyword but star is checked
+    if (searchKeyword === '' && !Object.values(checkedStars).every(star => star === false)) {
+      let filteredReviews = totalReviews.filter(review => {
         if (checkedStars[review.rating]) {
           return review;
         }
       })
-      if (filteredStarReviews.length === 0 || filteredStarReviews.length !== 0) {
-        setReviews(filteredStarReviews);
-        setEnoughReviews(false);
-        setDisplayCount(filteredStarReviews.length);
-      }
+      setReviews(filteredReviews)
+      setEnoughReviews(false)
+      setDisplayCount(filteredReviews.length)
     }
 
-      // if (filteredStarReviews.length !== 0) {
-      //   setReviews(filteredStarReviews);
-      //   setEnoughReviews(false);
-      //   setDisplayCount(filteredStarReviews.length);
-      // }
-      if (Object.values(checkedStars).every(star => star === false)) {
+    // search keyword but no stars checked
+    if (searchKeyword !== '' && Object.values(checkedStars).every(star => star === false)) {
+      let filteredReviews = totalReviews.filter(review => {
+        if (review.body.toLowerCase().includes(searchKeyword) || review.summary.toLowerCase().includes(searchKeyword)) {
+          return review;
+        }
+      })
+      setReviews(filteredReviews)
+      setEnoughReviews(false)
+      setDisplayCount(filteredReviews.length)
+    }
+    // no search keyword or stars checked
+    if (searchKeyword === '' && Object.values(checkedStars).every(star => star === false)) {
         setEnoughReviews(true)
         setReviews(totalReviews.slice(0, count))
         setDisplayCount(totalReviews.length)
-      }
+    }
+    /////////////// WORKING  ///////////////
+    // let filteredStarReviews = totalReviews.filter(review => {
+    //   if (checkedStars[review.rating]) {
+    //     return review;
+    //   }
+    // })
+    //   if (filteredStarReviews.length === 0 || filteredStarReviews.length !== 0) {
+    //     setReviews(filteredStarReviews);
+    //     setEnoughReviews(false);
+    //     setDisplayCount(filteredStarReviews.length);
+    //   }
+    //   // if (filteredStarReviews.length !== 0) {
+    //   //   setReviews(filteredStarReviews);
+    //   //   setEnoughReviews(false);
+    //   //   setDisplayCount(filteredStarReviews.length);
+    //   // }
+    //   if (Object.values(checkedStars).every(star => star === false)) {
+    //     console.log(' in this function')
+    //     setEnoughReviews(true)
+    //     setReviews(totalReviews.slice(0, count))
+    //     setDisplayCount(totalReviews.length)
+    //   }
 
   }
 
@@ -115,11 +141,11 @@ const ReviewList = () => {
         }
       })
 
-      // if (filteredSearchReviews.length === 0 || filteredSearchReviews.length !== 0) {
+      if (filteredSearchReviews.length === 0 || filteredSearchReviews.length !== 0) {
         setReviews(filteredSearchReviews);
         setEnoughReviews(false);
         setDisplayCount(filteredSearchReviews.length);
-      // }
+      }
 
       // if (filteredSearchReviews.length !== 0) {
       //   setReviews(filteredSearchReviews);
@@ -129,6 +155,7 @@ const ReviewList = () => {
     }
 
     else {
+      setSearchKeyword('')
       setEnoughReviews(true)
       setReviews(totalReviews.slice(0, count))
       setDisplayCount(totalReviews.length)

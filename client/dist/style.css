@@ -106,9 +106,9 @@ body {
 } */
 /* -------------- Review Text -------------- */
 
-h1.review-header {
+/* h1.review-header {
   font-family: 'Noto Serif Display', serif;
-}
+} */
 
 .review-details {
   display: flex;

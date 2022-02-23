@@ -48,7 +48,10 @@ export const GlobalStyles = createGlobalStyle`
 
   // REVIEWS
 
-
+  h1.review-header {
+    font-family: 'Noto Serif Display', serif;
+  }
+  
   .review-button {
     background-color: ${props => props.theme.generalButton};
     color: ${props => props.theme.body};
