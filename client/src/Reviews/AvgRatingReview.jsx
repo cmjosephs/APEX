@@ -32,10 +32,9 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
     4: false,
     5: false
   }
+
   const reducer = (state, action) => ({...state, ...action});
   let [state, setState] = useReducer(reducer, initialState);
-
-
 
 
   const Checkbox = ({ fnClick, checked = false }) => (
@@ -57,7 +56,6 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   const handleChangeStar = () => {
     filterStarReviews(state)
   }
-
 
   function calcAverageRating(obj) {
     let avgRating = 0;

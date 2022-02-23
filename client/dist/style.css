@@ -110,12 +110,27 @@ body {
   font-family: 'Noto Serif Display', serif;
 } */
 
-.review-details {
+.review-tile {
+  border: none;
+}
+
+.review-tile .review-details {
   display: flex;
-  flex-direction: row;
-  margin: 1em 0em;
+  /* gap: 3em; */
+  align-items: center;
   justify-content: space-between;
 }
+
+.review-tile-stars {
+  max-width: 10%
+}
+
+.review-tile-stars > .avg-rating {
+  display: inline-flex;
+  /* flex-wrap: nowrap; */
+  width: 100%
+}
+
 
 h4.review-summary {
   margin: 10px 0px;
@@ -192,17 +207,17 @@ h4.characteristic-property-name {
 
 /* -------------- Average Ratings & Reviews -------------- */
 
+
 .avg-rating {
   display: flex;
-  width: 30%;
 }
 .rating-star {
-  max-width: 20%;
+  max-width: 30%;
 }
 
 .avg-rating-number > .avg-rating {
   display: inline-flex;
-  stroke: 1px;
+  width: 40%
 }
 
 .star-values {

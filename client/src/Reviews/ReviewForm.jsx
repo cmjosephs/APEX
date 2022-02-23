@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react';
+import axios from 'axios';
+import { AppContext } from '../App.jsx';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Input, InputLabel, MenuItem, Select, Rating, Radio, Typography, RadioGroup, FormControl, FormControlLabel, FormLabel, IconButton, Stack }
 from '@mui/material';
 import { styled } from '@mui/material/styles';
-import axios from 'axios';
-import { AppContext } from '../App.jsx';
 
 
 
@@ -14,7 +14,7 @@ const ReviewForm = ({ getNewReviews }) => {
   let [rating, setRating] = useState(0);
   let [upload, setUpload] = useState(true);
   let [uploadedPics, setUploadedPics] = useState([]);
-  let [picURLs, setPicURLs] = useState([]);
+  let [picURLs, setPicURLs] = useState([]); // picURLs to be sent to post request
   let [characteristics, setCharacteristics] = useState({});
   let [state, dispatch] = useReducer(reviewReducer, {characteristics: {}, reviewData: {}});
 
@@ -36,7 +36,6 @@ const ReviewForm = ({ getNewReviews }) => {
         return {characteristics: {}, reviewData: {}};
       default:
         return state;
-
     }
   }
 
@@ -64,7 +63,7 @@ const ReviewForm = ({ getNewReviews }) => {
   const renderCharacteristics = () => {
     let productCharacteristics = Object.keys(characteristics);
     return (
-      <div>
+      <div className="product-characteristics-form">
         {productCharacteristics.includes('Fit') &&
         <div>
         <FormControl sx={{ display: 'inline-flex', my: 1 }}>
@@ -76,7 +75,9 @@ const ReviewForm = ({ getNewReviews }) => {
               inputProps={{
                 "data-testid": 'fit',
             }}
-              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+              onChange={(e) => {dispatch({
+                type: "addCharacteristic",
+                payload: { [e.target.name]: e.target.value }})}}
             >
               <FormControlLabel value="1" control={<Radio role="fit"/>} label="Runs tight" />
               <FormControlLabel value="2" control={<Radio />} label="Slightly tight" />
@@ -86,9 +87,7 @@ const ReviewForm = ({ getNewReviews }) => {
             </RadioGroup>
         </FormControl>
           </div>
-
         }
-
 
         {productCharacteristics.includes('Comfort') &&
         <FormControl sx={{ display: 'inline-flex', my: 1 }}>
@@ -96,7 +95,9 @@ const ReviewForm = ({ getNewReviews }) => {
             <RadioGroup
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="Comfort"
-            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+            onChange={(e) => {dispatch({
+              type: "addCharacteristic",
+              payload: { [e.target.name]: e.target.value }})}}
           >
             <FormControlLabel value="1" control={<Radio role="comfort"/>} label="Uncomfortable" />
             <FormControlLabel value="2" control={<Radio />} label="Slightly uncomfortable" />
@@ -112,7 +113,9 @@ const ReviewForm = ({ getNewReviews }) => {
             <RadioGroup
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="Size"
-              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+              onChange={(e) => {dispatch({
+                type: "addCharacteristic",
+                payload: { [e.target.name]: e.target.value }})}}
               >
               <FormControlLabel value="1" control={<Radio />} label="Too small" />
               <FormControlLabel value="2" control={<Radio />} label="1/2 size too small" />
@@ -129,7 +132,9 @@ const ReviewForm = ({ getNewReviews }) => {
             <RadioGroup
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="Width"
-            onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+            onChange={(e) => {dispatch({
+              type: "addCharacteristic",
+              payload: { [e.target.name]: e.target.value }})}}
           >
             <FormControlLabel value="1" control={<Radio />} label="Too narrow" />
             <FormControlLabel value="2" control={<Radio />} label="Slightly narrow" />
@@ -146,7 +151,9 @@ const ReviewForm = ({ getNewReviews }) => {
             <RadioGroup
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="Quality"
-              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+              onChange={(e) => {dispatch({
+                type: "addCharacteristic",
+                payload: { [e.target.name]: e.target.value }})}}
             >
               <FormControlLabel value="1" control={<Radio role="quality-1" />} label="Poor" />
               <FormControlLabel value="2" control={<Radio role="quality-2" />} label="Below average" />
@@ -163,7 +170,9 @@ const ReviewForm = ({ getNewReviews }) => {
             <RadioGroup
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="Length"
-              onChange={(e) => {dispatch({ type: "addCharacteristic", payload: { [e.target.name]: e.target.value }})}}
+              onChange={(e) => {dispatch({
+                type: "addCharacteristic",
+                payload: { [e.target.name]: e.target.value }})}}
             >
               <FormControlLabel value="1" control={<Radio role="length-1" />} label="Runs short" />
               <FormControlLabel value="2" control={<Radio />} label="Below average" />
@@ -250,7 +259,6 @@ const ReviewForm = ({ getNewReviews }) => {
       <Dialog
         open={open}
         onClose={handleClose}
-        // fullWidth
         maxWidth
         sx={{
         display: 'flex',

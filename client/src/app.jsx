@@ -79,6 +79,7 @@ const App = () => {
           <p>-------------Navigation Bar-------------</p>
         </nav>
         <br></br>
+
         <button onClick={() => themeToggler()}>Change Theme</button>
         <Product />
         <br></br>

@@ -105,33 +105,10 @@ const ReviewList = () => {
         setReviews(totalReviews.slice(0, count))
         setDisplayCount(totalReviews.length)
     }
-    /////////////// WORKING  ///////////////
-    // let filteredStarReviews = totalReviews.filter(review => {
-    //   if (checkedStars[review.rating]) {
-    //     return review;
-    //   }
-    // })
-    //   if (filteredStarReviews.length === 0 || filteredStarReviews.length !== 0) {
-    //     setReviews(filteredStarReviews);
-    //     setEnoughReviews(false);
-    //     setDisplayCount(filteredStarReviews.length);
-    //   }
-    //   // if (filteredStarReviews.length !== 0) {
-    //   //   setReviews(filteredStarReviews);
-    //   //   setEnoughReviews(false);
-    //   //   setDisplayCount(filteredStarReviews.length);
-    //   // }
-    //   if (Object.values(checkedStars).every(star => star === false)) {
-    //     console.log(' in this function')
-    //     setEnoughReviews(true)
-    //     setReviews(totalReviews.slice(0, count))
-    //     setDisplayCount(totalReviews.length)
-    //   }
 
   }
 
   const searchReviews = (keyword) => {
-    console.log('searchreviews is called')
     if (keyword.length >= 3) {
       setSearchKeyword(keyword);
       let filteredSearchReviews = totalReviews.filter(review => {
@@ -146,12 +123,6 @@ const ReviewList = () => {
         setEnoughReviews(false);
         setDisplayCount(filteredSearchReviews.length);
       }
-
-      // if (filteredSearchReviews.length !== 0) {
-      //   setReviews(filteredSearchReviews);
-      //   setEnoughReviews(false);
-      //   setDisplayCount(filteredSearchReviews.length);
-      // }
     }
 
     else {
