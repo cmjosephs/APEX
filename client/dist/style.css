@@ -17,6 +17,15 @@ body {
   color: #272727;
 }
 
+/* -------------- rating stars -------------- */
+.avg-rating {
+  display: flex;
+  /* width: 30%; */
+}
+.rating-star {
+  max-width: 20%;
+}
+
 /* -------------- Navigation -------------- */
 nav {
   /* position: sticky;
@@ -202,13 +211,10 @@ nav div {
   align-items: center;
   justify-content: flex-start;
 }
-.avg-rating {
-  display: flex;
+.avg-rating-title > .avg-rating {
   width: 30%;
 }
-.rating-star {
-  max-width: 20%;
-}
+
 .same-page-review-link {
   color: #272727;
 }
