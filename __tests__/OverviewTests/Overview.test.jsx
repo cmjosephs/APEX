@@ -93,20 +93,17 @@ describe('Product Overview', () => {
     expect(screen.getByText('$' + testStyles.results[0].original_price)).toBeInTheDocument();
   });
 
-
   test('Should show sale price when product is on sale', async () => {
     fireEvent.click(screen.getByAltText('Goldenrod'));
     const salePrice = await waitFor(() => screen.getByText('$35.00'));
     expect(salePrice).toBeInTheDocument();
   });
 
-
   test('Should open a modal when a photo is clicked on', async () => {
     fireEvent.click(screen.getByAltText('1'));
     const button = await waitFor(() => screen.getByRole('button', {name: 'X'}))
     expect(button).toBeVisible();
   });
-
 
   test('Photos should change when a different style is clicked on', async () => {
     const originalStyle = screen.getByText('Black')
@@ -115,13 +112,11 @@ describe('Product Overview', () => {
     expect(newStyle.textContent).toBe('Maroon');
   });
 
-
   test('Should change selected size when size is clicked on', async () => {
     fireEvent.click(screen.getByLabelText('L'));
     const clickedSize = await waitFor(() => screen.getByLabelText('L'));
     expect(clickedSize).not.toHaveAttribute('disabled');
   });
-
 
   test('Shows product slogan on click of details', async () => {
     fireEvent.click(screen.getByText('Details +'));
