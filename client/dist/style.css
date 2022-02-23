@@ -405,6 +405,7 @@ nav div {
   overflow: hidden;
   padding: 5px;
   border: 3px solid #eee;
+  box-shadow: 5px 5px #FCFCFC;
 }
 
 .related-card .related-rating-container {

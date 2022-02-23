@@ -13,6 +13,7 @@ const RelatedList = () => {
   const [currentProductId, updateCurrentId] = useState(productId);
   const [currentProductImg, updateCurrentProductImg] = useState({ img: {} })
   const [carouselScrollOffset, setOffset] = useState(250);
+  const [currentProductRating, setRating] = useState();
 
   function getRelatedProducts(product_id) {
     axios.get(`/api/products/${product_id}/related`)
@@ -29,9 +30,10 @@ const RelatedList = () => {
   useEffect(() => {
     getRelatedProducts(productId);
     getCurrentProductImg(productId);
+    calcAverageRating(reviewMetaData.ratings);
   }, [productId]);
 
-  function calcAverageRating(obj) {
+  function calcAverageRating (obj) {
     let avgRating = 0;
     let totalRatings = 0;
     for (let key in obj) {
@@ -41,19 +43,19 @@ const RelatedList = () => {
       totalRatings += quant;
     }
     avgRating = avgRating / totalRatings;
-    return Math.ceil(avgRating / 0.25) * 0.25;
+    setRating(Math.ceil(avgRating / 0.25) * 0.25);
   }
 
-  const divRef = React.useRef();
+  const relatedRef = React.useRef();
 
   const scrollProductsLeft = (scrollOffset) => {
     console.log(scrollOffset);
-    divRef.current.scrollLeft -= scrollOffset;
+    relatedRef.current.scrollLeft -= scrollOffset;
   }
 
   const scrollProductsRight = (scrollOffset) => {
     console.log(scrollOffset);
-    divRef.current.scrollLeft += scrollOffset;
+    relatedRef.current.scrollLeft += scrollOffset;
   }
 
   function getProductCardWidth(productCardWidth) {
@@ -65,77 +67,45 @@ const RelatedList = () => {
   // }, [carouselScrollOffset])
 
   return (
+    <div>
+      <div className="related-wrapper">
+        <h3 className="related-title">Recommended Products</h3>
 
-    <div className="related-carousel" ref={divRef}>
-      {relatedArr.map((relatedId, index) => (
-        <RelatedListCard
-          relatedId={relatedId}
+        <div className="related-carousel" ref={relatedRef}>
+          {relatedArr.map((relatedId, index) => (
+              <RelatedListCard
+                relatedId={relatedId}
+                currentProductId={currentProductId}
+                currentProductDetails={productDetails}
+                currentProductImg={currentProductImg}
+                getProductCardWidth={getProductCardWidth}
+                key={`${index}-${relatedId}`}/>
+          ))}
+        </div>
+
+        <div className="related-row">
+          <div className="related-prev">
+            <ArrowBackIosNewIcon fontSize="large" className="related-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)}/>
+          </div>
+          <div className="related-next">
+            <ArrowForwardIosIcon fontSize="large" className="related-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)}/>
+          </div>
+        </div>
+
+        <br></br>
+        <br></br>
+      </div>
+
+      <div className="favorites-wrapper">
+        <FavoriteList
           currentProductId={currentProductId}
           currentProductDetails={productDetails}
           currentProductImg={currentProductImg}
-          getProductCardWidth={getProductCardWidth}
-          key={`${index}-${relatedId}`}
-        />
-      ))}
+          currentProductRating={currentProductRating}/>
+      </div>
+
     </div>
-    // <div className="related-wrapper">
-    //   <h3 className="related-title">Recommended Products</h3>
-
-    //   <div className="related-carousel" ref={divRef}>
-    //     {relatedArr.map((relatedId, index) => (
-    //         <RelatedListCard
-    //           relatedId={relatedId}
-    //           currentProductId={currentProductId}
-    //           currentProductDetails={productDetails}
-    //           currentProductImg={currentProductImg}
-    //           getProductCardWidth={getProductCardWidth}
-    //           key={`${index}-${relatedId}`}
-    //         />
-    //     ))}
-    //   </div>
-
-    //   <div className="related-row">
-    //     <div className="related-prev">
-    //       <ArrowBackIosNewIcon fontsize="large" className="related-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)}/>
-    //     </div>
-    //     <div className="related-next">
-    //       <ArrowForwardIosIcon fontsize="large" className="related-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)}/>
-    //     </div>
-    //   </div>
-
-    //   <br></br>
-    //   <br></br>
-    // </div>
   )
 }
 
 export default RelatedList;
-
-{/* <div className="related-wrapper">
-<h3 className="related-title">Recommended Products</h3>
-
-<div className="related-carousel" ref={divRef}>
-  {relatedArr.map((relatedId, index) => (
-      <RelatedListCard
-        relatedId={relatedId}
-        currentProductId={currentProductId}
-        currentProductDetails={productDetails}
-        currentProductImg={currentProductImg}
-        getProductCardWidth={getProductCardWidth}
-        key={`${index}-${relatedId}`}
-      />
-  ))}
-</div>
-
-<div className="related-row">
-  <div className="related-prev">
-    <ArrowBackIosNewIcon fontsize="large" className="related-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)}/>
-  </div>
-  <div className="related-next">
-    <ArrowForwardIosIcon fontsize="large" className="related-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)}/>
-  </div>
-</div>
-
-<br></br>
-<br></br>
-</div> */}
