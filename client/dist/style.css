@@ -333,6 +333,11 @@ nav div {
   transition: ease-in-out 1000ms;
 
 }
+
+.product-details {
+  transition: ease-in-out 1000ms;
+
+}
 .product-details h3, .product-features h3 {
   font-weight: 400;
 }
