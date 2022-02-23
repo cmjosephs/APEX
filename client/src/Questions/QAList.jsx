@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import QuestionForm from './QuestionForm.jsx';
 
+import Track from '../InteractionsTracker.jsx';
+
 
 var QAList = () => {
   const {productId, productDetails} = useContext(AppContext);
@@ -34,6 +36,7 @@ var QAList = () => {
   }
 
   const getMoreQuestions = () => {
+    console.log('in get more questions')
     setCount(count +=2)
   }
 
@@ -59,7 +62,10 @@ var QAList = () => {
       return (<div></div>)
     }
     if (count < totalQuestions) {
-      return (<button className="question-button" onClick={getMoreQuestions}>More Questions</button>)
+      return (
+        <button className="question-button" onClick={getMoreQuestions}>More Questions</button>
+      )
+
     } else {
       return (<div></div>)
     }

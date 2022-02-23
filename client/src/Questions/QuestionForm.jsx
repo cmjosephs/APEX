@@ -9,6 +9,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import Wrapper from '../InteractionsTracker.jsx';
+import InteractionsTracker from '../InteractionsTracker.jsx';
 
 
 const QuestionForm = ({productId, productName, addedQuestion}) => {

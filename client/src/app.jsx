@@ -6,7 +6,6 @@ import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
 
-// import { testProduct, testStyles, testReviewMetaData } from '../../__tests__/OverviewTests/overviewTestData.js'
 
 export const AppContext = createContext();
 
@@ -16,33 +15,26 @@ const App = () => {
   const [reviewMetaData, setReviewMetaData] = useState(null);
 
   function getRandomProductId() {
-    // axios.get('/api/products')
-    // .then(
-    //   ({ data }) => {
-    //     let ids = data.map(product => product.id);
-    //     setProductId(ids[Math.floor(Math.random()*ids.length)]);
-    //   }
-    // )
-    // .catch((err) => console.error('Network error: ', err));
-
-    // setProductId(parseInt(testReviewMetaData.product_id));
-    setProductId(42369);
+    axios.get('/api/products')
+    .then(
+      ({ data }) => {
+        let ids = data.map(product => product.id);
+        setProductId(ids[Math.floor(Math.random()*ids.length)]);
+      }
+    )
+    .catch((err) => console.error('Network error: ', err));
   }
 
   function getProductDetails() {
     axios.get(`/api/products/${productId}`)
     .then(({ data }) => setProductDetails(data))
     .catch(err => console.error(err));
-
-    // setProductDetails(testProduct)
   }
 
   function getProductMetaData() {
     axios.get(`/api/products/${productId}/reviews/meta`)
     .then(({ data }) => setReviewMetaData(data))
     .catch((err) => console.error(err));
-
-    // setReviewMetaData(testReviewMetaData);
   }
 
   useEffect(getRandomProductId, []);
@@ -77,3 +69,4 @@ const App = () => {
 }
 
 export default App
+
