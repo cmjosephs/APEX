@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 black #272727
 white #FCFCFC
@@ -9,6 +10,8 @@ font-family: 'Noto Serif Display', serif;
 font-family: 'Roboto', sans-serif;
 */
 
+=======
+>>>>>>> 0d88de5 (Testing css)
 body {
   margin: 0;
   background-color: #FCFCFC;
@@ -17,6 +20,7 @@ body {
   color: #272727;
 }
 
+<<<<<<< HEAD
 /* -------------- rating stars -------------- */
 .avg-rating {
   display: flex;
@@ -216,6 +220,16 @@ nav div {
   justify-content: flex-start;
   align-items: baseline;
   gap: 1em;
+=======
+.related-slider {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.related-card {
+  background-color: black;
+>>>>>>> 0d88de5 (Testing css)
 }
 .sale-price p {
   color: green;
@@ -356,10 +370,21 @@ nav div {
   size: 30px;
 } */
 
+<<<<<<< HEAD
 .info-break {
   align-self: center;
   color: #272727;
   background-color: #272727;
   width: 80%;
   margin-left: 0px;
+=======
+.related-container {
+  object-fit: contain;
+}
+
+.features-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+>>>>>>> 0d88de5 (Testing css)
 }

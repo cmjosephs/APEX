@@ -49,16 +49,27 @@ const RelatedList = () => {
   }
 
   return (
-    <div>
-      <div className="related-slider" ref={divRef} style={{ display: "flex", width: "99vw" }}>
+    <div className="related-container" style={{ width: "1240px"}}>
+      <h3 >Recommended Products</h3>
+      <div>
+        <button className="scroll-right" onClick={() => scrollProducts(310)} style={{ float: "right" }}>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+        <button className="scroll-left" onClick={() => scrollProducts(-310)} style={{ float: "right" }}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+      </div>
+      <br></br>
+      <br></br>
+      <div class="related-slider" ref={divRef}>
         {relatedArr.map((relatedId, index) => (
-          <div style={{ display: "flex", margin: "5px" }} key={`${index}-${relatedId}`}>
+          <div key={`${index}-${relatedId}`}>
             <RelatedListCard
               relatedId={relatedId}
               currentProductId={currentProductId}
               currentProductDetails={productDetails}
               currentProductImg={currentProductImg}
-            />
+           />
           </div>
         ))}
       </div>
@@ -67,3 +78,19 @@ const RelatedList = () => {
 }
 
 export default RelatedList;
+
+
+  {/* <div>
+<div className="related-slider" ref={divRef}>
+{relatedArr.map((relatedId, index) => (
+  <div key={`${index}-${relatedId}`}>
+  <RelatedListCard
+  relatedId={relatedId}
+  currentProductId={currentProductId}
+  currentProductDetails={productDetails}
+  currentProductImg={currentProductImg}
+  />
+  </div>
+  ))}
+  </div>
+</div> */}
