@@ -51,7 +51,7 @@ nav ul li::before {
   left: 0;
   background-color: #272727;
   transform: scaleX(0);
-  transition: transform 0.3s ease;
+  transition: transform 300ms ease;
 }
 nav ul li:hover {
   cursor: pointer;
@@ -337,7 +337,6 @@ nav div {
   justify-content: center;
   align-items: center;
 
-  /* transition-duration: 100ms; */
 }
 
 /* position over a little later */
@@ -374,27 +373,29 @@ nav div {
   margin-bottom: 4px;
   line-height: 26px;
 }
-.details-text-collapsed {
-  height: 0px;
+.details-text-collapsed > *, .features-text-collapsed > * {
+  max-height: 0px;
   overflow: hidden;
-  /* transition: 300ms; */
 }
-.details-text-show {
-  transition: all 350ms;
-  /* animation: dropDown 350ms ease-in-out; */
+.features-text-show, .features-text-show > * {
+  animation: dropDown 1000ms linear;
+  overflow: hidden;
+}
+.details-text-show, .details-text-show > *{
+  animation: dropDown 1000ms linear;
   overflow: hidden;
 }
 @keyframes dropDown {
-  0% {
-    transform: translateY(-100%);
+  from {
+    max-height: 12px;
   }
-  100%{
-    transform: translateY(0%);
+  to {
+    max-height: 500px;
   }
 }
+
 .product-slogan {
   font-style: italic;
-  /* margin-top: 4px; */
   margin-bottom: 8px;
 }
 
