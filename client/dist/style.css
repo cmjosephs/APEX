@@ -198,7 +198,7 @@ nav div {
 }
 .avg-rating-title {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
 }
 .avg-rating-title > .avg-rating {
