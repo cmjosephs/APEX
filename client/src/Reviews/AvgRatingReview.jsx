@@ -92,7 +92,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
             aria-label="Disabled slider"
             min={0}
             max={totalRatings}
-            sx={{ display: 'flex' }}
+            sx={{ display: 'inline-flex' }}
             style={{ color: '#D6CCC2'}}
             />
             <span role="1-star">

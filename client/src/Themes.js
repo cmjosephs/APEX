@@ -22,9 +22,8 @@ export const lightMode = {
   navBtnColor: 'none',
   navBtnHover: '#D6CCC2',
   navBtnBorder: 'none',
-  navBtnPadding: 'none',
+  navBtnPadding: '6px',
   styleShadow: '2px 2px 2px #E7E7E7',
-  // chrisStylesShadow:
 }
 
 export const darkMode = {
@@ -32,7 +31,7 @@ export const darkMode = {
   fontColor: '#E7E7E7',
   scrollTrack: '#E7E7E7',
   scrollThumb: '#D6CCC2',
-  scrollThumbHover: '#FCFCFC',
+  scrollThumbHover: '#D6CCC2',
   generalButton: '#FCFCFC',
   reviewQA: '#303030',
   reviewQAShadow: '0px 8px 16px 0px rgba(0,0,0,0.2);',
@@ -46,7 +45,6 @@ export const darkMode = {
   navBtnBorder: '10px',
   navBtnPadding: '6px',
   styleShadow: 'none',
-  // chrisStylesShadow:
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -71,31 +69,6 @@ export const GlobalStyles = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     background: ${props => props.theme.scrollThumbHover}
-  }
-
-  // REVIEWS
-
-  .review-container-left, .review-container-right, .navbar, .question-container {
-    background-color: ${props => props.theme.reviewQA};
-    border-radius: ${props => props.theme.reviewQABorder};
-    box-shadow: ${props => props.theme.reviewQAShadow};
-  }
-
-  .review-container-left, .review-container-right, .question-container {
-    padding: ${props => props.theme.reviewQApadding}
-  }
-
-  h1.review-header {
-    font-family: 'Noto Serif Display', serif;
-  }
-
-  .review-button, .question-button {
-    background-color: ${props => props.theme.generalButton};
-    color: ${props => props.theme.body};
-    min-width: 160px;
-    padding: 12px 16px;
-    z-index: 1;
-    border-radius: 5rem;
   }
 
 
@@ -213,7 +186,6 @@ export const GlobalStyles = createGlobalStyle`
     color: #272727
   }
 
-
   .answer-button {
     background-color: ${props => props.theme.fontColor};
     color: ${props => props.theme.body};
@@ -225,6 +197,33 @@ export const GlobalStyles = createGlobalStyle`
   .answer-button:hover {
     background-color: #D6CCC2;
     color: ${props => props.theme.fontColor};
+  }
+
+  // REVIEWS
+
+  #review-container, .navbar, .question-container {
+    background-color: ${props => props.theme.reviewQA};
+    border-radius: ${props => props.theme.reviewQABorder};
+    box-shadow: ${props => props.theme.reviewQAShadow};
+    padding: ${props => props.theme.reviewQApadding};
+  }
+
+  // .review-container-left, .review-container-right {
+
+  // }
+
+
+  h1.review-header {
+    font-family: 'Noto Serif Display', serif;
+  }
+
+  .review-button, .question-button {
+    background-color: ${props => props.theme.generalButton};
+    color: ${props => props.theme.body};
+    min-width: 160px;
+    padding: 12px 16px;
+    z-index: 1;
+    border-radius: 5rem;
   }
 
 `
