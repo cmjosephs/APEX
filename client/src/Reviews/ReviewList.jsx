@@ -26,7 +26,8 @@ const ReviewList = () => {
 
 
   const getReviews = async () => {
-    await axios.get(`api/products/${productId}/reviews`,
+    console.log(productId)
+    await axios.get(`/api/products/${productId}/reviews`,
     {
       params: {
         count: 200,

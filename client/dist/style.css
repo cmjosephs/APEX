@@ -1049,13 +1049,6 @@ h4.characteristic-property-name {
 /* -------------- Average Ratings & Reviews -------------- */
 
 
-.avg-rating {
-  display: flex;
-}
-.rating-star {
-  max-width: 30%;
-}
-
 .avg-rating-number > .avg-rating {
   display: inline-flex;
   width: 40%
