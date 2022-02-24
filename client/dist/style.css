@@ -74,6 +74,7 @@ nav div {
   color: #272727;
   background-color: #272727;
   width: 90%;
+  margin-top: 0px;
 }
 /* -------------- Product Overview -------------- */
 @media (min-width: 960px) {
@@ -206,6 +207,7 @@ nav div {
 
 .same-page-review-link {
   color: #272727;
+  padding-left: 2em;
 }
 .prices {
   display: flex;
@@ -229,7 +231,7 @@ nav div {
   align-items: center;
   justify-content: flex-start;
   gap: 0.5em;
-  width: 100%;
+  width: 92%;
 }
 .style-selector > * {
   width: 23%;
@@ -260,7 +262,9 @@ nav div {
   border: solid #272727;
   border-radius: 4px;
 }
-
+.size-label {
+  color: #272727;
+}
 .size-label, .size-label-nostock {
   cursor: pointer;
   display: flex;
@@ -274,6 +278,7 @@ nav div {
 }
 .size-label-nostock {
   background-color: rgb(214, 214, 214);
+  color: #e7e7e7
 }
 .visually-hidden {
   position: absolute;

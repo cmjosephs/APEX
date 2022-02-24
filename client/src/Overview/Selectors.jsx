@@ -61,9 +61,7 @@ var Selectors = () => {
           <label
             htmlFor={sku}
             className={skus[sku].quantity ? "size-label" : "size-label-nostock"}
-            style={skus[sku].quantity ? {color: "black"} : {color: "gray"}}
           >{skus[sku].size}</label>
-          {/* {productDetails.category === 'Kicks' && 'M'} */}
         </div>
       )
     }
