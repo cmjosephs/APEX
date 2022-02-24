@@ -7,7 +7,7 @@ import ReviewList from './Reviews/ReviewList.jsx';
 import RelatedList from './Related/RelatedList.jsx';
 import QAList from './Questions/QAList.jsx';
 import styled, { ThemeProvider } from 'styled-components';
-import { lightMode, darkMode, GlobalStyles } from './Themes.js';
+import { lightMode, darkMode, GlobalStyles } from './Shared/Themes.js';
 
 export const AppContext = createContext();
 
