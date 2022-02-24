@@ -68,9 +68,8 @@ var QAList = () => {
       return (<QuestionForm productId={productId} productName={productDetails.name} addedQuestion={addedQuestion}/>)
     } else {
        return (
-        <div >
+        <div className="qa-section">
           <div className="question-answer-list">
-            <div className="questions-list">
               {questions.map(question => {
                 return <QAItem
                   question={question}
@@ -80,7 +79,6 @@ var QAList = () => {
                   productName={productDetails.name}
                 />
               })}
-            </div>
           </div>
           <div className="question-button-section">
             {moreQuestionButton()}
@@ -93,13 +91,11 @@ var QAList = () => {
 
   return (
     <div className="question-container">
-      <h2 className="question-header">Questions and Answers</h2>
       <div>
+      <h1 className="question-header">Questions and Answers</h1>
         <Search onSearch={searchQuestions}/>
       </div>
-      <div>
-        {renderQuestions()}
-      </div>
+      {renderQuestions()}
     </div>
   )
 }
