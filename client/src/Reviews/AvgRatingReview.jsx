@@ -6,7 +6,7 @@ import { AppContext } from '../App.jsx';
 import Slider from '@mui/material/Slider';
 import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
-import AvgRating from '../AvgRating.jsx';
+import AvgRating from '../Shared/AvgRating.jsx';
 
 
 const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {

@@ -242,7 +242,7 @@ const ReviewForm = ({ getNewReviews }) => {
         handleClose();
         dispatch({ type: "clearData"})
       }).catch(err => {
-        console.log(err)
+        console.log('error posting reviews')
       })
     }
 

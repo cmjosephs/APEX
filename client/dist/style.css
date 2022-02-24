@@ -716,8 +716,8 @@ nav div {
 
 .search-input {
   display: inline-flex;
-  background-color: #FCFCFC;
-  color: #272727;
+  /* background-color: #FCFCFC;
+  color: #272727; */
   width: 90vw;
   padding: 12px 16px;
   z-index: 1;
@@ -730,9 +730,9 @@ nav div {
   overflow: auto;
   display: flex;
   flex-direction: column;
-  background-color: #FCFCFC;
-  font-family: 'Roboto', sans-serif;
-  color: #272727;
+  /* background-color: #FCFCFC; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* color: #272727; */
 }
 
 .question-heading {
@@ -813,7 +813,7 @@ nav div {
   flex-wrap: wrap;
   flex-shrink: 1;
   flex-direction: column;
-  color: #272727;
+  /* color: #272727; */
 }
 
 .question-button-section {
@@ -822,20 +822,6 @@ nav div {
   justify-content: right;
 }
 
-
-.question-button {
-  background-color: #272727;
-  color: #FCFCFC;
-  min-width: 160px;
-  padding: 12px 16px;
-  z-index: 1;
-  border-radius: 5rem;
-}
-
-.question-button:hover {
-  background-color: #D6CCC2;
-  color: #272727;
-}
 
 .answer-button {
   background-color: #272727;
@@ -923,7 +909,7 @@ nav div {
   justify-content: right;
 }
 
-.review-button {
+.review-button, .question-button {
   background-color: #272727;
   color: #FCFCFC;
   min-width: 160px;
@@ -933,7 +919,7 @@ nav div {
   border-radius: 5rem;
 }
 
-.review-button:hover {
+.review-button:hover, .question-button:hover {
   background-color: #D6CCC2;
   color: #272727;
 }
@@ -992,10 +978,12 @@ h4.review-summary {
 
 .review-interaction {
   color: #272727;
+  text-decoration: underline;
 }
 
 .review-interaction:hover {
   color: #D6CCC2;
+  text-decoration: underline;
 }
 
 h4.characteristic-property-name {

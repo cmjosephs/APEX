@@ -14,7 +14,9 @@ export const lightMode = {
   generalButton: '#272727',
   reviewQA: '#FCFCFC',
   reviewQAShadow: 'none',
-  reviewQABorder: 'none'
+  reviewQABorder: 'none',
+  // chrisMainShadow: '',
+  // chrisStylesShadow:
 }
 
 export const darkMode = {
@@ -27,6 +29,8 @@ export const darkMode = {
   reviewQA: '#303030',
   reviewQAShadow: '0px 8px 16px 0px rgba(0,0,0,0.2);',
   reviewQABorder: '15px;'
+  // chrisMainShadow: ''
+  // chrisStylesShadow:
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -56,13 +60,13 @@ export const GlobalStyles = createGlobalStyle`
   // REVIEWS
 
   .review-container-left {
-    background-color: ${props => props.theme.QA};
+    background-color: ${props => props.theme.reviewQA};
     border-radius: ${props => props.theme.reviewQABorder};
     box-shadow: ${props => props.theme.reviewQAShadow};
   }
 
   .review-container-right {
-    background-color:  ${props => props.theme.QA};
+    background-color:  ${props => props.theme.reviewQA};
     border-radius: ${props => props.theme.reviewQABorder};
     box-shadow: ${props => props.theme.reviewQAShadow};
   }
@@ -71,7 +75,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Noto Serif Display', serif;
   }
 
-  .review-button {
+  .review-button, .question-button {
     background-color: ${props => props.theme.generalButton};
     color: ${props => props.theme.body};
     min-width: 160px;
@@ -159,19 +163,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.fontColor};
   }
 
-  .question-button {
-    background-color: #FCFCFC;
-    color: ${props => props.theme.body};
-    min-width: 160px;
-    padding: 12px 16px;
-    z-index: 1;
-    border-radius: 5rem;
-  }
-
-  .question-button:hover {
-    background-color: #D6CCC2;
-    color: ${props => props.theme.fontColor};
-  }
 
   .answer-button {
     background-color: ${props => props.theme.fontColor};

@@ -13,12 +13,14 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
   // TODO: re-render reviews after marking helpful
 
   let addHelpful = () => {
-    axios.put(`api/products/${productId}/reviews/${review.review_id}/helpful`)
-    .then(getNewReviews())
-    .then(setMarkHelpful(false))
-    .catch(err => {
-      'error marking as helpful'
-    })
+    if (markHelpful) {
+      axios.put(`/api/products/${productId}/reviews/${review.review_id}/helpful`)
+      .then(() => getNewReviews())
+      .then(setMarkHelpful(false))
+      .catch(err => {
+        'error marking as helpful'
+      })
+    }
   }
 
   let notHelpful = () => {
@@ -32,27 +34,26 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
       <span>Helpful?  </span>
       {markHelpful ?
       <>
-      <span role="helpful">   {review.helpfulness}   </span>
-      <span><a href="#" className="review-interaction" onClick={addHelpful}>Yes</a>
-      <span>   |   </span>
-      </span>
+      <span className="review-interaction" onClick={addHelpful}>Yes</span>
+      <span role="helpful">   ({review.helpfulness})   </span>
+      <span>     |   </span>
       </>
       :
       <>
-      <span role="helpful">   {review.helpfulness}   </span>
       <span> Yes</span>
+      <span role="helpful">   ({review.helpfulness})   </span>
       <span>    |    </span>
       </>
       }
       {markHelpful ?
       <>
-      <span>   {notHelpfulCount}   </span>
-      <span><a href="#" className="review-interaction" onClick={notHelpful}>No</a></span>
+      <span className="review-interaction" onClick={notHelpful}>No</span>
+      <span>   ({notHelpfulCount})   </span>
       </>
       :
       <>
-      <span>   {notHelpfulCount}   </span>
       <span> No</span>
+      <span>   ({notHelpfulCount})   </span>
       </>
       }
     </div>

@@ -77,8 +77,8 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
         <h4><b>Q:</b></h4>
         <h4><b>{question.question_body}</b></h4>
         <span className="question-helpful">
-          Helpful?
-          <a className="question-yes" onClick={questionHelpful}>Yes</a>
+          Helpful? {"  "}
+          <span className="question-yes" onClick={questionHelpful}>Yes</span>
           <span>({question.question_helpfulness})</span>
           <span className="seperator">|</span>
 
