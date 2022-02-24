@@ -11,9 +11,9 @@ var Info = ({ productDetails }) => {
           <h3 onClick={() => setShowFeatures(!showFeatures)}>Features -</h3>
             {featList.map((feature, index) => {
               return (
-                <div className="feature" key={`feat-${index}`} >
+                <p className="feature" key={`feat-${index}`} >
                   {feature.feature}: {feature.value}
-                </div>
+                </p>
               )
             })}
         </div>

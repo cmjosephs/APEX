@@ -196,6 +196,14 @@ nav div {
   font-family: 'Noto Serif Display', serif;
   font-weight: 400;
 }
+.product-name {
+  margin-bottom: 10px;
+}
+.product-category {
+  font-weight: 300;
+  margin-top: 8px;
+  /* font-size: ; */
+}
 .avg-rating-title {
   display: flex;
   align-items: baseline;
@@ -351,8 +359,11 @@ nav div {
   cursor: pointer;
 }
 
-.product-details p, .product-features div {
+.product-details p, .product-features p {
   max-width: 80%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  line-height: 26px;
   /* transform: rotate(90deg); */
   /* animation: dropDown linear 1000ms forwards; */
 }
@@ -364,11 +375,16 @@ nav div {
 
   }
 } */
+.product-slogan {
+  font-style: italic;
+  /* margin-top: 4px; */
+  margin-bottom: 8px;
+}
 
 .share-bar {
   display: flex;
   justify-content: space-between;
-  max-width: 50%;
+  max-width: 80%;
 }
 
 .share-icons {

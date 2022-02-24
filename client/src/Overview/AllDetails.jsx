@@ -33,7 +33,7 @@ var AllDetails = () => {
     return (
       <div className="all-details">
         <h1 className="product-name">{productDetails.name}</h1>
-        <h2 className="product-category">{productDetails.category}</h2>
+        <h3 className="product-category">{productDetails.category}</h3>
         <div className="avg-rating-title">
           <AvgRating metaDataRatings={reviewMetaData.ratings} />
           <a href="#review-container" className="same-page-review-link">See all reviews</a>
