@@ -74,6 +74,7 @@ nav div {
   color: #272727;
   background-color: #272727;
   width: 90%;
+  margin-top: 0px;
 }
 /* -------------- Product Overview -------------- */
 @media (min-width: 960px) {
@@ -195,9 +196,17 @@ nav div {
   font-family: 'Noto Serif Display', serif;
   font-weight: 400;
 }
+.product-name {
+  margin-bottom: 10px;
+}
+.product-category {
+  font-weight: 300;
+  margin-top: 8px;
+  /* font-size: ; */
+}
 .avg-rating-title {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
 }
 .avg-rating-title > .avg-rating {
@@ -206,6 +215,7 @@ nav div {
 
 .same-page-review-link {
   color: #272727;
+  padding-left: 2em;
 }
 .prices {
   display: flex;
@@ -229,7 +239,7 @@ nav div {
   align-items: center;
   justify-content: flex-start;
   gap: 0.5em;
-  width: 100%;
+  width: 92%;
 }
 .style-selector > * {
   width: 23%;
@@ -260,7 +270,9 @@ nav div {
   border: solid #272727;
   border-radius: 4px;
 }
-
+.size-label {
+  color: #272727;
+}
 .size-label, .size-label-nostock {
   cursor: pointer;
   display: flex;
@@ -274,6 +286,7 @@ nav div {
 }
 .size-label-nostock {
   background-color: rgb(214, 214, 214);
+  color: #e7e7e7
 }
 .visually-hidden {
   position: absolute;
@@ -329,15 +342,6 @@ nav div {
   justify-content: flex-start;
 }
 
-.product-details {
-  transition: ease-in-out 1000ms;
-
-}
-
-.product-details {
-  transition: ease-in-out 1000ms;
-
-}
 .product-details h3, .product-features h3 {
   font-weight: 400;
 }
@@ -346,24 +350,40 @@ nav div {
   cursor: pointer;
 }
 
-.product-details p, .product-features div {
+.product-details p, .product-features p {
   max-width: 80%;
-  /* transform: rotate(90deg); */
-  /* animation: dropDown linear 1000ms forwards; */
+  margin-top: 4px;
+  margin-bottom: 4px;
+  line-height: 26px;
 }
-/* @keyframes dropDown {
+.details-text-collapsed {
+  height: 0px;
+  overflow: hidden;
+  /* transition: 300ms; */
+}
+.details-text-show {
+  transition: all 350ms;
+  /* animation: dropDown 350ms ease-in-out; */
+  overflow: hidden;
+}
+@keyframes dropDown {
   0% {
-
+    transform: translateY(-100%);
   }
   100%{
-
+    transform: translateY(0%);
   }
-} */
+}
+.product-slogan {
+  font-style: italic;
+  /* margin-top: 4px; */
+  margin-bottom: 8px;
+}
 
 .share-bar {
   display: flex;
   justify-content: space-between;
-  max-width: 50%;
+  max-width: 80%;
 }
 
 .share-icons {

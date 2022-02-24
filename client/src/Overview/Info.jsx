@@ -11,9 +11,9 @@ var Info = ({ productDetails }) => {
           <h3 onClick={() => setShowFeatures(!showFeatures)}>Features -</h3>
             {featList.map((feature, index) => {
               return (
-                <div className="feature" key={`feat-${index}`} >
+                <p className="feature" key={`feat-${index}`} >
                   {feature.feature}: {feature.value}
-                </div>
+                </p>
               )
             })}
         </div>
@@ -28,23 +28,34 @@ var Info = ({ productDetails }) => {
   }
 
   const renderDetails = () => {
-    if (showDetails) {
-      return (
-        <div className="product-details">
-          <h3 onClick={() => setShowDetails(!showDetails)}>
-            Details -
-          </h3>
-            <p className="product-slogan" data-testid="product-slogan">{productDetails.slogan}</p>
-            <p className="product-description" role="product-description">{productDetails.description}</p>
+    // if (showDetails) {
+    //   return (
+    //     <div className="product-details">
+    //       <h3 onClick={() => setShowDetails(!showDetails)}>
+    //         Details -
+    //       </h3>
+    //         <p className="product-slogan" data-testid="product-slogan">{productDetails.slogan}</p>
+    //         <p className="product-description" role="product-description">{productDetails.description}</p>
+    //     </div>
+    //   )
+    // } else {
+    //   return (
+    //     <div className="product-details" onClick={() => setShowDetails(!showDetails)}>
+    //       <h3>Details +</h3>
+    //     </div>
+    //   )
+    // }
+    return (
+      <div className="product-details">
+        <h3 onClick={() => setShowDetails(!showDetails)}>
+          Details {showDetails ? '-' : '+'}
+        </h3>
+        <div className={showDetails ? 'details-text-show' : 'details-text-collapsed'}>
+          <p className="product-slogan" data-testid="product-slogan">{productDetails.slogan}</p>
+          <p className="product-description" role="product-description">{productDetails.description}</p>
         </div>
-      )
-    } else {
-      return (
-        <div className="product-details" onClick={() => setShowDetails(!showDetails)}>
-          <h3>Details +</h3>
-        </div>
-      )
-    }
+      </div>
+    )
   }
 
   return (
