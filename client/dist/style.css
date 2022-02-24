@@ -373,9 +373,12 @@ nav div {
   margin-bottom: 4px;
   line-height: 26px;
 }
+
+/* ------Animations for info------ */
 .details-text-collapsed > *, .features-text-collapsed > * {
   max-height: 0px;
   overflow: hidden;
+  transition: max-height 1000ms linear;
 }
 .features-text-show, .features-text-show > * {
   animation: dropDown 1000ms linear;
@@ -393,6 +396,7 @@ nav div {
     max-height: 500px;
   }
 }
+/* ------Animations section end------ */
 
 .product-slogan {
   font-style: italic;
