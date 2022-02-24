@@ -1,6 +1,4 @@
 const axios = require('axios');
-// const API_KEY = require('../config/config.js');
-// const BASE_URL = require('../config/config.baseURL.js');
 require('dotenv').config();
 const API_KEY = process.env.API_KEY;
 const BASE_URL = process.env.BASE_URL;
