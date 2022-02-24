@@ -26,7 +26,11 @@ var Selectors = () => {
       return (
         <Link to={`/products/${productDetails.id}/${style.style_id}`} key={index}>
           <img
-            src={style.photos[0].thumbnail_url}
+            src={
+              style.photos[0].thumbnail_url ?
+              style.photos[0].thumbnail_url :
+              'https://netmechanics.ca/wp-content/uploads/2019/04/you-almost-got-me-almost.jpg'
+            }
             alt={style.name}
             className="style"
             id={style.style_id}
