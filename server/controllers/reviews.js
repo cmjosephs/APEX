@@ -26,7 +26,8 @@ module.exports = {
     let { product_id } = req.params;
 
     axios.post(`${baseUrl}/reviews`, req.body,
-    { params: { product_id },
+    {
+      params: { product_id },
       headers: { Authorization: API_KEY }
     })
     .then(results => res.status(200).send('Added review!'))
