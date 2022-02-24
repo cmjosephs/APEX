@@ -99,8 +99,8 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
         {showMore ? review.body : review.body.substring(0, 250)}
 
         {review.body.length > 250 &&
-          <a href="#" className="review-interaction" onClick={() => { setShowMore(!showMore) }}>{showMore ? '...Show less' : '...Show more'}
-          </a>}
+          <span href="#" className="review-interaction" onClick={() => { setShowMore(!showMore) }}>{showMore ? '...Show less' : '...Show more'}
+          </span>}
 
         <div className="review-thumbnails">
           {showReviewThumbnails(review.photos)}

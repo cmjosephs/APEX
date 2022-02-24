@@ -50,7 +50,7 @@ const App = () => {
         value={{ productId: product_id, reviewMetaData, productDetails }}
       >
         <StyledApp>
-          <NavBar />
+          <NavBar themeToggler={themeToggler}/>
           <hr id="nav-break" />
           <div>
             <br></br>
@@ -59,7 +59,6 @@ const App = () => {
             {/* <RelatedList /> */}
             <QAList />
             <ReviewList />
-            <button onClick={() => themeToggler()}>Change Theme</button>
           </div>
         </StyledApp>
       </AppContext.Provider>

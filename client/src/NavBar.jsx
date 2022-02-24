@@ -1,7 +1,7 @@
 import React from 'react';
 import resizeWidth from './Overview/resizeWidth.jsx';
 
-const NavBar = () => {
+const NavBar = ({ themeToggler }) => {
   const { width } = resizeWidth();
 
   return (
@@ -17,6 +17,7 @@ const NavBar = () => {
         <input type="text" placeholder="Search" className="nav-search"></input>
         <img src="/images/heart.svg" alt="favorites" className="nav-btn"></img>
         <img src="/images/bag.svg" alt="shopping-bag" className="nav-btn"></img>
+        <button onClick={() => themeToggler()}>Change Theme</button>
       </div>
     </nav>
   )

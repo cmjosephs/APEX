@@ -38,7 +38,7 @@ var Answer = ({answer, productId, answerHelpful}) => {
           Helpful? {"  "}
           <span className="answer-yes" onClick={() => answerHelpful(answer)}>Yes</span>
         </span>
-        <span className="answer-helpful">({answer.helpfulness}) </span>
+        <span className="answer-helpful">{" "}({answer.helpfulness}) </span>
         <span className="seperator">|</span>
         {clickedReport ? <span className="answer-report" onClick={reportAnswer}>Report</span> : <span>Reported</span>}
       </div>
