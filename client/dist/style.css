@@ -342,15 +342,6 @@ nav div {
   justify-content: flex-start;
 }
 
-.product-details {
-  transition: ease-in-out 1000ms;
-
-}
-
-.product-details {
-  transition: ease-in-out 1000ms;
-
-}
 .product-details h3, .product-features h3 {
   font-weight: 400;
 }
@@ -364,17 +355,25 @@ nav div {
   margin-top: 4px;
   margin-bottom: 4px;
   line-height: 26px;
-  /* transform: rotate(90deg); */
-  /* animation: dropDown linear 1000ms forwards; */
 }
-/* @keyframes dropDown {
+.details-text-collapsed {
+  height: 0px;
+  overflow: hidden;
+  /* transition: 300ms; */
+}
+.details-text-show {
+  transition: all 350ms;
+  /* animation: dropDown 350ms ease-in-out; */
+  overflow: hidden;
+}
+@keyframes dropDown {
   0% {
-
+    transform: translateY(-100%);
   }
   100%{
-
+    transform: translateY(0%);
   }
-} */
+}
 .product-slogan {
   font-style: italic;
   /* margin-top: 4px; */
