@@ -27,6 +27,7 @@
     "@mui/material": "^5.4.2",
     "arrow-keys-react": "^1.0.6",
     "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "main": "^1000.0.1",
     "mui": "^0.0.1",

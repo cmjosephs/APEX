@@ -56,9 +56,9 @@ const App = () => {
             <br></br>
             <Product />
             <br></br>
-            {/* <RelatedList />
-            <QAList />
-            <ReviewList /> */}
+            {/* <RelatedList /> */}
+            {/* <QAList /> */}
+            {/* <ReviewList /> */}
             <button onClick={() => themeToggler()}>Change Theme</button>
           </div>
         </StyledApp>
