@@ -35,10 +35,10 @@ var Answer = ({answer, productId, answerHelpful}) => {
           })}
         <span className="seperator">|</span>
         <span className="answer-helpful">
-          Helpful?
-          <a className="answer-yes" onClick={() => answerHelpful(answer)}>Yes</a>
+          Helpful? {"  "}
+          <span className="answer-yes" onClick={() => answerHelpful(answer)}>Yes</span>
         </span>
-        <span className="answer-helpful">({answer.helpfulness}) </span>
+        <span className="answer-helpful">{" "}({answer.helpfulness}) </span>
         <span className="seperator">|</span>
         {clickedReport ? <span className="answer-report" onClick={reportAnswer}>Report</span> : <span>Reported</span>}
       </div>

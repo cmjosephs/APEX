@@ -1,7 +1,9 @@
 import React from 'react';
 import resizeWidth from './Overview/resizeWidth.jsx';
+import Switch from '@mui/material/Switch';
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
-const NavBar = () => {
+const NavBar = ({ themeToggler }) => {
   const { width } = resizeWidth();
 
   return (
@@ -18,6 +20,8 @@ const NavBar = () => {
         <img src="/images/heart.svg" alt="favorites" className="nav-btn"></img>
         <img src="/images/bag.svg" alt="shopping-bag" className="nav-btn"></img>
       </div>
+        <button className="theme-toggler" onClick={() => themeToggler()}>Change Theme</button>
+        <Switch {...label} />
     </nav>
   )
 }

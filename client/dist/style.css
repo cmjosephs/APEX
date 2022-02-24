@@ -40,6 +40,7 @@ nav ul {
 }
 nav ul li:hover {
   cursor: pointer;
+  color: #D6CCC2;
   text-decoration: underline;
 }
 nav h1 {
@@ -63,17 +64,24 @@ nav div {
   border: thin solid #E7E7E7;
   min-height: 40%;
 }
-.nav-btn:hover {
+/* .nav-btn:hover {
   cursor: pointer;
   padding: 6px;
   background-color: #D6CCC2;
   border-radius: 10px;
+} */
+
+.theme-toggler {
+  position: absolute;
+  top: 23px;
+  right: 23px;
 }
+
 
 #nav-break {
   color: #272727;
   background-color: #272727;
-  width: 90%;
+  width: 94%;
   margin-top: 0px;
 }
 /* -------------- Product Overview -------------- */
@@ -96,12 +104,16 @@ nav div {
   justify-content: center;
   gap: 1em;
 }
-.full-image-wide-view {
+/* .full-image-wide-view {
   width: 40%;
   border-radius: 4px;
   box-shadow: 4px 4px 3px #E7E7E7;
-}
-.full-image-wide-view:hover {
+} */
+.full-image-wide-view:hover,
+.question-yes:hover,
+.answer-yes:hover,
+.review-interaction:hover,
+.answer-report:hover {
   cursor: pointer;
 }
 
@@ -213,10 +225,11 @@ nav div {
   width: 30%;
 }
 
-.same-page-review-link {
+/* .same-page-review-link {
   color: #272727;
   padding-left: 2em;
-}
+} */
+
 .prices {
   display: flex;
   gap: 2em;
@@ -245,7 +258,7 @@ nav div {
   width: 23%;
   height: 6em;
 }
-.style {
+/* .style {
   cursor: pointer;
   height: 100%;
   object-fit: cover;
@@ -253,7 +266,7 @@ nav div {
   border-radius: 15px;
   margin: 0px;
   box-shadow: 2px 2px 2px #E7E7E7;
-}
+} */
 
 .sizes {
   margin-top: 3em;
@@ -266,7 +279,7 @@ nav div {
 .size-option {
   flex: 0 1 45%;
 }
-.size-option input[type=radio]:checked+label {
+/* .size-option input[type=radio]:checked+label {
   border: solid #272727;
   border-radius: 4px;
 }
@@ -274,6 +287,9 @@ nav div {
   color: #272727;
 }
 .size-label, .size-label-nostock {
+} */
+
+/* .size-label, .size-label-nostock {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -283,11 +299,11 @@ nav div {
   border-style: solid;
   border-color: rgb(218, 218, 218);
   border-radius: 4px;
-}
-.size-label-nostock {
+} */
+/* .size-label-nostock {
   background-color: rgb(214, 214, 214);
   color: #e7e7e7
-}
+} */
 .visually-hidden {
   position: absolute;
   height: 1px;
@@ -295,10 +311,10 @@ nav div {
   visibility: hidden;
 }
 
-.size-label:hover {
+/* .size-label:hover {
   border: thin solid rgb(5, 5, 5);
   border-radius: 4px;
-}
+} */
 
 
 
@@ -718,31 +734,30 @@ nav div {
     flex-direction: column;
   }
 } */
-.question-container {
+/* .question-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   margin: 2em;
-}
+} */
 
 .question-header {
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
+  /* position: sticky; */
   font-family: 'Noto Serif Display', serif;
   margin: 10px 0px;
 }
 
-.search-input {
-  display: inline-flex;
-  background-color: #FCFCFC;
-  color: #272727;
-  width: 90vw;
+/* .search-input {
+  display: inline-flex; */
+  /* background-color: #FCFCFC;
+  color: #272727; */
+  /* width: 90vw;
   padding: 12px 16px;
   z-index: 1;
   border-radius: 5rem;
-}
+} */
 
 .question-answer-list {
   max-height: 50vh;
@@ -750,9 +765,9 @@ nav div {
   overflow: auto;
   display: flex;
   flex-direction: column;
-  background-color: #FCFCFC;
-  font-family: 'Roboto', sans-serif;
-  color: #272727;
+  /* background-color: #FCFCFC; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* color: #272727; */
 }
 
 .question-heading {
@@ -777,7 +792,12 @@ nav div {
   margin-right: 2px;
 }
 
-.question-yes:hover {
+.question-yes:hover,
+.answer-yes:hover,
+.same-page-review-link:hover,
+.answer-report:hover,
+.review-interaction:hover
+ {
   color: #D6CCC2;
 }
 
@@ -787,17 +807,17 @@ nav div {
   margin-right: 2px;
 }
 
-.answer-yes:hover {
+/* .answer-yes:hover {
   color: #D6CCC2;
-}
+} */
 
 .answer-report {
   text-decoration: underline;
 }
 
-.answer-report:hover {
+/* .answer-report:hover {
   color: #D6CCC2;
-}
+} */
 
 .AddAnswer {
   text-decoration: underline;
@@ -833,29 +853,15 @@ nav div {
   flex-wrap: wrap;
   flex-shrink: 1;
   flex-direction: column;
-  color: #272727;
+  /* color: #272727; */
 }
 
 .question-button-section {
-  margin: 2em;
+  /* margin: 2em; */
   display: flex;
   justify-content: right;
 }
 
-
-.question-button {
-  background-color: #272727;
-  color: #FCFCFC;
-  min-width: 160px;
-  padding: 12px 16px;
-  z-index: 1;
-  border-radius: 5rem;
-}
-
-.question-button:hover {
-  background-color: #D6CCC2;
-  color: #272727;
-}
 
 .answer-button {
   background-color: #272727;
@@ -871,6 +877,8 @@ nav div {
 }
 
 /* -------------- Reviews -------------- */
+
+
 .review-list {
   max-height: 70vh;
   max-width: 100vw;
@@ -886,9 +894,12 @@ nav div {
   margin: 2em;
 } */
 
+
+
 .review-container-left {
   display: flex;
   margin-right: 1vw;
+  /* margin-left: 2em; */
   flex-direction: column;
   overflow-x: break-word;
   min-width: 20%;
@@ -896,8 +907,9 @@ nav div {
 
 .review-container-right {
   display: flex;
+  /* margin-right: 2em; */
   flex-direction: column;
-  min-width: 80%;
+  min-width: 70%;
 }
 
 @media (min-width: 960px) {
@@ -905,16 +917,24 @@ nav div {
     display: flex;
     flex-direction: wrap;
     max-width: 100vw;
-    margin: 1em;
+    margin: 2em;
   }
   .review-container-right {
     display: flex;
     flex-direction: wrap;
+    /* margin-left: 2em; */
   }
   .review-container-left {
     display: flex;
     flex-direction: wrap;
   }
+  .question-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 2em;
+  }
+
 }
 
 
@@ -929,8 +949,9 @@ nav div {
   min-width: 160px;
   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   padding: 12px 16px;
-  z-index: 1;
-  border-radius: 5rem;
+  /* z-index: 1; */
+  border: thin solid #E7E7E7;
+  border-radius: 12px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -943,30 +964,31 @@ nav div {
   justify-content: right;
 }
 
-.review-button {
+.review-button, .question-button {
   background-color: #272727;
   color: #FCFCFC;
   min-width: 160px;
   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-  padding: 12px 16px;
+  /* padding: 12px 16px; */
   z-index: 1;
   border-radius: 5rem;
+  font-family: 'Roboto', sans-serif;
 }
 
-.review-button:hover {
+.review-button:hover, .question-button:hover {
   background-color: #D6CCC2;
   color: #272727;
 }
 
-.search-input {
+/* .search-input {
   display: inline-flex;
   background-color: #FCFCFC;
   color: #272727;
-  min-width: 160px;
+  min-width: 160px; */
   /* padding: 12px 16px;
   /* z-index: 1;
   border-radius: 5rem; */
-}
+/* } */
 /* -------------- Review Text -------------- */
 
 /* h1.review-header {
@@ -981,10 +1003,11 @@ nav div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 2em;
 }
 
 .review-tile-stars {
-  max-width: 6%
+  width: 10%
 }
 
 .review-tile-stars > .avg-rating {
@@ -1011,12 +1034,14 @@ h4.review-summary {
 }
 
 .review-interaction {
-  color: #272727;
+  /* color: #272727; */
+  text-decoration: underline;
 }
 
-.review-interaction:hover {
+/* .review-interaction:hover {
   color: #D6CCC2;
-}
+  text-decoration: underline;
+} */
 
 h4.characteristic-property-name {
   margin: 0px 0px;

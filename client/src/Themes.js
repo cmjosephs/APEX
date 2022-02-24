@@ -14,7 +14,17 @@ export const lightMode = {
   generalButton: '#272727',
   reviewQA: '#FCFCFC',
   reviewQAShadow: 'none',
-  reviewQABorder: 'none'
+  reviewQABorder: 'none',
+  sizeOptionButtonBorder: 'solid #272727',
+  sizeOptionButtonHoverBorder: 'thin solid rgb(5, 5, 5)',
+  reviewQApadding: 'none',
+  mainPicShadow: '4px 4px 3px #E7E7E7',
+  navBtnColor: 'none',
+  navBtnHover: '#D6CCC2',
+  navBtnBorder: 'none',
+  navBtnPadding: 'none',
+  styleShadow: '2px 2px 2px #E7E7E7',
+  // chrisStylesShadow:
 }
 
 export const darkMode = {
@@ -26,7 +36,17 @@ export const darkMode = {
   generalButton: '#FCFCFC',
   reviewQA: '#303030',
   reviewQAShadow: '0px 8px 16px 0px rgba(0,0,0,0.2);',
-  reviewQABorder: '15px;'
+  reviewQABorder: '15px',
+  sizeOptionButtonBorder: 'solid #E7E7E7',
+  sizeOptionButtonHoverBorder: 'thin solid #D6CCC2',
+  reviewQApadding: '1em',
+  mainPicShadow: 'none',
+  navBtnColor: '#E7E7E7',
+  navBtnHover: '#D6CCC2',
+  navBtnBorder: '10px',
+  navBtnPadding: '6px',
+  styleShadow: 'none',
+  // chrisStylesShadow:
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -55,23 +75,21 @@ export const GlobalStyles = createGlobalStyle`
 
   // REVIEWS
 
-  .review-container-left {
-    background-color: ${props => props.theme.QA};
+  .review-container-left, .review-container-right, .navbar, .question-container {
+    background-color: ${props => props.theme.reviewQA};
     border-radius: ${props => props.theme.reviewQABorder};
     box-shadow: ${props => props.theme.reviewQAShadow};
   }
 
-  .review-container-right {
-    background-color:  ${props => props.theme.QA};
-    border-radius: ${props => props.theme.reviewQABorder};
-    box-shadow: ${props => props.theme.reviewQAShadow};
+  .review-container-left, .review-container-right, .question-container {
+    padding: ${props => props.theme.reviewQApadding}
   }
 
   h1.review-header {
     font-family: 'Noto Serif Display', serif;
   }
 
-  .review-button {
+  .review-button, .question-button {
     background-color: ${props => props.theme.generalButton};
     color: ${props => props.theme.body};
     min-width: 160px;
@@ -80,12 +98,6 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 5rem;
   }
 
-  a.review-interaction {
-    color: ${props => props.theme.fontColor}
-  }
-  a:hover {
-    color: '#D6CCC2';
-  }
 
   // NAVIGATION
   nav {
@@ -96,6 +108,18 @@ export const GlobalStyles = createGlobalStyle`
     justify-content: space-evenly;
     background-color: ${props => props.theme.body};
     height: 68px;
+  }
+
+  .nav-btn {
+    background-color: ${props => props.theme.navBtnColor};
+    border-radius: ${props => props.theme.navBtnBorder};
+    padding: ${props => props.theme.navBtnPadding}
+  }
+  .nav-btn:hover {
+    cursor: pointer;
+    padding: 6px;
+    background-color: #D6CCC2;
+    border-radius: 10px;
   }
 
   #nav-break {
@@ -111,9 +135,48 @@ export const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.fontColor};
   }
 
+  .style {
+    cursor: pointer;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 15px;
+    margin: 0px;
+    box-shadow: ${props => props.theme.styleShadow};
+  }
+
   .size-option input[type=radio]:checked+label {
-    border: solid ${props => props.theme.fontColor};
+    border: ${props => props.theme.sizeOptionButtonBorder};
     border-radius: 4px;
+  }
+
+  .size-label:hover {
+    border: ${props => props.theme.sizeOptionButtonHoverBorder};
+    border-radius: 4px;
+  }
+
+  .size-label, .size-label-nostock {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 4px;
+    padding: 10px 30px;
+    border-style: solid;
+    border-color: rgb(218, 218, 218);
+    border-radius: 4px;
+  }
+  .size-label-nostock {
+    background-color: rgb(214, 214, 214);
+  }
+
+  input-size-label {
+    color: ${props => props.theme.fontColor}
+  }
+  .full-image-wide-view {
+    width: 40%;
+    border-radius: 4px;
+    box-shadow: ${props => props.theme.mainPicShadow};
   }
 
   .add-bag-btn {
@@ -138,40 +201,18 @@ export const GlobalStyles = createGlobalStyle`
   .search-input {
     display: flex;
     color: ${props => props.theme.fontColor};
-    width: 90vw;
+    width: 97%;
     padding: 12px 16px;
     z-index: 1;
-    border-radius: 5rem;
+    border: thin solid #E7E7E7;
+    border-radius: 12px;
+    // align-items: center;
   }
 
   input.search-input {
     color: #272727
   }
 
-  .question-answer-list {
-    max-height: 50vh;
-    max-width: 100vw;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: ${props => props.theme.body};
-    font-family: 'Roboto', sans-serif;
-    color: ${props => props.theme.fontColor};
-  }
-
-  .question-button {
-    background-color: #FCFCFC;
-    color: ${props => props.theme.body};
-    min-width: 160px;
-    padding: 12px 16px;
-    z-index: 1;
-    border-radius: 5rem;
-  }
-
-  .question-button:hover {
-    background-color: #D6CCC2;
-    color: ${props => props.theme.fontColor};
-  }
 
   .answer-button {
     background-color: ${props => props.theme.fontColor};
