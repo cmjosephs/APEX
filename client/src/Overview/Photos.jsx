@@ -71,7 +71,9 @@ var Photos = () => {
       <div className="images-gallery-wide-view">
         {photos.map((photo, index) => {
           return (
-            <img src={photo.url} key={index} alt={`${index}`}
+            <img src={
+              photo.url ? photo.url : 'https://netmechanics.ca/wp-content/uploads/2019/04/you-almost-got-me-almost.jpg'
+            } key={index} alt={`${index}`}
               className="full-image-wide-view"
               onClick={() => wideViewToModal(index)}
             ></img>
@@ -86,7 +88,11 @@ var Photos = () => {
       <div className="images-gallery-narrow-view" {...ArrowKeysReact.events} tabIndex="1">
         {leftArrow("left-arrow-narrow-view")}
         <img
-          src={photos[currentPhotoIdx].url}
+          src={
+            photos[currentPhotoIdx].url ?
+            photos[currentPhotoIdx].url :
+            "https://netmechanics.ca/wp-content/uploads/2019/04/you-almost-got-me-almost.jpg"
+          }
           className="image-narrow-view-main"
           alt={currentStyle.name}
           onClick={toggleModal}

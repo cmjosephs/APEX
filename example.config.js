@@ -1,3 +1,0 @@
-API_KEY ='YOUR-PERSONAL-API-TOKEN'
-
-module.exports = API_KEY;

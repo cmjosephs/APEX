@@ -1,0 +1,5 @@
+// Name your file .env in root directory
+
+API_KEY=YOUR_GITHUB_ACCESS_TOKEN
+BASE_URL=YOUR_API_URL
+PORT=YOUR_PORT
