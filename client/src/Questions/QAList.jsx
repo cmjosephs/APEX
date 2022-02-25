@@ -55,7 +55,7 @@ var QAList = () => {
       return (<div></div>)
     }
     if (count < totalQuestions) {
-      return (<button className="question-button" onClick={getMoreQuestions}>More Questions</button>)
+      return (<button className="review-button" onClick={getMoreQuestions}>More Questions</button>)
     } else {
       return (<div></div>)
     }

@@ -10,8 +10,6 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
   let [notHelpfulCount, setNotHelpfulCount] = useState(0);
 
 
-  // TODO: re-render reviews after marking helpful
-
   let addHelpful = () => {
     if (markHelpful) {
       axios.put(`/api/products/${productId}/reviews/${review.review_id}/helpful`)

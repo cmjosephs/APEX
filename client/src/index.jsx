@@ -3,7 +3,7 @@ import axios from 'axios';
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import App from './App.jsx';
-import ScrollToTop from './ScrollToTop.jsx';
+import ScrollToTop from './Shared/ScrollToTop.jsx';
 
 render(
   // <App />,

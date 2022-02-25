@@ -63,10 +63,11 @@ const ReviewList = () => {
   }
 
   const filterStarReviews = (checkedStars) => {
-// if there's a search keyword and star(s) are checked
     if (searchKeyword !== '' && !Object.values(checkedStars).every(star => star === false)) {
       let filteredReviews = totalReviews.filter(review => {
-        if ((review.body.toLowerCase().includes(searchKeyword) || review.summary.toLowerCase().includes(searchKeyword)) && checkedStars[review.rating]) {
+        if ((review.body.toLowerCase().includes(searchKeyword)
+        || review.summary.toLowerCase().includes(searchKeyword))
+        && checkedStars[review.rating]) {
           return review;
         }
       })
@@ -75,7 +76,6 @@ const ReviewList = () => {
       setDisplayCount(filteredReviews.length)
     }
 
-    // no search keyword but star is checked
     if (searchKeyword === '' && !Object.values(checkedStars).every(star => star === false)) {
       let filteredReviews = totalReviews.filter(review => {
         if (checkedStars[review.rating]) {
@@ -87,10 +87,10 @@ const ReviewList = () => {
       setDisplayCount(filteredReviews.length)
     }
 
-    // search keyword but no stars checked
     if (searchKeyword !== '' && Object.values(checkedStars).every(star => star === false)) {
       let filteredReviews = totalReviews.filter(review => {
-        if (review.body.toLowerCase().includes(searchKeyword) || review.summary.toLowerCase().includes(searchKeyword)) {
+        if (review.body.toLowerCase().includes(searchKeyword)
+        || review.summary.toLowerCase().includes(searchKeyword)) {
           return review;
         }
       })
@@ -98,7 +98,7 @@ const ReviewList = () => {
       setEnoughReviews(false)
       setDisplayCount(filteredReviews.length)
     }
-    // no search keyword or stars checked
+
     if (searchKeyword === '' && Object.values(checkedStars).every(star => star === false)) {
         setEnoughReviews(true)
         setReviews(totalReviews.slice(0, count))

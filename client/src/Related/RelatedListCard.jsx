@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import ComparisonModal from './ComparisonModal.jsx';
-import Features from './Features.jsx';
 import axios from 'axios';
 import AvgRating from '../Shared/AvgRating.jsx';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -28,7 +27,11 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }
                 defaultStyle = data.results[i]
               }
             }
-            updateRelatedImgUrl(defaultStyle.photos[0].thumbnail_url)
+            if (defaultStyle.photos[0].thumbnail_url !== null) {
+              updateRelatedImgUrl(defaultStyle.photos[0].thumbnail_url)
+            } else {
+              updateRelatedImgUrl('https://netmechanics.ca/wp-content/uploads/2019/04/you-almost-got-me-almost.jpg')
+            }
             updateSalePrice(defaultStyle)
             updateNumberOfStyles(data.results.length)
           })
@@ -48,6 +51,7 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }
 
   const handleChange = () => {
     setShowModal(!showModal)
+    console.log(currentProductImg)
   }
 
   function hasSalePrice() {
@@ -98,6 +102,7 @@ const RelatedListCard = ({ relatedId, currentProductDetails, currentProductImg }
         {numStyles()}
         </h4>
       {hasSalePrice()}
+      {/* <a className="new-comparison-open"><StarBorderIcon onClick={handleChange}/> </a> */}
       <StarBorderIcon className="related-comparison-open" onClick={handleChange}/>
       <Modal open={showModal} onClose={handleChange} className="comparison-modal">
         <ComparisonModal

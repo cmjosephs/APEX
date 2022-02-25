@@ -8,47 +8,54 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { AppContext } from '../App.jsx';
 
-const FavoriteList = ({ currentProductId, currentProductDetails, currentProductImg }) => {
+const FavoriteList = ({ currentProductId, currentProductDetails, currentProductImg, currentProductStyle }) => {
   const { productId, productDetails, reviewMetaData } = useContext(AppContext);
   const [favorites, setFavorites] = useState([]);
-  // const [count, setCount] = useState(0);
 
   useEffect(() => {
     gatherFavorites();
   }, [])
 
-  // useEffect(() => {
-  //   updateCount();
-  // }, [])
-
-  // function updateCount() {
-  //   let newCount = 0;
-  //   if (favorites.length !== 0) {
-  //     lastIndex = favorites.length - 1;
-  //     newCount = favorites[lastIndex].startIndex + 1;
-  //   }
-  //   setCount(newCount);
-  // }
+  useEffect(() => {
+    resetFavoriteCarousel();
+  }, [productId])
 
   function gatherFavorites() {
     const favoriteProductObjects = Object.values(localStorage);
     const favoriteProductsArray = [];
-    // favoriteProductObjects.sort((a, b) => (a.startIndex > b.startIndex) ? 1 : -1);
     favoriteProductObjects.map((productObj) => {
       favoriteProductsArray.push(JSON.parse(productObj));
     })
     setFavorites(favoriteProductsArray);
-    // setCount(prevCount => prevCount + 1);
   }
 
   function addToFavorites() {
-    const productToAdd = {
-      // startIndex: count,
-      productID: currentProductId,
-      productName: currentProductDetails.name,
-      category: currentProductDetails.category,
-      url: currentProductImg.thumbnail_url,
-      price: currentProductDetails.default_price
+    let productToAdd = {};
+    let defaultThumbnail = currentProductImg;
+    if (currentProductImg === null) {
+      defaultThumbnail = 'https://netmechanics.ca/wp-content/uploads/2019/04/you-almost-got-me-almost.jpg';
+    }
+
+    if (currentProductStyle.sale_price === null) {
+      productToAdd = {
+        productID: currentProductId,
+        productName: currentProductDetails.name,
+        category: currentProductDetails.category,
+        url: defaultThumbnail,
+        price: currentProductStyle.original_price,
+        salePrice: currentProductStyle.sale_price,
+        style: currentProductStyle.style_id
+      }
+    } else {
+      productToAdd = {
+        productID: currentProductId,
+        productName: currentProductDetails.name,
+        category: currentProductDetails.category,
+        url: defaultThumbnail,
+        price: currentProductStyle.original_price,
+        salePrice: currentProductStyle.sale_price,
+        style: currentProductStyle.style_id
+      }
     }
 
     localStorage.setItem(currentProductId, JSON.stringify(productToAdd));
@@ -72,6 +79,10 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductI
     favoriteRef.current.scrollLeft += 450;
   }
 
+  function resetFavoriteCarousel() {
+    favoriteRef.current.scrollLeft = 0;
+  }
+
   function renderFavorites() {
     if (favorites.length !== 0) {
       return favorites.map((favorite, index) => {
@@ -89,9 +100,13 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductI
   }
 
   return (
-    <div>
+    <div className="favorite-wrapper">
       <h3 className="favorite-title">Your Favorite Products</h3>
-      <div className="favorite-wrapper">
+
+      {favorites.length < 3 &&
+      <br></br>}
+
+      {favorites.length >= 3 &&
         <div className="favorite-row">
           <div className="favorite-next">
             <ArrowForwardIosIcon fontSize="large" className="favorite-scroll-right" onClick={() => scrollProductsRight()} />
@@ -99,20 +114,27 @@ const FavoriteList = ({ currentProductId, currentProductDetails, currentProductI
           <div className="favorite-prev">
             <ArrowBackIosNewIcon fontSize="large" className="favorite-scroll-left" onClick={() => scrollProductsLeft()} />
           </div>
+        </div>}
+      <div className="favorite-carousel" ref={favoriteRef}>
+        <div className="favorite-card" style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <button className="add-favorite-button" role="button" style={{width: "100%", height: "100%"}} onClick={() => addToFavorites(currentProductId)}>
+            <span class="text">
+              Add to Your Favorites
+              <br></br>
+              <br></br>
+              <br></br>
+              <FavoriteIcon style={{ width: "3vw", height: "3vh" }}/>
+            </span>
+            <span>
+              Add to Your Favorites
+              <br></br>
+              <br></br>
+              <br></br>
+              <FavoriteIcon style={{ width: "3vw", height: "3vh" }}/>
+            </span>
+          </button>
         </div>
-        <div className="favorite-carousel" ref={favoriteRef}>
-          <div className="favorite-card">
-            <button onClick={() => addToFavorites(currentProductId)}>
-              <div className="add-favorite-button">Add to Your Favorites</div>
-              <FavoriteIcon />
-            </button>
-          </div>
-          {renderFavorites()}
-        </div>
-
-
-        <br></br>
-        <br></br>
+        {renderFavorites()}
       </div>
     </div>
   )

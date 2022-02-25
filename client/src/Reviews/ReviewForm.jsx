@@ -14,7 +14,7 @@ const ReviewForm = ({ getNewReviews }) => {
   let [rating, setRating] = useState(0);
   let [upload, setUpload] = useState(true);
   let [uploadedPics, setUploadedPics] = useState([]);
-  let [picURLs, setPicURLs] = useState([]); // picURLs to be sent to post request
+  let [picURLs, setPicURLs] = useState([]);
   let [characteristics, setCharacteristics] = useState({});
   let [state, dispatch] = useReducer(reviewReducer, {characteristics: {}, reviewData: {}});
 
@@ -50,7 +50,6 @@ const ReviewForm = ({ getNewReviews }) => {
     return false
   }
 
-  // use later with localstorage or AWS
   const checkURL = (urls) => {
     urls.forEach(url => {
       if (url.match(/\.(jpeg|jpg|gif|png)$/) === null) {
@@ -226,7 +225,7 @@ const ReviewForm = ({ getNewReviews }) => {
     } else if (body.length < 50) {
       return alert('Your review must be at least 50 characters long');
     } else {
-      axios.post(`api/products/${productId}/reviews`, {
+      axios.post(`/api/products/${productId}/reviews`, {
         product_id: Number(productId),
         rating,
         recommend,
@@ -371,7 +370,7 @@ const ReviewForm = ({ getNewReviews }) => {
 
             <Input accept="image/*" id="contained-button-file" multiple type="file" onChange={handlePhotoUpload}/>
 
-            {upload && <Button variant="contained" component="span">
+            {upload && <Button variant="contained" component="span" className="review-button">
               Upload photos
             </Button>}
 
@@ -388,8 +387,8 @@ const ReviewForm = ({ getNewReviews }) => {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleReviewSubmit}>Submit</Button>
+          <Button className="review-button" onClick={handleClose}>Cancel</Button>
+          <Button className="review-button" onClick={handleReviewSubmit}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>
@@ -400,5 +399,3 @@ const ReviewForm = ({ getNewReviews }) => {
 
 
 export default ReviewForm;
-
-// // TODO: if i click the X button or submit , change reviewForm state to false (close form)

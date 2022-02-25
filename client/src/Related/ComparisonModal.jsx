@@ -37,16 +37,28 @@ var ComparisonModal = ({ relatedProduct, currentProduct, relatedImg, currentProd
     }
   }
 
+  // function hasDefaultThumbnail() {
+  //   if (getCurrentProductImg.thumbnail_url !== null) {
+  //     return (
+  //       <img src={currentProductImg.thumbnail_url} />
+  //     )
+  //   } else {
+  //     return (
+  //       <img src={'https://netmechanics.ca/wp-content/uploads/2019/04/you-almost-got-me-almost.jpg'} />
+  //     )
+  //   }
+  // }
+
   return (
     <div className="features-wrapper">
       <div className="features-modal">
-        <img src={currentProductImg.thumbnail_url} />
+      <img src={currentProductImg} />
         <div className="features-container">
           <h3>Product Features</h3>
-          <table>
-            <th>{currentProduct.name}</th>
-            <th></th>
-            <th>{relatedProduct.name}</th>
+          <table style={{width: "100%"}}>
+            <th style={{width: "30%"}}>{currentProduct.name}</th>
+            <th style={{width: "30%"}}></th>
+            <th style={{width: "30%"}}>{relatedProduct.name}</th>
             {Object.keys(featuresObj).map((feature, index) => {
               return (
                 <tr>
@@ -59,7 +71,10 @@ var ComparisonModal = ({ relatedProduct, currentProduct, relatedImg, currentProd
           </table>
         </div>
         <img src={relatedImg} />
-        <button className="exit-comparison-modal" onClick={handleChange}>X</button>
+        <button
+          className="exit-comparison-modal"
+          onClick={handleChange}
+          >X</button>
       </div>
     </div>
   )
