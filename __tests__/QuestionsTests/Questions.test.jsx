@@ -1,12 +1,14 @@
-import React, {useContext} from 'react';
+import React, {createContext} from 'react';
+import { BrowserRouter, Router } from 'react-router-dom'
+import {createMemoryHistory} from 'history';
 import {rest} from 'msw';
 import {setupServer} from 'msw/node';
-import {render, getByText, waitFor, screen, fireEvent} from '@testing-library/react';
+import {render, getByText, waitFor, screen, fireEvent, waitForElementToBeRemoved} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import QAList from '../../client/src/Questions/QAList.jsx';
-import {questions, testProduct, testReviewMetaData, answers} from './testData.js';
+import {questions, productDetails, reviewMetaData, answers} from './testData.js';
 import App from '../../client/src/App.jsx';
-import AppContext from '../../client/src/App.jsx';
+import {AppContext} from '../../client/src/App.jsx';
 
 const productDetailsEndPoint = '/api/products/:product_id';
 const productMetaData = '/api/products/:product_id/reviews/meta'
@@ -30,9 +32,21 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('load and displays 2 questions by default', async () => {
-  render(<App/>)
+const renderWithRouter = (ui, {route = '/products/42369'} = {}) => {
+  window.history.pushState({}, 'Test page', route)
 
+  return render(ui, {wrapper: BrowserRouter})
+}
+
+beforeEach(async () => {
+  renderWithRouter(<AppContext.Provider value={{productId: 42369, reviewMetaData, productDetails}}>
+    <QAList/>
+  </AppContext.Provider>);
+  // await waitForElementToBeRemoved(screen.getByText('Loading'));
+  // await waitForElementToBeRemoved(screen.getByText('Loading...'));
+})
+
+test('load and displays 2 questions by default', async () => {
   await waitFor(() => screen.getByText('added 2nd question'))
   await waitFor(() => screen.getByText("Why is this product cheaper here than other sites?"))
 
@@ -41,24 +55,18 @@ test('load and displays 2 questions by default', async () => {
 })
 
 test('Search bar placeholder text appears on render', async () => {
-  render(<App/>)
-
   await waitFor(() => screen.getByPlaceholderText("Have a question? Search for answers..."))
 
   expect(screen.getByPlaceholderText("Have a question? Search for answers...")).toHaveAttribute("placeholder");
 })
 
 test('1 answers to display', async () => {
-  render(<App/>)
-
   await waitFor(() => screen.getAllByText('This product is overstocked here!'))
 
   expect(screen.getAllByText('This product is overstocked here!')[0]).toHaveTextContent('This product is overstocked here!')
 })
 
 test('Question Form Opens', async () => {
-  render(<App/>)
-
   const button = screen.getByText("Add Question +");
 
   await fireEvent.click(button);
@@ -67,8 +75,6 @@ test('Question Form Opens', async () => {
 })
 
 test('Question form changes', async () => {
-  render(<App/>)
-
   const button = screen.getByText("Add Question +");
 
   await fireEvent.click(button);
@@ -79,8 +85,6 @@ test('Question form changes', async () => {
 })
 
 test('Question form submit button submits question', async () => {
-  render(<App/>)
-
   const button = screen.getByText("Add Question +");
 
   await fireEvent.click(button);
@@ -101,8 +105,6 @@ test('Question form submit button submits question', async () => {
 
 
 test('Answer form input changes', async () => {
-  render(<App/>)
-
   await waitFor(() => screen.getByText('added 2nd question'))
   const button = screen.getAllByText("Add Answer")[0];
 
@@ -114,8 +116,6 @@ test('Answer form input changes', async () => {
 })
 
 test('Answer form cancel button', async () => {
-  render(<App/>)
-
   await waitFor(() => screen.getByText('added 2nd question'))
   const button = screen.getAllByText("Add Answer")[0];
 
@@ -123,18 +123,14 @@ test('Answer form cancel button', async () => {
   const cancelButton = screen.getByText("Cancel")
   const log = await fireEvent.click(cancelButton)
 
-
   expect(log).toBe(true);
 })
 
 test('More questions renders 2 more questions', async () => {
-  render(<App/>)
-
   await waitFor(() => screen.getByText('added 2nd question'))
   const button = screen.getByText("More Questions");
   await fireEvent.click(button);
   await waitFor(() => screen.getByText("Where is this product made?"))
-
 
   expect(screen.getByText("Where is this product made?")).toHaveTextContent("Where is this product made?");
 })
