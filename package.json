@@ -6,6 +6,7 @@
   "scripts": {
     "react-dev": "webpack --watch",
     "server-dev": "nodemon server",
+    "server": "node server",
     "test": "jest",
     "test-overview": "jest Overview.test.jsx"
   },
