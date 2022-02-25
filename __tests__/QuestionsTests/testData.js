@@ -267,7 +267,7 @@ var questions = {
     ]
 };
 
-var testProduct = {
+var productDetails = {
     "id": 42369,
     "campus": "hr-lax",
     "name": "Slacker's Slacks",
@@ -289,7 +289,7 @@ var testProduct = {
     ]
 };
 
-var testReviewMetaData = {
+var reviewMetaData = {
     "product_id": "42369",
     "ratings": {
         "1": "1",
@@ -370,4 +370,4 @@ var answers = {
     ]
 }
 
-module.exports = {questions, testProduct, testReviewMetaData, answers};
+module.exports = {questions, productDetails, reviewMetaData, answers};
