@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Router } from 'react-router-dom'
-import {createMemoryHistory} from 'history';
+import { createMemoryHistory } from 'history';
 
 import {rest} from 'msw';
 import {setupServer} from 'msw/node';
@@ -22,9 +22,10 @@ import {
 import '@testing-library/jest-dom';
 // the component to test
 import App from '../../client/src/App.jsx';
+import Product from '../../client/src/Overview/Product.jsx';
+import { AppContext } from '../../client/src/App.jsx';
 // hard coded test data
-import { testStyles, testProduct, testReviewMetaData } from './overviewTestData.js';
-
+import { testStyles, testProduct, testReviewMetaData, exampleContext } from './overviewTestData.js';
 
 // Setup
 // Need to make a server
@@ -61,31 +62,19 @@ const renderWithRouter = (ui, {route = '/products/42370'} = {}) => {
   return render(ui, {wrapper: BrowserRouter})
 }
 
+beforeEach(async () => {
+  renderWithRouter(
+    <AppContext.Provider value={exampleContext} >
+      <Product />
+    </AppContext.Provider>
+  );
+  // await waitForElementToBeRemoved(screen.getByText('Loading'));
+  await waitForElementToBeRemoved(screen.getByText('Loading...'));
+})
+
 
 /////////////// Tests //////////////////////
 describe('Product Overview', () => {
-
-  test('Show loading text on first render', async () => {
-    const history = createMemoryHistory({initialEntries: ['/products/42370']});
-    render(
-      <Router location={history.location} navigator={history}>
-        <App />
-      </Router>
-    )
-
-    expect(history.location.pathname).toBe('/products/42370')
-
-    await waitFor(() => screen.getByText('Loading'));
-    expect(screen.getByText('Loading')).toBeInTheDocument();
-    await waitForElementToBeRemoved(screen.getByText(/Loading/i));
-    await waitForElementToBeRemoved(screen.getByText(/Loading*/i));
-  });
-
-  beforeEach(async () => {
-    renderWithRouter(<App />);
-    await waitForElementToBeRemoved(screen.getByText('Loading'));
-    await waitForElementToBeRemoved(screen.getByText('Loading...'));
-  })
 
   test('Should display information for a product', async () => {
     expect(screen.getByText(testProduct.name)).toBeInTheDocument();

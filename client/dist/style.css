@@ -598,7 +598,7 @@ nav div {
 .features-wrapper {
   max-width: 75vw;
   width: 100%;
-  max-height: 50vh;
+  max-height: 70vh;
   height: 100%;
   display: flex;
 }
@@ -606,7 +606,7 @@ nav div {
 .features-modal {
   max-width: 75vw;
   width: 100%;
-  max-height: 50vh;
+  max-height: 70vh;
   height: 100%;
   display: flex;
   align-items: center;
@@ -633,6 +633,7 @@ nav div {
   font-size: large;
   opacity: 70%;
   font-size: 40px;
+  /* border: none; */
 }
 
 @media (min-width: 960px){
