@@ -28,18 +28,18 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
 
 
   return (
-    <div className="review-vote">
+    <div role="review-vote" className="review-vote">
       <span>Helpful?  </span>
       {markHelpful ?
       <>
-      <span className="review-interaction" onClick={addHelpful}>Yes</span>
-      <span role="helpful">{"  "}({review.helpfulness}){"  "}</span>
+      <span role="helpful" className="review-interaction" onClick={addHelpful}>Yes</span>
+      <span>{"  "}({review.helpfulness}){"  "}</span>
       <span>{"  "}|{"  "}</span>
       </>
       :
       <>
-      <span> Yes</span>
-      <span role="helpful">{"  "}({review.helpfulness}){"  "}</span>
+      <span role="helpful"> Yes</span>
+      <span>{"  "}({review.helpfulness}){"  "}</span>
       <span>{"  "}|{"  "}</span>
       </>
       }

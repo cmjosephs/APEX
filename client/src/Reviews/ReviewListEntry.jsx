@@ -107,7 +107,7 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
           {openThumbnailModal()}
         </div>
 
-        <div className="review-recommended">
+        <div role="recommended" className="review-recommended">
           {review.recommend &&
             <>
               <CheckIcon />

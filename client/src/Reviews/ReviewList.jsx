@@ -138,7 +138,7 @@ const ReviewList = () => {
   }
 
   return (
-    <div id="review-container">
+    <div id="review-container" role="review-container">
       <div className="review-container-left">
         <div className="avg-rating-review">
           <h1 className="review-header">Rating & Reviews</h1>
@@ -151,7 +151,7 @@ const ReviewList = () => {
           <div className="sort-section">
             <h2>{displayCount} Reviews,
               <label for ="reviews-sort"> sorted by: </label>
-              <select name="reviews-sort" className="reviews-sort-dropdown" onChange={changeSort} role="review-sort">
+              <select role="reviews-sort" name="reviews-sort" className="reviews-sort-dropdown" onChange={changeSort} role="review-sort">
                 <option placeholder="newest-sort" value="newest">Newest</option>
                 <option value="helpful">Helpful</option>
                 <option value="relevant">Relevant</option>
