@@ -85,7 +85,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
   const renderTotalStars = () => {
     return (
       <div className="star-values">
-        {<span className="star-bar">1 star
+        {<span className="star-bar"><span className="star-number">1 star</span>
           <Slider
             disabled
             defaultValue={starRatings[1]}
@@ -315,10 +315,7 @@ const AvgRatingReview = ({ totalReviews, filterStarReviews }) => {
       <div>
         <div className="avg-rating-header">
         <div className="avg-rating-number">{Math.round(averageRatingNumber * 10)/ 10}
-        {/* <div className="reviews-avg-rating-stars"> */}
           <AvgRating metaDataRatings={ratings}/>
-          {/* </div> */}
-
         </div>
           </div>
           <div>{calcRecommended() ? calcRecommended() : '...'}% of reviews recommend this product</div>

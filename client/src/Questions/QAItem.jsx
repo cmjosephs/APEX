@@ -67,12 +67,12 @@ var QAItem = ({question, getQuestions, productId, productName}) => {
     if (count < totalAnswer) {
       return (<button className="answer-button" onClick={getMoreAnswers}>See More Answers</button>)
     } else {
-      return (<button onClick={seeLessAnswers}>Collapse Answers</button>)
+      return (<button className="answer-button" onClick={seeLessAnswers}>Collapse Answers</button>)
     }
   }
 
   return (
-    <div className="questionBlock">
+    <div className="question-block">
       <div className="question-heading">
         <h4><b>Q:</b></h4>
         <h4><b>{question.question_body}</b></h4>

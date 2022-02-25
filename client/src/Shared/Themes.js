@@ -17,6 +17,7 @@ export const lightMode = {
   reviewQABorder: 'none',
   sizeOptionButtonBorder: 'solid #272727',
   sizeOptionButtonHoverBorder: 'thin solid rgb(5, 5, 5)',
+  relatedPadding: 'none',
   reviewQApadding: 'none',
   mainPicShadow: '4px 4px 3px #E7E7E7',
   navBtnColor: 'none',
@@ -24,6 +25,10 @@ export const lightMode = {
   navBtnBorder: 'none',
   navBtnPadding: '6px',
   styleShadow: '2px 2px 2px #E7E7E7',
+  relatedCardBorder: '3px solid #E7E7E7',
+  addFavoriteButton: '#FCFCFC',
+  addFavoriteHover: '#272727',
+
 }
 
 export const darkMode = {
@@ -38,13 +43,17 @@ export const darkMode = {
   reviewQABorder: '15px',
   sizeOptionButtonBorder: 'solid #E7E7E7',
   sizeOptionButtonHoverBorder: 'thin solid #D6CCC2',
-  reviewQApadding: '1em',
+  relatedPadding: '2 em',
+  reviewQApadding: '0.4 em',
   mainPicShadow: 'none',
   navBtnColor: '#E7E7E7',
   navBtnHover: '#D6CCC2',
   navBtnBorder: '10px',
   navBtnPadding: '6px',
   styleShadow: 'none',
+  relatedCardBorder: 'none',
+  addFavoriteButton: '#272727',
+  addFavoriteHover: '#272727',
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -52,6 +61,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     background-color: ${props => props.theme.body};
     color: ${props => props.theme.fontColor};
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
 
   }
@@ -170,6 +180,169 @@ export const GlobalStyles = createGlobalStyle`
     margin-left: 0px;
   }
 
+  // RELATED
+
+  .features-container {
+    height: 60%;
+    display: flex;
+    width: 30%;
+    background-color: ${props => props.theme.body};
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .related-comparison-open, .remove-from-favorites {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: ${props => props.theme.body};
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+    opacity: 100%;
+    margin: 4px;
+  }
+
+  // .add-favorite-button {
+  //   appearance: none;
+  //   background-color: ${props => props.theme.body};
+  //   border-width: 0;
+  //   box-sizing: border-box;
+  //   color: #272727;
+  //   cursor: pointer;
+  //   display: inline-block;
+  //   font-family: 'Roboto', sans-serif;
+  //   font-size: 14px;
+  //   font-weight: 500;
+  //   letter-spacing: 0;
+  //   line-height: 1em;
+  //   margin: 0;
+  //   opacity: 1;
+  //   outline: 0;
+  //   padding: 1.5em 2.2em;
+  //   position: relative;
+  //   text-align: center;
+  //   text-decoration: none;
+  //   text-rendering: geometricprecision;
+  //   text-transform: uppercase;
+  //   transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+  //   user-select: none;
+  //   -webkit-user-select: none;
+  //   touch-action: manipulation;
+  //   vertical-align: baseline;
+  //   white-space: nowrap;
+  // }
+
+  // .add-favorite-button:before {
+  //   animation: opacityFallbackOut .5s step-end forwards;
+  //   backface-visibility: hidden;
+  //   background-color: #E7E7E7;
+  //   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  //   content: "";
+  //   height: 100%;
+  //   left: 0;
+  //   position: absolute;
+  //   top: 0;
+  //   transform: translateZ(0);
+  //   transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  //   width: 100%;
+  // }
+
+  // .add-favorite-button:hover:before {
+  //   animation: opacityFallbackIn 0s step-start forwards;
+  //   clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  // }
+
+  // .add-favorite-button:after {
+  //   background-color: #FCFCFC;
+  // }
+
+  // .add-favorite-button span {
+  //   z-index: 1;
+  //   position: relative;
+  // }
+
+.add-favorite-button {
+  position: relative;
+  overflow: hidden;
+  color: ${props => props.theme.fontColor};
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 18px 18px 17px;
+  text-decoration: none;
+  cursor: pointer;
+  background: #FCFCFC;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  background-color: ${props => props.theme.addFavoriteButton};
+}
+
+.add-favorite-button span:first-child {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.add-favorite-button span:last-child {
+  font-family: 'Roboto', sans-serif;
+  color: ${props => props.theme.addFavoriteHover};
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 13px;
+}
+
+.add-favorite-button:after {
+  font-family: 'Roboto', sans-serif;
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E7E7E7;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.add-favorite-button:hover:after {
+  font-family: 'Roboto', sans-serif;
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.add-favorite-button:hover span:last-child {
+  font-family: 'Roboto', sans-serif;
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+.related-card, .favorite-card {
+  min-width: 25%;
+  max-width: 25%;
+  overflow: hidden;
+  border: ${props => props.theme.relatedCardBorder};
+  margin-bottom: 10px;
+  border-radius: ${props => props.theme.reviewQABorder};
+  box-shadow: ${props => props.theme.reviewQAShadow};
+  padding: ${props => props.theme.relatedPadding};
+  background-color: ${props => props.theme.reviewQA};
+}
+
+
+
   // Q&A
   .search-input {
     display: flex;
@@ -192,12 +365,13 @@ export const GlobalStyles = createGlobalStyle`
     min-width: 160px;
     z-index: 1;
     border-radius: 5rem;
+    font-family: 'Roboto', sans serif;
   }
 
-  .answer-button:hover {
-    background-color: #D6CCC2;
-    color: ${props => props.theme.fontColor};
-  }
+  // .answer-button:hover {
+  //   background-color: #D6CCC2;
+  //   color: ${props => props.theme.body};
+  // }
 
   // REVIEWS
 
@@ -208,22 +382,22 @@ export const GlobalStyles = createGlobalStyle`
     padding: ${props => props.theme.reviewQApadding};
   }
 
-  // .review-container-left, .review-container-right {
 
-  // }
 
 
   h1.review-header {
     font-family: 'Noto Serif Display', serif;
   }
 
-  .review-button, .question-button {
+  .review-button {
     background-color: ${props => props.theme.generalButton};
     color: ${props => props.theme.body};
     min-width: 160px;
     padding: 12px 16px;
     z-index: 1;
     border-radius: 5rem;
+    font-family: 'Roboto', sans-serif;
   }
 
 `
+

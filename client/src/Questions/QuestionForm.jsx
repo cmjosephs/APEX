@@ -63,7 +63,7 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
 
   return (
     <div>
-      <button className="question-button" onClick={handleOpen}>
+      <button className="review-button" onClick={handleOpen}>
         Add Question +
       </button>
       <Dialog open={open} onClose={handleClose}>
@@ -116,8 +116,8 @@ const QuestionForm = ({productId, productName, addedQuestion}) => {
 
         </DialogContent>
         <DialogActions>
-          <button className="question-button" onClick={handleClose}>Cancel</button>
-          <button className="question-button" onClick={handleSubmit}>Submit</button>
+          <button className="review-button" onClick={handleClose}>Cancel</button>
+          <button className="review-button" onClick={handleSubmit}>Submit</button>
         </DialogActions>
       </Dialog>
     </div>

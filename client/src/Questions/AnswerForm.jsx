@@ -117,8 +117,8 @@ const AnswerForm = ({product, productName, question, getAnswers}) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" onClick={handleClose}>Cancel</Button>
-          <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+          <button className="review-button" onClick={handleClose}>Cancel</button>
+          <button className="review-button" onClick={handleSubmit}>Submit</button>
         </DialogActions>
       </Dialog>
     </div>

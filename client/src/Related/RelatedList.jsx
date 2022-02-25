@@ -11,10 +11,11 @@ const RelatedList = () => {
   const { productId, productDetails, reviewMetaData } = useContext(AppContext);
   const [relatedArr, updateRelated] = useState([]);
   const [currentProductId, updateCurrentId] = useState(productId);
-  const [currentProductImg, updateCurrentProductImg] = useState({ img: {} })
+  const [currentProductImg, updateCurrentProductImg] = useState({ img: {} });
   const [carouselScrollOffset, setOffset] = useState(250);
   const [currentProductRating, setRating] = useState();
-  const [resetCarousel, setCarousel] = useState(0);
+  const [currentProductStyle, setCurrentProductStyle] = useState(null);
+  const [currentNumStyles, setNumStyles] = useState(0)
 
   function getRelatedProducts(product_id) {
     axios.get(`/api/products/${product_id}/related`)
@@ -24,7 +25,21 @@ const RelatedList = () => {
 
   function getCurrentProductImg(product_id) {
     axios.get(`/api/products/${product_id}/styles`)
-      .then(({ data }) => updateCurrentProductImg(data.results[0].photos[0]))
+      .then(({ data }) => {
+        let defaultStyle = data.results[0];
+        for (let i = 1; i < data.results.length; i++) {
+          if (data.results[i]['default?'] === true) {
+            defaultStyle = data.results[i]
+          }
+        }
+        setCurrentProductStyle(defaultStyle);
+        if (data.results[0].photos[0].thumbnail_url === null) {
+          updateCurrentProductImg('https://netmechanics.ca/wp-content/uploads/2019/04/you-almost-got-me-almost.jpg');
+        } else {
+          updateCurrentProductImg(data.results[0].photos[0].thumbnail_url);
+        }
+        setNumStyles(data.results.length);
+      })
       .catch(err => console.error(err));
   }
 
@@ -32,9 +47,10 @@ const RelatedList = () => {
     getRelatedProducts(productId);
     getCurrentProductImg(productId);
     calcAverageRating(reviewMetaData.ratings);
+    resetRelatedCarousel();
   }, [productId]);
 
-  function calcAverageRating (obj) {
+  function calcAverageRating(obj) {
     let avgRating = 0;
     let totalRatings = 0;
     for (let key in obj) {
@@ -57,28 +73,39 @@ const RelatedList = () => {
     relatedRef.current.scrollLeft += 450;
   }
 
+  function resetRelatedCarousel() {
+    relatedRef.current.scrollLeft = 0;
+  }
+
   return (
     <div>
       <div className="related-wrapper">
-        <h3 className="related-title">Recommended Products</h3>
 
-        <div className="related-row">
-          <div className="related-next">
-            <ArrowForwardIosIcon fontSize="large" className="related-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)}/>
-          </div>
-          <div className="related-prev">
-            <ArrowBackIosNewIcon fontSize="large" className="related-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)}/>
-          </div>
-        </div>
+        {relatedArr.length > 0 &&
+          <h3 className="related-title">Recommended Products</h3>}
+
+        {(relatedArr.length <= 3 && relatedArr.length !== 0) &&
+          <br></br>}
+
+        {relatedArr.length >= 4 &&
+          <div className="related-row">
+            <div className="related-next">
+              <ArrowForwardIosIcon fontSize="large" className="related-scroll-right" onClick={() => scrollProductsRight(carouselScrollOffset)} />
+            </div>
+            <div className="related-prev">
+              <ArrowBackIosNewIcon fontSize="large" className="related-scroll-left" onClick={() => scrollProductsLeft(carouselScrollOffset)} />
+            </div>
+          </div>}
 
         <div className="related-carousel" ref={relatedRef}>
           {relatedArr.map((relatedId, index) => (
-              <RelatedListCard
-                relatedId={relatedId}
-                productId={productId}
-                currentProductDetails={productDetails}
-                currentProductImg={currentProductImg}
-                key={`${index}-${relatedId}`}/>
+            <RelatedListCard
+              relatedId={relatedId}
+              productId={productId}
+              currentProductDetails={productDetails}
+              currentProductImg={currentProductImg}
+              key={`${index}-${relatedId}`}
+            />
           ))}
         </div>
       </div>
@@ -88,7 +115,10 @@ const RelatedList = () => {
           currentProductId={productId}
           currentProductDetails={productDetails}
           currentProductImg={currentProductImg}
-          currentProductRating={currentProductRating}/>
+          currentProductRating={currentProductRating}
+          currentProductStyle={currentProductStyle}
+          currentNumStyles={currentNumStyles}
+        />
       </div>
 
     </div>
