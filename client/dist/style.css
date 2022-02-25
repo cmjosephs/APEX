@@ -1,22 +1,3 @@
-/*
-black #272727
-white #FCFCFC
-gray #E7E7E7
-beige #D6CCC2
-*/
-/*
-font-family: 'Noto Serif Display', serif;
-font-family: 'Roboto', sans-serif;
-*/
-
-/* body {
-  margin: 0;
-  background-color: #FCFCFC;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  color: #272727;
-} */
-
 /* -------------- rating stars -------------- */
 .avg-rating {
   display: flex;
@@ -81,12 +62,6 @@ nav div {
   border: thin solid #E7E7E7;
   min-height: 40%;
 }
-/* .nav-btn:hover {
-  cursor: pointer;
-  padding: 6px;
-  background-color: #D6CCC2;
-  border-radius: 10px;
-} */
 
 .theme-toggler {
   position: absolute;
@@ -125,11 +100,7 @@ nav div {
   justify-content: center;
   gap: 1em;
 }
-/* .full-image-wide-view {
-  width: 40%;
-  border-radius: 4px;
-  box-shadow: 4px 4px 3px #E7E7E7;
-} */
+
 .full-image-wide-view:hover,
 .question-yes:hover,
 .answer-yes:hover,
@@ -247,11 +218,6 @@ nav div {
   width: 30%;
 }
 
-/* .same-page-review-link {
-  color: #272727;
-  padding-left: 2em;
-} */
-
 .prices {
   display: flex;
   gap: 2em;
@@ -280,15 +246,6 @@ nav div {
   width: 23%;
   height: 6em;
 }
-/* .style {
-  cursor: pointer;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-  border-radius: 15px;
-  margin: 0px;
-  box-shadow: 2px 2px 2px #E7E7E7;
-} */
 
 .sizes {
   margin-top: 3em;
@@ -301,43 +258,13 @@ nav div {
 .size-option {
   flex: 0 1 45%;
 }
-/* .size-option input[type=radio]:checked+label {
-  border: solid #272727;
-  border-radius: 4px;
-}
-.size-label {
-  color: #272727;
-}
-.size-label, .size-label-nostock {
-} */
 
-/* .size-label, .size-label-nostock {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin: 4px;
-  padding: 10px 30px;
-  border-style: solid;
-  border-color: rgb(218, 218, 218);
-  border-radius: 4px;
-} */
-/* .size-label-nostock {
-  background-color: rgb(214, 214, 214);
-  color: #e7e7e7
-} */
 .visually-hidden {
   position: absolute;
   height: 1px;
   width: 1px;
   visibility: hidden;
 }
-
-/* .size-label:hover {
-  border: thin solid rgb(5, 5, 5);
-  border-radius: 4px;
-} */
-
 
 
 .user-interest-btns {
@@ -648,16 +575,6 @@ nav div {
   }
 }
 
-/* .remove-from-favorites {
-  align-self: flex-start;
-  cursor:  pointer;
-  border-radius: 50%;
-  background-color:  #FCFCFC;
-  box-shadow: 0 0 3px rgb(0, 0, 0);
-  bottom: 390px;
-  left: 265px;
-  opacity: 60%;
-} */
 
 .remove-from-favorites:hover {
   background-color: #D6CCC2;
@@ -698,68 +615,6 @@ nav div {
   gap: 1em;
 }
 
-/* .features-container {
-  height: 60%;
-  display: flex;
-  width: 30%;
-  background-color: #FCFCFC;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-} */
-
-
-
-/* .new-comparison-open {
-position: relative;
-background-color: #E7E7E7;
-border-radius: 40px;
-  font-size: 16px;
-  color: #272727;
-  padding: 0.8em 1.8em;
-  cursor:pointer;
-  user-select:none;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s;
-}
-
-.new-comparison-open:hover {
-  transition-duration: 0.1s;
-  background-color: #3A3A3A;
-}
-
-.new-comparison-open:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 4em;
-  left: 0;
-  top:0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: all 0.5s;
-  box-shadow: 0 0 10px 40px #D6CCC2;
-}
-
-.new-comparison-open:active:after {
-  box-shadow: 0 0 0 0 white;
-  position: absolute;
-  border-radius: 4em;
-  left: 0;
-  top:0;
-  opacity: 1;
-  transition: 0s;
-}
-
-.new-comparison-open:active {
-  top: 1px;
-} */
-
 .exit-comparison-modal {
   position: relative;
   right: 3.5%;
@@ -769,7 +624,6 @@ border-radius: 40px;
   background-color: transparent;
   outline: none;
   font-size: large;
-  /* border: none; */
   opacity: 70%;
   font-size: 40px;
 }
@@ -781,33 +635,13 @@ border-radius: 40px;
   }
 }
 
-/* .question-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  max-width: 90vw;
-  width: 90%;
-  margin: auto;
-  padding: 0 20px;
-} */
-
 .question-header {
   display: flex;
   flex-direction: column;
-  /* position: sticky; */
   font-family: 'Noto Serif Display', serif;
   margin: 10px 0px;
 }
 
-/* .search-input {
-  display: inline-flex; */
-  /* background-color: #FCFCFC;
-  color: #272727; */
-  /* width: 90vw;
-  padding: 12px 16px;
-  z-index: 1;
-  border-radius: 5rem;
-} */
 
 .question-answer-list {
   max-height: 50vh;
@@ -815,9 +649,6 @@ border-radius: 40px;
   overflow: auto;
   display: flex;
   flex-direction: column;
-  /* background-color: #FCFCFC; */
-  /* font-family: 'Roboto', sans-serif; */
-  /* color: #272727; */
 }
 
 .question-heading {
@@ -857,17 +688,11 @@ border-radius: 40px;
   margin-right: 2px;
 }
 
-/* .answer-yes:hover {
-  color: #D6CCC2;
-} */
 
 .answer-report {
   text-decoration: underline;
 }
 
-/* .answer-report:hover {
-  color: #D6CCC2;
-} */
 
 .AddAnswer {
   text-decoration: underline;
@@ -903,29 +728,12 @@ border-radius: 40px;
   flex-wrap: wrap;
   flex-shrink: 1;
   flex-direction: column;
-  /* color: #272727; */
 }
 
 .question-button-section {
-  /* margin: 2em; */
   display: flex;
   justify-content: right;
 }
-
-
-/* .answer-button {
-  background-color: #272727;
-  color: #FCFCFC;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 5rem;
-  font-family: 'Roboto', sans-serif;
-} */
-
-/* .answer-button:hover {
-  background-color: #D6CCC2;
-  color: #272727;
-} */
 
 /* -------------- Reviews -------------- */
 
@@ -937,20 +745,9 @@ border-radius: 40px;
   overflow-x: break-word;
 }
 
-/* .review-container {
-  display: flex;
-  max-width: 100vw;
-  max-height: 100vh;
-  flex-direction: wrap;
-  margin: 2em;
-} */
-
-
-
 .review-container-left {
   display: flex;
   margin-right: 1vw;
-  /* margin-left: 2em; */
   flex-direction: column;
   overflow-x: break-word;
   min-width: 20%;
@@ -958,18 +755,9 @@ border-radius: 40px;
 
 .review-container-right {
   display: flex;
-  /* margin-right: 2em; */
   flex-direction: column;
   min-width: 70%;
 }
-
-/* .related-wrapper {
-  max-width: 85vw;
-  width: 100%;
-  min-height: 300px;
-  margin: auto;
-  padding: 0 20px;
-} */
 
 @media (min-width: 960px) {
   #review-container {
@@ -1002,16 +790,12 @@ border-radius: 40px;
 }
 
 
-
-
-
 /* -------------- Review Buttons -------------- */
 .reviews-sort-dropdown {
   display: inline-flex;
   background-color: #FCFCFC;
   color: #272727;
   min-width: 160px;
-  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   padding: 12px 16px;
   border: thin solid #E7E7E7;
   border-radius: 12px;
@@ -1027,34 +811,12 @@ border-radius: 40px;
   justify-content: right;
 }
 
-/* .review-button {
-  background-color: #272727;
-  color: #FCFCFC;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 5rem;
-  font-family: 'Roboto', sans-serif;
-} */
-
 .review-button:hover, .answer-button:hover {
   background-color: #D6CCC2;
   color: #272727;
 }
 
-/* .search-input {
-  display: inline-flex;
-  background-color: #FCFCFC;
-  color: #272727;
-  min-width: 160px; */
-  /* padding: 12px 16px;
-  /* z-index: 1;
-  border-radius: 5rem; */
-/* } */
 /* -------------- Review Text -------------- */
-
-/* h1.review-header {
-  font-family: 'Noto Serif Display', serif;
-} */
 
 .review-tile {
   border: none;
@@ -1077,7 +839,6 @@ border-radius: 40px;
   width: 80%
 }
 
-
 h4.review-summary {
   margin: 10px 0px;
 }
@@ -1099,10 +860,6 @@ h4.review-summary {
   text-decoration: underline;
 }
 
-/* .review-interaction:hover {
-  color: #D6CCC2;
-  text-decoration: underline;
-} */
 
 h4.characteristic-property-name {
   margin: 0px 0px;
@@ -1135,23 +892,6 @@ h4.characteristic-property-name {
 
 }
 
-/* ::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #272727;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #D6CCC2;
-} */
-
-
 /* -------------- Average Ratings & Reviews -------------- */
 
 
@@ -1166,14 +906,11 @@ h4.characteristic-property-name {
 
 .star-bar {
   display: flex;
-  /* flex-direction: wrap; */
   margin-bottom: 1vh;
-  /* justify-content: space-between; */
 }
 
 .avg-rating-header {
   display: flex;
-  /* justify-content: space-around; */
 }
 
 .avg-rating-number {
@@ -1181,74 +918,6 @@ h4.characteristic-property-name {
   font-size: 50px;
 }
 
-
 .characteristic-description {
   margin-bottom: 2vh;
 }
-
-
-/* -------------- Average Ratings & Reviews Checkbox -------------- */
-
-
-/* <!-- HTML !-->
-<button class="button-48" role="button"><span class="text">Button 48</span></button> */
-
-/* CSS */
-/* .button-48 {
-  appearance: none;
-  background-color: #FFFFFF;
-  border-width: 0;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Clarkson,Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1em;
-  margin: 0;
-  opacity: 1;
-  outline: 0;
-  padding: 1.5em 2.2em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: geometricprecision;
-  text-transform: uppercase;
-  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.button-48:before {
-  animation: opacityFallbackOut .5s step-end forwards;
-  backface-visibility: hidden;
-  background-color: #EBEBEB;
-  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
-  width: 100%;
-}
-
-.button-48:hover:before {
-  animation: opacityFallbackIn 0s step-start forwards;
-  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
-}
-
-.button-48:after {
-  background-color: #FFFFFF;
-}
-
-.button-48 span {
-  z-index: 1;
-  position: relative;
-} */
