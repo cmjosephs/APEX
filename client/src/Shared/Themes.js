@@ -1,8 +1,3 @@
-// off-white: #FCFCFC
-// off-black: #272727
-// gray: #E7E7E7
-// beige: #D6CCC2
-
 import {createGlobalStyle} from 'styled-components';
 
 export const lightMode = {
@@ -202,64 +197,6 @@ export const GlobalStyles = createGlobalStyle`
     margin: 4px;
   }
 
-  // .add-favorite-button {
-  //   appearance: none;
-  //   background-color: ${props => props.theme.body};
-  //   border-width: 0;
-  //   box-sizing: border-box;
-  //   color: #272727;
-  //   cursor: pointer;
-  //   display: inline-block;
-  //   font-family: 'Roboto', sans-serif;
-  //   font-size: 14px;
-  //   font-weight: 500;
-  //   letter-spacing: 0;
-  //   line-height: 1em;
-  //   margin: 0;
-  //   opacity: 1;
-  //   outline: 0;
-  //   padding: 1.5em 2.2em;
-  //   position: relative;
-  //   text-align: center;
-  //   text-decoration: none;
-  //   text-rendering: geometricprecision;
-  //   text-transform: uppercase;
-  //   transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
-  //   user-select: none;
-  //   -webkit-user-select: none;
-  //   touch-action: manipulation;
-  //   vertical-align: baseline;
-  //   white-space: nowrap;
-  // }
-
-  // .add-favorite-button:before {
-  //   animation: opacityFallbackOut .5s step-end forwards;
-  //   backface-visibility: hidden;
-  //   background-color: #E7E7E7;
-  //   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-  //   content: "";
-  //   height: 100%;
-  //   left: 0;
-  //   position: absolute;
-  //   top: 0;
-  //   transform: translateZ(0);
-  //   transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
-  //   width: 100%;
-  // }
-
-  // .add-favorite-button:hover:before {
-  //   animation: opacityFallbackIn 0s step-start forwards;
-  //   clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
-  // }
-
-  // .add-favorite-button:after {
-  //   background-color: #FCFCFC;
-  // }
-
-  // .add-favorite-button span {
-  //   z-index: 1;
-  //   position: relative;
-  // }
 
 .add-favorite-button {
   position: relative;
@@ -352,7 +289,6 @@ export const GlobalStyles = createGlobalStyle`
     z-index: 1;
     border: thin solid #E7E7E7;
     border-radius: 12px;
-    // align-items: center;
   }
 
   input.search-input {
@@ -368,11 +304,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans serif;
   }
 
-  // .answer-button:hover {
-  //   background-color: #D6CCC2;
-  //   color: ${props => props.theme.body};
-  // }
-
   // REVIEWS
 
   #review-container, .navbar, .question-container {
@@ -381,9 +312,6 @@ export const GlobalStyles = createGlobalStyle`
     box-shadow: ${props => props.theme.reviewQAShadow};
     padding: ${props => props.theme.reviewQApadding};
   }
-
-
-
 
   h1.review-header {
     font-family: 'Noto Serif Display', serif;
