@@ -34,13 +34,6 @@ module.exports = {
       }
     ]
   },
-  // plugins: [new CompressionPlugin({
-  //   filename: "[path][base].gz",
-  //   algorithm: "gzip",
-  //   test: /\.js$|\.css$|\.html$/,
-  //   threshold: 840,
-  //   minRatio: 0.8,
-  // })],
   plugins: [
     new CompressionPlugin({
       filename: "[path][base].br",

@@ -5,6 +5,7 @@ import AllReviews from './AllReviews.jsx';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import ReviewForm from './ReviewForm.jsx';
 import AvgRatingReview from './AvgRatingReview.jsx';
+import { useTracking } from 'react-tracking';
 
 
 export const SortContext = createContext();
@@ -18,6 +19,15 @@ const ReviewList = () => {
   let [enoughReviews, setEnoughReviews] = useState(true);
   let [displayCount, setDisplayCount] = useState(0);
   let [searchKeyword, setSearchKeyword] = useState('');
+
+  const {trackEvent} = useTracking({}, {dispatch: data =>  {
+    console.log("Reviews", data)
+    axios.post('/api/interactions', data)
+    .then(() => console.log('reviews interaction was posted'))
+    .catch((err) => console.error(err))
+    }
+  });
+
 
   useEffect(() => {
     getReviews();
@@ -166,7 +176,14 @@ const ReviewList = () => {
         </div>
         <div className="review-button-section">
           {enoughReviews &&
-            <button onClick={getMoreReviews} className="review-button" role="get-more-reviews">More Reviews</button>
+            <button
+            onClick={() => {
+              getMoreReviews()
+              trackEvent({widget: 'reviews', element: 'more-reviews-button-clicked', time: new Date().toString()})
+            }}
+            className="review-button"
+            role="get-more-reviews"
+            >More Reviews</button>
           }
           <ReviewForm getNewReviews={getReviews} />
         </div>
