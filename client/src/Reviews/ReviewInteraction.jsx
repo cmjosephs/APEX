@@ -13,11 +13,11 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
   let addHelpful = () => {
     if (markHelpful) {
       axios.put(`/api/products/${productId}/reviews/${review.review_id}/helpful`)
-      .then(() => getNewReviews())
-      .then(setMarkHelpful(false))
-      .catch(err => {
-        'error marking as helpful'
-      })
+        .then(() => getNewReviews())
+        .then(setMarkHelpful(false))
+        .catch(err => {
+          'error marking as helpful'
+        })
     }
   }
 
@@ -28,31 +28,31 @@ const ReviewInteraction = ({ review, getNewReviews }) => {
 
 
   return (
-    <div className="review-vote">
+    <div role="review-vote" className="review-vote">
       <span>Helpful?  </span>
       {markHelpful ?
-      <>
-      <span className="review-interaction" onClick={addHelpful}>Yes</span>
-      <span role="helpful">{"  "}({review.helpfulness}){"  "}</span>
-      <span>{"  "}|{"  "}</span>
-      </>
-      :
-      <>
-      <span> Yes</span>
-      <span role="helpful">{"  "}({review.helpfulness}){"  "}</span>
-      <span>{"  "}|{"  "}</span>
-      </>
+        <>
+          <span role="helpful" className="review-interaction" onClick={addHelpful}>Yes</span>
+          <span>{"  "}({review.helpfulness}){"  "}</span>
+          <span>{"  "}|{"  "}</span>
+        </>
+        :
+        <>
+          <span role="helpful-checked"> Yes</span>
+          <span>{"  "}({review.helpfulness}){"  "}</span>
+          <span>{"  "}|{"  "}</span>
+        </>
       }
       {markHelpful ?
-      <>
-      <span className="review-interaction" onClick={notHelpful}>No</span>
-      <span>{"  "}({notHelpfulCount}){"  "}</span>
-      </>
-      :
-      <>
-      <span> No</span>
-      <span>{"  "}({notHelpfulCount}){"  "}</span>
-      </>
+        <>
+          <span className="review-interaction" onClick={notHelpful}>No</span>
+          <span>{"  "}({notHelpfulCount}){"  "}</span>
+        </>
+        :
+        <>
+          <span> No</span>
+          <span>{"  "}({notHelpfulCount}){"  "}</span>
+        </>
       }
     </div>
   )
