@@ -5,6 +5,7 @@ import { createMemoryHistory } from 'history';
 import {rest} from 'msw';
 import {setupServer} from 'msw/node';
 
+import { act } from 'react-dom/test-utils';
 import {
   render,
   screen,
@@ -14,6 +15,7 @@ import {
   getByText,
   getByRole,
   getByAltText,
+  getAllByRole,
   getByLabelText,
   findByTestId,
   within
@@ -32,7 +34,7 @@ import { testStyles, testProduct, testReviewMetaData, exampleContext } from './o
 const productDetailsEndPoint = '/api/products/:product_id';
 const stylesEndPoint = '/api/products/:product_id/styles';
 const productMetaData = '/api/products/:product_id/reviews/meta'
-const addToBagEndPoint = 'api/cart';
+const addToBagEndPoint = '/api/cart';
 const server = setupServer(
   rest.get(productDetailsEndPoint, (req, res, ctx) => {
     return res(ctx.json(testProduct));
@@ -56,7 +58,7 @@ afterEach(()=>server.resetHandlers())
 // bring the server down
 afterAll(()=>server.close())
 
-const renderWithRouter = (ui, {route = '/products/42370'} = {}) => {
+const renderWithRouter = (ui, {route = '/products/42368'} = {}) => {
   window.history.pushState({}, 'Test page', route)
 
   return render(ui, {wrapper: BrowserRouter})
@@ -90,8 +92,20 @@ describe('Product Overview', () => {
 
   test('Should open a modal when a photo is clicked on', async () => {
     fireEvent.click(screen.getByAltText('1'));
-    const button = await waitFor(() => screen.getByRole('button', {name: 'X'}))
+    const button = await waitFor(() => screen.getByRole('button', {name: 'X'}));
     expect(button).toBeVisible();
+  });
+
+  test('Should change scroll the modal photo', async () => {
+
+    fireEvent.click(screen.getByAltText(0));
+    await waitFor(() => screen.getByTestId('modal-photo-0'));
+    const img1 = screen.getByTestId('modal-photo-0');
+    fireEvent.click(screen.getByTestId('scroll-right'));
+    await waitFor(() => screen.getByTestId('modal-photo-1'));
+    const img2 = screen.getByTestId('modal-photo-1');
+
+    expect(img2).toBe(img1)
   });
 
   test('Photos should change when a different style is clicked on', async () => {
