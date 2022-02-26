@@ -359,62 +359,69 @@ const testStyles = {
 }
 
 const testProduct = {
-    "id": 42368,
-    "campus": "hr-lax",
-    "name": "Morning Joggers",
-    "slogan": "Make yourself a morning person",
-    "description": "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
-    "category": "Pants",
-    "default_price": "40.00",
-    "created_at": "2021-08-13T14:39:39.968Z",
-    "updated_at": "2021-08-13T14:39:39.968Z",
-    "features": [
-        {
-            "feature": "Fabric",
-            "value": "100% Cotton"
-        },
-        {
-            "feature": "Cut",
-            "value": "Skinny"
-        }
-    ]
+  "id": 42368,
+  "campus": "hr-lax",
+  "name": "Morning Joggers",
+  "slogan": "Make yourself a morning person",
+  "description": "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
+  "category": "Pants",
+  "default_price": "40.00",
+  "created_at": "2021-08-13T14:39:39.968Z",
+  "updated_at": "2021-08-13T14:39:39.968Z",
+  "features": [
+    {
+      "feature": "Fabric",
+      "value": "100% Cotton"
+    },
+    {
+      "feature": "Cut",
+      "value": "Skinny"
+    }
+  ]
 }
 
 const testReviewMetaData = {
-    "product_id": "42368",
-    "ratings": {
-        "1": "5",
-        "2": "5",
-        "3": "19",
-        "4": "30",
-        "5": "31"
+  "product_id": "42368",
+  "ratings": {
+    "1": "5",
+    "2": "5",
+    "3": "19",
+    "4": "30",
+    "5": "31"
+  },
+  "recommended": {
+    "false": "13",
+    "true": "77"
+  },
+  "characteristics": {
+    "Fit": {
+      "id": 142037,
+      "value": "2.9638554216867470"
     },
-    "recommended": {
-        "false": "13",
-        "true": "77"
+    "Length": {
+      "id": 142038,
+      "value": "2.8915662650602410"
     },
-    "characteristics": {
-        "Fit": {
-            "id": 142037,
-            "value": "2.9638554216867470"
-        },
-        "Length": {
-            "id": 142038,
-            "value": "2.8915662650602410"
-        },
-        "Comfort": {
-            "id": 142039,
-            "value": "3.2048192771084337"
-        },
-        "Quality": {
-            "id": 142040,
-            "value": "3.1951219512195122"
-        }
+    "Comfort": {
+      "id": 142039,
+      "value": "3.2048192771084337"
+    },
+    "Quality": {
+      "id": 142040,
+      "value": "3.1951219512195122"
     }
+  }
+}
+
+const exampleContext = {
+  productId: testProduct.id,
+  reviewMetaData: testReviewMetaData,
+  productDetails: testProduct
 }
 
 export {
   testStyles,
   testProduct,
-  testReviewMetaData
+  testReviewMetaData,
+  exampleContext
 }

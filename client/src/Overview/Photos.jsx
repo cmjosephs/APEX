@@ -55,6 +55,7 @@ var Photos = () => {
       className={className}
       color={currentPhotoIdx === photos.length - 1 ? "disabled" : "primary"}
       onClick={photoScroll.right}
+      data-testid="scroll-right"
     />
   )
 
@@ -117,7 +118,7 @@ var Photos = () => {
                 className="expanded-view-exit-btn"
               >X</button>
               {leftArrow("expanded-scroller-arrow expanded-view-left-arrow")}
-              <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo"></img>
+              <img src={photos[currentPhotoIdx].url} alt={currentStyle.name} className="expanded-display-photo" data-testid={`modal-photo-${currentPhotoIdx}`}></img>
               {rightArrow("expanded-scroller-arrow expanded-view-right-arrow")}
               <button onClick={toggleModal} className="expanded-view-exit-btn">X</button>
             </div>

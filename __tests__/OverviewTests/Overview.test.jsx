@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Router } from 'react-router-dom'
-import {createMemoryHistory} from 'history';
+import { createMemoryHistory } from 'history';
 
 import {rest} from 'msw';
 import {setupServer} from 'msw/node';
 
+import { act } from 'react-dom/test-utils';
 import {
   render,
   screen,
@@ -14,6 +15,7 @@ import {
   getByText,
   getByRole,
   getByAltText,
+  getAllByRole,
   getByLabelText,
   findByTestId,
   within
@@ -22,16 +24,17 @@ import {
 import '@testing-library/jest-dom';
 // the component to test
 import App from '../../client/src/App.jsx';
+import Product from '../../client/src/Overview/Product.jsx';
+import { AppContext } from '../../client/src/App.jsx';
 // hard coded test data
-import { testStyles, testProduct, testReviewMetaData } from './overviewTestData.js';
-
+import { testStyles, testProduct, testReviewMetaData, exampleContext } from './overviewTestData.js';
 
 // Setup
 // Need to make a server
 const productDetailsEndPoint = '/api/products/:product_id';
 const stylesEndPoint = '/api/products/:product_id/styles';
 const productMetaData = '/api/products/:product_id/reviews/meta'
-const addToBagEndPoint = 'api/cart';
+const addToBagEndPoint = '/api/cart';
 const server = setupServer(
   rest.get(productDetailsEndPoint, (req, res, ctx) => {
     return res(ctx.json(testProduct));
@@ -55,37 +58,25 @@ afterEach(()=>server.resetHandlers())
 // bring the server down
 afterAll(()=>server.close())
 
-const renderWithRouter = (ui, {route = '/products/42370'} = {}) => {
+const renderWithRouter = (ui, {route = '/products/42368'} = {}) => {
   window.history.pushState({}, 'Test page', route)
 
   return render(ui, {wrapper: BrowserRouter})
 }
 
+beforeEach(async () => {
+  renderWithRouter(
+    <AppContext.Provider value={exampleContext} >
+      <Product />
+    </AppContext.Provider>
+  );
+  // await waitForElementToBeRemoved(screen.getByText('Loading'));
+  await waitForElementToBeRemoved(screen.getByText('Loading...'));
+})
+
 
 /////////////// Tests //////////////////////
 describe('Product Overview', () => {
-
-  test('Show loading text on first render', async () => {
-    const history = createMemoryHistory({initialEntries: ['/products/42370']});
-    render(
-      <Router location={history.location} navigator={history}>
-        <App />
-      </Router>
-    )
-
-    expect(history.location.pathname).toBe('/products/42370')
-
-    await waitFor(() => screen.getByText('Loading'));
-    expect(screen.getByText('Loading')).toBeInTheDocument();
-    await waitForElementToBeRemoved(screen.getByText(/Loading/i));
-    await waitForElementToBeRemoved(screen.getByText(/Loading*/i));
-  });
-
-  beforeEach(async () => {
-    renderWithRouter(<App />);
-    await waitForElementToBeRemoved(screen.getByText('Loading'));
-    await waitForElementToBeRemoved(screen.getByText('Loading...'));
-  })
 
   test('Should display information for a product', async () => {
     expect(screen.getByText(testProduct.name)).toBeInTheDocument();
@@ -101,8 +92,20 @@ describe('Product Overview', () => {
 
   test('Should open a modal when a photo is clicked on', async () => {
     fireEvent.click(screen.getByAltText('1'));
-    const button = await waitFor(() => screen.getByRole('button', {name: 'X'}))
+    const button = await waitFor(() => screen.getByRole('button', {name: 'X'}));
     expect(button).toBeVisible();
+  });
+
+  test('Should change scroll the modal photo', async () => {
+
+    fireEvent.click(screen.getByAltText(0));
+    await waitFor(() => screen.getByTestId('modal-photo-0'));
+    const img1 = screen.getByTestId('modal-photo-0');
+    fireEvent.click(screen.getByTestId('scroll-right'));
+    await waitFor(() => screen.getByTestId('modal-photo-1'));
+    const img2 = screen.getByTestId('modal-photo-1');
+
+    expect(img2).toBe(img1)
   });
 
   test('Photos should change when a different style is clicked on', async () => {
