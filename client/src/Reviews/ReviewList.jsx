@@ -19,36 +19,35 @@ const ReviewList = () => {
   let [displayCount, setDisplayCount] = useState(0);
   let [searchKeyword, setSearchKeyword] = useState('');
 
-  useEffect(() =>
-  {
+  useEffect(() => {
     getReviews();
   }, [productId, count, sort]);
 
 
   const getReviews = async () => {
     await axios.get(`/api/products/${productId}/reviews`,
-    {
-      params: {
-        count: 200,
-        sort: sort
-      }
-    })
-    .then(results => {
-      setTotalReviews(results.data.results);
-      setDisplayCount(results.data.results.length);
-      if (results.data.results.length <= 2) {
-        setEnoughReviews(!enoughReviews)
-      }
+      {
+        params: {
+          count: 200,
+          sort: sort
+        }
+      })
+      .then(results => {
+        setTotalReviews(results.data.results);
+        setDisplayCount(results.data.results.length);
+        if (results.data.results.length <= 2) {
+          setEnoughReviews(!enoughReviews)
+        }
         if (searchKeyword !== '') {
           searchReviews(searchKeyword)
         } else {
           setReviews(results.data.results.slice(0, count));
         }
-    }).catch(err => {
-      console.log('error getting reviews')
-      setEnoughReviews(!enoughReviews)
+      }).catch(err => {
+        console.log('error getting reviews')
+        setEnoughReviews(!enoughReviews)
 
-    })
+      })
   }
 
   const getMoreReviews = () => {
@@ -66,8 +65,8 @@ const ReviewList = () => {
     if (searchKeyword !== '' && !Object.values(checkedStars).every(star => star === false)) {
       let filteredReviews = totalReviews.filter(review => {
         if ((review.body.toLowerCase().includes(searchKeyword)
-        || review.summary.toLowerCase().includes(searchKeyword))
-        && checkedStars[review.rating]) {
+          || review.summary.toLowerCase().includes(searchKeyword))
+          && checkedStars[review.rating]) {
           return review;
         }
       })
@@ -90,7 +89,7 @@ const ReviewList = () => {
     if (searchKeyword !== '' && Object.values(checkedStars).every(star => star === false)) {
       let filteredReviews = totalReviews.filter(review => {
         if (review.body.toLowerCase().includes(searchKeyword)
-        || review.summary.toLowerCase().includes(searchKeyword)) {
+          || review.summary.toLowerCase().includes(searchKeyword)) {
           return review;
         }
       })
@@ -100,9 +99,9 @@ const ReviewList = () => {
     }
 
     if (searchKeyword === '' && Object.values(checkedStars).every(star => star === false)) {
-        setEnoughReviews(true)
-        setReviews(totalReviews.slice(0, count))
-        setDisplayCount(totalReviews.length)
+      setEnoughReviews(true)
+      setReviews(totalReviews.slice(0, count))
+      setDisplayCount(totalReviews.length)
     }
 
   }
@@ -112,7 +111,7 @@ const ReviewList = () => {
       setSearchKeyword(keyword);
       let filteredSearchReviews = totalReviews.filter(review => {
         if (review.body.toLowerCase().includes(keyword.toLowerCase())
-        || review.summary.toLowerCase().includes(keyword.toLowerCase())) {
+          || review.summary.toLowerCase().includes(keyword.toLowerCase())) {
           return review;
         }
       })
@@ -133,16 +132,16 @@ const ReviewList = () => {
   }
 
 
-  if (!totalReviews) {
-    return <p>Loading reviews...</p>
-  }
+  // if (!totalReviews) {
+  //   return <p>Loading reviews...</p>
+  // }
 
   return (
     <div id="review-container" role="review-container">
       <div className="review-container-left">
         <div className="avg-rating-review">
-          <h1 className="review-header">Rating & Reviews</h1>
-        <AvgRatingReview totalReviews={totalReviews} filterStarReviews={filterStarReviews}/>
+          <h1 className="review-header">Ratings & Reviews</h1>
+          <AvgRatingReview totalReviews={totalReviews} filterStarReviews={filterStarReviews} />
         </div>
       </div>
 
@@ -150,7 +149,7 @@ const ReviewList = () => {
         <div className="review-container-right-list">
           <div className="sort-section">
             <h2>{displayCount} Reviews,
-              <label for ="reviews-sort"> sorted by: </label>
+              <label for="reviews-sort"> sorted by: </label>
               <select role="reviews-sort" name="reviews-sort" className="reviews-sort-dropdown" onChange={changeSort} role="review-sort">
                 <option placeholder="newest-sort" value="newest">Newest</option>
                 <option value="helpful">Helpful</option>
@@ -159,18 +158,18 @@ const ReviewList = () => {
             </h2>
           </div>
           <div className="review-searchbar">
-          <nav className="navbar">
-      <input className="search-input" onChange={(e) => searchReviews(e.target.value)} placeholder="Search reviews..."/>
-    </nav>
+            <nav className="navbar">
+              <input className="search-input" onChange={(e) => searchReviews(e.target.value)} placeholder="Search reviews..." />
+            </nav>
           </div>
-          <AllReviews reviews={reviews} getNewReviews={getReviews}/>
+          <AllReviews reviews={reviews} getNewReviews={getReviews} />
         </div>
-          <div className="review-button-section">
-            {enoughReviews &&
-              <button onClick={getMoreReviews} className="review-button" role="get-more-reviews">More Reviews</button>
-            }
-            <ReviewForm getNewReviews={getReviews}/>
-          </div>
+        <div className="review-button-section">
+          {enoughReviews &&
+            <button onClick={getMoreReviews} className="review-button" role="get-more-reviews">More Reviews</button>
+          }
+          <ReviewForm getNewReviews={getReviews} />
+        </div>
       </div>
     </div>
 

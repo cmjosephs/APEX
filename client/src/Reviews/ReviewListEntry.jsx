@@ -82,7 +82,7 @@ const ReviewListEntry = ({ review, getNewReviews }) => {
             {renderStars(evalStarCount(review.rating))}
           </div>
         </span>
-        <span className="review-creator-date">
+        <span role="review-date" className="review-creator-date">
           {review.reviewer_name} | {new Intl.DateTimeFormat('en-US', {
             month: 'long',
             year: 'numeric',

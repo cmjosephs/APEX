@@ -51,9 +51,6 @@ beforeEach(async () => {
   <AppContext.Provider value={{ productId: 42366, reviewMetaData, productDetails }}>
     <ReviewList/>
     </AppContext.Provider>);
-  // await waitForElementToBeRemoved(screen.getByText('Loading'));
-  // await waitForElementToBeRemoved(screen.getByText('Loading...'));
-  // await waitForElementToBeRemoved(screen.getByText('Loading reviews...'))
 })
 
 describe('Reviews Section', () => {
@@ -84,10 +81,12 @@ describe('Reviews Section', () => {
 
 
   test('allows user to mark review as helpful', async () => {
-    const helpfulAmount = await waitFor(() => screen.getAllByRole('helpful'))
-    fireEvent.click(helpfulAmount[0]);
-    expect(helpfulAmount[0]).toBeVisible();
-
+    const helpful = await waitFor(() => screen.getAllByRole('helpful'))
+    fireEvent.click(helpful[0]);
+    const helpfulChecked = await waitFor(() => screen.getAllByRole('helpful-checked'))
+    const review = screen.getAllByText(/COFFEE/i)
+    expect(review).toBeTruthy()
+    // expect(helpfulChecked).toBeTruthy()
   })
 
   test('shows how many people found this review helpful', async () => {
@@ -187,16 +186,53 @@ describe('Reviews Section', () => {
     fireEvent.change(reviewSummary, { target: { value: 'test' } });
     const reviewBody = await waitFor(() => screen.getByPlaceholderText(/Write your review here/i));
     fireEvent.change(reviewBody, { target: { value: 'test review' } });
-    const submitButton = screen.getByText("Submit") // fix
+    const submitButton = screen.getByText("Submit")
     await fireEvent.click(submitButton);
     expect(submitButton).toBeTruthy();
   })
 
-  test('renders review component', async() => {
-    const reviewContainer = await waitFor(() => screen.getByRole('review-container'));
-    // fireEvent.click(reviewContainer)
-    expect(reviewContainer).toBeInTheDocument();
+
+  test('displays appropriate reviews when user searches by keyword', async () => {
+    const search = await waitFor(() => screen.getByPlaceholderText('Search reviews...'));
+    fireEvent.change(search, { target: { value: 'COFFEE' } });
+    const keyword = await waitFor(() => screen.getAllByText(/COFFEE/i))
+    expect(keyword).toBeTruthy()
+  });
+
+  test('review form modal allows user to cancel a review', async () => {
+    const reviewButton = await waitFor(() => screen.getByRole('write-review'));
+    fireEvent.click(reviewButton);
+    const reviewBody = await waitFor(() => screen.getByPlaceholderText(/Write your review here/i));
+    fireEvent.change(reviewBody, { target: { value: 'test review' } });
+    const cancelButton = screen.getByText("Cancel")
+    const cancel = await fireEvent.click(cancelButton)
+    expect(cancel).toBeTruthy();
+  });
+
+
+  test('allows user to click review thumbnails', async () => {
+    const thumbnail = await waitFor(() => screen.getByAltText(/review-thumbnail/i))
+    fireEvent.click(thumbnail);
+    expect(thumbnail).toBeTruthy()
   })
+
+  test('allows user to view the rest of a long review body', async () => {
+    const showMore = await waitFor(() => screen.getByText(/Show more/i))
+    fireEvent.click(showMore);
+    expect(showMore).toBeTruthy()
+  })
+
+  test('shows reviews list', async () => {
+    const reviewHeader = screen.getByText(('Ratings & Reviews'));
+    expect(reviewHeader).toBeInTheDocument()
+  })
+  // test('allows user to filter by stars', async () => {
+  //   const star = await waitFor(() => screen.getByRole('3-star'));
+  //   fireEvent.click(star)
+  //   expect(star).not.toHaveAttribute('disabled');
+  // })
+
+
 
 
 
