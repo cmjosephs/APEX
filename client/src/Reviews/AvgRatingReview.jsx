@@ -1,10 +1,10 @@
 import React, { useContext, useState, useReducer, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import StarIcon from '@mui/icons-material/Star';
+import axios from 'axios';
 import { getMetaData } from './ReviewForm.jsx';
 import { AppContext } from '../App.jsx';
+import Box from '@mui/material/Box';
+import StarIcon from '@mui/icons-material/Star';
 import Slider from '@mui/material/Slider';
-import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
 import AvgRating from '../Shared/AvgRating.jsx';
 
