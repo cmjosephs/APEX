@@ -51,7 +51,7 @@ npm run server
 - Add a review
 
 ## Contributors
-Chris Josephs github.com/cmjosephs  
-Kevin Kimchii github.com/kevinhwkim  
-Alexandria Norvani github.com/Anorvani  
-Tiffany Vu github.com/tiffanyyv
+Chris Josephs (github.com/cmjosephs)  
+Kevin Kimchii (github.com/kevinhwkim)  
+Alexandria Norvani (github.com/Anorvani)  
+Tiffany Vu (github.com/tiffanyyv)
