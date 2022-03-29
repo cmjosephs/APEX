@@ -1,22 +1,42 @@
-# **HR-FEC**
+# APEX eCommerce
 
-## Goal
-APEX is a single product page for an ecommerce website.
+### Details
+APEX ecommerce is a web app that lets users interact with a specified product and view all of its details. The primary widgets used for this page are a product overview, related products, Q & A, and reviews section. This app was built with React 17.x and Node 16.x.
+
+### Installation
+After forking and cloning the repo, use npm to install dependencies
+```bash
+npm install
+```
+### Environment
+Create a .env file in the root directory and add a base url, github API token, and desired server port. The exact structure can be found in env-example.js.
+
+### Start the app
+Run webpack to bundle files
+```bash
+npm run react-dev
+```
+Start the server
+```bash
+npm run server
+```
 
 ## Features
-_______________________________________________________
 
-### Product Details
+![Page](./client/dist/images/APEX-product.gif "Product page")
+
+### Product Overivew
 - Have full view of images of current product
-- Click on thumbnails of styles of current product
-- Click on a size and add to bag
-- Add product to favorites
+- Clickable photos that show an expanded modal view
+- Customize product style and size
+- Add to cart
+- Responsive UI for desktop and mobile
 
 ### Recommendations/Related Products
 - Displays all realted products
 - Click on image and modal opens to compare current product
 - Click on a recommend image and redirects the page to that product
-- Add current product to faviortes
+- Add current product to favorites
 
 ### Questions and Answers
 - Displays questions and answers on render
@@ -30,22 +50,8 @@ _______________________________________________________
 - Search for reviews
 - Add a review
 
-
-## Dependecies
-- React
-- React Router
-- Axios
-- Bootstrap CSS
-- AWS s3
-
-## Dev-dependencies
-- Webpack
-- Babel
-- React Testing Library
-- Jest
-
-## Setup instructions
-1. npm install
-2. add API key in server/config/config.js
-3. npm run react-dev
-4. npm run server-dev
+## Contributors
+[Chris Josephs] (https://github.com/cmjosephs)
+[Kevin Kimchii] (https://github.com/kevinhwkim)
+Alexandria Norvani
+[Tiffany Vu] (https://github.com/tiffanyyv)
