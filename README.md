@@ -30,10 +30,10 @@ npm run server
 - Clickable photos that show an expanded modal view
 - Customize product style and size
 - Add to cart
-- Responsive UI for desktop and mobile
+- Responsive UI rendering for desktop and mobile screens
 
 ### Recommendations/Related Products
-- Displays all realted products
+- Displays all related products
 - Click on image and modal opens to compare current product
 - Click on a recommend image and redirects the page to that product
 - Add current product to favorites
@@ -46,7 +46,7 @@ npm run server
 
 ### Ratings and Reviews
 - Displays the average reviews and all reviews
-- Sort by stars/newest/helpfulness
+- Sort by stars/newest/helpfulness/relevance
 - Search for reviews
 - Add a review
 
